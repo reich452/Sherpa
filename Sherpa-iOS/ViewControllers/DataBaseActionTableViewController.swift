@@ -73,6 +73,7 @@ class DataBaseActionTVC: UITableViewController, ActionTableViewCellDelegate {
     // MARK: - Helper funcions
     
     func checkCaseOne(indexPath: IndexPath, cell: ActionTableViewCell) {
+        cell.iconImageView.clipsToBounds = true
         if indexPath.row == 0 {
             cell.actionLabel.isHidden = true
         } else if indexPath.row > 0 {
