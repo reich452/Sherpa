@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Bold.otf">
+            <string>SFProText-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -20,22 +25,109 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SCh-0I-Tmj">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9f4-z4-M6w">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="9f4-z4-M6w">
+                                    <size key="itemSize" width="112" height="93"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="K9v-v4-FZV">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dataBaseCell" id="K9v-v4-FZV" customClass="HomeCollectionViewCell" customModule="Sherpa" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="50" width="130" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOV-QY-oa7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ig-x7-CTN">
+                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xcCloudKit_logo" translatesAutoresizingMaskIntoConstraints="NO" id="rbc-of-TsK">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                            <integer key="value" value="14"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="rbc-of-TsK" firstAttribute="top" secondItem="4Ig-x7-CTN" secondAttribute="top" id="0G3-iW-Oua"/>
+                                                                <constraint firstItem="rbc-of-TsK" firstAttribute="leading" secondItem="4Ig-x7-CTN" secondAttribute="leading" id="MMz-0W-vLq"/>
+                                                                <constraint firstAttribute="bottom" secondItem="rbc-of-TsK" secondAttribute="bottom" id="Ymm-KT-gTw"/>
+                                                                <constraint firstAttribute="trailing" secondItem="rbc-of-TsK" secondAttribute="trailing" id="xhc-5t-oef"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="14"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="4Ig-x7-CTN" firstAttribute="leading" secondItem="NOV-QY-oa7" secondAttribute="leading" id="AVk-1C-o9D"/>
+                                                        <constraint firstAttribute="trailing" secondItem="4Ig-x7-CTN" secondAttribute="trailing" id="JfH-Or-NIg"/>
+                                                        <constraint firstAttribute="bottom" secondItem="4Ig-x7-CTN" secondAttribute="bottom" id="fL0-EF-Z0P"/>
+                                                        <constraint firstItem="4Ig-x7-CTN" firstAttribute="top" secondItem="NOV-QY-oa7" secondAttribute="top" id="g8X-Ze-R7f"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                            <real key="value" value="0.25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                            <size key="value" width="0.0" height="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="NOV-QY-oa7" secondAttribute="bottom" id="191-a0-u09"/>
+                                            <constraint firstAttribute="trailing" secondItem="NOV-QY-oa7" secondAttribute="trailing" id="g2N-Fk-YMh"/>
+                                            <constraint firstItem="NOV-QY-oa7" firstAttribute="top" secondItem="K9v-v4-FZV" secondAttribute="top" id="hUy-Iw-ZFJ"/>
+                                            <constraint firstItem="NOV-QY-oa7" firstAttribute="leading" secondItem="K9v-v4-FZV" secondAttribute="leading" id="jtQ-QW-N8d"/>
+                                        </constraints>
+                                        <size key="customSize" width="130" height="130"/>
+                                        <connections>
+                                            <outlet property="backContainerView" destination="NOV-QY-oa7" id="SDa-zL-iqx"/>
+                                            <outlet property="logoImageView" destination="rbc-of-TsK" id="Q7l-1l-Sn1"/>
+                                            <outlet property="topContainerView" destination="4Ig-x7-CTN" id="IiH-zY-DZ7"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="homeSectionHeader" id="1hY-pD-4hf" customClass="SectionHeaderCollectionReusableView" customModule="Sherpa" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Backend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeO-xI-d5D">
+                                            <rect key="frame" x="15" y="11.5" width="273" height="27"/>
+                                            <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="25"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ZeO-xI-d5D" secondAttribute="bottom" constant="11.5" id="0Dq-ah-ltj"/>
+                                        <constraint firstItem="ZeO-xI-d5D" firstAttribute="leading" secondItem="1hY-pD-4hf" secondAttribute="leading" constant="15" id="2HY-xy-MrA"/>
+                                        <constraint firstItem="ZeO-xI-d5D" firstAttribute="centerY" secondItem="1hY-pD-4hf" secondAttribute="centerY" id="5He-rk-f6d"/>
+                                        <constraint firstItem="ZeO-xI-d5D" firstAttribute="top" secondItem="1hY-pD-4hf" secondAttribute="top" constant="11.5" id="Vbb-IN-xoP"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZeO-xI-d5D" secondAttribute="trailing" constant="20" symbolic="YES" id="sUf-q6-ngs"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="sectionHeaderLabel" destination="ZeO-xI-d5D" id="cgh-H0-cex"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,6 +140,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="RYb-qi-7Mr"/>
+                    <connections>
+                        <outlet property="homeCollectionView" destination="SCh-0I-Tmj" id="U5a-jh-I62"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,4 +169,7 @@
             <point key="canvasLocation" x="342" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xcCloudKit_logo" width="150" height="150"/>
+    </resources>
 </document>
