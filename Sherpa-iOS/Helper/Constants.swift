@@ -13,6 +13,15 @@ struct Constants {
     // MARK: - Cell ID's
     static let dataBaseCell = "dataBaseCell"
     static let homeSectionHeader = "homeSectionHeader"
+    
+    // MARK: - Storyboard Name
+    static let cloudKitTab = "CloudKitTab"
+    static let firebaseTab = "FirebaseTab"
+    
+    // MARK: - Storyboard ID's
+    static let homeVC = "HomeViewController"
+    static let cloudKitTVC = "CloudKitTableViewController"
+    static let firebaseTVC = "FirebaseTableViewController"
 }
 
 extension Constants {

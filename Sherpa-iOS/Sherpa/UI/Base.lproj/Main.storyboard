@@ -33,20 +33,20 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dataBaseCell" id="K9v-v4-FZV" customClass="HomeCollectionViewCell" customModule="Sherpa" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="50" width="130" height="130"/>
+                                        <rect key="frame" x="5" y="50" width="130" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOV-QY-oa7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ig-x7-CTN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xcCloudKit_logo" translatesAutoresizingMaskIntoConstraints="NO" id="rbc-of-TsK">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                             <integer key="value" value="14"/>
@@ -98,7 +98,7 @@
                                             <constraint firstItem="NOV-QY-oa7" firstAttribute="top" secondItem="K9v-v4-FZV" secondAttribute="top" id="hUy-Iw-ZFJ"/>
                                             <constraint firstItem="NOV-QY-oa7" firstAttribute="leading" secondItem="K9v-v4-FZV" secondAttribute="leading" id="jtQ-QW-N8d"/>
                                         </constraints>
-                                        <size key="customSize" width="130" height="130"/>
+                                        <size key="customSize" width="130" height="150"/>
                                         <connections>
                                             <outlet property="backContainerView" destination="NOV-QY-oa7" id="SDa-zL-iqx"/>
                                             <outlet property="logoImageView" destination="rbc-of-TsK" id="Q7l-1l-Sn1"/>
