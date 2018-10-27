@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0120870A2184D3CE007B7C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012087092184D3CE007B7C43 /* AppDelegate.swift */; };
-		0120870C2184D3CE007B7C43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120870B2184D3CE007B7C43 /* ViewController.swift */; };
 		0120870F2184D3CE007B7C43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0120870D2184D3CE007B7C43 /* Main.storyboard */; };
 		012087112184D3CF007B7C43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012087102184D3CF007B7C43 /* Assets.xcassets */; };
 		012087142184D3CF007B7C43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012087122184D3CF007B7C43 /* LaunchScreen.storyboard */; };
 		0120871F2184D3CF007B7C43 /* SherpaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120871E2184D3CF007B7C43 /* SherpaTests.swift */; };
+		0120872C2184D68F007B7C43 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0120872B2184D68F007B7C43 /* MainTabBar.storyboard */; };
+		0120872F2184D83D007B7C43 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120872E2184D83D007B7C43 /* HomeViewController.swift */; };
+		012087312184D977007B7C43 /* CloudKitTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012087302184D977007B7C43 /* CloudKitTab.storyboard */; };
+		012087332184D999007B7C43 /* FirebaseTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012087322184D999007B7C43 /* FirebaseTab.storyboard */; };
+		012087352184DA36007B7C43 /* CloudKitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012087342184DA36007B7C43 /* CloudKitTableViewController.swift */; };
+		012087372184DA42007B7C43 /* FirebaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012087362184DA42007B7C43 /* FirebaseTableViewController.swift */; };
+		012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012087382184DB56007B7C43 /* MainTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +34,6 @@
 /* Begin PBXFileReference section */
 		012087062184D3CE007B7C43 /* Sherpa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sherpa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		012087092184D3CE007B7C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0120870B2184D3CE007B7C43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0120870E2184D3CE007B7C43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		012087102184D3CF007B7C43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		012087132184D3CF007B7C43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +41,13 @@
 		0120871A2184D3CF007B7C43 /* SherpaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SherpaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0120871E2184D3CF007B7C43 /* SherpaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SherpaTests.swift; sourceTree = "<group>"; };
 		012087202184D3CF007B7C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0120872B2184D68F007B7C43 /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
+		0120872E2184D83D007B7C43 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		012087302184D977007B7C43 /* CloudKitTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CloudKitTab.storyboard; sourceTree = "<group>"; };
+		012087322184D999007B7C43 /* FirebaseTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseTab.storyboard; sourceTree = "<group>"; };
+		012087342184DA36007B7C43 /* CloudKitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitTableViewController.swift; sourceTree = "<group>"; };
+		012087362184DA42007B7C43 /* FirebaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTableViewController.swift; sourceTree = "<group>"; };
+		012087382184DB56007B7C43 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				012087082184D3CE007B7C43 /* Sherpa */,
+				0120872D2184D827007B7C43 /* ViewControllers */,
+				0120872A2184D5E5007B7C43 /* Resources */,
 				0120871D2184D3CF007B7C43 /* SherpaTests */,
 				012087072184D3CE007B7C43 /* Products */,
 			);
@@ -77,12 +91,7 @@
 		012087082184D3CE007B7C43 /* Sherpa */ = {
 			isa = PBXGroup;
 			children = (
-				012087092184D3CE007B7C43 /* AppDelegate.swift */,
-				0120870B2184D3CE007B7C43 /* ViewController.swift */,
-				0120870D2184D3CE007B7C43 /* Main.storyboard */,
-				012087102184D3CF007B7C43 /* Assets.xcassets */,
-				012087122184D3CF007B7C43 /* LaunchScreen.storyboard */,
-				012087152184D3CF007B7C43 /* Info.plist */,
+				012087292184D5DE007B7C43 /* UI */,
 			);
 			path = Sherpa;
 			sourceTree = "<group>";
@@ -94,6 +103,47 @@
 				012087202184D3CF007B7C43 /* Info.plist */,
 			);
 			path = SherpaTests;
+			sourceTree = "<group>";
+		};
+		012087292184D5DE007B7C43 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				012087122184D3CF007B7C43 /* LaunchScreen.storyboard */,
+				0120872B2184D68F007B7C43 /* MainTabBar.storyboard */,
+				0120870D2184D3CE007B7C43 /* Main.storyboard */,
+				012087302184D977007B7C43 /* CloudKitTab.storyboard */,
+				012087322184D999007B7C43 /* FirebaseTab.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0120872A2184D5E5007B7C43 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				012087092184D3CE007B7C43 /* AppDelegate.swift */,
+				012087152184D3CF007B7C43 /* Info.plist */,
+				012087102184D3CF007B7C43 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0120872D2184D827007B7C43 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0120873A2184DB6D007B7C43 /* TabBar */,
+				0120872E2184D83D007B7C43 /* HomeViewController.swift */,
+				012087342184DA36007B7C43 /* CloudKitTableViewController.swift */,
+				012087362184DA42007B7C43 /* FirebaseTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0120873A2184DB6D007B7C43 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				012087382184DB56007B7C43 /* MainTabBarViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +228,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				012087142184D3CF007B7C43 /* LaunchScreen.storyboard in Resources */,
+				0120872C2184D68F007B7C43 /* MainTabBar.storyboard in Resources */,
+				012087312184D977007B7C43 /* CloudKitTab.storyboard in Resources */,
+				012087332184D999007B7C43 /* FirebaseTab.storyboard in Resources */,
 				012087112184D3CF007B7C43 /* Assets.xcassets in Resources */,
 				0120870F2184D3CE007B7C43 /* Main.storyboard in Resources */,
 			);
@@ -197,8 +250,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0120870C2184D3CE007B7C43 /* ViewController.swift in Sources */,
+				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
+				012087372184DA42007B7C43 /* FirebaseTableViewController.swift in Sources */,
 				0120870A2184D3CE007B7C43 /* AppDelegate.swift in Sources */,
+				0120872F2184D83D007B7C43 /* HomeViewController.swift in Sources */,
+				012087352184DA36007B7C43 /* CloudKitTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Sherpa/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Sherpa/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
