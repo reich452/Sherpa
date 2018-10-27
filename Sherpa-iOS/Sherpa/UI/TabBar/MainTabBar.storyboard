@@ -20,7 +20,6 @@
                     <connections>
                         <segue destination="wd4-uN-a5n" kind="relationship" relationship="viewControllers" id="uex-QW-vGi"/>
                         <segue destination="Eco-2R-Rj7" kind="relationship" relationship="viewControllers" id="8fk-Dz-35U"/>
-                        <segue destination="4OJ-6d-PlI" kind="relationship" relationship="viewControllers" id="8nm-s3-4t3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S0d-CC-DY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -37,25 +36,15 @@
             </objects>
             <point key="canvasLocation" x="-863" y="724"/>
         </scene>
-        <!--FirebaseTab-->
-        <scene sceneID="9bD-9Z-Zt3">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="FirebaseTableViewController" storyboardName="FirebaseTab" id="4OJ-6d-PlI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BFq-Gl-ha8"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hOh-CK-AOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="76" y="725"/>
-        </scene>
-        <!--CloudKitTab-->
+        <!--DataBaseActionTab-->
         <scene sceneID="b7Y-co-6TS">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="CloudKitTableViewController" storyboardName="CloudKitTab" id="Eco-2R-Rj7" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="DataBaseActionTab" id="Eco-2R-Rj7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="HPT-ev-T5A"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhf-Xv-zKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-396" y="725"/>
+            <point key="canvasLocation" x="-4" y="712"/>
         </scene>
     </scenes>
 </document>

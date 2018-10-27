@@ -13,18 +13,20 @@ struct Constants {
     // MARK: - Cell ID's
     static let dataBaseCell = "dataBaseCell"
     static let homeSectionHeader = "homeSectionHeader"
+    static let cloudKitCell = "cloudKitCell"
     
     // MARK: - Storyboard Name
-    static let cloudKitTab = "CloudKitTab"
+    static let dbActionTab = "DataBaseActionTab"
     static let firebaseTab = "FirebaseTab"
     
     // MARK: - Storyboard ID's
     static let homeVC = "HomeViewController"
-    static let cloudKitTVC = "CloudKitTableViewController"
+    static let dataBaseActionTVC = "DataBaseActionTVC"
     static let firebaseTVC = "FirebaseTableViewController"
 }
 
 extension Constants {
     static let dataBaseImages: [UIImage] = [#imageLiteral(resourceName: "xcCloudKit_logo"),#imageLiteral(resourceName: "xcFirebase_logo")]
     static let funApiImages: [UIImage] = [#imageLiteral(resourceName: "xcTMDB_logo"),#imageLiteral(resourceName: "xcReddit_logo")]
+    static let dataBaseTVCarray = ["", "Fetching", "Uploading"]
 }

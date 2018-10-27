@@ -22,17 +22,19 @@ class MainTabBarViewController: UITabBarController {
         navigationController.title = "Home"
         navigationController.tabBarItem.image = #imageLiteral(resourceName: "xcHome_Icon")
         
-        let storyboard2 = UIStoryboard(name: Constants.cloudKitTab, bundle: nil)
-        let decadeSearchTVC = storyboard2.instantiateViewController(withIdentifier: Constants.cloudKitTVC)
+        let storyboard2 = UIStoryboard(name: Constants.dbActionTab, bundle: nil)
+        let decadeSearchTVC = storyboard2.instantiateViewController(withIdentifier: Constants.dataBaseActionTVC)
         let secondNavigationController = UINavigationController(rootViewController: decadeSearchTVC)
         secondNavigationController.title = "CloudKit"
         secondNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcCloudKit_Icon")
+    
         
-        let storyboard3 = UIStoryboard(name: Constants.firebaseTab, bundle: nil)
-        let saveSearchTVC = storyboard3.instantiateViewController(withIdentifier: Constants.firebaseTVC)
+        let storyboard3 = UIStoryboard(name: Constants.dbActionTab, bundle: nil)
+        let saveSearchTVC = storyboard3.instantiateViewController(withIdentifier: Constants.dataBaseActionTVC)
         let thridNavigationController = UINavigationController(rootViewController: saveSearchTVC)
         thridNavigationController.title = "Firebase"
         thridNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcFirebase_Icon")
+        
 
         
         viewControllers = [navigationController, secondNavigationController, thridNavigationController]
