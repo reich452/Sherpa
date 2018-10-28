@@ -54,6 +54,9 @@
 		012087882184F59B007B7C43 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012087872184F59B007B7C43 /* ColorTheme.swift */; };
 		0120878A2185035C007B7C43 /* ActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012087892185035C007B7C43 /* ActionTableViewCell.swift */; };
 		0120878C21851D0A007B7C43 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120878B21851D0A007B7C43 /* CustomFont.swift */; };
+		0120878F2185303F007B7C43 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120878E2185303F007B7C43 /* Post.swift */; };
+		01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208791218536E3007B7C43 /* CloudKitPostController.swift */; };
+		01208797218538B4007B7C43 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208796218538B4007B7C43 /* Extentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +121,9 @@
 		012087872184F59B007B7C43 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		012087892185035C007B7C43 /* ActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTableViewCell.swift; sourceTree = "<group>"; };
 		0120878B21851D0A007B7C43 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		0120878E2185303F007B7C43 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		01208791218536E3007B7C43 /* CloudKitPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPostController.swift; sourceTree = "<group>"; };
+		01208796218538B4007B7C43 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +150,9 @@
 				012087082184D3CE007B7C43 /* Sherpa */,
 				0120873F2184E34B007B7C43 /* View */,
 				0120872D2184D827007B7C43 /* ViewControllers */,
+				01208790218536C2007B7C43 /* ModelController */,
+				012087932185370E007B7C43 /* New Group */,
+				0120878D21853029007B7C43 /* Model */,
 				012087422184E4DF007B7C43 /* Helper */,
 				012087862184F570007B7C43 /* Extentions */,
 				0120872A2184D5E5007B7C43 /* Resources */,
@@ -287,8 +296,32 @@
 			isa = PBXGroup;
 			children = (
 				012087872184F59B007B7C43 /* ColorTheme.swift */,
+				01208796218538B4007B7C43 /* Extentions.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		0120878D21853029007B7C43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0120878E2185303F007B7C43 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		01208790218536C2007B7C43 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+				01208791218536E3007B7C43 /* CloudKitPostController.swift */,
+			);
+			path = ModelController;
+			sourceTree = "<group>";
+		};
+		012087932185370E007B7C43 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,7 +459,9 @@
 			files = (
 				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
 				012087882184F59B007B7C43 /* ColorTheme.swift in Sources */,
+				01208797218538B4007B7C43 /* Extentions.swift in Sources */,
 				012087462184E814007B7C43 /* HomeSections.swift in Sources */,
+				0120878F2185303F007B7C43 /* Post.swift in Sources */,
 				012087852184F353007B7C43 /* SectionHeaderCollectionReusableView.swift in Sources */,
 				0120870A2184D3CE007B7C43 /* AppDelegate.swift in Sources */,
 				0120872F2184D83D007B7C43 /* HomeViewController.swift in Sources */,
@@ -434,6 +469,7 @@
 				012087352184DA36007B7C43 /* DataBaseActionTableViewController.swift in Sources */,
 				0120878C21851D0A007B7C43 /* CustomFont.swift in Sources */,
 				0120878A2185035C007B7C43 /* ActionTableViewCell.swift in Sources */,
+				01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */,
 				012087412184E362007B7C43 /* HomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
