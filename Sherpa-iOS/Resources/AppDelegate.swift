@@ -15,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+       
+        CloudKitPostController.shared.checkAccountStatus { (success) in
+            if success != false  {
+                print("user is signed into iCloud")
+            } else {
+                print("User needs to sign into iCloud")
+            }
+        }
+        
         return true
     }
 

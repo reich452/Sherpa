@@ -61,6 +61,8 @@
 		017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978ED21874952004BA6C7 /* UploadingViewController.swift */; };
 		017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978F021874C66004BA6C7 /* SherpaTextField.swift */; };
 		017978F321875BCA004BA6C7 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978F221875BCA004BA6C7 /* CameraManager.swift */; };
+		0179790521877C91004BA6C7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0179790421877C91004BA6C7 /* CloudKit.framework */; };
+		0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179790621877E6F004BA6C7 /* PublicAccess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,9 @@
 		017978ED21874952004BA6C7 /* UploadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewController.swift; sourceTree = "<group>"; };
 		017978F021874C66004BA6C7 /* SherpaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SherpaTextField.swift; sourceTree = "<group>"; };
 		017978F221875BCA004BA6C7 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		0179790221877C8D004BA6C7 /* Sherpa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sherpa.entitlements; sourceTree = "<group>"; };
+		0179790421877C91004BA6C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		0179790621877E6F004BA6C7 /* PublicAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicAccess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0179790521877C91004BA6C7 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +173,7 @@
 				0120872A2184D5E5007B7C43 /* Resources */,
 				0120871D2184D3CF007B7C43 /* SherpaTests */,
 				012087072184D3CE007B7C43 /* Products */,
+				0179790321877C91004BA6C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +189,7 @@
 		012087082184D3CE007B7C43 /* Sherpa */ = {
 			isa = PBXGroup;
 			children = (
+				0179790221877C8D004BA6C7 /* Sherpa.entitlements */,
 				012087292184D5DE007B7C43 /* UI */,
 			);
 			path = Sherpa;
@@ -262,6 +270,7 @@
 				012087432184E4F5007B7C43 /* Constants.swift */,
 				012087452184E814007B7C43 /* HomeSections.swift */,
 				0120878B21851D0A007B7C43 /* CustomFont.swift */,
+				0179790621877E6F004BA6C7 /* PublicAccess.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -345,6 +354,14 @@
 			path = Extentions/Subclass;
 			sourceTree = "<group>";
 		};
+		0179790321877C91004BA6C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0179790421877C91004BA6C7 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -395,6 +412,14 @@
 				TargetAttributes = {
 					012087052184D3CE007B7C43 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					012087192184D3CF007B7C43 = {
 						CreatedOnToolsVersion = 10.0;
@@ -481,6 +506,7 @@
 			files = (
 				017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */,
 				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
+				0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */,
 				012087882184F59B007B7C43 /* ColorTheme.swift in Sources */,
 				01208797218538B4007B7C43 /* Extentions.swift in Sources */,
 				012087462184E814007B7C43 /* HomeSections.swift in Sources */,
@@ -657,7 +683,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sherpa/Sherpa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WAN4D79W79;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -674,7 +702,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sherpa/Sherpa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WAN4D79W79;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

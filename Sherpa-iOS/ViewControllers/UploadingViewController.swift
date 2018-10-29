@@ -43,6 +43,15 @@ class UploadingViewController: UIViewController {
     }
     
     @IBAction func updLoadButtonTapped(_ sender: UIButton) {
+        guard let title = captionSpTextField.text,
+            let image = imageView.image else { return }
+        CloudKitPostController.shared.createPostWith(titleText: title, image: image) { (post) in
+            if post != nil {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     

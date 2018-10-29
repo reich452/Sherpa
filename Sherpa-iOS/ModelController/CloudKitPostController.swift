@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 import UserNotifications
 
-extension PostController {
+extension CloudKitPostController {
     static let PostsChangedNotification = Notification.Name("PostsChangedNotification")
 }
 
@@ -18,9 +18,9 @@ protocol PostsWereAddedToDelegate: class {
     func postsWereAddedTo()
 }
 
-class PostController{
+class CloudKitPostController{
     
-    static let shared = PostController()
+    static let shared = CloudKitPostController()
     
     private init() {}
     
@@ -31,7 +31,7 @@ class PostController{
         didSet {
             DispatchQueue.main.async {
                 let nc = NotificationCenter.default
-                nc.post(name: PostController.PostsChangedNotification, object: self)
+                nc.post(name: CloudKitPostController.PostsChangedNotification, object: self)
             }
         }
     }
@@ -50,11 +50,11 @@ class PostController{
                 case .available:
                     completion(true)
                 case .noAccount:
-                    let noAccount = "No account found"
+                    let noAccount = "No account found, Open Settings"
                     self?.presentErrorAlert(errorTitle: errrorText, errorMessage: noAccount)
                     completion(false)
                 case .couldNotDetermine:
-                    self?.presentErrorAlert(errorTitle: errrorText, errorMessage: "Error with iCloud account status")
+                    self?.presentErrorAlert(errorTitle: errrorText, errorMessage: "Error with iCloud account status, Open Settings")
                     completion(false)
                 case .restricted:
                     self?.presentErrorAlert(errorTitle: errrorText, errorMessage: "Restricted iCloud account")
@@ -69,8 +69,31 @@ class PostController{
             if let appDelegate = UIApplication.shared.delegate,
                 let appWindow = appDelegate.window!,
                 let rootViewController = appWindow.rootViewController {
-                rootViewController.showAlertMessage(titleStr: errorTitle, messageStr: errorMessage)
+                rootViewController.showAlertMessage(titleStr: errorTitle, messageStr: errorMessage, actionString: "Settings", style: .default, completion: { (action) in
+                    guard let settingsUrl = URL(string: PreferenceType.castle.rawValue) else {
+                        return
+                    }
+                    if UIApplication.shared.canOpenURL(settingsUrl) {
+                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                            print("Settings opened: \(success)") // Prints true
+                        })
+                    } else {
+                        print("bad url to settings app")
+                    }
+                })
             }
+        }
+    }
+    
+    func openSettingsApp() {
+        guard let settingsUrl = URL(string: PreferenceType.castle.rawValue) else { return }
+        
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                print("Settings opened: \(success)") // Prints true
+            })
+        } else {
+            print("bad url to settings app")
         }
         
     }
@@ -86,27 +109,6 @@ class PostController{
                 completion(nil);return
             }
             completion(ckPost)
-        }
-    }
-    
-    
-    
-    func addSubscritptionTO(commentsForPost ckPost: CKPost, alertBody: String?, completion: ((Bool, Error) -> ())?){
-        let postRecordID = ckPost.recordID
-        
-        //Might need to change this predicate
-        let predicate = NSPredicate(format: "post = %@", postRecordID)
-        let subscription = CKQuerySubscription(recordType: CKPost.Constants.ckPostKey, predicate: predicate, subscriptionID: UUID().uuidString, options: .firesOnRecordCreation)
-        let notificationInfo = CKSubscription.NotificationInfo()
-        notificationInfo.alertBody = "A new comment was added a a post you follow!"
-        notificationInfo.shouldSendContentAvailable = true
-        notificationInfo.desiredKeys = nil
-        subscription.notificationInfo = notificationInfo
-        
-        publicDB.save(subscription) { (_, error) in
-            if let error = error {
-                print("💩  There was an error in \(#function) ; \(error)  ; \(error.localizedDescription)  💩")
-            }
         }
     }
     
