@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedTableViewController: UITableViewController, UISearchBarDelegate, ActivityIndicatorPresenter, PostsWereAddedToDelegate {
+class FeedTableViewController: UITableViewController, UISearchBarDelegate, ActivityIndicatorPresenter {
 
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -20,12 +20,13 @@ class FeedTableViewController: UITableViewController, UISearchBarDelegate, Activ
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        CloudKitPostController.shared.delegate = self
         
     
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 350
         self.showActivityIndicator()
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(postsChanged), name: Notification.Name.PostsChangedNotification, object: nil)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         CloudKitPostController.shared.fetchQueriedPosts { (didFinish) in
             if didFinish != false {
@@ -43,7 +44,7 @@ class FeedTableViewController: UITableViewController, UISearchBarDelegate, Activ
         tableView.reloadData()
     }
     
-    func postsWereAddedTo() {
+    @objc func postsChanged() {
         let indexPath = IndexPath(item: CloudKitPostController.shared.ckPosts.count - 1, section: 0)
         
         self.tableView.insertRows(at: [indexPath], with: .fade)

@@ -10,13 +10,8 @@ import UIKit
 import CloudKit
 import UserNotifications
 
-extension CloudKitPostController {
-    static let PostsChangedNotification = Notification.Name("PostsChangedNotification")
-}
 
-protocol PostsWereAddedToDelegate: class {
-    func postsWereAddedTo()
-}
+
 
 class CloudKitPostController{
     
@@ -25,13 +20,12 @@ class CloudKitPostController{
     private init() {}
     
     let publicDB = CKContainer.default().publicCloudDatabase
-    weak var delegate: PostsWereAddedToDelegate?
     
     var ckPosts = [CKPost]() {
         didSet {
             DispatchQueue.main.async {
                 let nc = NotificationCenter.default
-                nc.post(name: CloudKitPostController.PostsChangedNotification, object: self)
+                nc.post(name: Notification.Name.PostsChangedNotification, object: self)
             }
         }
     }
@@ -141,7 +135,8 @@ class CloudKitPostController{
             print(self.ckPosts.count)
             completion(false)
             DispatchQueue.main.sync {
-                self.delegate?.postsWereAddedTo()
+                // TODO: - switch back to delegate
+//                self.delegate?.postsWereAddedTo()
             }
         }
         let publicDB = CKContainer.default().publicCloudDatabase

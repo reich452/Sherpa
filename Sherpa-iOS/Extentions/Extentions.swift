@@ -38,3 +38,9 @@ extension UIView {
         self.layer.insertSublayer(gradient, at: 0)
     }
 }
+
+// MARK: - Notification Names
+
+extension Notification.Name {
+    static let PostsChangedNotification = Notification.Name("PostsChangedNotification")
+}
