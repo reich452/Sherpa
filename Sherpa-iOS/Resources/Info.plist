@@ -50,5 +50,9 @@
 		<string>ST-Pro-Display-Medium.otf</string>
 		<string>ST-Pro-Display-Light.otf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow access to camera?</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow access to photo library.</string>
 </dict>
 </plist>

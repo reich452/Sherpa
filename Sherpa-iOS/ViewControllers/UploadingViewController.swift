@@ -9,12 +9,18 @@
 import UIKit
 
 class UploadingViewController: UIViewController {
-
+    
     @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet weak var captionSpTextField: SherpaTextField!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+
     
+    // MARK: - Properties
+  
+    var cameraManager: CameraManager?
+
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -28,6 +34,12 @@ class UploadingViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func selectImageButtonTapped(_ sender: UIButton) {
+        cameraManager = CameraManager()
+        cameraManager?.showActionSheet(vc: self)
+        cameraManager?.imagePickedBlock = { [weak self] (image) in
+            self?.imageView.image = image
+        }
+
     }
     
     @IBAction func updLoadButtonTapped(_ sender: UIButton) {

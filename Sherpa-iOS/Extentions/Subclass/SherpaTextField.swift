@@ -64,13 +64,13 @@ class SherpaTextField: UITextField {
         border.borderColor = self.borderColor?.cgColor
         
         border.borderWidth = borderWidth
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
+        layer.addSublayer(border)
+        layer.masksToBounds = true
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        border.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width:  self.frame.size.width, height: self.frame.size.height)
+        border.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width: frame.size.width, height: self.frame.size.height)
     }
     
     override var tintColor: UIColor? {

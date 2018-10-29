@@ -60,6 +60,7 @@
 		017978EC218745ED004BA6C7 /* Uploading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017978EB218745ED004BA6C7 /* Uploading.storyboard */; };
 		017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978ED21874952004BA6C7 /* UploadingViewController.swift */; };
 		017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978F021874C66004BA6C7 /* SherpaTextField.swift */; };
+		017978F321875BCA004BA6C7 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978F221875BCA004BA6C7 /* CameraManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		017978EB218745ED004BA6C7 /* Uploading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Uploading.storyboard; sourceTree = "<group>"; };
 		017978ED21874952004BA6C7 /* UploadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewController.swift; sourceTree = "<group>"; };
 		017978F021874C66004BA6C7 /* SherpaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SherpaTextField.swift; sourceTree = "<group>"; };
+		017978F221875BCA004BA6C7 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +159,7 @@
 				0120873F2184E34B007B7C43 /* View */,
 				0120872D2184D827007B7C43 /* ViewControllers */,
 				01208790218536C2007B7C43 /* ModelController */,
-				012087932185370E007B7C43 /* New Group */,
+				012087932185370E007B7C43 /* Manager */,
 				0120878D21853029007B7C43 /* Model */,
 				012087422184E4DF007B7C43 /* Helper */,
 				017978EF21874C36004BA6C7 /* Subclass */,
@@ -326,11 +328,12 @@
 			path = ModelController;
 			sourceTree = "<group>";
 		};
-		012087932185370E007B7C43 /* New Group */ = {
+		012087932185370E007B7C43 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				017978F221875BCA004BA6C7 /* CameraManager.swift */,
 			);
-			path = "New Group";
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		017978EF21874C36004BA6C7 /* Subclass */ = {
@@ -492,6 +495,7 @@
 				0120878A2185035C007B7C43 /* ActionTableViewCell.swift in Sources */,
 				01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */,
 				012087412184E362007B7C43 /* HomeCollectionViewCell.swift in Sources */,
+				017978F321875BCA004BA6C7 /* CameraManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
