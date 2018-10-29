@@ -49,7 +49,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.dataBaseCell, for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
         cell.backContainerView.clipsToBounds = true
         cell.topContainerView.clipsToBounds = true
-        cell.logoImageView.clipsToBounds = true 
+        cell.logoImageView.clipsToBounds = true
+        cell.delegate = self 
         switch indexPath.section {
         case 0:
             let dataBaseImage = Constants.dataBaseImages[indexPath.row]
@@ -103,4 +104,18 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: size, height: size)
         
     }
+}
+
+// MARK: - Custom Delegate
+
+extension HomeViewController: HomeCollectionViewCellDelegate {
+    func didTapCellButton(cell: HomeCollectionViewCell) {
+        let indexPath = self.homeCollectionView.indexPath(for: cell)
+        if indexPath?.row == 0 && indexPath?.section == 0  {
+            self.tabBarController?.selectedIndex = 1
+        } else {
+            self.tabBarController?.selectedIndex = 2
+        }
+    }
+    
 }

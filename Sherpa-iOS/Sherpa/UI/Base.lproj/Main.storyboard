@@ -40,24 +40,34 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOV-QY-oa7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ig-x7-CTN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xcCloudKit_logo" translatesAutoresizingMaskIntoConstraints="NO" id="rbc-of-TsK">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                             <integer key="value" value="14"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9f-3e-LX5">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="150"/>
+                                                                    <connections>
+                                                                        <action selector="didTapCellButton:" destination="K9v-v4-FZV" eventType="touchUpInside" id="6Bq-Gi-Kqa"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="rbc-of-TsK" firstAttribute="top" secondItem="4Ig-x7-CTN" secondAttribute="top" id="0G3-iW-Oua"/>
+                                                                <constraint firstItem="O9f-3e-LX5" firstAttribute="leading" secondItem="4Ig-x7-CTN" secondAttribute="leading" id="DGl-qa-RJT"/>
                                                                 <constraint firstItem="rbc-of-TsK" firstAttribute="leading" secondItem="4Ig-x7-CTN" secondAttribute="leading" id="MMz-0W-vLq"/>
+                                                                <constraint firstAttribute="trailing" secondItem="O9f-3e-LX5" secondAttribute="trailing" id="PXQ-tI-Ms4"/>
+                                                                <constraint firstAttribute="bottom" secondItem="O9f-3e-LX5" secondAttribute="bottom" id="RWf-lV-9Xd"/>
+                                                                <constraint firstItem="O9f-3e-LX5" firstAttribute="top" secondItem="4Ig-x7-CTN" secondAttribute="top" id="Sjl-re-tu6"/>
                                                                 <constraint firstAttribute="bottom" secondItem="rbc-of-TsK" secondAttribute="bottom" id="Ymm-KT-gTw"/>
                                                                 <constraint firstAttribute="trailing" secondItem="rbc-of-TsK" secondAttribute="trailing" id="xhc-5t-oef"/>
                                                             </constraints>
@@ -101,6 +111,7 @@
                                         <size key="customSize" width="130" height="150"/>
                                         <connections>
                                             <outlet property="backContainerView" destination="NOV-QY-oa7" id="SDa-zL-iqx"/>
+                                            <outlet property="cellButton" destination="O9f-3e-LX5" id="8qP-W9-qbZ"/>
                                             <outlet property="logoImageView" destination="rbc-of-TsK" id="Q7l-1l-Sn1"/>
                                             <outlet property="topContainerView" destination="4Ig-x7-CTN" id="IiH-zY-DZ7"/>
                                         </connections>
@@ -167,6 +178,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tjn-o2-YT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="342" y="134"/>
+        </scene>
+        <!--DataBaseActionTab-->
+        <scene sceneID="zA4-c1-ZZD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DataBaseActionTab" id="CPU-C2-SIO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHz-3a-YGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1825" y="120"/>
         </scene>
     </scenes>
     <resources>

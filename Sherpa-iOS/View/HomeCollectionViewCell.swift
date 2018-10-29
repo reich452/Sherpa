@@ -8,10 +8,19 @@
 
 import UIKit
 
+protocol HomeCollectionViewCellDelegate: class {
+    func didTapCellButton(cell: HomeCollectionViewCell)
+}
+
 class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var backContainerView: UIView!
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var cellButton: UIButton!
     
+    weak var delegate: HomeCollectionViewCellDelegate?
     
+    @IBAction func didTapCellButton(_ sender: UIButton) {
+        delegate?.didTapCellButton(cell: self)
+    }
 }
