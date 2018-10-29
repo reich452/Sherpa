@@ -57,6 +57,9 @@
 		0120878F2185303F007B7C43 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120878E2185303F007B7C43 /* Post.swift */; };
 		01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208791218536E3007B7C43 /* CloudKitPostController.swift */; };
 		01208797218538B4007B7C43 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208796218538B4007B7C43 /* Extentions.swift */; };
+		017978EC218745ED004BA6C7 /* Uploading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017978EB218745ED004BA6C7 /* Uploading.storyboard */; };
+		017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978ED21874952004BA6C7 /* UploadingViewController.swift */; };
+		017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978F021874C66004BA6C7 /* SherpaTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +127,9 @@
 		0120878E2185303F007B7C43 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		01208791218536E3007B7C43 /* CloudKitPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPostController.swift; sourceTree = "<group>"; };
 		01208796218538B4007B7C43 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		017978EB218745ED004BA6C7 /* Uploading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Uploading.storyboard; sourceTree = "<group>"; };
+		017978ED21874952004BA6C7 /* UploadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewController.swift; sourceTree = "<group>"; };
+		017978F021874C66004BA6C7 /* SherpaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SherpaTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,7 @@
 				012087932185370E007B7C43 /* New Group */,
 				0120878D21853029007B7C43 /* Model */,
 				012087422184E4DF007B7C43 /* Helper */,
+				017978EF21874C36004BA6C7 /* Subclass */,
 				012087862184F570007B7C43 /* Extentions */,
 				0120872A2184D5E5007B7C43 /* Resources */,
 				0120871D2184D3CF007B7C43 /* SherpaTests */,
@@ -194,6 +201,7 @@
 				0120873B2184DD93007B7C43 /* TabBar */,
 				0120870D2184D3CE007B7C43 /* Main.storyboard */,
 				012087302184D977007B7C43 /* DataBaseActionTab.storyboard */,
+				017978EB218745ED004BA6C7 /* Uploading.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -215,6 +223,7 @@
 				0120873A2184DB6D007B7C43 /* TabBar */,
 				0120872E2184D83D007B7C43 /* HomeViewController.swift */,
 				012087342184DA36007B7C43 /* DataBaseActionTableViewController.swift */,
+				017978ED21874952004BA6C7 /* UploadingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -322,6 +331,15 @@
 			children = (
 			);
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		017978EF21874C36004BA6C7 /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				017978F021874C66004BA6C7 /* SherpaTextField.swift */,
+			);
+			name = Subclass;
+			path = Extentions/Subclass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,6 +453,7 @@
 				012087832184F164007B7C43 /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
 				0120877B2184F164007B7C43 /* SF-Pro-Text-BoldItalic.otf in Resources */,
 				0120876A2184F164007B7C43 /* SF-Pro-Display-Light.otf in Resources */,
+				017978EC218745ED004BA6C7 /* Uploading.storyboard in Resources */,
 				012087822184F164007B7C43 /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				012087112184D3CF007B7C43 /* Assets.xcassets in Resources */,
 				012087692184F164007B7C43 /* SF-Pro-Display-RegularItalic.otf in Resources */,
@@ -457,6 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */,
 				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
 				012087882184F59B007B7C43 /* ColorTheme.swift in Sources */,
 				01208797218538B4007B7C43 /* Extentions.swift in Sources */,
@@ -468,6 +488,7 @@
 				012087442184E4F5007B7C43 /* Constants.swift in Sources */,
 				012087352184DA36007B7C43 /* DataBaseActionTableViewController.swift in Sources */,
 				0120878C21851D0A007B7C43 /* CustomFont.swift in Sources */,
+				017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */,
 				0120878A2185035C007B7C43 /* ActionTableViewCell.swift in Sources */,
 				01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */,
 				012087412184E362007B7C43 /* HomeCollectionViewCell.swift in Sources */,

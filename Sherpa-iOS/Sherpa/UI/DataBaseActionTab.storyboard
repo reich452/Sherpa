@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZRf-03-G6v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vKk-ed-LkX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -113,6 +113,7 @@
                                     <outlet property="iconImageView" destination="kWE-3h-slW" id="YEB-r7-lIJ"/>
                                     <outlet property="secondIconImageView" destination="kda-ac-5gT" id="Mbi-Lk-Q9n"/>
                                     <outlet property="topContainerView" destination="fK9-Pz-0Dz" id="c0N-QA-T1K"/>
+                                    <segue destination="ULG-IC-bdW" kind="modal" identifier="toUpLoadingVC" id="dtn-tw-ibc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -127,25 +128,13 @@
             </objects>
             <point key="canvasLocation" x="1039.2" y="152.47376311844079"/>
         </scene>
-        <!--CloudKit-->
-        <scene sceneID="Liu-UK-doW">
+        <!--Uploading-->
+        <scene sceneID="cgI-su-UBw">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZRf-03-G6v" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="CloudKit" id="lD5-F9-dfi"/>
-                    <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qYm-Hv-hZn">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="vKk-ed-LkX" kind="relationship" relationship="rootViewController" id="qao-AA-HZs"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cAP-pS-JuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Uploading" id="ULG-IC-bdW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L6m-bz-DO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100" y="153.37331334332833"/>
+            <point key="canvasLocation" x="1660" y="108"/>
         </scene>
     </scenes>
 </document>

@@ -23,6 +23,9 @@ struct Constants {
     static let homeVC = "HomeViewController"
     static let dataBaseActionTVC = "DataBaseActionTVC"
     static let firebaseTVC = "FirebaseTableViewController"
+    
+    // MARK: - Segue
+    static let toUpLoadingVC = "toUpLoadingVC"
 }
 
 extension Constants {
