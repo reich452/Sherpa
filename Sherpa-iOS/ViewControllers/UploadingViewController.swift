@@ -64,7 +64,7 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
             if post != nil {
                 DispatchQueue.main.async {
                     let sb = UIStoryboard(name: "Feed", bundle: nil)
-                    let vc = sb.instantiateViewController(withIdentifier: "FeedTableViewController") as? FeedTableViewController
+                    let vc = sb.instantiateViewController(withIdentifier: Constants.firebaseTVC) as? FeedTableViewController
                     self.hideActivityIndicator()
                     self.navigationController?.pushViewController(vc!, animated: true)
                 }

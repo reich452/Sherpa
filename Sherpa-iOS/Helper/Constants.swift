@@ -23,6 +23,8 @@ struct Constants {
     static let homeVC = "HomeViewController"
     static let dataBaseActionTVC = "DataBaseActionTVC"
     static let firebaseTVC = "FirebaseTableViewController"
+    static let uploadVC = "UploadingViewController"
+    static let feedTVC = "FeedTableViewController"
     
     // MARK: - Segue
     static let toUpLoadingVC = "toUpLoadingVC"

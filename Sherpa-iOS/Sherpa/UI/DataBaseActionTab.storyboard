@@ -52,20 +52,30 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kda-ac-5gT">
                                                             <rect key="frame" x="54" y="3" width="251" height="113.5"/>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhi-nO-1zz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="119.5"/>
+                                                            <connections>
+                                                                <action selector="didTapCellButton:" destination="2zo-zM-y5I" eventType="touchUpInside" id="ZFC-ZH-GZw"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="kWE-3h-slW" firstAttribute="top" secondItem="fK9-Pz-0Dz" secondAttribute="top" constant="3" id="2cC-05-cDr"/>
                                                         <constraint firstItem="kWE-3h-slW" firstAttribute="centerX" secondItem="fK9-Pz-0Dz" secondAttribute="centerX" id="5Km-QS-DKE"/>
+                                                        <constraint firstItem="lhi-nO-1zz" firstAttribute="centerY" secondItem="fK9-Pz-0Dz" secondAttribute="centerY" id="5bc-ym-Seo"/>
                                                         <constraint firstItem="kWE-3h-slW" firstAttribute="leading" secondItem="fK9-Pz-0Dz" secondAttribute="leading" constant="114" id="D8N-Oy-4JA"/>
                                                         <constraint firstItem="kWE-3h-slW" firstAttribute="centerY" secondItem="fK9-Pz-0Dz" secondAttribute="centerY" id="Gvv-cp-Qaa"/>
                                                         <constraint firstItem="kda-ac-5gT" firstAttribute="centerX" secondItem="fK9-Pz-0Dz" secondAttribute="centerX" id="J95-it-I3v"/>
                                                         <constraint firstItem="kda-ac-5gT" firstAttribute="leading" secondItem="fK9-Pz-0Dz" secondAttribute="leading" constant="54" id="Lqj-rA-mLN"/>
                                                         <constraint firstItem="zU1-sP-o79" firstAttribute="centerX" secondItem="fK9-Pz-0Dz" secondAttribute="centerX" id="OJH-sK-a8x"/>
+                                                        <constraint firstItem="lhi-nO-1zz" firstAttribute="height" secondItem="fK9-Pz-0Dz" secondAttribute="height" id="Q5f-i1-ria"/>
                                                         <constraint firstItem="zU1-sP-o79" firstAttribute="top" secondItem="fK9-Pz-0Dz" secondAttribute="top" constant="20" id="Rpp-ok-ess"/>
                                                         <constraint firstItem="zU1-sP-o79" firstAttribute="centerY" secondItem="fK9-Pz-0Dz" secondAttribute="centerY" constant="-1.25" id="XYs-7Y-nRJ"/>
                                                         <constraint firstItem="kda-ac-5gT" firstAttribute="centerY" secondItem="fK9-Pz-0Dz" secondAttribute="centerY" id="XZ0-cM-L8H"/>
+                                                        <constraint firstItem="lhi-nO-1zz" firstAttribute="width" secondItem="fK9-Pz-0Dz" secondAttribute="width" id="YH2-qA-rer"/>
                                                         <constraint firstItem="kda-ac-5gT" firstAttribute="top" secondItem="fK9-Pz-0Dz" secondAttribute="top" constant="3" id="cbo-NA-AxE"/>
+                                                        <constraint firstItem="lhi-nO-1zz" firstAttribute="centerX" secondItem="fK9-Pz-0Dz" secondAttribute="centerX" id="gP0-Id-g3F"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -107,6 +117,7 @@
                                 <connections>
                                     <outlet property="actionLabel" destination="zU1-sP-o79" id="wV0-FE-Frd"/>
                                     <outlet property="backView" destination="bne-aL-vUv" id="WcA-Yc-W4J"/>
+                                    <outlet property="buttonTappedCell" destination="lhi-nO-1zz" id="fSB-Xa-MWQ"/>
                                     <outlet property="iconImageView" destination="kWE-3h-slW" id="YEB-r7-lIJ"/>
                                     <outlet property="secondIconImageView" destination="kda-ac-5gT" id="Mbi-Lk-Q9n"/>
                                     <outlet property="topContainerView" destination="fK9-Pz-0Dz" id="c0N-QA-T1K"/>

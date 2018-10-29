@@ -113,28 +113,8 @@ class CloudKitPostController{
     }
     
     // MARK: - Fetch
-    func fetchAllPostsFromCloudKit(completion: @escaping([CKPost]?) -> Void) {
-        
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: CKPost.Constants.ckPostKey, predicate: predicate)
-        
-        publicDB.perform(query, inZoneWith: nil) { (records, error) in
-            
-            if let error = error {
-                print("Error fetching posts from cloudKit \(#function) \(error) \(error.localizedDescription)")
-                completion(nil);return
-            }
-            
-            guard let records = records else {completion(nil); return }
-            
-            let posts = records.compactMap{CKPost(record: $0)}
-            
-            self.ckPosts = posts
-            completion(posts)
-        }
-    }
     
-    func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil) {
+    func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil, completion: @escaping (Bool) -> Void) {
         
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: CKPost.Constants.ckPostKey, predicate: predicate)
@@ -157,10 +137,10 @@ class CloudKitPostController{
         operation.recordFetchedBlock = { [unowned self] record in
             guard let post = CKPost(record: record) else { return }
             self.ckPosts.append(post)
-            print("🎃 \(Thread.isMainThread)")
+            print("🎃 fetching ckPosts \(self.ckPosts.count)")
             print(self.ckPosts.count)
+            completion(false)
             DispatchQueue.main.sync {
-                print("SYNC \(Thread.isMainThread)")
                 self.delegate?.postsWereAddedTo()
             }
         }
@@ -169,16 +149,13 @@ class CloudKitPostController{
             if let error = error {
                 print("Error fethcing posts \(error)")
             } else if let cursor = cursor {
-                self.fetchQueriedPosts(cursor: cursor)
+                self.fetchQueriedPosts(cursor: cursor, completion: completion)
                 print("Fetching more results \(self.ckPosts.count)")
             } else {
-                print("Done")
-                DispatchQueue.main.async {
-                    
-                }
+                print("Done Fetching CKPosts")
+                completion(true)
             }
         }
-        
         publicDB.add(operation)
     }
     

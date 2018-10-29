@@ -13,7 +13,7 @@ enum SelectedIconDB {
     case firebase
 }
 
-class DataBaseActionTVC: UITableViewController, ActionTableViewCellDelegate {
+class DataBaseActionTVC: UITableViewController{
     
     
     override func viewDidLoad() {
@@ -27,20 +27,6 @@ class DataBaseActionTVC: UITableViewController, ActionTableViewCellDelegate {
     }
     
     
-    // MARK: - Main
-    
-    func hideSelectedObjects(sender: ActionTableViewCell) {
-        
-        if self.tabBarController?.selectedIndex == 1 {
-            sender.iconImageView.image = #imageLiteral(resourceName: "xcCloudKit_logo")
-            sender.actionLabel.textColor = .cloudKitLightBlue
-            
-        } else {
-            sender.iconImageView.image = #imageLiteral(resourceName: "xcFirebase_logo")
-            sender.actionLabel.textColor = .firebaseDarkOrange
-        }
-    }
-    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -51,6 +37,7 @@ class DataBaseActionTVC: UITableViewController, ActionTableViewCellDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cloudKitCell, for: indexPath) as? ActionTableViewCell else { return UITableViewCell() }
         
         cell.delegate = self
+        cell.pushVCDelegate = self 
         cell.backgroundColor = .sherpaBackgroundColor
         
         switch tabBarController?.selectedIndex{
@@ -59,7 +46,7 @@ class DataBaseActionTVC: UITableViewController, ActionTableViewCellDelegate {
         case 1:
             cell.selectedDB = .cloudKit
             checkCaseOne(indexPath: indexPath, cell: cell)
-          
+            
         case 2:
             cell.selectedDB = .firebase
             checkCaseTwo(indexPath: indexPath, cell: cell)
@@ -106,4 +93,39 @@ class DataBaseActionTVC: UITableViewController, ActionTableViewCellDelegate {
         }
     }
     
+}
+
+// MARK: - Custom Delegate
+extension DataBaseActionTVC: ActionTableViewCellDelegate {
+    
+    func hideSelectedObjects(sender: ActionTableViewCell) {
+        
+        if self.tabBarController?.selectedIndex == 1 {
+            sender.iconImageView.image = #imageLiteral(resourceName: "xcCloudKit_logo")
+            sender.actionLabel.textColor = .cloudKitLightBlue
+            
+        } else {
+            sender.iconImageView.image = #imageLiteral(resourceName: "xcFirebase_logo")
+            sender.actionLabel.textColor = .firebaseDarkOrange
+        }
+    }
+    
+    func performSegueFrom(cell: ActionTableViewCell) {
+        let indexPath = tableView.indexPath(for: cell)
+        switch indexPath?.row {
+        case 0:
+            print("First")
+        case 1:
+            let sb = UIStoryboard(name: "Feed", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: Constants.feedTVC) as? FeedTableViewController else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            let sb = UIStoryboard(name: "Uploading", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: Constants.uploadVC) as? UploadingViewController else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            print("Something broke \(#file) \(#function)")
+        }
+    
+    }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 protocol ActionTableViewCellDelegate: class {
     func hideSelectedObjects(sender: ActionTableViewCell)
+    func performSegueFrom(cell: ActionTableViewCell)
 }
 
 class ActionTableViewCell: UITableViewCell {
@@ -18,8 +19,11 @@ class ActionTableViewCell: UITableViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var actionLabel: UILabel!
     @IBOutlet weak var secondIconImageView: UIImageView!
+    @IBOutlet weak var buttonTappedCell: UIButton!
     
+    // MARK: - Properties
     weak var delegate: ActionTableViewCellDelegate?
+    weak var pushVCDelegate: ActionTableViewCellDelegate?
     
     var selectedDB: SelectedIconDB? {
         didSet {
@@ -28,7 +32,11 @@ class ActionTableViewCell: UITableViewCell {
             self.selectedTab(slectedIcon: selectedDB)
         }
     }
-
+    // MARK: - Actions
+    @IBAction func didTapCellButton(_ sender: Any) {
+        pushVCDelegate?.performSegueFrom(cell: self)
+    }
+    
     func selectedTab(slectedIcon: SelectedIconDB) {
         switch slectedIcon {
         case .cloudKit:
