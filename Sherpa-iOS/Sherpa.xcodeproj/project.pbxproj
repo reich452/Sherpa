@@ -63,6 +63,10 @@
 		017978F321875BCA004BA6C7 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978F221875BCA004BA6C7 /* CameraManager.swift */; };
 		0179790521877C91004BA6C7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0179790421877C91004BA6C7 /* CloudKit.framework */; };
 		0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179790621877E6F004BA6C7 /* PublicAccess.swift */; };
+		01797909218784B0004BA6C7 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01797908218784B0004BA6C7 /* Feed.storyboard */; };
+		0179790B21878595004BA6C7 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179790A21878595004BA6C7 /* FeedTableViewController.swift */; };
+		0179790D21878661004BA6C7 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179790C21878661004BA6C7 /* FeedTableViewCell.swift */; };
+		017979122187AA9B004BA6C7 /* PublicProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017979112187AA9B004BA6C7 /* PublicProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +141,10 @@
 		0179790221877C8D004BA6C7 /* Sherpa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sherpa.entitlements; sourceTree = "<group>"; };
 		0179790421877C91004BA6C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		0179790621877E6F004BA6C7 /* PublicAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicAccess.swift; sourceTree = "<group>"; };
+		01797908218784B0004BA6C7 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		0179790A21878595004BA6C7 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		0179790C21878661004BA6C7 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		017979112187AA9B004BA6C7 /* PublicProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +220,7 @@
 				0120870D2184D3CE007B7C43 /* Main.storyboard */,
 				012087302184D977007B7C43 /* DataBaseActionTab.storyboard */,
 				017978EB218745ED004BA6C7 /* Uploading.storyboard */,
+				01797908218784B0004BA6C7 /* Feed.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -234,6 +243,7 @@
 				0120872E2184D83D007B7C43 /* HomeViewController.swift */,
 				012087342184DA36007B7C43 /* DataBaseActionTableViewController.swift */,
 				017978ED21874952004BA6C7 /* UploadingViewController.swift */,
+				0179790A21878595004BA6C7 /* FeedTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -260,6 +270,7 @@
 				012087402184E362007B7C43 /* HomeCollectionViewCell.swift */,
 				012087842184F353007B7C43 /* SectionHeaderCollectionReusableView.swift */,
 				012087892185035C007B7C43 /* ActionTableViewCell.swift */,
+				0179790C21878661004BA6C7 /* FeedTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +278,7 @@
 		012087422184E4DF007B7C43 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				017979102187AA77004BA6C7 /* PublicProtocols  */,
 				012087432184E4F5007B7C43 /* Constants.swift */,
 				012087452184E814007B7C43 /* HomeSections.swift */,
 				0120878B21851D0A007B7C43 /* CustomFont.swift */,
@@ -360,6 +372,14 @@
 				0179790421877C91004BA6C7 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		017979102187AA77004BA6C7 /* PublicProtocols  */ = {
+			isa = PBXGroup;
+			children = (
+				017979112187AA9B004BA6C7 /* PublicProtocols.swift */,
+			);
+			path = "PublicProtocols ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,6 +478,7 @@
 				0120877A2184F164007B7C43 /* SF-Pro-Display-Black.otf in Resources */,
 				0120877F2184F164007B7C43 /* SF-Pro-Display-ThinItalic.otf in Resources */,
 				0120877E2184F164007B7C43 /* SF-Pro-Text-HeavyItalic.otf in Resources */,
+				01797909218784B0004BA6C7 /* Feed.storyboard in Resources */,
 				012087702184F164007B7C43 /* SF-Pro-Text-Light.otf in Resources */,
 				0120876C2184F164007B7C43 /* SF-Pro-Text-MediumItalic.otf in Resources */,
 				012087142184D3CF007B7C43 /* LaunchScreen.storyboard in Resources */,
@@ -513,6 +534,8 @@
 				0120878F2185303F007B7C43 /* Post.swift in Sources */,
 				012087852184F353007B7C43 /* SectionHeaderCollectionReusableView.swift in Sources */,
 				0120870A2184D3CE007B7C43 /* AppDelegate.swift in Sources */,
+				0179790D21878661004BA6C7 /* FeedTableViewCell.swift in Sources */,
+				0179790B21878595004BA6C7 /* FeedTableViewController.swift in Sources */,
 				0120872F2184D83D007B7C43 /* HomeViewController.swift in Sources */,
 				012087442184E4F5007B7C43 /* Constants.swift in Sources */,
 				012087352184DA36007B7C43 /* DataBaseActionTableViewController.swift in Sources */,
@@ -521,6 +544,7 @@
 				0120878A2185035C007B7C43 /* ActionTableViewCell.swift in Sources */,
 				01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */,
 				012087412184E362007B7C43 /* HomeCollectionViewCell.swift in Sources */,
+				017979122187AA9B004BA6C7 /* PublicProtocols.swift in Sources */,
 				017978F321875BCA004BA6C7 /* CameraManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

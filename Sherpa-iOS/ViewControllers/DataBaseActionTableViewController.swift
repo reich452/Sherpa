@@ -100,7 +100,10 @@ class DataBaseActionTVC: UITableViewController, ActionTableViewCellDelegate {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "toUpLoadingVC" {
+            guard let destinationVC = segue.destination as? UploadingViewController else { return }
+            navigationController?.pushViewController(destinationVC, animated: true)
+        }
     }
     
 }

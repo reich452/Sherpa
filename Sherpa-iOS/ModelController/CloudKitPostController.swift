@@ -27,7 +27,7 @@ class CloudKitPostController{
     let publicDB = CKContainer.default().publicCloudDatabase
     weak var delegate: PostsWereAddedToDelegate?
     
-    var posts = [CKPost]() {
+    var ckPosts = [CKPost]() {
         didSet {
             DispatchQueue.main.async {
                 let nc = NotificationCenter.default
@@ -102,7 +102,7 @@ class CloudKitPostController{
     
     func createPostWith(titleText: String, image: UIImage, completion: @escaping (CKPost?) -> ()){
         let ckPost = CKPost(title: titleText, image: image)
-        self.posts.append(ckPost)
+        self.ckPosts.insert(ckPost, at: 0)
         publicDB.save(CKRecord(ckPost)) { (_, error) in
             if let error = error {
                 print("Error saving post record \(error) \(error.localizedDescription)")
@@ -116,7 +116,7 @@ class CloudKitPostController{
     func fetchAllPostsFromCloudKit(completion: @escaping([CKPost]?) -> Void) {
         
         let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "Post", predicate: predicate)
+        let query = CKQuery(recordType: CKPost.Constants.ckPostKey, predicate: predicate)
         
         publicDB.perform(query, inZoneWith: nil) { (records, error) in
             
@@ -129,7 +129,7 @@ class CloudKitPostController{
             
             let posts = records.compactMap{CKPost(record: $0)}
             
-            self.posts = posts
+            self.ckPosts = posts
             completion(posts)
         }
     }
@@ -137,7 +137,7 @@ class CloudKitPostController{
     func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil) {
         
         let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "Post", predicate: predicate)
+        let query = CKQuery(recordType: CKPost.Constants.ckPostKey, predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
         let operation: CKQueryOperation
         
@@ -145,20 +145,20 @@ class CloudKitPostController{
             operation = CKQueryOperation(cursor: cursor)
         } else {
             let predicate = NSPredicate(value: true)
-            let query = CKQuery(recordType: "Post", predicate: predicate)
+            let query = CKQuery(recordType: CKPost.Constants.ckPostKey, predicate: predicate)
             query.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
             operation = CKQueryOperation(query: query)
         }
-        operation.desiredKeys = ["caption", "photoData", "timestamp"]
+        operation.desiredKeys = ["title", "imageData", "timestamp"]
         operation.resultsLimit = 5
         operation.queuePriority = .veryHigh
         operation.qualityOfService = .userInteractive
         
         operation.recordFetchedBlock = { [unowned self] record in
             guard let post = CKPost(record: record) else { return }
-            self.posts.append(post)
+            self.ckPosts.append(post)
             print("🎃 \(Thread.isMainThread)")
-            print(self.posts.count)
+            print(self.ckPosts.count)
             DispatchQueue.main.sync {
                 print("SYNC \(Thread.isMainThread)")
                 self.delegate?.postsWereAddedTo()
@@ -170,7 +170,7 @@ class CloudKitPostController{
                 print("Error fethcing posts \(error)")
             } else if let cursor = cursor {
                 self.fetchQueriedPosts(cursor: cursor)
-                print("Fetching more results \(self.posts.count)")
+                print("Fetching more results \(self.ckPosts.count)")
             } else {
                 print("Done")
                 DispatchQueue.main.async {

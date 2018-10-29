@@ -51,9 +51,6 @@
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kda-ac-5gT">
                                                             <rect key="frame" x="54" y="3" width="251" height="113.5"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,7 +110,7 @@
                                     <outlet property="iconImageView" destination="kWE-3h-slW" id="YEB-r7-lIJ"/>
                                     <outlet property="secondIconImageView" destination="kda-ac-5gT" id="Mbi-Lk-Q9n"/>
                                     <outlet property="topContainerView" destination="fK9-Pz-0Dz" id="c0N-QA-T1K"/>
-                                    <segue destination="ULG-IC-bdW" kind="modal" identifier="toUpLoadingVC" id="dtn-tw-ibc"/>
+                                    <segue destination="ULG-IC-bdW" kind="show" identifier="toUploading" id="LWf-Xa-rFV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
