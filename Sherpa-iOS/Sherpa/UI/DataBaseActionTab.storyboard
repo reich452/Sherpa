@@ -121,7 +121,6 @@
                                     <outlet property="iconImageView" destination="kWE-3h-slW" id="YEB-r7-lIJ"/>
                                     <outlet property="secondIconImageView" destination="kda-ac-5gT" id="Mbi-Lk-Q9n"/>
                                     <outlet property="topContainerView" destination="fK9-Pz-0Dz" id="c0N-QA-T1K"/>
-                                    <segue destination="ULG-IC-bdW" kind="show" identifier="toUploading" id="LWf-Xa-rFV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

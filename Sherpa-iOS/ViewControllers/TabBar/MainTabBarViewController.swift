@@ -19,8 +19,9 @@ class MainTabBarViewController: UITabBarController {
     func customTabBar() {
         let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
         let navigationController = storyboard1.instantiateViewController(withIdentifier: "HomeViewController")
-        navigationController.title = "Home"
-        navigationController.tabBarItem.image = #imageLiteral(resourceName: "xcHome_Icon")
+        let firstNavigationController = UINavigationController(rootViewController: navigationController)
+        firstNavigationController.title = "Home"
+        firstNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcHome_Icon")
         
         let storyboard2 = UIStoryboard(name: Constants.dbActionTab, bundle: nil)
         let decadeSearchTVC = storyboard2.instantiateViewController(withIdentifier: Constants.dataBaseActionTVC)
@@ -37,7 +38,7 @@ class MainTabBarViewController: UITabBarController {
         
 
         
-        viewControllers = [navigationController, secondNavigationController, thridNavigationController]
+        viewControllers = [firstNavigationController, secondNavigationController, thridNavigationController]
         tabBar.isTranslucent = true
         
         let topBorder = CALayer()

@@ -74,6 +74,7 @@ extension CameraManager: UIImagePickerControllerDelegate, UINavigationController
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
+         
             self.imagePickedBlock?(image)
         }else{
             print("Something went wrong")

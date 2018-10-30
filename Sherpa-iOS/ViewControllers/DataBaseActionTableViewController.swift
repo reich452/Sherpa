@@ -116,13 +116,20 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
         case 0:
             print("First")
         case 1:
-            let sb = UIStoryboard(name: "Feed", bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: Constants.feedTVC) as? FeedTableViewController else { return }
-            self.navigationController?.pushViewController(vc, animated: true)
+            if cell.selectedDB == .cloudKit {
+                let sb = UIStoryboard(name: "Feed", bundle: nil)
+                guard let vc = sb.instantiateViewController(withIdentifier: Constants.feedTVC) as? FeedTableViewController else { return }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else {
+                let sb = UIStoryboard(name: "FBPost", bundle: nil)
+                guard let vc = sb.instantiateViewController(withIdentifier: Constants.fbFeedTVC) as? FBPostTableViewController else { return }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         case 2:
             let sb = UIStoryboard(name: "Uploading", bundle: nil)
             guard let vc = sb.instantiateViewController(withIdentifier: Constants.uploadVC) as? UploadingViewController else { return }
             self.navigationController?.pushViewController(vc, animated: true)
+
         default:
             print("Something broke \(#file) \(#function)")
         }

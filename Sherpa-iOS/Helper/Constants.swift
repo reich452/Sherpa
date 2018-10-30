@@ -14,6 +14,7 @@ struct Constants {
     static let dataBaseCell = "dataBaseCell"
     static let homeSectionHeader = "homeSectionHeader"
     static let cloudKitCell = "cloudKitCell"
+    static let redditCell = "redditPostCell"
     
     // MARK: - Storyboard Name
     static let dbActionTab = "DataBaseActionTab"
@@ -25,6 +26,8 @@ struct Constants {
     static let firebaseTVC = "FirebaseTableViewController"
     static let uploadVC = "UploadingViewController"
     static let feedTVC = "FeedTableViewController"
+    static let fbFeedTVC = "FBPostTableViewController"
+    static let rdPostTVC = "RedditTableViewController"
     
     // MARK: - Segue
     static let toUpLoadingVC = "toUpLoadingVC"

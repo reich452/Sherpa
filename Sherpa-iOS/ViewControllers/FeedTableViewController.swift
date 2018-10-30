@@ -64,7 +64,7 @@ class FeedTableViewController: UITableViewController, UISearchBarDelegate, Activ
         
         let ckPost = CloudKitPostController.shared.ckPosts[indexPath.row]
         
-        cell.ckPost = ckPost
+        cell.post = ckPost
         
         return cell
     }

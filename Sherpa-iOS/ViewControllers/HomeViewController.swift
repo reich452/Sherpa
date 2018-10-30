@@ -109,12 +109,19 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Custom Delegate
 
 extension HomeViewController: HomeCollectionViewCellDelegate {
+    // TODO: - Clean up
     func didTapCellButton(cell: HomeCollectionViewCell) {
-        let indexPath = self.homeCollectionView.indexPath(for: cell)
-        if indexPath?.row == 0 && indexPath?.section == 0  {
+        guard let indexPath = self.homeCollectionView.indexPath(for: cell) else { return }
+        if indexPath.row == 0 && indexPath.section == 0  {
             self.tabBarController?.selectedIndex = 1
-        } else {
+        } else if indexPath.row == 1 && indexPath.section == 0 {
             self.tabBarController?.selectedIndex = 2
+        } else if indexPath.row == 0 && indexPath.section == 1 {
+           self.showNoActionAlert(titleStr: "Future update", messageStr: "Update coming soon!", style: .default)
+        } else {
+            let sb = UIStoryboard(name: "Reddit", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: Constants.rdPostTVC) as? RedditTableViewController else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

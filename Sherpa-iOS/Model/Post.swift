@@ -16,6 +16,7 @@ protocol Post {
     var imageStringURL: String { get set }
 }
 
+
 struct CKPost: Equatable, Post {
     var imageStringURL: String = ""
     

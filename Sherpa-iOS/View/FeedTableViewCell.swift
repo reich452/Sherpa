@@ -15,16 +15,26 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     
     
-    var ckPost: CKPost? {
+    var post: Post? {
         didSet {
             updateViews()
         }
     }
     
     func updateViews() {
-        guard let ckPost = ckPost else { return }
-        titleLabel.text = ckPost.title
-        photoImageView.image = ckPost.image
+        guard let post = post else { return }
+        if post.image == nil {
+            FireBasePostController.shared.fetchImage(urlString: post.imageStringURL) { (image) in
+                guard let image = image else { return }
+                DispatchQueue.main.async {
+                    self.titleLabel.text = post.title
+                    self.photoImageView.image = image
+                }
+            }
+        } else {
+            titleLabel.text = post.title
+            photoImageView.image = post.image
+        }
     }
 
 }

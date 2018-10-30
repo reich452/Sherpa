@@ -15,6 +15,7 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
     @IBOutlet weak var captionSpTextField: SherpaTextField!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var fbUploadButton: UIButton!
     
     
     // MARK: - Properties
@@ -72,7 +73,29 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
         }
     }
     
-
+    @IBAction func uploadFBbuttonTapped(_ sender: UIButton) {
+        guard let title = captionSpTextField.text,
+            title != "", let image = imageView.image else { return }
+        showActivityIndicator()
+        sender.isEnabled = false
+        uploadButton.layer.borderColor = UIColor.gray.cgColor
+        uploadButton.setTitleColor(.gray, for: .normal)
+        sender.isEnabled = false
+        fbUploadButton.layer.borderColor = UIColor.gray.cgColor
+        fbUploadButton.setTitleColor(.gray, for: .normal)
+        FireBasePostController.shared.createPost(with: title, image: image) { (success, _) in
+            if success == true {
+                DispatchQueue.main.async {
+                    // TODO: - Make it go to FeedTVC - (makes a reusalbe vc)
+                    let sb = UIStoryboard(name: "FBPost", bundle: nil)
+                    let vc = sb.instantiateViewController(withIdentifier: Constants.fbFeedTVC) as? FBPostTableViewController
+                    self.hideActivityIndicator()
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }
+            }
+        }
+    }
+    
     // MARK: - Main
     
     func setUpUI() {
@@ -89,6 +112,11 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 15
         imageView.backgroundColor = UIColor.offsetBlack
+        
+        fbUploadButton.clipsToBounds = true
+        fbUploadButton.layer.cornerRadius = 15
+        fbUploadButton.layer.borderColor = UIColor.white.cgColor
+        fbUploadButton.layer.borderWidth = 1
         
         captionSpTextField.bottomBorderColor = UIColor.white
         

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dPG-eK-nee">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dPG-eK-nee">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,7 +42,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xB-mB-deB">
                                 <rect key="frame" x="94" y="456" width="187.5" height="30"/>
-                                <state key="normal" title="Upload Image">
+                                <state key="normal" title="Upload Image to ☁">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -61,11 +61,22 @@
                                     <action selector="selectImageButtonTapped:" destination="dPG-eK-nee" eventType="touchUpInside" id="EEO-m3-LjG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5f0-yy-03o">
+                                <rect key="frame" x="94" y="514" width="187.5" height="30"/>
+                                <state key="normal" title="Upload to 🔥">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadFBbuttonTapped:" destination="dPG-eK-nee" eventType="touchUpInside" id="0OD-m2-xXe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5f0-yy-03o" firstAttribute="firstBaseline" secondItem="1xB-mB-deB" secondAttribute="baseline" constant="58" id="3rF-A7-RcI"/>
                             <constraint firstItem="jVy-QK-OpF" firstAttribute="top" secondItem="gsI-TL-Pl1" secondAttribute="top" constant="29" id="4jd-Gs-wBj"/>
                             <constraint firstItem="zDU-SN-0PW" firstAttribute="centerX" secondItem="gsI-TL-Pl1" secondAttribute="centerX" id="9Re-f3-ttO"/>
+                            <constraint firstItem="5f0-yy-03o" firstAttribute="width" secondItem="QI5-Bh-N8o" secondAttribute="width" multiplier="0.5" id="Be7-QF-f6w"/>
                             <constraint firstItem="1xB-mB-deB" firstAttribute="centerX" secondItem="gsI-TL-Pl1" secondAttribute="centerX" id="GbC-b7-xfk"/>
                             <constraint firstItem="jVy-QK-OpF" firstAttribute="centerX" secondItem="QI5-Bh-N8o" secondAttribute="centerX" id="JBI-dp-fI1"/>
                             <constraint firstItem="gsI-TL-Pl1" firstAttribute="trailing" secondItem="jVy-QK-OpF" secondAttribute="trailing" constant="16" id="JNI-en-YND"/>
@@ -76,6 +87,7 @@
                             <constraint firstItem="jVy-QK-OpF" firstAttribute="height" secondItem="QI5-Bh-N8o" secondAttribute="height" multiplier="0.4" id="VkR-rm-37e"/>
                             <constraint firstItem="1xB-mB-deB" firstAttribute="width" secondItem="QI5-Bh-N8o" secondAttribute="width" multiplier="0.5" id="k3r-Rq-5BW"/>
                             <constraint firstItem="iXj-um-YGg" firstAttribute="width" secondItem="jVy-QK-OpF" secondAttribute="width" multiplier="0.5" id="uvP-Jl-HmF"/>
+                            <constraint firstItem="5f0-yy-03o" firstAttribute="centerX" secondItem="gsI-TL-Pl1" secondAttribute="centerX" id="vU7-PK-hqa"/>
                             <constraint firstItem="iXj-um-YGg" firstAttribute="centerY" secondItem="jVy-QK-OpF" secondAttribute="centerY" id="via-5D-YN8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gsI-TL-Pl1"/>
@@ -83,6 +95,7 @@
                     <navigationItem key="navigationItem" title="Title" id="nIn-92-EmO"/>
                     <connections>
                         <outlet property="captionSpTextField" destination="zDU-SN-0PW" id="Zp7-rT-crn"/>
+                        <outlet property="fbUploadButton" destination="5f0-yy-03o" id="wRu-bk-JWg"/>
                         <outlet property="imageView" destination="jVy-QK-OpF" id="yew-AM-Yk6"/>
                         <outlet property="selectImageButton" destination="iXj-um-YGg" id="G9c-17-GEG"/>
                         <outlet property="uploadButton" destination="1xB-mB-deB" id="IXZ-gd-xTQ"/>
