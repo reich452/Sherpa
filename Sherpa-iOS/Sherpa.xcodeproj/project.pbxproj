@@ -15,7 +15,6 @@
 		0108765221881CDB00FAC3BE /* FBPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0108765121881CDB00FAC3BE /* FBPost.storyboard */; };
 		0108765421882F4F00FAC3BE /* Reddit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0108765321882F4F00FAC3BE /* Reddit.storyboard */; };
 		0108765621882F6800FAC3BE /* RedditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108765521882F6800FAC3BE /* RedditTableViewController.swift */; };
-		0108765A21882FF000FAC3BE /* RdPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108765921882FF000FAC3BE /* RdPost.swift */; };
 		0108765C2188337B00FAC3BE /* RedditPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108765B2188337B00FAC3BE /* RedditPostController.swift */; };
 		0108765E2188A63A00FAC3BE /* RedditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108765D2188A63A00FAC3BE /* RedditTableViewCell.swift */; };
 		010876602188BBA800FAC3BE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108765F2188BBA800FAC3BE /* StorageManager.swift */; };
@@ -69,6 +68,7 @@
 		0120878F2185303F007B7C43 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120878E2185303F007B7C43 /* Post.swift */; };
 		01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208791218536E3007B7C43 /* CloudKitPostController.swift */; };
 		01208797218538B4007B7C43 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208796218538B4007B7C43 /* Extentions.swift */; };
+		01474E102188E38F003B29A0 /* RdPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01474E0F2188E38F003B29A0 /* RdPost.swift */; };
 		017978EC218745ED004BA6C7 /* Uploading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017978EB218745ED004BA6C7 /* Uploading.storyboard */; };
 		017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978ED21874952004BA6C7 /* UploadingViewController.swift */; };
 		017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978F021874C66004BA6C7 /* SherpaTextField.swift */; };
@@ -102,7 +102,6 @@
 		0108765121881CDB00FAC3BE /* FBPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FBPost.storyboard; sourceTree = "<group>"; };
 		0108765321882F4F00FAC3BE /* Reddit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reddit.storyboard; sourceTree = "<group>"; };
 		0108765521882F6800FAC3BE /* RedditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTableViewController.swift; sourceTree = "<group>"; };
-		0108765921882FF000FAC3BE /* RdPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RdPost.swift; path = "../../../Dev Mountain Bank/Desktop - MacBook Pro/Dev Mountain Bank/Good Students/reditwithPagination/coding-challenge-chemowave/Model/RdPost.swift"; sourceTree = "<group>"; };
 		0108765B2188337B00FAC3BE /* RedditPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPostController.swift; sourceTree = "<group>"; };
 		0108765D2188A63A00FAC3BE /* RedditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTableViewCell.swift; sourceTree = "<group>"; };
 		0108765F2188BBA800FAC3BE /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -160,6 +159,7 @@
 		0120878E2185303F007B7C43 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		01208791218536E3007B7C43 /* CloudKitPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPostController.swift; sourceTree = "<group>"; };
 		01208796218538B4007B7C43 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		01474E0F2188E38F003B29A0 /* RdPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdPost.swift; sourceTree = "<group>"; };
 		017978EB218745ED004BA6C7 /* Uploading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Uploading.storyboard; sourceTree = "<group>"; };
 		017978ED21874952004BA6C7 /* UploadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewController.swift; sourceTree = "<group>"; };
 		017978F021874C66004BA6C7 /* SherpaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SherpaTextField.swift; sourceTree = "<group>"; };
@@ -202,15 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				012087082184D3CE007B7C43 /* Sherpa */,
-				0120873F2184E34B007B7C43 /* View */,
-				0120872D2184D827007B7C43 /* ViewControllers */,
-				01208790218536C2007B7C43 /* ModelController */,
-				012087932185370E007B7C43 /* Manager */,
-				0120878D21853029007B7C43 /* Model */,
-				012087422184E4DF007B7C43 /* Helper */,
-				017978EF21874C36004BA6C7 /* Subclass */,
-				012087862184F570007B7C43 /* Extentions */,
-				0120872A2184D5E5007B7C43 /* Resources */,
 				0120871D2184D3CF007B7C43 /* SherpaTests */,
 				012087072184D3CE007B7C43 /* Products */,
 				0179790321877C91004BA6C7 /* Frameworks */,
@@ -232,6 +223,15 @@
 			children = (
 				0179790221877C8D004BA6C7 /* Sherpa.entitlements */,
 				012087292184D5DE007B7C43 /* UI */,
+				0120873F2184E34B007B7C43 /* View */,
+				0120872D2184D827007B7C43 /* ViewControllers */,
+				01208790218536C2007B7C43 /* ModelController */,
+				012087932185370E007B7C43 /* Manager */,
+				0120878D21853029007B7C43 /* Model */,
+				012087422184E4DF007B7C43 /* Helper */,
+				017978EF21874C36004BA6C7 /* Subclass */,
+				012087862184F570007B7C43 /* Extentions */,
+				0120872A2184D5E5007B7C43 /* Resources */,
 			);
 			path = Sherpa;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 			children = (
 				0120878E2185303F007B7C43 /* Post.swift */,
 				0108764521880CB300FAC3BE /* FbPost.swift */,
-				0108765921882FF000FAC3BE /* RdPost.swift */,
+				01474E0F2188E38F003B29A0 /* RdPost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -408,8 +408,7 @@
 			children = (
 				017978F021874C66004BA6C7 /* SherpaTextField.swift */,
 			);
-			name = Subclass;
-			path = Extentions/Subclass;
+			path = Subclass;
 			sourceTree = "<group>";
 		};
 		0179790321877C91004BA6C7 /* Frameworks */ = {
@@ -652,7 +651,6 @@
 				017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */,
 				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
 				0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */,
-				0108765A21882FF000FAC3BE /* RdPost.swift in Sources */,
 				012087882184F59B007B7C43 /* ColorTheme.swift in Sources */,
 				01208797218538B4007B7C43 /* Extentions.swift in Sources */,
 				012087462184E814007B7C43 /* HomeSections.swift in Sources */,
@@ -667,6 +665,7 @@
 				012087442184E4F5007B7C43 /* Constants.swift in Sources */,
 				012087352184DA36007B7C43 /* DataBaseActionTableViewController.swift in Sources */,
 				0120878C21851D0A007B7C43 /* CustomFont.swift in Sources */,
+				01474E102188E38F003B29A0 /* RdPost.swift in Sources */,
 				0108765621882F6800FAC3BE /* RedditTableViewController.swift in Sources */,
 				017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */,
 				0108764C2188178E00FAC3BE /* NetworkManager.swift in Sources */,
@@ -844,7 +843,7 @@
 				CODE_SIGN_ENTITLEMENTS = Sherpa/Sherpa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WAN4D79W79;
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sherpa/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -864,7 +863,7 @@
 				CODE_SIGN_ENTITLEMENTS = Sherpa/Sherpa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WAN4D79W79;
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sherpa/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
