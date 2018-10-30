@@ -12,8 +12,6 @@ import Firebase
 class FireBasePostController {
     
     // MARK: - Properties
-    static let shared = FireBasePostController()
-    private init(){}
     typealias fbCompletion = (Bool, NetworkError?) -> Void
     var fbPosts = [FbPost]()
     
@@ -22,36 +20,37 @@ class FireBasePostController {
     private let storageReference = Storage.storage().reference()
     
     // TODO: - Use storage manager instead
-//    private let storageManager: StorageManager
-//    init(storageManager: StorageManager) {
-//        self.storageManager = storageManager
-//    }
+    private let storageManager: StorageManager
+    init(storageManager: StorageManager) {
+        self.storageManager = storageManager
+    }
     
     // MARK: - CRUD
     
     func createPost(with title: String, image: UIImage, completion: @escaping fbCompletion) {
          guard let imageData = image.jpegData(compressionQuality: 0.3) else { completion(false, NetworkError.noDataReturned) ; return }
-        let storageRef = storageReference.child("images/sherpa.jpg")
-//        let st = storageReference.
-        storageRef.putData(imageData, metadata: nil) { (metaData, error) in
-
+        let filename = UUID().uuidString
+        storageManager.uploadData(imageData, named: "images/shera.jpg", file: filename, contentType: .imageJpeg) { (url, error) in
             if let error = error {
                 print("Error saving image to firebase storage \(error) \(error.localizedDescription)")
                 completion(false, .forwarded(error)); return
             }
-            storageRef.downloadURL { (url, error) in
+            
+            guard let url = url else {completion(false, NetworkError.noDataReturned); return }
+            
+            guard let key = self.databaseReference.child("posts").childByAutoId().key else { completion(false, NetworkError.incorrectParameters); return }
+            
+            let urlString = url.absoluteString
+            let fbPost = FbPost(title: title, imageStringURL: urlString)
+            let values = [key : fbPost.dictionaryRep]
+            
+            self.databaseReference.child("posts").updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if let error = error {
-                    print("Error downloading image url:  \(error) \(error.localizedDescription)")
+                    print("Error updating nodes: \(error)")
                     completion(false, .forwarded(error)); return
                 }
-                guard let imageUrl = url?.absoluteString else { completion(false, .forwardedString(errorString: "bad string url")); return }
-
-                let uuidString = UUID().uuidString
-                let fbPost = FbPost(title: title, imageStringURL: imageUrl + uuidString)
-               
-                self.databaseReference.child("posts").childByAutoId().updateChildValues(fbPost.dictionaryRep)
                 completion(true, nil)
-            }
+            })
         }
     }
     

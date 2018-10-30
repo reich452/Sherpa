@@ -21,7 +21,7 @@ struct DataDictionary: Decodable {
         let data: RDPost
     }
 }
-
+// TODO: - make Post Protocol work with Codable
 struct RDPost: Decodable {
     
     let title: String?

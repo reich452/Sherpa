@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
     
@@ -22,6 +23,11 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
     
     var activityIndicator = UIActivityIndicatorView()
     var cameraManager: CameraManager?
+    private lazy var fbPostController: FireBasePostController = {
+        let storageRef = StorageReference()
+        let storageManager = StorageManager(storageRef: storageRef)
+        return FireBasePostController(storageManager: storageManager)
+    }()
     
     
     override func viewDidLoad() {
@@ -83,7 +89,7 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
         sender.isEnabled = false
         fbUploadButton.layer.borderColor = UIColor.gray.cgColor
         fbUploadButton.setTitleColor(.gray, for: .normal)
-        FireBasePostController.shared.createPost(with: title, image: image) { (success, _) in
+        fbPostController.createPost(with: title, image: image) { (success, _) in
             if success == true {
                 DispatchQueue.main.async {
                     // TODO: - Make it go to FeedTVC - (makes a reusalbe vc)

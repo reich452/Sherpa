@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedTableViewCell: UITableViewCell {
     
@@ -14,6 +15,11 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var commnetLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     
+    private lazy var fbPostController: FireBasePostController = {
+        let storageRef = StorageReference()
+        let storageManager = StorageManager(storageRef: storageRef)
+        return FireBasePostController(storageManager: storageManager)
+    }()
     
     var post: Post? {
         didSet {
@@ -24,17 +30,15 @@ class FeedTableViewCell: UITableViewCell {
     func updateViews() {
         guard let post = post else { return }
         if post.image == nil {
-            FireBasePostController.shared.fetchImage(urlString: post.imageStringURL) { (image) in
-                guard let image = image else { return }
+            fbPostController.fetchImage(urlString: post.imageStringURL) { (image) in
                 DispatchQueue.main.async {
-                    self.titleLabel.text = post.title
                     self.photoImageView.image = image
                 }
             }
-        } else {
-            titleLabel.text = post.title
-            photoImageView.image = post.image
         }
+        titleLabel.text = post.title
+        photoImageView.image = post.image
+        
     }
-
+    
 }

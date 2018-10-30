@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 // TODO: - Take out and make reusable with feedTVC
 
 class FBPostTableViewController: UITableViewController, ActivityIndicatorPresenter {
@@ -15,6 +16,12 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
     
     @IBOutlet weak var searchBar: UISearchBar!
     var activityIndicator = UIActivityIndicatorView()
+    
+    private lazy var fbPostController: FireBasePostController = {
+        let storageRef = StorageReference()
+        let storageManager = StorageManager(storageRef: storageRef)
+        return FireBasePostController(storageManager: storageManager)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +38,7 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
     // MARK: - Actions
     func reloadFbPosts() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        FireBasePostController.shared.fetchPosts { (_, error) in
+        fbPostController.fetchPosts { (_, error) in
             if error == nil {
                 self.tableView.reloadData()
                 self.hideActivityIndicator()
@@ -44,13 +51,13 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return FireBasePostController.shared.fbPosts.count
+        return fbPostController.fbPosts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "fbPostCell", for: indexPath) as? FeedTableViewCell else { return UITableViewCell() }
         
-        let fbPost = FireBasePostController.shared.fbPosts[indexPath.row]
+        let fbPost = fbPostController.fbPosts[indexPath.row]
         cell.post = fbPost
         return cell
     }
