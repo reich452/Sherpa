@@ -74,7 +74,8 @@ class RedditTableViewController: UITableViewController, ActivityIndicatorPresent
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toCommentsView", sender: self)
+        // TODO: - 
+      //  performSegue(withIdentifier: "toViewComments", sender: self)
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
