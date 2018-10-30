@@ -59,6 +59,17 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
         
         let fbPost = fbPostController.fbPosts[indexPath.row]
         cell.post = fbPost
+        if fbPost.image == nil {
+            fbPostController.fetchImage(urlString: fbPost.imageStringURL) { (image) in
+                DispatchQueue.main.async {
+                if let currentIndexPath = self.tableView.indexPath(for: cell), currentIndexPath == indexPath {
+                        cell.photoImageView.image = image
+                } else {
+                    return
+                    }
+                }
+            }
+        }
         return cell
     }
     
