@@ -14,6 +14,7 @@ protocol Post {
     var timestamp: Date { get set }
     var image: UIImage? { get set }
     var imageStringURL: String { get set }
+    func matches(searchTerm: String) -> Bool
 }
 
 
@@ -92,5 +93,15 @@ extension CKRecord {
         self.setValue(ckPost.timestamp, forKey: CKPost.Constants.timestampKey)
         self.setValue(ckPost.imageAsset, forKey: CKPost.Constants.imageDataKey)
         
+    }
+}
+
+extension CKPost {
+    
+    func matches(searchTerm: String) -> Bool {
+        if title.lowercased().contains(searchTerm.lowercased()){
+            return true
+        }
+        return false
     }
 }

@@ -50,3 +50,14 @@ struct FbPost: Post {
     }
     
 }
+
+// MARK: - Search 
+
+extension FbPost {
+    func matches(searchTerm: String) -> Bool {
+        if title.lowercased().contains(searchTerm.lowercased()){
+            return true
+        }
+        return false
+    }
+}
