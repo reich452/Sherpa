@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w0f-Uf-cfY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w0f-Uf-cfY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,7 +34,7 @@
                                                         <constraint firstAttribute="width" constant="100" id="WUv-uA-eUc"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm0-Cq-0NJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm0-Cq-0NJ">
                                                     <rect key="frame" x="110" y="0.0" width="245" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="245" id="hl4-mY-DQj"/>
@@ -73,54 +72,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="InU-GT-HM0" kind="show" identifier="toCommentsView" id="1MV-6M-g6l"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAg-N5-ZBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="115.59220389805098"/>
-        </scene>
-        <!--Comments View Controller-->
-        <scene sceneID="niD-Yy-MeJ">
-            <objects>
-                <viewController id="InU-GT-HM0" customClass="CommentsViewController" customModule="coding_challenge_chemowave" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VBd-jB-Wrx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DXf-NU-RYd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="2"/>
-                            </progressView>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRt-Kp-6Om">
-                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="jRt-Kp-6Om" firstAttribute="leading" secondItem="sVb-4G-1Vs" secondAttribute="leading" id="AvY-h6-5lR"/>
-                            <constraint firstItem="DXf-NU-RYd" firstAttribute="top" secondItem="sVb-4G-1Vs" secondAttribute="top" id="BXe-l2-SWx"/>
-                            <constraint firstItem="DXf-NU-RYd" firstAttribute="leading" secondItem="VBd-jB-Wrx" secondAttribute="leading" id="RcJ-W6-14A"/>
-                            <constraint firstItem="jRt-Kp-6Om" firstAttribute="top" secondItem="DXf-NU-RYd" secondAttribute="bottom" id="SzQ-vk-eX7"/>
-                            <constraint firstItem="jRt-Kp-6Om" firstAttribute="bottom" secondItem="sVb-4G-1Vs" secondAttribute="bottom" id="cQD-7P-uDp"/>
-                            <constraint firstAttribute="trailing" secondItem="DXf-NU-RYd" secondAttribute="trailing" id="fAm-Od-IUU"/>
-                            <constraint firstItem="jRt-Kp-6Om" firstAttribute="trailing" secondItem="sVb-4G-1Vs" secondAttribute="trailing" id="jMq-Gh-Y36"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="sVb-4G-1Vs"/>
-                    </view>
-                    <connections>
-                        <outlet property="progressView" destination="DXf-NU-RYd" id="etI-bv-wZS"/>
-                        <outlet property="webView" destination="jRt-Kp-6Om" id="M9l-4Q-8Mr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5MU-zt-SZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1800.8" y="115.59220389805098"/>
+            <point key="canvasLocation" x="1063" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sY0-4v-z5d">
