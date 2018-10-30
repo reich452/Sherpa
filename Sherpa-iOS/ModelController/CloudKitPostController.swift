@@ -10,9 +10,6 @@ import UIKit
 import CloudKit
 import UserNotifications
 
-
-
-
 class CloudKitPostController{
     
     static let shared = CloudKitPostController()
