@@ -20,7 +20,6 @@
 		010876602188BBA800FAC3BE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108765F2188BBA800FAC3BE /* StorageManager.swift */; };
 		0120870A2184D3CE007B7C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012087092184D3CE007B7C43 /* AppDelegate.swift */; };
 		0120870F2184D3CE007B7C43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0120870D2184D3CE007B7C43 /* Main.storyboard */; };
-		012087112184D3CF007B7C43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012087102184D3CF007B7C43 /* Assets.xcassets */; };
 		012087142184D3CF007B7C43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012087122184D3CF007B7C43 /* LaunchScreen.storyboard */; };
 		0120871F2184D3CF007B7C43 /* SherpaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120871E2184D3CF007B7C43 /* SherpaTests.swift */; };
 		0120872C2184D68F007B7C43 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0120872B2184D68F007B7C43 /* MainTabBar.storyboard */; };
@@ -69,6 +68,7 @@
 		01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208791218536E3007B7C43 /* CloudKitPostController.swift */; };
 		01208797218538B4007B7C43 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208796218538B4007B7C43 /* Extentions.swift */; };
 		01474E102188E38F003B29A0 /* RdPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01474E0F2188E38F003B29A0 /* RdPost.swift */; };
+		01474E122188E4C3003B29A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01474E112188E4C3003B29A0 /* Assets.xcassets */; };
 		017978EC218745ED004BA6C7 /* Uploading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017978EB218745ED004BA6C7 /* Uploading.storyboard */; };
 		017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978ED21874952004BA6C7 /* UploadingViewController.swift */; };
 		017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017978F021874C66004BA6C7 /* SherpaTextField.swift */; };
@@ -108,7 +108,6 @@
 		012087062184D3CE007B7C43 /* Sherpa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sherpa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		012087092184D3CE007B7C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0120870E2184D3CE007B7C43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		012087102184D3CF007B7C43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		012087132184D3CF007B7C43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		012087152184D3CF007B7C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0120871A2184D3CF007B7C43 /* SherpaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SherpaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +159,7 @@
 		01208791218536E3007B7C43 /* CloudKitPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPostController.swift; sourceTree = "<group>"; };
 		01208796218538B4007B7C43 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		01474E0F2188E38F003B29A0 /* RdPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdPost.swift; sourceTree = "<group>"; };
+		01474E112188E4C3003B29A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		017978EB218745ED004BA6C7 /* Uploading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Uploading.storyboard; sourceTree = "<group>"; };
 		017978ED21874952004BA6C7 /* UploadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewController.swift; sourceTree = "<group>"; };
 		017978F021874C66004BA6C7 /* SherpaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SherpaTextField.swift; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 				012087092184D3CE007B7C43 /* AppDelegate.swift */,
 				012087152184D3CF007B7C43 /* Info.plist */,
 				017979132187CCE1004BA6C7 /* GoogleService-Info.plist */,
-				012087102184D3CF007B7C43 /* Assets.xcassets */,
+				01474E112188E4C3003B29A0 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -544,6 +544,7 @@
 				012087142184D3CF007B7C43 /* LaunchScreen.storyboard in Resources */,
 				012087742184F164007B7C43 /* SF-Pro-Display-MediumItalic.otf in Resources */,
 				0120876F2184F164007B7C43 /* SF-Pro-Display-Heavy.otf in Resources */,
+				01474E122188E4C3003B29A0 /* Assets.xcassets in Resources */,
 				012087782184F164007B7C43 /* SF-Pro-Display-LightItalic.otf in Resources */,
 				0120872C2184D68F007B7C43 /* MainTabBar.storyboard in Resources */,
 				012087732184F164007B7C43 /* SF-Pro-Text-Bold.otf in Resources */,
@@ -566,7 +567,6 @@
 				0120876A2184F164007B7C43 /* SF-Pro-Display-Light.otf in Resources */,
 				017978EC218745ED004BA6C7 /* Uploading.storyboard in Resources */,
 				012087822184F164007B7C43 /* SF-Pro-Display-BoldItalic.otf in Resources */,
-				012087112184D3CF007B7C43 /* Assets.xcassets in Resources */,
 				012087692184F164007B7C43 /* SF-Pro-Display-RegularItalic.otf in Resources */,
 				0120876B2184F164007B7C43 /* SF-Pro-Display-Regular.otf in Resources */,
 				0120870F2184D3CE007B7C43 /* Main.storyboard in Resources */,
