@@ -1,2 +1,2 @@
 # Sherpa
-App that covers the differences between CloudKit and Firebase. It also has CoreData
+App that covers the differences between CloudKit, Firebase, and also has pagination. 
