@@ -103,6 +103,18 @@ class CloudKitPostController{
         }
     }
     
+    func addComent(_ text: String, to ckPost: CKPost, completion: @escaping (CKComment?) -> ()) {
+        var ckComment = CKComment(text: text, ckPost: ckPost)
+        ckComment.addComment(ckComment: ckComment)
+        publicDB.save(CKRecord(ckComment)) { (record, error) in
+            if let error = error {
+                print("Error saving comment to post \(error) \(error.localizedDescription)")
+                completion(nil); return
+            }
+            completion(ckComment)
+        }
+    }
+    
     // MARK: - Fetch
     
     func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil, completion: @escaping (Bool) -> Void) {
