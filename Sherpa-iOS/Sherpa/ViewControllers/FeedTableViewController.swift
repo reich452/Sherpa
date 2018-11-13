@@ -34,6 +34,11 @@ class FeedTableViewController: UITableViewController, ActivityIndicatorPresenter
                 DispatchQueue.main.async {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
+            } else {
+                self.hideActivityIndicator()
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
             }
         }
     }
@@ -43,8 +48,6 @@ class FeedTableViewController: UITableViewController, ActivityIndicatorPresenter
         NotificationCenter.default.removeObserver(self, name: Notification.Name.PostsChangedNotification, object: nil)
 
     }
-    
-  
     
     @objc func postsChanged() {
         let indexPath = IndexPath(item: CloudKitPostController.shared.ckPosts.count - 1, section: 0)

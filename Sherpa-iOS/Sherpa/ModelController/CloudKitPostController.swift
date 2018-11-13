@@ -135,7 +135,6 @@ class CloudKitPostController{
         let query = CKQuery(recordType: CKPost.Constants.ckPostKey, predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
         let operation: CKQueryOperation
-
         
         if let cursor = cursor {
             operation = CKQueryOperation(cursor: cursor)
@@ -152,6 +151,12 @@ class CloudKitPostController{
         
         operation.recordFetchedBlock = { [unowned self] record in
             guard let post = CKPost(record: record) else { return }
+            if self.ckPosts.contains(where: { (ckPost) -> Bool in
+                post.recordID == ckPost.recordID
+            }) {
+                operation.cancel()
+                completion(false); return 
+            }
             self.ckPosts.append(post)
             print("🎃 fetching ckPosts \(self.ckPosts.count)")
             print(self.ckPosts.count)
