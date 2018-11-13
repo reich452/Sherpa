@@ -12,6 +12,6 @@ protocol Post {
     var timestamp: Date { get set }
     var image: UIImage? { get set }
     var imageStringURL: String { get set }
-    var comments: [CKComment] { get set }
+    var comments: [Comment] { get set }
     func matches(searchTerm: String) -> Bool
 }

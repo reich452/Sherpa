@@ -21,7 +21,8 @@ class CKPost: Post {
     var timestamp: Date
     var photoData: Data?
     var tempURL: URL?
-    var comments: [CKComment] = []
+    var comments: [Comment] = []
+    var ckComments: [CKComment] = []
     var image: UIImage?{
         get{
             guard let photoData = photoData else {return nil}
@@ -58,11 +59,11 @@ class CKPost: Post {
     
     // MARK: - Initialization
     
-    init(title: String, timestamp: Date = Date(), image: UIImage, comments: [CKComment] = []) {
+    init(title: String, timestamp: Date = Date(), image: UIImage, ckComments: [CKComment] = []) {
         self.title = title
         self.timestamp = timestamp
         self.image = image
-        self.comments = comments
+        self.ckComments = ckComments
     }
     
     // MARK: - Fetching
@@ -75,7 +76,7 @@ class CKPost: Post {
         self.title = title
         self.timestamp = timestamp
         self.photoData = photoData
-        self.comments = []
+        self.ckComments = []
         self.recordID = record.recordID
     }
     

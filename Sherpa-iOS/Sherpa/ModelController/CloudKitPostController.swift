@@ -111,6 +111,7 @@ class CloudKitPostController{
         guard let post = post,
             let ckPost = post as? CKPost else {completion (nil); return }
         let ckComment = CKComment(text: text, ckPost: ckPost, post: post)
+        ckPost.ckComments.append(ckComment)
         ckPost.comments.append(ckComment)
         ckComment.ckPost = ckPost
         
@@ -189,7 +190,7 @@ class CloudKitPostController{
         guard let ckPost = post as? CKPost else { completion(nil); return }
         let postRef = ckPost.recordID
         let predicate = NSPredicate(format: "postReference == %@", postRef)
-        let commentIDs = ckPost.comments.compactMap({$0.recordID})
+        let commentIDs = ckPost.ckComments.compactMap({$0.recordID})
         let predicate2 = NSPredicate(format: "NOT(recordID IN %@)", commentIDs)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
         let query = CKQuery(recordType: "CKComment", predicate: compoundPredicate)
@@ -203,7 +204,8 @@ class CloudKitPostController{
             }
             guard let records = records else { completion(nil); return }
             let ckComments = records.compactMap{CKComment(record: $0)}
-            ckPost.comments.append(contentsOf: ckComments)
+            ckPost.ckComments.append(contentsOf: ckComments)
+            ckPost.ckComments = ckComments
             ckPost.comments = ckComments
             completion(ckComments)
         }
