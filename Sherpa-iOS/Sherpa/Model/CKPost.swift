@@ -9,7 +9,9 @@
 import UIKit
 import CloudKit
 
-struct CKPost: Post {
+class CKPost: Post {
+//    var comments: [Comment] = []
+    
 
     var imageStringURL: String = ""
     
@@ -19,7 +21,7 @@ struct CKPost: Post {
     var timestamp: Date
     var photoData: Data?
     var tempURL: URL?
-    var comments: [CKComment] = [] 
+    var comments: [CKComment] = []
     var image: UIImage?{
         get{
             guard let photoData = photoData else {return nil}
@@ -31,7 +33,7 @@ struct CKPost: Post {
     }
     
     var imageAsset: CKAsset? {
-        mutating get {
+         get {
             let tempDirectory = NSTemporaryDirectory()
             let tempDirecotryURL = URL(fileURLWithPath: tempDirectory)
             let fileURL = tempDirecotryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
@@ -81,7 +83,7 @@ struct CKPost: Post {
 
 extension CKRecord {
     convenience init(_ ckPost: CKPost) {
-        var ckPost = ckPost
+//        var ckPost = ckPost
         let recordID = ckPost.recordID
         self.init(recordType: CKPost.Constants.ckPostKey, recordID: recordID)
         self.setValue(ckPost.title, forKey: CKPost.Constants.titleKey)

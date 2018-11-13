@@ -15,6 +15,7 @@ struct Constants {
     static let homeSectionHeader = "homeSectionHeader"
     static let cloudKitCell = "cloudKitCell"
     static let redditCell = "redditPostCell"
+    static let commentCell = "commentCell"
     
     // MARK: - Storyboard Name
     static let dbActionTab = "DataBaseActionTab"
@@ -31,6 +32,7 @@ struct Constants {
     
     // MARK: - Segue
     static let toUpLoadingVC = "toUpLoadingVC"
+    static let toCommentVC = "toCommentVC"
 }
 
 extension Constants {

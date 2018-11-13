@@ -59,7 +59,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ef-A9-sIN">
                                             <rect key="frame" x="28" y="351" width="318" height="40"/>
                                             <connections>
-                                                <segue destination="Hm2-EC-tZ8" kind="show" id="mN5-us-shC"/>
+                                                <action selector="didTapCommentButton:" destination="81a-Nk-NbS" eventType="touchUpInside" id="Vyf-IA-cbN"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -97,16 +97,17 @@
                     <navigationItem key="navigationItem" title="Posts" id="RSR-bV-Q38"/>
                     <connections>
                         <outlet property="searchBar" destination="9Oe-fB-iAe" id="otS-ee-I7X"/>
+                        <segue destination="Hm2-EC-tZ8" kind="show" identifier="toCommentVC" id="td7-nj-dk8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l11-kv-wh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2420" y="-437.63118440779613"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Comment List Table View Controller-->
         <scene sceneID="Vfk-ol-nAG">
             <objects>
-                <tableViewController id="Hm2-EC-tZ8" sceneMemberID="viewController">
+                <tableViewController id="Hm2-EC-tZ8" customClass="CommentListTableViewController" customModule="Sherpa" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BRv-ZP-rcq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,6 +134,9 @@
                                                 <constraint firstAttribute="width" constant="48.5" id="p8d-sk-Jwf"/>
                                             </constraints>
                                             <state key="normal" title="Add"/>
+                                            <connections>
+                                                <action selector="addButtonTapped:" destination="Hm2-EC-tZ8" eventType="touchUpInside" id="FHR-PM-p9u"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -153,7 +157,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Wwx-rG-tYO" detailTextLabel="Ahj-Qv-Hvl" style="IBUITableViewCellStyleValue1" id="GTv-J9-KqR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" textLabel="Wwx-rG-tYO" detailTextLabel="Ahj-Qv-Hvl" style="IBUITableViewCellStyleValue1" id="GTv-J9-KqR">
                                 <rect key="frame" x="0.0" y="360" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GTv-J9-KqR" id="Ehc-QQ-L1R">
@@ -183,6 +187,11 @@
                             <outlet property="delegate" destination="Hm2-EC-tZ8" id="mR8-G3-wwt"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="addButton" destination="c0g-gF-m8c" id="B4K-Qa-eQi"/>
+                        <outlet property="commentTextField" destination="5iy-yl-dsa" id="oie-Pp-EIA"/>
+                        <outlet property="photoImageView" destination="KIt-jd-QTe" id="tkb-cY-ph7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zou-ad-pIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

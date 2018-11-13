@@ -12,4 +12,5 @@ protocol Comment {
     var text: String { get set }
     var author: String { get set }
     var timestamp: Date { get set }
+    var post: Post? { get set }
 }

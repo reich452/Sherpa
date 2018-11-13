@@ -83,6 +83,7 @@
 		01F7B21721962E7D00902239 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B21621962E7D00902239 /* Post.swift */; };
 		01F7B25F21964BA700902239 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B25E21964BA700902239 /* Comment.swift */; };
 		01F7B26121964C6F00902239 /* CKComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B26021964C6F00902239 /* CKComment.swift */; };
+		01F7B26321979E8C00902239 /* CommentListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B26221979E8C00902239 /* CommentListTableViewController.swift */; };
 		3B8B14443CEA4C653A8DF8B2 /* Pods_Sherpa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5F4D00821B7ECDDDDC5D29 /* Pods_Sherpa.framework */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +179,7 @@
 		01F7B21621962E7D00902239 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		01F7B25E21964BA700902239 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		01F7B26021964C6F00902239 /* CKComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKComment.swift; sourceTree = "<group>"; };
+		01F7B26221979E8C00902239 /* CommentListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListTableViewController.swift; sourceTree = "<group>"; };
 		6FC0056429D754735F826034 /* Pods-Sherpa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sherpa.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sherpa/Pods-Sherpa.release.xcconfig"; sourceTree = "<group>"; };
 		9A5F4D00821B7ECDDDDC5D29 /* Pods_Sherpa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sherpa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F64B1996BDD224B4716B9C /* Pods_SherpaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SherpaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,6 +288,7 @@
 				012087342184DA36007B7C43 /* DataBaseActionTableViewController.swift */,
 				017978ED21874952004BA6C7 /* UploadingViewController.swift */,
 				0179790A21878595004BA6C7 /* FeedTableViewController.swift */,
+				01F7B26221979E8C00902239 /* CommentListTableViewController.swift */,
 				0108764F21881C1600FAC3BE /* FBPostTableViewController.swift */,
 				0108765521882F6800FAC3BE /* RedditTableViewController.swift */,
 			);
@@ -657,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0108765C2188337B00FAC3BE /* RedditPostController.swift in Sources */,
+				01F7B26321979E8C00902239 /* CommentListTableViewController.swift in Sources */,
 				017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */,
 				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
 				0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */,

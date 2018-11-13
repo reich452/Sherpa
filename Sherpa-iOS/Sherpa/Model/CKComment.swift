@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-struct CKComment: Comment {
+class CKComment: Comment {
     
     let typeKey = "CKComment"
     fileprivate let textKey = "text"
@@ -21,22 +21,20 @@ struct CKComment: Comment {
     var author: String = ""
     var timestamp: Date
     var ckPost: CKPost?
+    var post: Post?
     
-    init(text: String, timestamp: Date = Date(), ckPost: CKPost?) {
+    init(text: String, timestamp: Date = Date(), ckPost: CKPost?, post: Post?) {
         self.text = text
         self.timestamp = timestamp
         self.ckPost = ckPost
+        self.post = post
     }
     
-    init?(record: CKRecord) {
+    convenience init?(record: CKRecord) {
         guard let text = record["text"] as? String,
             let timestamp = record.creationDate else { return nil }
-        self.init(text: text, timestamp: timestamp, ckPost: nil)
+        self.init(text: text, timestamp: timestamp, ckPost: nil, post: nil)
         self.recordID = record.recordID
-    }
-    
-    mutating func addComment(ckComment: CKComment) {
-       ckPost?.comments.append(ckComment)
     }
     
 }

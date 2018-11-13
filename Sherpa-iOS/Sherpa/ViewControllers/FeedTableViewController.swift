@@ -8,9 +8,9 @@
 
 import UIKit
 
-class FeedTableViewController: UITableViewController, ActivityIndicatorPresenter {
-
+class FeedTableViewController: UITableViewController, ActivityIndicatorPresenter, FeedTableViewCellDelegate, DidPassUpdatedComments  {
     
+
     @IBOutlet weak var searchBar: UISearchBar!
     var resultsArray: [CKPost]?
 
@@ -22,7 +22,6 @@ class FeedTableViewController: UITableViewController, ActivityIndicatorPresenter
         super.viewDidLoad()
         searchBar.delegate = self
         
-    
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 350
         self.showActivityIndicator()
@@ -39,17 +38,32 @@ class FeedTableViewController: UITableViewController, ActivityIndicatorPresenter
         }
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.PostsChangedNotification, object: nil)
+
     }
+    
+  
     
     @objc func postsChanged() {
         let indexPath = IndexPath(item: CloudKitPostController.shared.ckPosts.count - 1, section: 0)
         
         self.tableView.insertRows(at: [indexPath], with: .fade)
+        
     }
+    
+    // MARK: - Delegate
+    
+    func didTapCommentButton(_ cell: FeedTableViewCell) {
+       performSegue(withIdentifier: Constants.toCommentVC, sender: cell)
+    }
+    
+    func reloadCommentCount(_ indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? FeedTableViewCell else { return }
+        cell.commnetLabel.text = "Comments \(cell.post?.comments.count ??? "")"
+    }
+    
     
 
     // MARK: - Table view data source
@@ -65,9 +79,24 @@ class FeedTableViewController: UITableViewController, ActivityIndicatorPresenter
         
         let dataSource = isSearching ? resultsArray : CloudKitPostController.shared.ckPosts
         let ckPost = dataSource?[indexPath.row]
+        cell.delegate = self
         cell.post = ckPost
         
         return cell
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.toCommentVC {
+            guard let commentListVC = segue.destination as? CommentListTableViewController,
+                let selectedCell = sender as? FeedTableViewCell,
+                let indexPath = tableView.indexPath(for: selectedCell) else { return }
+            let ckPost = CloudKitPostController.shared.ckPosts[indexPath.row]
+            commentListVC.post = ckPost
+            commentListVC.commentDelegate = self
+            commentListVC.indexPath = indexPath
+        }
     }
     
 }

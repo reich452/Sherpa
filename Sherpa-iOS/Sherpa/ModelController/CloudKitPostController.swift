@@ -10,6 +10,10 @@ import UIKit
 import CloudKit
 import UserNotifications
 
+protocol CommentUpdatedToDelegate: class {
+    func commentsWereAddedTo()
+}
+
 class CloudKitPostController{
     
     static let shared = CloudKitPostController()
@@ -17,7 +21,7 @@ class CloudKitPostController{
     private init() {}
     
     let publicDB = CKContainer.default().publicCloudDatabase
-    
+    weak var delegate: CommentUpdatedToDelegate?
     var ckPosts = [CKPost]() {
         didSet {
             DispatchQueue.main.async {
@@ -103,26 +107,35 @@ class CloudKitPostController{
         }
     }
     
-    func addComent(_ text: String, to ckPost: CKPost, completion: @escaping (CKComment?) -> ()) {
-        var ckComment = CKComment(text: text, ckPost: ckPost)
-        ckComment.addComment(ckComment: ckComment)
+    func addComent(_ text: String,to post: Post?, completion: @escaping (CKComment?) -> ()) {
+        guard let post = post,
+            let ckPost = post as? CKPost else {completion (nil); return }
+        let ckComment = CKComment(text: text, ckPost: ckPost, post: post)
+        ckPost.comments.append(ckComment)
+        ckComment.ckPost = ckPost
+        
         publicDB.save(CKRecord(ckComment)) { (record, error) in
             if let error = error {
                 print("Error saving comment to post \(error) \(error.localizedDescription)")
                 completion(nil); return
             }
-            completion(ckComment)
+            DispatchQueue.main.async {
+                self.delegate?.commentsWereAddedTo()
+//                ckComment.recordID = record?.recordID
+                completion(ckComment)
+            }
         }
     }
     
     // MARK: - Fetch
     
     func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil, completion: @escaping (Bool) -> Void) {
-        
+      
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: CKPost.Constants.ckPostKey, predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
         let operation: CKQueryOperation
+
         
         if let cursor = cursor {
             operation = CKQueryOperation(cursor: cursor)
@@ -143,12 +156,13 @@ class CloudKitPostController{
             print("🎃 fetching ckPosts \(self.ckPosts.count)")
             print(self.ckPosts.count)
             completion(false)
+    
             DispatchQueue.main.sync {
-                // TODO: - switch back to delegate
-//                self.delegate?.postsWereAddedTo()
+            
+    
             }
         }
-        let publicDB = CKContainer.default().publicCloudDatabase
+        
         operation.queryCompletionBlock = { [unowned self] cursor, error in
             if let error = error {
                 print("Error fethcing posts \(error)")
@@ -157,11 +171,37 @@ class CloudKitPostController{
                 print("Fetching more results \(self.ckPosts.count)")
             } else {
                 print("Done Fetching CKPosts")
+               
                 completion(true)
+                
             }
         }
         publicDB.add(operation)
     }
     
+    
+    func fetchComments(from post: Post, completion: @escaping ([CKComment]?) -> Void) {
+        guard let ckPost = post as? CKPost else { completion(nil); return }
+        let postRef = ckPost.recordID
+        let predicate = NSPredicate(format: "postReference == %@", postRef)
+        let commentIDs = ckPost.comments.compactMap({$0.recordID})
+        let predicate2 = NSPredicate(format: "NOT(recordID IN %@)", commentIDs)
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
+        let query = CKQuery(recordType: "CKComment", predicate: compoundPredicate)
+        
+        
+        publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print("Error fetching comments from cloudKit \(#function) \(error) \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            guard let records = records else { completion(nil); return }
+            let ckComments = records.compactMap{CKComment(record: $0)}
+            ckPost.comments.append(contentsOf: ckComments)
+            ckPost.comments = ckComments
+            completion(ckComments)
+        }
+    }
 }
 
