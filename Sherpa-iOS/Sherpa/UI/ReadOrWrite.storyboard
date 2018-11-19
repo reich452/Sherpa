@@ -8,6 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Light.otf">
+            <string>SFProDisplay-Light</string>
+        </array>
+        <array key="SF-Pro-Display-Semibold.otf">
+            <string>SFProDisplay-Semibold</string>
+        </array>
         <array key="SF-Pro-Text-Regular.otf">
             <string>SFProText-Regular</string>
         </array>
@@ -38,6 +44,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="L4d-tV-FA1" kind="show" identifier="toAuthorTVC" id="k4C-Bk-zoM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -50,34 +59,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xWC-tF-aKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1052" y="172.26386806596702"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="ghM-om-96X">
-            <objects>
-                <tableViewController id="1lg-ys-feQ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eKm-PM-kyw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Uh8-6v-fNr">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uh8-6v-fNr" id="fq2-Wn-pZM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1lg-ys-feQ" id="cmb-vG-zO8"/>
-                            <outlet property="delegate" destination="1lg-ys-feQ" id="I70-8l-FZs"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p4f-pF-IUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1807" y="172"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rpR-vc-2VK">
@@ -96,6 +77,176 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvk-j1-PCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="112.8" y="172.26386806596702"/>
+        </scene>
+        <!--Author Table View Controller-->
+        <scene sceneID="TjV-nx-lpo">
+            <objects>
+                <tableViewController storyboardIdentifier="AuthorTableViewController" id="L4d-tV-FA1" customClass="AuthorTableViewController" customModule="Sherpa" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fv8-fC-iBW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="authorCell" rowHeight="461" id="4Z8-L2-Ra0" customClass="AuthorTableViewCell" customModule="Sherpa" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="461"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Z8-L2-Ra0" id="Xal-ZG-Fgz">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="460.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7n-9v-qF9" customClass="CardView" customModule="Sherpa" customModuleProvider="target">
+                                            <rect key="frame" x="19" y="23" width="337.5" height="414.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="DkD-fY-w8w">
+                                                    <rect key="frame" x="16.5" y="20.5" width="304" height="373.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="2nk-fy-Ql3">
+                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="63.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3R-ii-ASd">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="25.5" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pro text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6U-6r-aS7">
+                                                                    <rect key="frame" x="51.5" y="0.0" width="52.5" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="vP6-Zr-aG0">
+                                                            <rect key="frame" x="0.0" y="77.5" width="110.5" height="63.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Con" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOz-q1-0RP">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="31" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Con text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JK-YM-VKo">
+                                                                    <rect key="frame" x="52" y="0.0" width="58.5" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="0TI-Mv-KAr">
+                                                            <rect key="frame" x="0.0" y="155" width="142" height="63.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9A-VZ-7hv">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="48.5" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pa5-FI-p3u">
+                                                                    <rect key="frame" x="65.5" y="0.0" width="76.5" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="RqX-PV-1AK">
+                                                            <rect key="frame" x="0.0" y="232.5" width="137" height="63.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rmo-9h-wA0">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="43.5" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CP1-pC-RgS">
+                                                                    <rect key="frame" x="65.5" y="0.0" width="71.5" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="swU-Jr-53r">
+                                                            <rect key="frame" x="0.0" y="310" width="156.5" height="63.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opinion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNm-gV-mQD">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="59" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opinion text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1d-yn-6ve">
+                                                                    <rect key="frame" x="73" y="0.0" width="83.5" height="63.5"/>
+                                                                    <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.56056693319999995" green="0.78299109" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="DkD-fY-w8w" firstAttribute="centerX" secondItem="D7n-9v-qF9" secondAttribute="centerX" id="N7J-Dh-ldj"/>
+                                                <constraint firstItem="DkD-fY-w8w" firstAttribute="centerY" secondItem="D7n-9v-qF9" secondAttribute="centerY" id="QZh-se-rMe"/>
+                                                <constraint firstItem="DkD-fY-w8w" firstAttribute="height" secondItem="D7n-9v-qF9" secondAttribute="height" multiplier="0.9" id="hGq-0W-tLR"/>
+                                                <constraint firstItem="DkD-fY-w8w" firstAttribute="width" secondItem="D7n-9v-qF9" secondAttribute="width" multiplier="0.9" id="iYs-ud-vmV"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                    <size key="value" width="0.0" height="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                    <real key="value" value="0.20000000000000001"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                    <real key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="D7n-9v-qF9" firstAttribute="width" secondItem="Xal-ZG-Fgz" secondAttribute="width" multiplier="0.9" id="IH9-DV-Ocs"/>
+                                        <constraint firstItem="D7n-9v-qF9" firstAttribute="centerY" secondItem="Xal-ZG-Fgz" secondAttribute="centerY" id="k3s-yz-Et1"/>
+                                        <constraint firstItem="D7n-9v-qF9" firstAttribute="centerX" secondItem="Xal-ZG-Fgz" secondAttribute="centerX" id="nFJ-qX-lKw"/>
+                                        <constraint firstItem="D7n-9v-qF9" firstAttribute="height" secondItem="Xal-ZG-Fgz" secondAttribute="height" multiplier="0.9" id="p0e-SU-G4x"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cardView" destination="D7n-9v-qF9" id="6G1-ew-e2k"/>
+                                    <outlet property="conLabel" destination="TOz-q1-0RP" id="2yd-L4-iNg"/>
+                                    <outlet property="conTextLabel" destination="5JK-YM-VKo" id="NHb-Ul-WQy"/>
+                                    <outlet property="detailInfoLabel" destination="CP1-pC-RgS" id="uTN-xW-J0v"/>
+                                    <outlet property="detailLabel" destination="Rmo-9h-wA0" id="OpK-OZ-lUJ"/>
+                                    <outlet property="detailTextLabel" destination="CP1-pC-RgS" id="ttj-yh-fRc"/>
+                                    <outlet property="opinionLabel" destination="qNm-gV-mQD" id="WLb-Ri-fph"/>
+                                    <outlet property="opinionTextLabel" destination="G1d-yn-6ve" id="UMB-NA-bVe"/>
+                                    <outlet property="proLabel" destination="T3R-ii-ASd" id="pUk-aO-3aL"/>
+                                    <outlet property="proTextLabel" destination="k6U-6r-aS7" id="dQj-a6-rlt"/>
+                                    <outlet property="ratingLabel" destination="O9A-VZ-7hv" id="d88-IE-qDL"/>
+                                    <outlet property="ratingTextLabel" destination="Pa5-FI-p3u" id="47q-c4-m3Q"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="L4d-tV-FA1" id="lV5-VP-ow6"/>
+                            <outlet property="delegate" destination="L4d-tV-FA1" id="PeJ-xJ-OGm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="n7b-is-awp"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mGR-YI-FXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1786" y="185"/>
         </scene>
     </scenes>
 </document>

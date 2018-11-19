@@ -71,7 +71,7 @@
 		015FE3BB219C868E0038EA7F /* Sherpa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3B9219C868E0038EA7F /* Sherpa.xcdatamodeld */; };
 		015FE3BD219C94050038EA7F /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3BC219C94050038EA7F /* Stack.swift */; };
 		015FE3BF219C982E0038EA7F /* Database+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3BE219C982E0038EA7F /* Database+Convenience.swift */; };
-		015FE3C1219C99C70038EA7F /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3C0219C99C70038EA7F /* CoreDataController.swift */; };
+		015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3C0219C99C70038EA7F /* AuthorController.swift */; };
 		015FE3C3219CDECF0038EA7F /* ReadOrWrite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015FE3C2219CDECF0038EA7F /* ReadOrWrite.storyboard */; };
 		015FE3C5219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3C4219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift */; };
 		017978EC218745ED004BA6C7 /* Uploading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017978EB218745ED004BA6C7 /* Uploading.storyboard */; };
@@ -85,7 +85,11 @@
 		0179790D21878661004BA6C7 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179790C21878661004BA6C7 /* FeedTableViewCell.swift */; };
 		017979122187AA9B004BA6C7 /* PublicProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017979112187AA9B004BA6C7 /* PublicProtocols.swift */; };
 		017979142187CCE1004BA6C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 017979132187CCE1004BA6C7 /* GoogleService-Info.plist */; };
-		01F7B21521962B0400902239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01F7B21421962B0400902239 /* Assets.xcassets */; };
+		019EB3DB21A0F89600BD9FC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 019EB3DA21A0F89600BD9FC2 /* Assets.xcassets */; };
+		019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */; };
+		019EB3DF21A113E000BD9FC2 /* AuthroTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 019EB3DE21A113E000BD9FC2 /* AuthroTVC.storyboard */; };
+		019EB3E121A1325A00BD9FC2 /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */; };
+		019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E221A135D800BD9FC2 /* CardView.swift */; };
 		01F7B21721962E7D00902239 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B21621962E7D00902239 /* Post.swift */; };
 		01F7B25F21964BA700902239 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B25E21964BA700902239 /* Comment.swift */; };
 		01F7B26121964C6F00902239 /* CKComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B26021964C6F00902239 /* CKComment.swift */; };
@@ -172,7 +176,7 @@
 		015FE3BA219C868E0038EA7F /* DataBade.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBade.xcdatamodel; sourceTree = "<group>"; };
 		015FE3BC219C94050038EA7F /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		015FE3BE219C982E0038EA7F /* Database+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database+Convenience.swift"; sourceTree = "<group>"; };
-		015FE3C0219C99C70038EA7F /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		015FE3C0219C99C70038EA7F /* AuthorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorController.swift; sourceTree = "<group>"; };
 		015FE3C2219CDECF0038EA7F /* ReadOrWrite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReadOrWrite.storyboard; sourceTree = "<group>"; };
 		015FE3C4219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadOrWriteTableViewController.swift; sourceTree = "<group>"; };
 		017978EB218745ED004BA6C7 /* Uploading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Uploading.storyboard; sourceTree = "<group>"; };
@@ -187,7 +191,11 @@
 		0179790C21878661004BA6C7 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		017979112187AA9B004BA6C7 /* PublicProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProtocols.swift; sourceTree = "<group>"; };
 		017979132187CCE1004BA6C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		01F7B21421962B0400902239 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../Assets.xcassets; sourceTree = "<group>"; };
+		019EB3DA21A0F89600BD9FC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../Downloads/Sherpa-00c4ac415bec91b27170825dad040e4d6578cf1a/Sherpa-iOS/Sherpa/Resources/Assets.xcassets"; sourceTree = "<group>"; };
+		019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewController.swift; sourceTree = "<group>"; };
+		019EB3DE21A113E000BD9FC2 /* AuthroTVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthroTVC.storyboard; sourceTree = "<group>"; };
+		019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewCell.swift; sourceTree = "<group>"; };
+		019EB3E221A135D800BD9FC2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		01F7B21621962E7D00902239 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		01F7B25E21964BA700902239 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		01F7B26021964C6F00902239 /* CKComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKComment.swift; sourceTree = "<group>"; };
@@ -273,6 +281,7 @@
 				0120870D2184D3CE007B7C43 /* Main.storyboard */,
 				012087302184D977007B7C43 /* DataBaseActionTab.storyboard */,
 				015FE3C2219CDECF0038EA7F /* ReadOrWrite.storyboard */,
+				019EB3DE21A113E000BD9FC2 /* AuthroTVC.storyboard */,
 				017978EB218745ED004BA6C7 /* Uploading.storyboard */,
 				01797908218784B0004BA6C7 /* Feed.storyboard */,
 				0108765121881CDB00FAC3BE /* FBPost.storyboard */,
@@ -287,8 +296,8 @@
 				012087472184F164007B7C43 /* SF Pro */,
 				012087092184D3CE007B7C43 /* AppDelegate.swift */,
 				012087152184D3CF007B7C43 /* Info.plist */,
+				019EB3DA21A0F89600BD9FC2 /* Assets.xcassets */,
 				017979132187CCE1004BA6C7 /* GoogleService-Info.plist */,
-				01F7B21421962B0400902239 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -302,6 +311,7 @@
 				015FE3C4219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift */,
 				017978ED21874952004BA6C7 /* UploadingViewController.swift */,
 				0179790A21878595004BA6C7 /* FeedTableViewController.swift */,
+				019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */,
 				01F7B26221979E8C00902239 /* CommentListTableViewController.swift */,
 				0108764F21881C1600FAC3BE /* FBPostTableViewController.swift */,
 				0108765521882F6800FAC3BE /* RedditTableViewController.swift */,
@@ -333,6 +343,7 @@
 				012087892185035C007B7C43 /* ActionTableViewCell.swift */,
 				0179790C21878661004BA6C7 /* FeedTableViewCell.swift */,
 				0108765D2188A63A00FAC3BE /* RedditTableViewCell.swift */,
+				019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -416,7 +427,7 @@
 				01208791218536E3007B7C43 /* CloudKitPostController.swift */,
 				01087647218812B000FAC3BE /* FireBasePostController.swift */,
 				0108765B2188337B00FAC3BE /* RedditPostController.swift */,
-				015FE3C0219C99C70038EA7F /* CoreDataController.swift */,
+				015FE3C0219C99C70038EA7F /* AuthorController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -445,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				017978F021874C66004BA6C7 /* SherpaTextField.swift */,
+				019EB3E221A135D800BD9FC2 /* CardView.swift */,
 			);
 			path = Subclass;
 			sourceTree = "<group>";
@@ -589,11 +601,12 @@
 				017979142187CCE1004BA6C7 /* GoogleService-Info.plist in Resources */,
 				012087712184F164007B7C43 /* SF-Pro-Display-Semibold.otf in Resources */,
 				012087722184F164007B7C43 /* SF-Pro-Text-Regular.otf in Resources */,
-				01F7B21521962B0400902239 /* Assets.xcassets in Resources */,
+				019EB3DF21A113E000BD9FC2 /* AuthroTVC.storyboard in Resources */,
 				0120876D2184F164007B7C43 /* SF-Pro-Display-Bold.otf in Resources */,
 				012087792184F164007B7C43 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				012087312184D977007B7C43 /* DataBaseActionTab.storyboard in Resources */,
 				012087682184F164007B7C43 /* SF-Pro-Text-Heavy.otf in Resources */,
+				019EB3DB21A0F89600BD9FC2 /* Assets.xcassets in Resources */,
 				012087812184F164007B7C43 /* SF-Pro-Text-Medium.otf in Resources */,
 				012087672184F164007B7C43 /* SF-Pro-Display-SemiboldItalic.otf in Resources */,
 				012087772184F164007B7C43 /* SF-Pro-Display-UltralightItalic.otf in Resources */,
@@ -692,13 +705,15 @@
 				015FE3BB219C868E0038EA7F /* Sherpa.xcdatamodeld in Sources */,
 				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
 				0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */,
+				019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */,
 				012087882184F59B007B7C43 /* ColorTheme.swift in Sources */,
 				01208797218538B4007B7C43 /* Extentions.swift in Sources */,
-				015FE3C1219C99C70038EA7F /* CoreDataController.swift in Sources */,
+				015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */,
 				012087462184E814007B7C43 /* HomeSections.swift in Sources */,
 				015FE3BD219C94050038EA7F /* Stack.swift in Sources */,
 				0120878F2185303F007B7C43 /* CKPost.swift in Sources */,
 				012087852184F353007B7C43 /* SectionHeaderCollectionReusableView.swift in Sources */,
+				019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */,
 				01F7B26121964C6F00902239 /* CKComment.swift in Sources */,
 				0120870A2184D3CE007B7C43 /* AppDelegate.swift in Sources */,
 				0108764A2188138900FAC3BE /* NetworkError.swift in Sources */,
@@ -717,6 +732,7 @@
 				010876602188BBA800FAC3BE /* StorageManager.swift in Sources */,
 				0120878A2185035C007B7C43 /* ActionTableViewCell.swift in Sources */,
 				0108765E2188A63A00FAC3BE /* RedditTableViewCell.swift in Sources */,
+				019EB3E121A1325A00BD9FC2 /* AuthorTableViewCell.swift in Sources */,
 				0108765021881C1600FAC3BE /* FBPostTableViewController.swift in Sources */,
 				01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */,
 				012087412184E362007B7C43 /* HomeCollectionViewCell.swift in Sources */,

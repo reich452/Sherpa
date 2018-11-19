@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-extension DatabaseModel {
+extension AuthorModel {
     
     @discardableResult convenience init(name: String, detail: String, pro: String, con: String, rating: Int16, opinion: String, context: NSManagedObjectContext = CoreDataStack.context) {
         self.init(context: context)
@@ -32,7 +32,7 @@ enum RatingEnum: Int16 {
 }
 
 
-extension DatabaseModel {
+extension AuthorModel {
     var ratingEnum: RatingEnum {
         set {
             self.rating = newValue.rawValue

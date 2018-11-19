@@ -17,6 +17,7 @@ struct Constants {
     static let redditCell = "redditPostCell"
     static let commentCell = "commentCell"
     static let readOrWriteCell = "readOrWriteCell"
+    static let authorCell = "authorCell"
     
     // MARK: - Storyboard Name
     static let dbActionTab = "DataBaseActionTab"
@@ -31,14 +32,16 @@ struct Constants {
     static let fbFeedTVC = "FBPostTableViewController"
     static let rdPostTVC = "RedditTableViewController"
     static let readOrWriteTVC = "ReadOrWriteTableViewController"
+    static let authorTVC = "AuthorTableViewController"
     
     // MARK: - Segue
     static let toUpLoadingVC = "toUpLoadingVC"
     static let toCommentVC = "toCommentVC"
+    static let toAuthorTVC = "toAuthorTVC"
 }
 
 extension Constants {
     static let dataBaseImages: [UIImage] = [#imageLiteral(resourceName: "xcCloudKit_logo"),#imageLiteral(resourceName: "xcFirebase_logo")]
     static let funApiImages: [UIImage] = [#imageLiteral(resourceName: "xcTMDB_logo"),#imageLiteral(resourceName: "xcReddit_logo")]
-    static let dataBaseTVCarray = ["", "Fetching", "Uploading"]
+    static var dataBaseTVCarray = ["", "Fetching", "Uploading"]
 }

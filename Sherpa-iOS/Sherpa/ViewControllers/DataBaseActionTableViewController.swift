@@ -117,6 +117,11 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
             print("First cell tapped")
             let sb = UIStoryboard(name: "ReadOrWrite", bundle: nil)
             guard let vc = sb.instantiateViewController(withIdentifier: Constants.readOrWriteTVC) as? ReadOrWriteTableViewController else { return }
+            if cell.selectedDB == .cloudKit {
+                vc.dataBaseString = "CloudKit"
+            } else {
+                vc.dataBaseString = "Firebase"
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:
             if cell.selectedDB == .cloudKit {

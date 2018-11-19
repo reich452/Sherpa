@@ -16,24 +16,10 @@ class ReadOrWriteTableViewController: UITableViewController {
         setUpUI()
     }
     
-    let options = ["Read", "Write"]
+    var dataBaseString = ""
+    let options = ["Author", "Write"]
     let cellSpacing: CGFloat = 10
     
-    func setUpUI() {
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 120
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "xcBackground"))
-        tableView.backgroundView = imageView
-        imageView.contentMode = .scaleAspectFill
-        
-        // Make a blur effect
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = imageView.bounds
-        imageView.addSubview(blurView)
-        imageView.clipsToBounds = true
-    }
 
     // MARK: - Table view data source
 
@@ -65,6 +51,8 @@ class ReadOrWriteTableViewController: UITableViewController {
         headerView.backgroundColor = .clear
         return headerView
     }
+    
+
     // MARK: - Visuial effect
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
@@ -76,12 +64,37 @@ class ReadOrWriteTableViewController: UITableViewController {
         cell.detailTextLabel?.backgroundColor = clearColor
     }
     
+    
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
    
+        if segue.identifier == Constants.toAuthorTVC {
+            guard let destinationVC = segue.destination as? AuthorTableViewController else { return }
+            destinationVC.dataBaseString = dataBaseString
+        }
+   
     }
     
+}
 
+extension ReadOrWriteTableViewController {
+    
+    // MARK: - UI
+    func setUpUI() {
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 120
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "xcBackground"))
+        tableView.backgroundView = imageView
+        imageView.contentMode = .scaleAspectFill
+        
+        // Make a blur effect
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = imageView.bounds
+        imageView.addSubview(blurView)
+        imageView.clipsToBounds = true
+    }
 }
