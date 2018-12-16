@@ -11,30 +11,44 @@ import UIKit
 class AuthorTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: CardView!
-    @IBOutlet weak var proLabel: UILabel!
     @IBOutlet weak var proTextLabel: UILabel!
-    @IBOutlet weak var conLabel: UILabel!
     @IBOutlet weak var conTextLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var ratingTextLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var detailInfoLabel: UILabel!
     @IBOutlet weak var opinionLabel: UILabel!
-    @IBOutlet weak var opinionTextLabel: UILabel!
     
-    var author: AuthorModel? {
+    
+    var author: Author? {
         didSet {
-            updateViews()
+            guard let author = author else { return }
+            updateViews(author: author)
+            checkRating(author: author)
         }
     }
     
-    func updateViews() {
-        guard let aurthor = author else { return }
-        proTextLabel.text = aurthor.pro
-        conTextLabel.text = aurthor.con
-        ratingLabel.text = "\(aurthor.rating)"
-        detailLabel.text = aurthor.detail
-        opinionLabel.text = aurthor.opinion
+    func updateViews(author: Author) {
+        proTextLabel.text = author.pro
+        conTextLabel.text = author.con
+        detailLabel.text = author.detail
+        opinionLabel.text = author.opinion
     }
     
+    func checkRating(author: Author) {
+        switch author.rating {
+        case 0:
+            ratingLabel.text = "Rating 0"
+        case 1:
+            ratingLabel.text = "Rating  ⭐️"
+        case 2:
+            ratingLabel.text = "Rating  ⭐️⭐️"
+        case 3:
+            ratingLabel.text = "Rating  ⭐️⭐️⭐️"
+        case 4:
+            ratingLabel.text = "Rating  ⭐️⭐️⭐️⭐️"
+        case 5:
+            ratingLabel.text = "Rating  ⭐️⭐️⭐️⭐️⭐️"
+        default:
+            ratingLabel.text = "Rating \(author.rating)"
+        }
+    }
 }

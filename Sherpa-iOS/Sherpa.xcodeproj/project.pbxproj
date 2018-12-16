@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01035FF621C6C4580023BD60 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01035FF521C6C4580023BD60 /* Author.swift */; };
 		0108764621880CB300FAC3BE /* FbPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108764521880CB300FAC3BE /* FbPost.swift */; };
 		01087648218812B000FAC3BE /* FireBasePostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01087647218812B000FAC3BE /* FireBasePostController.swift */; };
 		0108764A2188138900FAC3BE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010876492188138900FAC3BE /* NetworkError.swift */; };
@@ -68,9 +69,6 @@
 		01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208791218536E3007B7C43 /* CloudKitPostController.swift */; };
 		01208797218538B4007B7C43 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208796218538B4007B7C43 /* Extentions.swift */; };
 		01474E102188E38F003B29A0 /* RdPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01474E0F2188E38F003B29A0 /* RdPost.swift */; };
-		015FE3BB219C868E0038EA7F /* Sherpa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3B9219C868E0038EA7F /* Sherpa.xcdatamodeld */; };
-		015FE3BD219C94050038EA7F /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3BC219C94050038EA7F /* Stack.swift */; };
-		015FE3BF219C982E0038EA7F /* Database+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3BE219C982E0038EA7F /* Database+Convenience.swift */; };
 		015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3C0219C99C70038EA7F /* AuthorController.swift */; };
 		015FE3C3219CDECF0038EA7F /* ReadOrWrite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015FE3C2219CDECF0038EA7F /* ReadOrWrite.storyboard */; };
 		015FE3C5219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3C4219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift */; };
@@ -87,7 +85,6 @@
 		017979142187CCE1004BA6C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 017979132187CCE1004BA6C7 /* GoogleService-Info.plist */; };
 		019EB3DB21A0F89600BD9FC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 019EB3DA21A0F89600BD9FC2 /* Assets.xcassets */; };
 		019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */; };
-		019EB3DF21A113E000BD9FC2 /* AuthroTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 019EB3DE21A113E000BD9FC2 /* AuthroTVC.storyboard */; };
 		019EB3E121A1325A00BD9FC2 /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */; };
 		019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E221A135D800BD9FC2 /* CardView.swift */; };
 		01F7B21721962E7D00902239 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B21621962E7D00902239 /* Post.swift */; };
@@ -108,6 +105,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01035FF521C6C4580023BD60 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		0108764521880CB300FAC3BE /* FbPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FbPost.swift; sourceTree = "<group>"; };
 		01087647218812B000FAC3BE /* FireBasePostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBasePostController.swift; sourceTree = "<group>"; };
 		010876492188138900FAC3BE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -173,9 +171,6 @@
 		01208791218536E3007B7C43 /* CloudKitPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPostController.swift; sourceTree = "<group>"; };
 		01208796218538B4007B7C43 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		01474E0F2188E38F003B29A0 /* RdPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdPost.swift; sourceTree = "<group>"; };
-		015FE3BA219C868E0038EA7F /* DataBade.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBade.xcdatamodel; sourceTree = "<group>"; };
-		015FE3BC219C94050038EA7F /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		015FE3BE219C982E0038EA7F /* Database+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database+Convenience.swift"; sourceTree = "<group>"; };
 		015FE3C0219C99C70038EA7F /* AuthorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorController.swift; sourceTree = "<group>"; };
 		015FE3C2219CDECF0038EA7F /* ReadOrWrite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReadOrWrite.storyboard; sourceTree = "<group>"; };
 		015FE3C4219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadOrWriteTableViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +188,6 @@
 		017979132187CCE1004BA6C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		019EB3DA21A0F89600BD9FC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../Downloads/Sherpa-00c4ac415bec91b27170825dad040e4d6578cf1a/Sherpa-iOS/Sherpa/Resources/Assets.xcassets"; sourceTree = "<group>"; };
 		019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewController.swift; sourceTree = "<group>"; };
-		019EB3DE21A113E000BD9FC2 /* AuthroTVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthroTVC.storyboard; sourceTree = "<group>"; };
 		019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewCell.swift; sourceTree = "<group>"; };
 		019EB3E221A135D800BD9FC2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		01F7B21621962E7D00902239 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -281,7 +275,6 @@
 				0120870D2184D3CE007B7C43 /* Main.storyboard */,
 				012087302184D977007B7C43 /* DataBaseActionTab.storyboard */,
 				015FE3C2219CDECF0038EA7F /* ReadOrWrite.storyboard */,
-				019EB3DE21A113E000BD9FC2 /* AuthroTVC.storyboard */,
 				017978EB218745ED004BA6C7 /* Uploading.storyboard */,
 				01797908218784B0004BA6C7 /* Feed.storyboard */,
 				0108765121881CDB00FAC3BE /* FBPost.storyboard */,
@@ -410,13 +403,13 @@
 		0120878D21853029007B7C43 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				015FE3B8219BD2A40038EA7F /* CoreData */,
 				01F7B21621962E7D00902239 /* Post.swift */,
 				0120878E2185303F007B7C43 /* CKPost.swift */,
 				0108764521880CB300FAC3BE /* FbPost.swift */,
 				01474E0F2188E38F003B29A0 /* RdPost.swift */,
 				01F7B25E21964BA700902239 /* Comment.swift */,
 				01F7B26021964C6F00902239 /* CKComment.swift */,
+				01035FF521C6C4580023BD60 /* Author.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,16 +433,6 @@
 				0108765F2188BBA800FAC3BE /* StorageManager.swift */,
 			);
 			path = Manager;
-			sourceTree = "<group>";
-		};
-		015FE3B8219BD2A40038EA7F /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				015FE3B9219C868E0038EA7F /* Sherpa.xcdatamodeld */,
-				015FE3BC219C94050038EA7F /* Stack.swift */,
-				015FE3BE219C982E0038EA7F /* Database+Convenience.swift */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		017978EF21874C36004BA6C7 /* Subclass */ = {
@@ -601,7 +584,6 @@
 				017979142187CCE1004BA6C7 /* GoogleService-Info.plist in Resources */,
 				012087712184F164007B7C43 /* SF-Pro-Display-Semibold.otf in Resources */,
 				012087722184F164007B7C43 /* SF-Pro-Text-Regular.otf in Resources */,
-				019EB3DF21A113E000BD9FC2 /* AuthroTVC.storyboard in Resources */,
 				0120876D2184F164007B7C43 /* SF-Pro-Display-Bold.otf in Resources */,
 				012087792184F164007B7C43 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				012087312184D977007B7C43 /* DataBaseActionTab.storyboard in Resources */,
@@ -702,15 +684,14 @@
 				0108765C2188337B00FAC3BE /* RedditPostController.swift in Sources */,
 				01F7B26321979E8C00902239 /* CommentListTableViewController.swift in Sources */,
 				017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */,
-				015FE3BB219C868E0038EA7F /* Sherpa.xcdatamodeld in Sources */,
 				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
 				0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */,
 				019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */,
+				01035FF621C6C4580023BD60 /* Author.swift in Sources */,
 				012087882184F59B007B7C43 /* ColorTheme.swift in Sources */,
 				01208797218538B4007B7C43 /* Extentions.swift in Sources */,
 				015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */,
 				012087462184E814007B7C43 /* HomeSections.swift in Sources */,
-				015FE3BD219C94050038EA7F /* Stack.swift in Sources */,
 				0120878F2185303F007B7C43 /* CKPost.swift in Sources */,
 				012087852184F353007B7C43 /* SectionHeaderCollectionReusableView.swift in Sources */,
 				019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */,
@@ -737,7 +718,6 @@
 				01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */,
 				012087412184E362007B7C43 /* HomeCollectionViewCell.swift in Sources */,
 				0108764621880CB300FAC3BE /* FbPost.swift in Sources */,
-				015FE3BF219C982E0038EA7F /* Database+Convenience.swift in Sources */,
 				017979122187AA9B004BA6C7 /* PublicProtocols.swift in Sources */,
 				01F7B25F21964BA700902239 /* Comment.swift in Sources */,
 				015FE3C5219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift in Sources */,
@@ -1010,19 +990,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		015FE3B9219C868E0038EA7F /* Sherpa.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				015FE3BA219C868E0038EA7F /* DataBade.xcdatamodel */,
-			);
-			currentVersion = 015FE3BA219C868E0038EA7F /* DataBade.xcdatamodel */;
-			path = Sherpa.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 012086FE2184D3CE007B7C43 /* Project object */;
 }
