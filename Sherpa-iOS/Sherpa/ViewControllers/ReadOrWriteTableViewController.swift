@@ -86,7 +86,7 @@ extension ReadOrWriteTableViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 120
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "xcBackground"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "xcCloudKit_Icon"))
         tableView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
         

@@ -14,7 +14,7 @@ protocol CommentUpdatedToDelegate: class {
     func commentsWereAddedTo()
 }
 
-class CloudKitPostController{
+class CloudKitPostController {
     
     static let shared = CloudKitPostController()
     
@@ -22,6 +22,11 @@ class CloudKitPostController{
     
     let publicDB = CKContainer.default().publicCloudDatabase
     weak var delegate: CommentUpdatedToDelegate?
+    weak var timerDelegate: FetchAndUploadCounter?
+    var counter = 0
+    var totalCounter = 0
+    let rTimer = RepeatingTimer(timeInterval: 1.0)
+    
     var ckPosts = [CKPost]() {
         didSet {
             DispatchQueue.main.async {
@@ -65,7 +70,7 @@ class CloudKitPostController{
                 let appWindow = appDelegate.window!,
                 let rootViewController = appWindow.rootViewController {
                 rootViewController.showAlertMessage(titleStr: errorTitle, messageStr: errorMessage, actionString: "Settings", style: .default, completion: { (action) in
-                    guard let settingsUrl = URL(string: PreferenceType.castle.rawValue) else {
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                         return
                     }
                     if UIApplication.shared.canOpenURL(settingsUrl) {
@@ -81,7 +86,7 @@ class CloudKitPostController{
     }
     
     func openSettingsApp() {
-        guard let settingsUrl = URL(string: PreferenceType.castle.rawValue) else { return }
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
         
         if UIApplication.shared.canOpenURL(settingsUrl) {
             UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
@@ -90,7 +95,6 @@ class CloudKitPostController{
         } else {
             print("bad url to settings app")
         }
-        
     }
     
     // MARK: - Create
@@ -130,7 +134,7 @@ class CloudKitPostController{
     
     // MARK: - Fetch
     
-    func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil, completion: @escaping (Bool) -> Void) {
+    func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil, completion: @escaping (Bool, Int?) -> Void) {
       
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: CKPost.Constants.ckPostKey, predicate: predicate)
@@ -149,23 +153,31 @@ class CloudKitPostController{
         operation.resultsLimit = 5
         operation.queuePriority = .veryHigh
         operation.qualityOfService = .userInteractive
+        rTimer.eventHandler = { [weak self] in
+            guard let self = self else { return }
+            self.counter += 1
         
+            self.timerDelegate?.increaseTimer()
+            print(" ⏲ Timer:  \(self.counter ??? "can't count")")
+        }
+        rTimer.resume()
         operation.recordFetchedBlock = { [unowned self] record in
             guard let post = CKPost(record: record) else { return }
             if self.ckPosts.contains(where: { (ckPost) -> Bool in
                 post.recordID == ckPost.recordID
             }) {
                 operation.cancel()
-                completion(false); return 
+                self.rTimer.suspend()
+                self.timerDelegate?.timerCompleted()
+                completion(true, nil); return
             }
             self.ckPosts.append(post)
             print("🎃 fetching ckPosts \(self.ckPosts.count)")
             print(self.ckPosts.count)
-            completion(false)
+            completion(false, nil)
     
             DispatchQueue.main.sync {
-            
-    
+
             }
         }
         
@@ -178,13 +190,17 @@ class CloudKitPostController{
             } else {
                 print("Done Fetching CKPosts")
                
-                completion(true)
+                self.rTimer.suspend()
+                self.timerDelegate?.timerCompleted()
+                self.totalCounter = self.counter
+                completion(true, self.counter)
                 
             }
         }
         publicDB.add(operation)
     }
     
+
     
     func fetchComments(from post: Post, completion: @escaping ([CKComment]?) -> Void) {
         guard let ckPost = post as? CKPost else { completion(nil); return }
@@ -211,4 +227,3 @@ class CloudKitPostController{
         }
     }
 }
-

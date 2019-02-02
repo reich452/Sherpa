@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01035FF621C6C4580023BD60 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01035FF521C6C4580023BD60 /* Author.swift */; };
+		01035FF921C6E8A50023BD60 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01035FF821C6E8A50023BD60 /* Protocols.swift */; };
 		0108764621880CB300FAC3BE /* FbPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108764521880CB300FAC3BE /* FbPost.swift */; };
 		01087648218812B000FAC3BE /* FireBasePostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01087647218812B000FAC3BE /* FireBasePostController.swift */; };
 		0108764A2188138900FAC3BE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010876492188138900FAC3BE /* NetworkError.swift */; };
@@ -68,7 +69,14 @@
 		0120878F2185303F007B7C43 /* CKPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120878E2185303F007B7C43 /* CKPost.swift */; };
 		01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208791218536E3007B7C43 /* CloudKitPostController.swift */; };
 		01208797218538B4007B7C43 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01208796218538B4007B7C43 /* Extentions.swift */; };
+		012521B621E8784100BCD32F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012521B521E8784100BCD32F /* Assets.xcassets */; };
+		012521B921E93D8800BCD32F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012521B821E93D8800BCD32F /* Login.storyboard */; };
+		012521BB21E93E8100BCD32F /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012521BA21E93E8100BCD32F /* CustomButton.swift */; };
+		012521BE21E93F5800BCD32F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012521BD21E93F5800BCD32F /* LoginViewController.swift */; };
+		0135D6742204E79900C301A2 /* TimeIntervalExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */; };
+		0135D6762206384C00C301A2 /* IntExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135D6752206384C00C301A2 /* IntExtention.swift */; };
 		01474E102188E38F003B29A0 /* RdPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01474E0F2188E38F003B29A0 /* RdPost.swift */; };
+		014C8D422203F96C00B4A1E6 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C8D412203F96C00B4A1E6 /* RepeatingTimer.swift */; };
 		015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3C0219C99C70038EA7F /* AuthorController.swift */; };
 		015FE3C3219CDECF0038EA7F /* ReadOrWrite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015FE3C2219CDECF0038EA7F /* ReadOrWrite.storyboard */; };
 		015FE3C5219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3C4219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift */; };
@@ -83,7 +91,6 @@
 		0179790D21878661004BA6C7 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179790C21878661004BA6C7 /* FeedTableViewCell.swift */; };
 		017979122187AA9B004BA6C7 /* PublicProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017979112187AA9B004BA6C7 /* PublicProtocols.swift */; };
 		017979142187CCE1004BA6C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 017979132187CCE1004BA6C7 /* GoogleService-Info.plist */; };
-		019EB3DB21A0F89600BD9FC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 019EB3DA21A0F89600BD9FC2 /* Assets.xcassets */; };
 		019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */; };
 		019EB3E121A1325A00BD9FC2 /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */; };
 		019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E221A135D800BD9FC2 /* CardView.swift */; };
@@ -106,6 +113,7 @@
 
 /* Begin PBXFileReference section */
 		01035FF521C6C4580023BD60 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		01035FF821C6E8A50023BD60 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		0108764521880CB300FAC3BE /* FbPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FbPost.swift; sourceTree = "<group>"; };
 		01087647218812B000FAC3BE /* FireBasePostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBasePostController.swift; sourceTree = "<group>"; };
 		010876492188138900FAC3BE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -170,7 +178,14 @@
 		0120878E2185303F007B7C43 /* CKPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKPost.swift; sourceTree = "<group>"; };
 		01208791218536E3007B7C43 /* CloudKitPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPostController.swift; sourceTree = "<group>"; };
 		01208796218538B4007B7C43 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		012521B521E8784100BCD32F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		012521B821E93D8800BCD32F /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		012521BA21E93E8100BCD32F /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		012521BD21E93F5800BCD32F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtention.swift; sourceTree = "<group>"; };
+		0135D6752206384C00C301A2 /* IntExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtention.swift; sourceTree = "<group>"; };
 		01474E0F2188E38F003B29A0 /* RdPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdPost.swift; sourceTree = "<group>"; };
+		014C8D412203F96C00B4A1E6 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		015FE3C0219C99C70038EA7F /* AuthorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorController.swift; sourceTree = "<group>"; };
 		015FE3C2219CDECF0038EA7F /* ReadOrWrite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReadOrWrite.storyboard; sourceTree = "<group>"; };
 		015FE3C4219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadOrWriteTableViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +201,6 @@
 		0179790C21878661004BA6C7 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		017979112187AA9B004BA6C7 /* PublicProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProtocols.swift; sourceTree = "<group>"; };
 		017979132187CCE1004BA6C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		019EB3DA21A0F89600BD9FC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../Downloads/Sherpa-00c4ac415bec91b27170825dad040e4d6578cf1a/Sherpa-iOS/Sherpa/Resources/Assets.xcassets"; sourceTree = "<group>"; };
 		019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewController.swift; sourceTree = "<group>"; };
 		019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewCell.swift; sourceTree = "<group>"; };
 		019EB3E221A135D800BD9FC2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -220,6 +234,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01035FF721C6E88D0023BD60 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				01035FF821C6E8A50023BD60 /* Protocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		012086FD2184D3CE007B7C43 = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +294,7 @@
 			children = (
 				012087122184D3CF007B7C43 /* LaunchScreen.storyboard */,
 				0120873B2184DD93007B7C43 /* TabBar */,
+				012521B721E93D6B00BCD32F /* Login */,
 				0120870D2184D3CE007B7C43 /* Main.storyboard */,
 				012087302184D977007B7C43 /* DataBaseActionTab.storyboard */,
 				015FE3C2219CDECF0038EA7F /* ReadOrWrite.storyboard */,
@@ -289,8 +312,8 @@
 				012087472184F164007B7C43 /* SF Pro */,
 				012087092184D3CE007B7C43 /* AppDelegate.swift */,
 				012087152184D3CF007B7C43 /* Info.plist */,
-				019EB3DA21A0F89600BD9FC2 /* Assets.xcassets */,
 				017979132187CCE1004BA6C7 /* GoogleService-Info.plist */,
+				012521B521E8784100BCD32F /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -299,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				0120873A2184DB6D007B7C43 /* TabBar */,
+				012521BC21E93F3E00BCD32F /* Login */,
 				0120872E2184D83D007B7C43 /* HomeViewController.swift */,
 				012087342184DA36007B7C43 /* DataBaseActionTableViewController.swift */,
 				015FE3C4219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift */,
@@ -344,6 +368,7 @@
 		012087422184E4DF007B7C43 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				01035FF721C6E88D0023BD60 /* Protocols */,
 				017979102187AA77004BA6C7 /* PublicProtocols  */,
 				012087432184E4F5007B7C43 /* Constants.swift */,
 				012087452184E814007B7C43 /* HomeSections.swift */,
@@ -396,6 +421,8 @@
 			children = (
 				012087872184F59B007B7C43 /* ColorTheme.swift */,
 				01208796218538B4007B7C43 /* Extentions.swift */,
+				0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */,
+				0135D6752206384C00C301A2 /* IntExtention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -431,8 +458,25 @@
 				017978F221875BCA004BA6C7 /* CameraManager.swift */,
 				0108764B2188178E00FAC3BE /* NetworkManager.swift */,
 				0108765F2188BBA800FAC3BE /* StorageManager.swift */,
+				014C8D412203F96C00B4A1E6 /* RepeatingTimer.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		012521B721E93D6B00BCD32F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				012521B821E93D8800BCD32F /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		012521BC21E93F3E00BCD32F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				012521BD21E93F5800BCD32F /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		017978EF21874C36004BA6C7 /* Subclass */ = {
@@ -440,6 +484,7 @@
 			children = (
 				017978F021874C66004BA6C7 /* SherpaTextField.swift */,
 				019EB3E221A135D800BD9FC2 /* CardView.swift */,
+				012521BA21E93E8100BCD32F /* CustomButton.swift */,
 			);
 			path = Subclass;
 			sourceTree = "<group>";
@@ -565,6 +610,7 @@
 			files = (
 				012087662184F164007B7C43 /* SF-Pro-Display-Thin.otf in Resources */,
 				012087802184F164007B7C43 /* SF-Pro-Text-LightItalic.otf in Resources */,
+				012521B921E93D8800BCD32F /* Login.storyboard in Resources */,
 				0120877C2184F164007B7C43 /* SF-Pro-Text-RegularItalic.otf in Resources */,
 				012087762184F164007B7C43 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				0108765421882F4F00FAC3BE /* Reddit.storyboard in Resources */,
@@ -588,7 +634,7 @@
 				012087792184F164007B7C43 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				012087312184D977007B7C43 /* DataBaseActionTab.storyboard in Resources */,
 				012087682184F164007B7C43 /* SF-Pro-Text-Heavy.otf in Resources */,
-				019EB3DB21A0F89600BD9FC2 /* Assets.xcassets in Resources */,
+				012521B621E8784100BCD32F /* Assets.xcassets in Resources */,
 				012087812184F164007B7C43 /* SF-Pro-Text-Medium.otf in Resources */,
 				012087672184F164007B7C43 /* SF-Pro-Display-SemiboldItalic.otf in Resources */,
 				012087772184F164007B7C43 /* SF-Pro-Display-UltralightItalic.otf in Resources */,
@@ -685,11 +731,13 @@
 				01F7B26321979E8C00902239 /* CommentListTableViewController.swift in Sources */,
 				017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */,
 				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
+				014C8D422203F96C00B4A1E6 /* RepeatingTimer.swift in Sources */,
 				0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */,
 				019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */,
 				01035FF621C6C4580023BD60 /* Author.swift in Sources */,
 				012087882184F59B007B7C43 /* ColorTheme.swift in Sources */,
 				01208797218538B4007B7C43 /* Extentions.swift in Sources */,
+				01035FF921C6E8A50023BD60 /* Protocols.swift in Sources */,
 				015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */,
 				012087462184E814007B7C43 /* HomeSections.swift in Sources */,
 				0120878F2185303F007B7C43 /* CKPost.swift in Sources */,
@@ -705,12 +753,15 @@
 				0120872F2184D83D007B7C43 /* HomeViewController.swift in Sources */,
 				012087442184E4F5007B7C43 /* Constants.swift in Sources */,
 				012087352184DA36007B7C43 /* DataBaseActionTableViewController.swift in Sources */,
+				0135D6742204E79900C301A2 /* TimeIntervalExtention.swift in Sources */,
 				0120878C21851D0A007B7C43 /* CustomFont.swift in Sources */,
 				01474E102188E38F003B29A0 /* RdPost.swift in Sources */,
+				012521BB21E93E8100BCD32F /* CustomButton.swift in Sources */,
 				0108765621882F6800FAC3BE /* RedditTableViewController.swift in Sources */,
 				017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */,
 				0108764C2188178E00FAC3BE /* NetworkManager.swift in Sources */,
 				010876602188BBA800FAC3BE /* StorageManager.swift in Sources */,
+				012521BE21E93F5800BCD32F /* LoginViewController.swift in Sources */,
 				0120878A2185035C007B7C43 /* ActionTableViewCell.swift in Sources */,
 				0108765E2188A63A00FAC3BE /* RedditTableViewCell.swift in Sources */,
 				019EB3E121A1325A00BD9FC2 /* AuthorTableViewCell.swift in Sources */,
@@ -719,6 +770,7 @@
 				012087412184E362007B7C43 /* HomeCollectionViewCell.swift in Sources */,
 				0108764621880CB300FAC3BE /* FbPost.swift in Sources */,
 				017979122187AA9B004BA6C7 /* PublicProtocols.swift in Sources */,
+				0135D6762206384C00C301A2 /* IntExtention.swift in Sources */,
 				01F7B25F21964BA700902239 /* Comment.swift in Sources */,
 				015FE3C5219CDF5A0038EA7F /* ReadOrWriteTableViewController.swift in Sources */,
 				017978F321875BCA004BA6C7 /* CameraManager.swift in Sources */,

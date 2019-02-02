@@ -8,36 +8,38 @@
 
 import UIKit
 
-class FeedTableViewController: UITableViewController, ActivityIndicatorPresenter, FeedTableViewCellDelegate, DidPassUpdatedComments  {
-    
+class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate, DidPassUpdatedComments, FetchAndUploadCounter  {
 
+    
     @IBOutlet weak var searchBar: UISearchBar!
     var resultsArray: [CKPost]?
-
     var isSearching: Bool = false
-    
+    var counter = 0.0
+    var totalCount = 0.0
     var activityIndicator = UIActivityIndicatorView()
+    var timeInterval: TimeInterval?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        CloudKitPostController.shared.timerDelegate = self
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 350
-        self.showActivityIndicator()
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(postsChanged), name: Notification.Name.PostsChangedNotification, object: nil)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        CloudKitPostController.shared.fetchQueriedPosts { (didFinish) in
+
+        CloudKitPostController.shared.fetchQueriedPosts { (didFinish, counter) in
             if didFinish != false {
-                self.hideActivityIndicator()
                 DispatchQueue.main.async {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
             } else {
-                self.hideActivityIndicator()
                 DispatchQueue.main.async {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                   let mil = CloudKitPostController.shared.rTimer.timeInterval.milliseconds
+                    print(mil)
                 }
             }
         }
@@ -56,7 +58,20 @@ class FeedTableViewController: UITableViewController, ActivityIndicatorPresenter
         
     }
     
-    // MARK: - Delegate
+    // MARK: - Custom Delegate
+    
+    func increaseTimer() {
+        DispatchQueue.main.async {
+            self.navigationItem.title = "Fetching Time: \(CloudKitPostController.shared.counter)"
+        }
+    }
+    
+    func timerCompleted() {
+        print("Feching complete")
+        DispatchQueue.main.async {
+            self.navigationItem.title = "Fetching Complete \(CloudKitPostController.shared.counter)"
+        }
+    }
     
     func didTapCommentButton(_ cell: FeedTableViewCell) {
        performSegue(withIdentifier: Constants.toCommentVC, sender: cell)
@@ -67,10 +82,7 @@ class FeedTableViewController: UITableViewController, ActivityIndicatorPresenter
         cell.commnetLabel.text = "Comments \(cell.post?.comments.count ??? "")"
     }
     
-    
-
     // MARK: - Table view data source
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return isSearching ? resultsArray?.count ?? 0 : CloudKitPostController.shared.ckPosts.count
