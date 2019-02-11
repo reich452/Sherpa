@@ -25,8 +25,9 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
     var cameraManager: CameraManager?
     private lazy var fbPostController: FireBasePostController = {
         let storageRef = StorageReference()
+        let myTimer = MyTimer()
         let storageManager = StorageManager(storageRef: storageRef)
-        return FireBasePostController(storageManager: storageManager)
+        return FireBasePostController(storageManager: storageManager, myTimer: myTimer)
     }()
     
     

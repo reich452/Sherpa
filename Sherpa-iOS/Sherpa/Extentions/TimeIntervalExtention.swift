@@ -24,7 +24,7 @@ extension TimeInterval {
     }
     
     /// - Returns: The `TimeInterval` in hours.
-    var hours: Double {
+    public var hours: Double {
         return self / TimeInterval.secondsPerHour
     }
     
@@ -39,7 +39,7 @@ extension TimeInterval {
     }
     
     /// - Returns: The `TimeInterval` in milliseconds.
-    var milliseconds: Double {
+    public var milliseconds: Double {
         return self * TimeInterval.millisecondsPerSecond
     }
     
