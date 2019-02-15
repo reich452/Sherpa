@@ -1,0 +1,78 @@
+//
+//  MyTimer.swift
+//  Sherpa
+//
+//  Created by Nick Reichard on 2/11/19.
+//  Copyright © 2019 Nick Reichard. All rights reserved.
+//
+
+import Foundation
+
+class MyTimer {
+    
+    // MARK: - Properties
+    
+    let startTime:CFAbsoluteTime
+    var endTime:CFAbsoluteTime?
+    var counter = 0.0
+    var isRunning = false
+    var timer = Timer()
+    
+    init() {
+        startTime = CFAbsoluteTimeGetCurrent()
+    }
+    
+    // MARK: - Absolute Time
+    
+    func stop() -> CFAbsoluteTime {
+        endTime = CFAbsoluteTimeGetCurrent()
+        
+        return duration!
+    }
+    
+    var duration:CFAbsoluteTime? {
+        if let endTime = endTime {
+            return endTime - startTime
+        } else {
+            return nil
+        }
+    }
+    
+    // MARK: - Timer class
+    
+    func startTimer() {
+        if !isRunning {
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+            isRunning = true
+        }
+    }
+    
+    @objc func runTimer() -> String {
+        counter += 0.1
+        let flooredCounter = Int(floor(counter))
+        
+        let second = (flooredCounter % 3600) % 60
+        var secondString = "\(second)"
+        if second < 10 {
+            secondString = "\(second)"
+        }
+        print(" +++++ MY counter is \(counter) +++++")
+        let decisecond = String(format: "%.1f", counter).components(separatedBy: ".").last!
+        
+        return "\(secondString).\(decisecond)"
+    }
+    
+    // MARK: - Stop
+    
+    func stopTimer() {
+        timer.invalidate()
+        isRunning = false
+    }
+    
+    func resetTimer() {
+        timer.invalidate()
+        isRunning = false
+        counter = 0.0
+    }
+    
+}

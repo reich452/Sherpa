@@ -73,6 +73,7 @@
 		012521B921E93D8800BCD32F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012521B821E93D8800BCD32F /* Login.storyboard */; };
 		012521BB21E93E8100BCD32F /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012521BA21E93E8100BCD32F /* CustomButton.swift */; };
 		012521BE21E93F5800BCD32F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012521BD21E93F5800BCD32F /* LoginViewController.swift */; };
+		012D059F22124C1E00741413 /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D059E22124C1E00741413 /* MyTimer.swift */; };
 		0135D6742204E79900C301A2 /* TimeIntervalExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */; };
 		0135D6762206384C00C301A2 /* IntExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135D6752206384C00C301A2 /* IntExtention.swift */; };
 		01474E102188E38F003B29A0 /* RdPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01474E0F2188E38F003B29A0 /* RdPost.swift */; };
@@ -182,6 +183,7 @@
 		012521B821E93D8800BCD32F /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		012521BA21E93E8100BCD32F /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		012521BD21E93F5800BCD32F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		012D059E22124C1E00741413 /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
 		0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtention.swift; sourceTree = "<group>"; };
 		0135D6752206384C00C301A2 /* IntExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtention.swift; sourceTree = "<group>"; };
 		01474E0F2188E38F003B29A0 /* RdPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdPost.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				01F7B25E21964BA700902239 /* Comment.swift */,
 				01F7B26021964C6F00902239 /* CKComment.swift */,
 				01035FF521C6C4580023BD60 /* Author.swift */,
+				012D059E22124C1E00741413 /* MyTimer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 				01474E102188E38F003B29A0 /* RdPost.swift in Sources */,
 				012521BB21E93E8100BCD32F /* CustomButton.swift in Sources */,
 				0108765621882F6800FAC3BE /* RedditTableViewController.swift in Sources */,
+				012D059F22124C1E00741413 /* MyTimer.swift in Sources */,
 				017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */,
 				0108764C2188178E00FAC3BE /* NetworkManager.swift in Sources */,
 				010876602188BBA800FAC3BE /* StorageManager.swift in Sources */,

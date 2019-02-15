@@ -23,9 +23,11 @@ class CloudKitPostController {
     let publicDB = CKContainer.default().publicCloudDatabase
     weak var delegate: CommentUpdatedToDelegate?
     weak var timerDelegate: FetchAndUploadCounter?
-    var counter = 0
-    var totalCounter = 0
-    let rTimer = RepeatingTimer(timeInterval: 1.0)
+    let rTimer = RepeatingTimer(timeInterval: 0.1)
+    let myTimer = MyTimer()
+    var fetchCounter = 0.0
+    var uploadCounter = 0.0
+    var totalCounter = 0.0
     
     var ckPosts = [CKPost]() {
         didSet {
@@ -101,12 +103,21 @@ class CloudKitPostController {
     
     func createPostWith(titleText: String, image: UIImage, completion: @escaping (CKPost?) -> ()){
         let ckPost = CKPost(title: titleText, image: image)
+   
+        timerDelegate?.increaseUploadTimer()
+
         self.ckPosts.insert(ckPost, at: 0)
-        publicDB.save(CKRecord(ckPost)) { (_, error) in
+        publicDB.save(CKRecord(ckPost)) { [weak self] (_, error) in
+            guard let self = self else { return }
             if let error = error {
                 print("Error saving post record \(error) \(error.localizedDescription)")
+                self.rTimer.suspend()
+                self.checkAccountStatus(completion: { (isLoggedIn) in
+                    completion(nil); return
+                })
                 completion(nil);return
             }
+            self.timerDelegate?.timerCompleted()
             completion(ckPost)
         }
     }
@@ -134,7 +145,7 @@ class CloudKitPostController {
     
     // MARK: - Fetch
     
-    func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil, completion: @escaping (Bool, Int?) -> Void) {
+    func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil, completion: @escaping (Bool, Double?) -> Void) {
       
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: CKPost.Constants.ckPostKey, predicate: predicate)
@@ -155,10 +166,9 @@ class CloudKitPostController {
         operation.qualityOfService = .userInteractive
         rTimer.eventHandler = { [weak self] in
             guard let self = self else { return }
-            self.counter += 1
-        
-            self.timerDelegate?.increaseTimer()
-            print(" ⏲ Timer:  \(self.counter ??? "can't count")")
+            self.fetchCounter += 0.1
+            self.timerDelegate?.increaseFetchTimer()
+            print(" ⏲ Timer:  \(self.fetchCounter ??? "can't count")")
         }
         rTimer.resume()
         operation.recordFetchedBlock = { [unowned self] record in
@@ -192,8 +202,8 @@ class CloudKitPostController {
                
                 self.rTimer.suspend()
                 self.timerDelegate?.timerCompleted()
-                self.totalCounter = self.counter
-                completion(true, self.counter)
+                self.totalCounter = self.fetchCounter
+                completion(true, self.fetchCounter)
                 
             }
         }

@@ -9,7 +9,21 @@
 import UIKit
 import Firebase
 
-class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
+class UploadingViewController: UIViewController, ActivityIndicatorPresenter, FetchAndUploadCounter {
+    
+    func timerCompleted() {
+         CloudKitPostController.shared.myTimer.stopTimer()
+    }
+    
+    func increaseUploadTimer() {
+        print("The THREAD \(Thread.isMainThread)")
+        CloudKitPostController.shared.myTimer.startTimer()
+   
+        DispatchQueue.main.async {
+            self.navigationController!.navigationItem.title = "Upload Time: \(CloudKitPostController.shared.myTimer.runTimer())"
+           
+        }
+    }
     
     
     @IBOutlet weak var selectImageButton: UIButton!
@@ -41,12 +55,11 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
         setUpSubViews()
     }
     
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        CloudKitPostController.shared.myTimer.resetTimer()
     }
     
-
     
     // MARK: - Actions
     
@@ -57,13 +70,14 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
         cameraManager?.imagePickedBlock = { [weak self] (image) in
             self?.imageView.image = image
         }
-
+        
     }
     
     @IBAction func updLoadButtonTapped(_ sender: UIButton) {
+        CloudKitPostController.shared.timerDelegate = self
         guard let title = captionSpTextField.text,
             title != "", let image = imageView.image else { return }
-    
+        
         showActivityIndicator()
         sender.isEnabled = false
         uploadButton.layer.borderColor = UIColor.gray.cgColor
@@ -76,6 +90,12 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
                     self.hideActivityIndicator()
                     self.navigationController?.pushViewController(vc!, animated: true)
                 }
+            } else {
+                
+                DispatchQueue.main.async {
+                    self.hideActivityIndicator()
+                }
+                
             }
         }
     }
@@ -98,6 +118,10 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
                     let vc = sb.instantiateViewController(withIdentifier: Constants.fbFeedTVC) as? FBPostTableViewController
                     self.hideActivityIndicator()
                     self.navigationController?.pushViewController(vc!, animated: true)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.hideActivityIndicator()
                 }
             }
         }

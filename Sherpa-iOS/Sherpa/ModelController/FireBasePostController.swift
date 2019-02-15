@@ -16,13 +16,10 @@ class FireBasePostController {
     typealias fbCompletion = (Bool, NetworkError?) -> Void
     var fbPosts = [FbPost]()
     weak var timerDelegate: FetchAndUploadCounter?
-    var rTimer = RepeatingTimer(timeInterval: 0.1)
 
-    // MARK: - Firebase Ref
     private let databaseReference = Database.database().reference()
     private let storageReference = Storage.storage().reference()
     
-    // TODO: - Use storage manager instead
     let myTimer: MyTimer
     private let storageManager: StorageManager
     init(storageManager: StorageManager, myTimer: MyTimer) {
@@ -63,8 +60,7 @@ class FireBasePostController {
     
     func fetchPosts(completion: @escaping fbCompletion) {
         let query = databaseReference.child("posts")
-        timerDelegate?.increaseTimer()
-        rTimer.resume()
+        timerDelegate?.increaseFetchTimer()
         query.observe(.value) { [weak self] (snapshot) in
             guard let self = self else { return }
             for post in snapshot.children.allObjects as? [DataSnapshot] ?? [] {
@@ -79,8 +75,7 @@ class FireBasePostController {
     
     func fetchImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: urlString) else { completion(nil) ; return }
-        self.timerDelegate?.increaseTimer()
-        rTimer.resume()
+        self.timerDelegate?.increaseFetchTimer()
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
                 print("❌Error fetching image for FB User: \(error.localizedDescription)")
@@ -95,71 +90,3 @@ class FireBasePostController {
     
 }
 
-class MyTimer {
-    
-    // MARK: - Properties
-    
-    let startTime:CFAbsoluteTime
-    var endTime:CFAbsoluteTime?
-    var counter = 0.0
-    var isRunning = false
-    var timer = Timer()
-    
-    init() {
-        startTime = CFAbsoluteTimeGetCurrent()
-    }
-    
-    // MARK: - Absolute Time
-    
-    func stop() -> CFAbsoluteTime {
-        endTime = CFAbsoluteTimeGetCurrent()
-        
-        return duration!
-    }
-    
-    var duration:CFAbsoluteTime? {
-        if let endTime = endTime {
-            return endTime - startTime
-        } else {
-            return nil
-        }
-    }
-    
-    // MARK: - Timer class
-    
-    func startTimer() {
-        if !isRunning {
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
-            isRunning = true
-        }
-    }
-
-    @objc func runTimer() -> String {
-        counter += 0.1
-        let flooredCounter = Int(floor(counter))
-        
-        let second = (flooredCounter % 3600) % 60
-        var secondString = "\(second)"
-        if second < 10 {
-            secondString = "\(second)"
-        }
-        print(" +++++ MY counter is \(counter) +++++")
-        let decisecond = String(format: "%.1f", counter).components(separatedBy: ".").last!
-        
-        return "\(secondString).\(decisecond)"
-    }
-    
-    // MARK: - Stop
-    
-    func stopTimer() {
-        timer.invalidate()
-        isRunning = false
-    }
-    
-    func resetTimer() {
-        timer.invalidate()
-        isRunning = false
-        counter = 0.0
-    }
-    
-}

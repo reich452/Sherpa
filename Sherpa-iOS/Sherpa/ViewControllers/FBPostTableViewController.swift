@@ -91,31 +91,25 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
     }
 }
 // MARK: - FetchAndUploadCounter Delegate
-extension FBPostTableViewController: FetchAndUploadCounter {
-    func timerCompleted() {
-        print("Thread is on main \(Thread.isMainThread)")
-      
-        let totalTime = fbPostController.myTimer.stop()
 
+extension FBPostTableViewController: FetchAndUploadCounter {
+    func increaseUploadTimer() {
+        
+    }
+    
+    func timerCompleted() {
+     
+        let totalTime = fbPostController.myTimer.stop()
         fbPostController.myTimer.stopTimer()
         print(" The total time \(totalTime)")
-        fbPostController.rTimer.eventHandler = {
-            let string = self.fbPostController.rTimer.counter
-            print("🌶 R TOTAL COURNTER \(string)")
-            self.fbPostController.rTimer.suspend()
-        }
+  
         DispatchQueue.main.async {
             self.navigationItem.title = "Fetching Time \(self.fbPostController.myTimer.runTimer())"
         }
     }
     
-    func increaseTimer() {
+    func increaseFetchTimer() {
         fbPostController.myTimer.startTimer()
-        // TODO: --  add this up
-        fbPostController.rTimer.eventHandler = {
-           let string = self.fbPostController.rTimer.runTimer()
-            print("  👻 R TIMER ============= \(string)")
-        }
         DispatchQueue.main.async {
             self.navigationItem.title = "Fetching time \(self.fbPostController.myTimer.runTimer())"
         }

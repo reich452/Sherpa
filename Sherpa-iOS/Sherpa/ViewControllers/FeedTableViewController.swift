@@ -9,7 +9,6 @@
 import UIKit
 
 class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate, DidPassUpdatedComments, FetchAndUploadCounter  {
-
     
     @IBOutlet weak var searchBar: UISearchBar!
     var resultsArray: [CKPost]?
@@ -60,16 +59,16 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
     
     // MARK: - Custom Delegate
     
-    func increaseTimer() {
+    func increaseFetchTimer() {
         DispatchQueue.main.async {
-            self.navigationItem.title = "Fetching Time: \(CloudKitPostController.shared.counter)"
+            self.navigationItem.title = "Fetching Time: \(String(format:"%.1f", CloudKitPostController.shared.fetchCounter))"
         }
     }
     
     func timerCompleted() {
         print("Feching complete")
         DispatchQueue.main.async {
-            self.navigationItem.title = "Fetching Complete \(CloudKitPostController.shared.counter)"
+            self.navigationItem.title = "Fetching Complete \(String(format:"%.1f", CloudKitPostController.shared.fetchCounter))"
         }
     }
     
