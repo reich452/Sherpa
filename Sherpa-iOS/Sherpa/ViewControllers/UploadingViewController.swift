@@ -20,7 +20,7 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter, Fet
         CloudKitPostController.shared.myTimer.startTimer()
    
         DispatchQueue.main.async {
-            self.navigationController!.navigationItem.title = "Upload Time: \(CloudKitPostController.shared.myTimer.runTimer())"
+            self.navigationController!.navigationItem.title = "Upload Time: \(CloudKitPostController.shared.myTimer.increaseCounter())"
            
         }
     }
@@ -41,7 +41,7 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter, Fet
         let storageRef = StorageReference()
         let myTimer = MyTimer()
         let storageManager = StorageManager(storageRef: storageRef)
-        return FireBasePostController(storageManager: storageManager, myTimer: myTimer)
+        return FireBasePostController(storageManager: storageManager)
     }()
     
     
@@ -111,7 +111,7 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter, Fet
         fbUploadButton.layer.borderColor = UIColor.gray.cgColor
         fbUploadButton.setTitleColor(.gray, for: .normal)
         fbPostController.createPost(with: title, image: image) { (success, _) in
-            if success == true {
+            if success != nil {
                 DispatchQueue.main.async {
                     // TODO: - Make it go to FeedTVC - (makes a reusalbe vc)
                     let sb = UIStoryboard(name: "FBPost", bundle: nil)

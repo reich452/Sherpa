@@ -43,7 +43,7 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
             }
         }
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: Notification.Name.PostsChangedNotification, object: nil)

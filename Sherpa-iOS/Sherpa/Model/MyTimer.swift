@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol MyTimerDelegate: class {
+    func updateTimeLable(counterStr: String)
+}
+
 class MyTimer {
     
     // MARK: - Properties
@@ -17,10 +21,12 @@ class MyTimer {
     var counter = 0.0
     var isRunning = false
     var timer = Timer()
+    weak var delegate: MyTimerDelegate?
     
     init() {
         startTime = CFAbsoluteTimeGetCurrent()
     }
+ 
     
     // MARK: - Absolute Time
     
@@ -38,28 +44,36 @@ class MyTimer {
         }
     }
     
+    @discardableResult func time<Result>(name: StaticString = #function, line: Int = #line, _ f: () -> Result) -> Result {
+        let startTime = DispatchTime.now()
+        let result = f()
+        let endTime = DispatchTime.now()
+        let diff = Double(endTime.uptimeNanoseconds - startTime.uptimeNanoseconds) / 1_000_000_000 as Double
+        print("\(name) (line \(line)): \(diff) sec")
+        return result
+    }
+
     // MARK: - Timer class
     
     func startTimer() {
         if !isRunning {
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(increaseCounter), userInfo: nil, repeats: true)
             isRunning = true
         }
     }
     
-    @objc func runTimer() -> String {
+    @objc func increaseCounter() {
         counter += 0.1
         let flooredCounter = Int(floor(counter))
-        
         let second = (flooredCounter % 3600) % 60
         var secondString = "\(second)"
         if second < 10 {
             secondString = "\(second)"
         }
         print(" +++++ MY counter is \(counter) +++++")
-        let decisecond = String(format: "%.1f", counter).components(separatedBy: ".").last!
-        
-        return "\(secondString).\(decisecond)"
+        let deciSecond = String(format: "%.1f", counter).components(separatedBy: ".").last!
+        let secondStr = "\(secondString).\(deciSecond)"
+        delegate?.updateTimeLable(counterStr: secondStr)
     }
     
     // MARK: - Stop

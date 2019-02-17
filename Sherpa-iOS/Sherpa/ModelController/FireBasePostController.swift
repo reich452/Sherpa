@@ -16,15 +16,14 @@ class FireBasePostController {
     typealias fbCompletion = (Bool, NetworkError?) -> Void
     var fbPosts = [FbPost]()
     weak var timerDelegate: FetchAndUploadCounter?
-
     private let databaseReference = Database.database().reference()
     private let storageReference = Storage.storage().reference()
+    var date = Date()
+    var myTimer = MyTimer()
     
-    let myTimer: MyTimer
     private let storageManager: StorageManager
-    init(storageManager: StorageManager, myTimer: MyTimer) {
+    init(storageManager: StorageManager) {
         self.storageManager = storageManager
-        self.myTimer = myTimer
     }
     
     // MARK: - CRUD
@@ -60,30 +59,37 @@ class FireBasePostController {
     
     func fetchPosts(completion: @escaping fbCompletion) {
         let query = databaseReference.child("posts")
+        myTimer.startTimer()
+    
         timerDelegate?.increaseFetchTimer()
         query.observe(.value) { [weak self] (snapshot) in
             guard let self = self else { return }
             for post in snapshot.children.allObjects as? [DataSnapshot] ?? [] {
-                guard let fbPost = FbPost(snapshot: post) else { return }
+                guard let fbPost = FbPost(snapshot: post) else { completion(false, nil); return }
                 self.fbPosts.append(fbPost)
             }
-            self.timerDelegate?.timerCompleted()
+            print("\(self.date.timeIntervalSinceNow * -1) seconds elapsed")
             completion(true, nil)
         }
-        
     }
     
     func fetchImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: urlString) else { completion(nil) ; return }
+        
+        self.myTimer.increaseCounter()
         self.timerDelegate?.increaseFetchTimer()
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
+       
+        URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
+            guard let self = self else { return }
             if let error = error {
                 print("❌Error fetching image for FB User: \(error.localizedDescription)")
+                completion(nil); return
             }
             guard let data = data,
                 let image = UIImage(data: data) else { completion(nil) ; return }
           
             self.timerDelegate?.timerCompleted()
+            print("\(self.date.timeIntervalSinceNow * -1) seconds elapsed")
             completion(image)
             }.resume()
     }

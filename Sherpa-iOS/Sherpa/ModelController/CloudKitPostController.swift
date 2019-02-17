@@ -209,9 +209,7 @@ class CloudKitPostController {
         }
         publicDB.add(operation)
     }
-    
 
-    
     func fetchComments(from post: Post, completion: @escaping ([CKComment]?) -> Void) {
         guard let ckPost = post as? CKPost else { completion(nil); return }
         let postRef = ckPost.recordID
@@ -237,3 +235,4 @@ class CloudKitPostController {
         }
     }
 }
+

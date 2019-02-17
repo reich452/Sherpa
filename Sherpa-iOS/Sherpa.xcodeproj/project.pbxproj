@@ -92,6 +92,9 @@
 		0179790D21878661004BA6C7 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179790C21878661004BA6C7 /* FeedTableViewCell.swift */; };
 		017979122187AA9B004BA6C7 /* PublicProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017979112187AA9B004BA6C7 /* PublicProtocols.swift */; };
 		017979142187CCE1004BA6C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 017979132187CCE1004BA6C7 /* GoogleService-Info.plist */; };
+		017BD90A221769E2002669EE /* CKPostTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017BD909221769E2002669EE /* CKPostTest.swift */; };
+		017BD90C22177A43002669EE /* ThreadSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017BD90B22177A43002669EE /* ThreadSafe.swift */; };
+		017BD90E22177ADB002669EE /* ArrayExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017BD90D22177ADB002669EE /* ArrayExtention.swift */; };
 		019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */; };
 		019EB3E121A1325A00BD9FC2 /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */; };
 		019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E221A135D800BD9FC2 /* CardView.swift */; };
@@ -203,6 +206,9 @@
 		0179790C21878661004BA6C7 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		017979112187AA9B004BA6C7 /* PublicProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProtocols.swift; sourceTree = "<group>"; };
 		017979132187CCE1004BA6C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		017BD909221769E2002669EE /* CKPostTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKPostTest.swift; sourceTree = "<group>"; };
+		017BD90B22177A43002669EE /* ThreadSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafe.swift; sourceTree = "<group>"; };
+		017BD90D22177ADB002669EE /* ArrayExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtention.swift; sourceTree = "<group>"; };
 		019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewController.swift; sourceTree = "<group>"; };
 		019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewCell.swift; sourceTree = "<group>"; };
 		019EB3E221A135D800BD9FC2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -287,6 +293,7 @@
 			children = (
 				0120871E2184D3CF007B7C43 /* SherpaTests.swift */,
 				012087202184D3CF007B7C43 /* Info.plist */,
+				017BD909221769E2002669EE /* CKPostTest.swift */,
 			);
 			path = SherpaTests;
 			sourceTree = "<group>";
@@ -425,6 +432,7 @@
 				01208796218538B4007B7C43 /* Extentions.swift */,
 				0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */,
 				0135D6752206384C00C301A2 /* IntExtention.swift */,
+				017BD90D22177ADB002669EE /* ArrayExtention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -462,6 +470,7 @@
 				0108764B2188178E00FAC3BE /* NetworkManager.swift */,
 				0108765F2188BBA800FAC3BE /* StorageManager.swift */,
 				014C8D412203F96C00B4A1E6 /* RepeatingTimer.swift */,
+				017BD90B22177A43002669EE /* ThreadSafe.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -742,6 +751,7 @@
 				01208797218538B4007B7C43 /* Extentions.swift in Sources */,
 				01035FF921C6E8A50023BD60 /* Protocols.swift in Sources */,
 				015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */,
+				017BD90C22177A43002669EE /* ThreadSafe.swift in Sources */,
 				012087462184E814007B7C43 /* HomeSections.swift in Sources */,
 				0120878F2185303F007B7C43 /* CKPost.swift in Sources */,
 				012087852184F353007B7C43 /* SectionHeaderCollectionReusableView.swift in Sources */,
@@ -757,6 +767,7 @@
 				012087442184E4F5007B7C43 /* Constants.swift in Sources */,
 				012087352184DA36007B7C43 /* DataBaseActionTableViewController.swift in Sources */,
 				0135D6742204E79900C301A2 /* TimeIntervalExtention.swift in Sources */,
+				017BD90E22177ADB002669EE /* ArrayExtention.swift in Sources */,
 				0120878C21851D0A007B7C43 /* CustomFont.swift in Sources */,
 				01474E102188E38F003B29A0 /* RdPost.swift in Sources */,
 				012521BB21E93E8100BCD32F /* CustomButton.swift in Sources */,
@@ -786,6 +797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0120871F2184D3CF007B7C43 /* SherpaTests.swift in Sources */,
+				017BD90A221769E2002669EE /* CKPostTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -981,6 +993,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WAN4D79W79;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/**";
 				INFOPLIST_FILE = SherpaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1001,6 +1015,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WAN4D79W79;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/**";
 				INFOPLIST_FILE = SherpaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -11,18 +11,18 @@ import Firebase
 // TODO: - Take out and make reusable with feedTVC
 
 class FBPostTableViewController: UITableViewController, ActivityIndicatorPresenter {
-
+    
     // MARK: - Properties
     
     @IBOutlet weak var searchBar: UISearchBar!
     var activityIndicator = UIActivityIndicatorView()
     var counter = 0.0
     
+    
     private lazy var fbPostController: FireBasePostController = {
         let storageRef = StorageReference()
-        let myTimer = MyTimer()
         let storageManager = StorageManager(storageRef: storageRef)
-        return FireBasePostController(storageManager: storageManager, myTimer: myTimer)
+        return FireBasePostController(storageManager: storageManager)
     }()
     
     
@@ -31,7 +31,9 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 350
         fbPostController.timerDelegate = self
+        fbPostController.myTimer.delegate = self
         self.showActivityIndicator()
+        
         
         
     }
@@ -49,7 +51,7 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
                 self.tableView.reloadData()
                 self.hideActivityIndicator()
             }
-           UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
     
@@ -68,9 +70,9 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
         if fbPost.image == nil {
             fbPostController.fetchImage(urlString: fbPost.imageStringURL) { (image) in
                 DispatchQueue.main.async {
-                if let currentIndexPath = self.tableView.indexPath(for: cell), currentIndexPath == indexPath {
+                    if let currentIndexPath = self.tableView.indexPath(for: cell), currentIndexPath == indexPath {
                         cell.photoImageView.image = image
-                } else { return }
+                    } else { return }
                 }
             }
         }
@@ -86,34 +88,20 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-  
+        
         // TODO: - 
     }
 }
 // MARK: - FetchAndUploadCounter Delegate
 
-extension FBPostTableViewController: FetchAndUploadCounter {
-    func increaseUploadTimer() {
-        
+extension FBPostTableViewController: FetchAndUploadCounter, MyTimerDelegate {
+    
+    func updateTimeLable(counterStr: String) {
+        self.navigationItem.title = counterStr
     }
     
     func timerCompleted() {
-     
-        let totalTime = fbPostController.myTimer.stop()
-        fbPostController.myTimer.stopTimer()
-        print(" The total time \(totalTime)")
-  
-        DispatchQueue.main.async {
-            self.navigationItem.title = "Fetching Time \(self.fbPostController.myTimer.runTimer())"
-        }
+        self.fbPostController.myTimer.stopTimer()
     }
-    
-    func increaseFetchTimer() {
-        fbPostController.myTimer.startTimer()
-        DispatchQueue.main.async {
-            self.navigationItem.title = "Fetching time \(self.fbPostController.myTimer.runTimer())"
-        }
-    }
-    
     
 }
