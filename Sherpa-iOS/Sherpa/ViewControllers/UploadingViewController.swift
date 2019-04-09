@@ -22,6 +22,8 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
     
     var activityIndicator = UIActivityIndicatorView()
     var cameraManager: CameraManager?
+    var uploadTime: Double = 0.0
+    var isCKupload = false
     private lazy var fbPostController: FireBasePostController = {
         let storageRef = StorageReference()
         let storageManager = StorageManager(storageRef: storageRef)
@@ -63,15 +65,13 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
         
         showActivityIndicator()
         sender.isEnabled = false
+        isCKupload = true
         uploadButton.layer.borderColor = UIColor.gray.cgColor
         uploadButton.setTitleColor(.gray, for: .normal)
         CloudKitPostController.shared.createPostWith(titleText: title, image: image) { (post) in
             if post != nil {
                 DispatchQueue.main.async {
-                    let sb = UIStoryboard(name: Constants.feedSB, bundle: nil)
-                    let vc = sb.instantiateViewController(withIdentifier: Constants.feedTVC) as? FeedTableViewController
                     self.hideActivityIndicator()
-                    self.navigationController?.pushViewController(vc!, animated: true)
                 }
             } else {
                 DispatchQueue.main.async {
@@ -95,11 +95,7 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
         fbPostController.createPost(with: title, image: image) { (success, _) in
             if success  {
                 DispatchQueue.main.async {
-                    // TODO: - Make it go to FeedTVC - (makes a reusalbe vc)
-                    let sb = UIStoryboard(name: "FBPost", bundle: nil)
-                    let vc = sb.instantiateViewController(withIdentifier: Constants.fbFeedTVC) as! FBPostTableViewController
                     self.hideActivityIndicator()
-//                    self.navigationController?.pushViewController(vc, animated: true)
                 }
             } else {
                 DispatchQueue.main.async {
@@ -144,19 +140,26 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
     }
 }
 
-extension UploadingViewController: FetchAndUploadCounter, MyTimerDelegate {
+extension UploadingViewController: FetchAndUploadCounter, OverlayVCDelegate {
+    
     // MARK: - CustomDelegate
     
     func timerCompleted() {
-        CloudKitPostController.shared.myTimer.stopTimer()
+        print("STOPPPPPED")
+        let sb = UIStoryboard(name: "Overlay", bundle: nil)
+        guard let overlayVC = sb.instantiateViewController(withIdentifier: "OverlayVC") as? OverlayVC else { return }
+        overlayVC.delegate = self
+        overlayVC.uploadTime = self.uploadTime
+        DispatchQueue.main.async {
+            self.present(overlayVC, animated: true, completion: nil)
+        }
     }
     
-    func increaseCkUploadTimer() {
+    func increaseCkUploadTimer(time: Double) {
         print("The THREAD \(Thread.isMainThread)")
-        CloudKitPostController.shared.myTimer.startTimer()
-        
         DispatchQueue.main.async {
-            self.navigationController!.navigationItem.title = "Upload Time: \(CloudKitPostController.shared.myTimer.increaseCounter())"
+            self.uploadTime = time
+            self.title = "Upload Time: \(time.formattedTime)"
         }
     }
     
@@ -164,15 +167,22 @@ extension UploadingViewController: FetchAndUploadCounter, MyTimerDelegate {
         print("😎 FB increase THREAD  is on main: \(Thread.isMainThread) /n  time \(time)")
         DispatchQueue.main.async {
             print("Time elapsed \(time)")
+            self.uploadTime = time
             self.title = "Upload Time: \(time.formattedTime)"
         }
-        
-    }
-    func updateTimeLable(counterStr: String) {
-           print("🌶 FB increase THREAD  is on main: \(Thread.isMainThread)")
-//        self.navigationController!.navigationItem.title = "Upload Time: \(fbPostController.myTimer.increaseCounter())"
     }
     
-    
+    // MARK: - OverlayVC Delegate
+    func dismissedVC() {
+        if isCKupload == true {
+            let sb = UIStoryboard(name: Constants.feedSB, bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: Constants.feedTVC) as? FeedTableViewController else { return }
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let sb = UIStoryboard(name: Constants.firbaseSB, bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: Constants.fbFeedTVC) as? FBPostTableViewController else { return }
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 
 }

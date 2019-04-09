@@ -10,13 +10,13 @@ import Foundation
 
 protocol FetchAndUploadCounter: class {
     func increaseFetchTimer()
-    func increaseCkUploadTimer() 
+    func increaseCkUploadTimer(time: Double)
     func timerCompleted()
     func increaseFbUploadTimer(time: Double)
 }
 
 extension FetchAndUploadCounter {
     func increaseFetchTimer() {}
-    func increaseCkUploadTimer() {}
+    func increaseCkUploadTimer(time: Double) {}
     func increaseFbUploadTimer(time: Double) {}
 }
