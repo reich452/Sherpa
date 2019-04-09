@@ -104,7 +104,7 @@ class CloudKitPostController {
     func createPostWith(titleText: String, image: UIImage, completion: @escaping (CKPost?) -> ()){
         let ckPost = CKPost(title: titleText, image: image)
    
-        timerDelegate?.increaseUploadTimer()
+        timerDelegate?.increaseCkUploadTimer()
 
         self.ckPosts.insert(ckPost, at: 0)
         publicDB.save(CKRecord(ckPost)) { [weak self] (_, error) in

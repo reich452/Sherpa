@@ -9,22 +9,7 @@
 import UIKit
 import Firebase
 
-class UploadingViewController: UIViewController, ActivityIndicatorPresenter, FetchAndUploadCounter {
-    
-    func timerCompleted() {
-         CloudKitPostController.shared.myTimer.stopTimer()
-    }
-    
-    func increaseUploadTimer() {
-        print("The THREAD \(Thread.isMainThread)")
-        CloudKitPostController.shared.myTimer.startTimer()
-   
-        DispatchQueue.main.async {
-            self.navigationController!.navigationItem.title = "Upload Time: \(CloudKitPostController.shared.myTimer.increaseCounter())"
-           
-        }
-    }
-    
+class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
     
     @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet weak var captionSpTextField: SherpaTextField!
@@ -39,11 +24,9 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter, Fet
     var cameraManager: CameraManager?
     private lazy var fbPostController: FireBasePostController = {
         let storageRef = StorageReference()
-        let myTimer = MyTimer()
         let storageManager = StorageManager(storageRef: storageRef)
         return FireBasePostController(storageManager: storageManager)
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,17 +68,15 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter, Fet
         CloudKitPostController.shared.createPostWith(titleText: title, image: image) { (post) in
             if post != nil {
                 DispatchQueue.main.async {
-                    let sb = UIStoryboard(name: "Feed", bundle: nil)
+                    let sb = UIStoryboard(name: Constants.feedSB, bundle: nil)
                     let vc = sb.instantiateViewController(withIdentifier: Constants.feedTVC) as? FeedTableViewController
                     self.hideActivityIndicator()
                     self.navigationController?.pushViewController(vc!, animated: true)
                 }
             } else {
-                
                 DispatchQueue.main.async {
                     self.hideActivityIndicator()
                 }
-                
             }
         }
     }
@@ -110,14 +91,15 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter, Fet
         sender.isEnabled = false
         fbUploadButton.layer.borderColor = UIColor.gray.cgColor
         fbUploadButton.setTitleColor(.gray, for: .normal)
+        fbPostController.timerDelegate = self
         fbPostController.createPost(with: title, image: image) { (success, _) in
-            if success != nil {
+            if success  {
                 DispatchQueue.main.async {
                     // TODO: - Make it go to FeedTVC - (makes a reusalbe vc)
                     let sb = UIStoryboard(name: "FBPost", bundle: nil)
-                    let vc = sb.instantiateViewController(withIdentifier: Constants.fbFeedTVC) as? FBPostTableViewController
+                    let vc = sb.instantiateViewController(withIdentifier: Constants.fbFeedTVC) as! FBPostTableViewController
                     self.hideActivityIndicator()
-                    self.navigationController?.pushViewController(vc!, animated: true)
+//                    self.navigationController?.pushViewController(vc, animated: true)
                 }
             } else {
                 DispatchQueue.main.async {
@@ -134,31 +116,23 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter, Fet
         selectImageButton.layer.cornerRadius = 15
         selectImageButton.layer.borderColor = UIColor.white.cgColor
         selectImageButton.layer.borderWidth = 1
-        
         uploadButton.clipsToBounds = true
         uploadButton.layer.cornerRadius = 15
         uploadButton.layer.borderColor = UIColor.white.cgColor
         uploadButton.layer.borderWidth = 1
-        
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 15
         imageView.backgroundColor = UIColor.offsetBlack
-        
         fbUploadButton.clipsToBounds = true
         fbUploadButton.layer.cornerRadius = 15
         fbUploadButton.layer.borderColor = UIColor.white.cgColor
         fbUploadButton.layer.borderWidth = 1
-        
         captionSpTextField.bottomBorderColor = UIColor.white
-        
     }
     
     func setUpSubViews() {
         view.addVerticalGradientLayer(topColor: UIColor.cloudKitLightBlue, bottomColor: UIColor.cloudKitDarkBlue)
-        
     }
-    
-    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -167,9 +141,38 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter, Fet
             guard let destinationVC = segue.destination as? FeedTableViewController else { return }
             print(destinationVC.isViewLoaded)
         }
+    }
+}
+
+extension UploadingViewController: FetchAndUploadCounter, MyTimerDelegate {
+    // MARK: - CustomDelegate
+    
+    func timerCompleted() {
+        CloudKitPostController.shared.myTimer.stopTimer()
+    }
+    
+    func increaseCkUploadTimer() {
+        print("The THREAD \(Thread.isMainThread)")
+        CloudKitPostController.shared.myTimer.startTimer()
         
+        DispatchQueue.main.async {
+            self.navigationController!.navigationItem.title = "Upload Time: \(CloudKitPostController.shared.myTimer.increaseCounter())"
+        }
+    }
+    
+    func increaseFbUploadTimer(time: Double) {
+        print("😎 FB increase THREAD  is on main: \(Thread.isMainThread) /n  time \(time)")
+        DispatchQueue.main.async {
+            print("Time elapsed \(time)")
+            self.title = "Upload Time: \(time.formattedTime)"
+        }
+        
+    }
+    func updateTimeLable(counterStr: String) {
+           print("🌶 FB increase THREAD  is on main: \(Thread.isMainThread)")
+//        self.navigationController!.navigationItem.title = "Upload Time: \(fbPostController.myTimer.increaseCounter())"
     }
     
     
-}
 
+}

@@ -98,6 +98,7 @@
 		019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */; };
 		019EB3E121A1325A00BD9FC2 /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */; };
 		019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E221A135D800BD9FC2 /* CardView.swift */; };
+		01C85E90225BD72E007D1237 /* BenchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E8F225BD72D007D1237 /* BenchTimer.swift */; };
 		01F7B21721962E7D00902239 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B21621962E7D00902239 /* Post.swift */; };
 		01F7B25F21964BA700902239 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B25E21964BA700902239 /* Comment.swift */; };
 		01F7B26121964C6F00902239 /* CKComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B26021964C6F00902239 /* CKComment.swift */; };
@@ -212,6 +213,7 @@
 		019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewController.swift; sourceTree = "<group>"; };
 		019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewCell.swift; sourceTree = "<group>"; };
 		019EB3E221A135D800BD9FC2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		01C85E8F225BD72D007D1237 /* BenchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchTimer.swift; sourceTree = "<group>"; };
 		01F7B21621962E7D00902239 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		01F7B25E21964BA700902239 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		01F7B26021964C6F00902239 /* CKComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKComment.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				0108764B2188178E00FAC3BE /* NetworkManager.swift */,
 				0108765F2188BBA800FAC3BE /* StorageManager.swift */,
 				014C8D412203F96C00B4A1E6 /* RepeatingTimer.swift */,
+				01C85E8F225BD72D007D1237 /* BenchTimer.swift */,
 				017BD90B22177A43002669EE /* ThreadSafe.swift */,
 			);
 			path = Manager;
@@ -746,6 +749,7 @@
 				014C8D422203F96C00B4A1E6 /* RepeatingTimer.swift in Sources */,
 				0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */,
 				019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */,
+				01C85E90225BD72E007D1237 /* BenchTimer.swift in Sources */,
 				01035FF621C6C4580023BD60 /* Author.swift in Sources */,
 				012087882184F59B007B7C43 /* ColorTheme.swift in Sources */,
 				01208797218538B4007B7C43 /* Extentions.swift in Sources */,

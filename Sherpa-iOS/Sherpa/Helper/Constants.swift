@@ -22,6 +22,7 @@ struct Constants {
     // MARK: - Storyboard Name
     static let dbActionTab = "DataBaseActionTab"
     static let firebaseTab = "FirebaseTab"
+    static let feedSB = "Feed"
     
     // MARK: - Storyboard ID's
     static let homeVC = "HomeViewController"

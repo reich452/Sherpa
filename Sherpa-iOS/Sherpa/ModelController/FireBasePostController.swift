@@ -20,6 +20,8 @@ class FireBasePostController {
     private let storageReference = Storage.storage().reference()
     var date = Date()
     var myTimer = MyTimer()
+    var timeElapsed = 0.0
+    var rTimer = RepeatingTimer(timeInterval: 0.1)
     
     private let storageManager: StorageManager
     init(storageManager: StorageManager) {
@@ -31,7 +33,17 @@ class FireBasePostController {
     func createPost(with title: String, image: UIImage, completion: @escaping fbCompletion) {
          guard let imageData = image.jpegData(compressionQuality: 0.3) else { completion(false, NetworkError.noDataReturned) ; return }
         let filename = UUID().uuidString
-        storageManager.uploadData(imageData, named: "images/shera.jpg", file: filename, contentType: .imageJpeg) { (url, error) in
+//        myTimer.startTimer()
+        
+        rTimer.resume()
+        rTimer.eventHandler = { [weak self] in
+            guard let self = self else { return }
+            self.timeElapsed += 0.1
+            self.timerDelegate?.increaseFbUploadTimer(time: self.timeElapsed)
+            print(" ⏲ Timer:  \(self.timeElapsed ??? "can't count")")
+        }
+        storageManager.uploadData(imageData, named: "images/shera.jpg", file: filename, contentType: .imageJpeg) { [weak self] (url, error) in
+            guard let self = self else { return }
             if let error = error {
                 print("Error saving image to firebase storage \(error) \(error.localizedDescription)")
                 completion(false, .forwarded(error)); return
@@ -48,8 +60,12 @@ class FireBasePostController {
             self.databaseReference.child("posts").updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if let error = error {
                     print("Error updating nodes: \(error)")
+                    self.rTimer.suspend()
                     completion(false, .forwarded(error)); return
                 }
+                self.rTimer.suspend()
+                self.timerDelegate?.timerCompleted()
+//                self.myTimer.stopTimer()
                 completion(true, nil)
             })
         }

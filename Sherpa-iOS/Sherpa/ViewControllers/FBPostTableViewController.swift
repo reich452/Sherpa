@@ -33,9 +33,7 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
         fbPostController.timerDelegate = self
         fbPostController.myTimer.delegate = self
         self.showActivityIndicator()
-        
-        
-        
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
