@@ -101,6 +101,10 @@
 		01C85E90225BD72E007D1237 /* BenchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E8F225BD72D007D1237 /* BenchTimer.swift */; };
 		01C85E92225CF1E5007D1237 /* Overlay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C85E91225CF1E5007D1237 /* Overlay.storyboard */; };
 		01C85E95225CF244007D1237 /* OverlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E94225CF244007D1237 /* OverlayVC.swift */; };
+		01C85E97225D5EA1007D1237 /* MovieDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C85E96225D5EA1007D1237 /* MovieDB.storyboard */; };
+		01C85E99225D5FB3007D1237 /* MovieDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E98225D5FB3007D1237 /* MovieDBViewController.swift */; };
+		01C85E9B225D7346007D1237 /* MovieOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E9A225D7346007D1237 /* MovieOverlayView.swift */; };
+		01C85E9E225D7582007D1237 /* MovieOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C85E9D225D7582007D1237 /* MovieOverlayView.xib */; };
 		01F7B21721962E7D00902239 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B21621962E7D00902239 /* Post.swift */; };
 		01F7B25F21964BA700902239 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B25E21964BA700902239 /* Comment.swift */; };
 		01F7B26121964C6F00902239 /* CKComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B26021964C6F00902239 /* CKComment.swift */; };
@@ -218,6 +222,10 @@
 		01C85E8F225BD72D007D1237 /* BenchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchTimer.swift; sourceTree = "<group>"; };
 		01C85E91225CF1E5007D1237 /* Overlay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Overlay.storyboard; sourceTree = "<group>"; };
 		01C85E94225CF244007D1237 /* OverlayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayVC.swift; sourceTree = "<group>"; };
+		01C85E96225D5EA1007D1237 /* MovieDB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDB.storyboard; sourceTree = "<group>"; };
+		01C85E98225D5FB3007D1237 /* MovieDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBViewController.swift; sourceTree = "<group>"; };
+		01C85E9A225D7346007D1237 /* MovieOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOverlayView.swift; sourceTree = "<group>"; };
+		01C85E9D225D7582007D1237 /* MovieOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieOverlayView.xib; sourceTree = "<group>"; };
 		01F7B21621962E7D00902239 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		01F7B25E21964BA700902239 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		01F7B26021964C6F00902239 /* CKComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKComment.swift; sourceTree = "<group>"; };
@@ -318,6 +326,7 @@
 				0108765121881CDB00FAC3BE /* FBPost.storyboard */,
 				0108765321882F4F00FAC3BE /* Reddit.storyboard */,
 				01C85E91225CF1E5007D1237 /* Overlay.storyboard */,
+				01C85E96225D5EA1007D1237 /* MovieDB.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -348,6 +357,7 @@
 				01F7B26221979E8C00902239 /* CommentListTableViewController.swift */,
 				0108764F21881C1600FAC3BE /* FBPostTableViewController.swift */,
 				0108765521882F6800FAC3BE /* RedditTableViewController.swift */,
+				01C85E98225D5FB3007D1237 /* MovieDBViewController.swift */,
 				01C85E93225CF227007D1237 /* Other */,
 			);
 			path = ViewControllers;
@@ -372,6 +382,7 @@
 		0120873F2184E34B007B7C43 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01C85E9C225D7356007D1237 /* NibView */,
 				012087402184E362007B7C43 /* HomeCollectionViewCell.swift */,
 				012087842184F353007B7C43 /* SectionHeaderCollectionReusableView.swift */,
 				012087892185035C007B7C43 /* ActionTableViewCell.swift */,
@@ -536,6 +547,15 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		01C85E9C225D7356007D1237 /* NibView */ = {
+			isa = PBXGroup;
+			children = (
+				01C85E9A225D7346007D1237 /* MovieOverlayView.swift */,
+				01C85E9D225D7582007D1237 /* MovieOverlayView.xib */,
+			);
+			path = NibView;
+			sourceTree = "<group>";
+		};
 		7F22F48A3A4E30DE6172E341 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,7 +577,6 @@
 				012087032184D3CE007B7C43 /* Frameworks */,
 				012087042184D3CE007B7C43 /* Resources */,
 				6AD8D9EC87629450AFD83E49 /* [CP] Embed Pods Frameworks */,
-				123A57E0BC68179C318744CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -648,6 +667,7 @@
 				0120877E2184F164007B7C43 /* SF-Pro-Text-HeavyItalic.otf in Resources */,
 				01797909218784B0004BA6C7 /* Feed.storyboard in Resources */,
 				012087702184F164007B7C43 /* SF-Pro-Text-Light.otf in Resources */,
+				01C85E97225D5EA1007D1237 /* MovieDB.storyboard in Resources */,
 				0120876C2184F164007B7C43 /* SF-Pro-Text-MediumItalic.otf in Resources */,
 				012087142184D3CF007B7C43 /* LaunchScreen.storyboard in Resources */,
 				012087742184F164007B7C43 /* SF-Pro-Display-MediumItalic.otf in Resources */,
@@ -668,6 +688,7 @@
 				012087672184F164007B7C43 /* SF-Pro-Display-SemiboldItalic.otf in Resources */,
 				012087772184F164007B7C43 /* SF-Pro-Display-UltralightItalic.otf in Resources */,
 				012087752184F164007B7C43 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
+				01C85E9E225D7582007D1237 /* MovieOverlayView.xib in Resources */,
 				0120876E2184F164007B7C43 /* SF-Pro-Display-Medium.otf in Resources */,
 				012087832184F164007B7C43 /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
 				0120877B2184F164007B7C43 /* SF-Pro-Text-BoldItalic.otf in Resources */,
@@ -693,43 +714,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		123A57E0BC68179C318744CB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sherpa/Pods-Sherpa-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6AD8D9EC87629450AFD83E49 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Sherpa/Pods-Sherpa-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Sherpa/Pods-Sherpa-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sherpa/Pods-Sherpa-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sherpa/Pods-Sherpa-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6B642983B2A7B1C21E8A04C5 /* [CP] Check Pods Manifest.lock */ = {
@@ -773,9 +783,11 @@
 				017BD90C22177A43002669EE /* ThreadSafe.swift in Sources */,
 				012087462184E814007B7C43 /* HomeSections.swift in Sources */,
 				0120878F2185303F007B7C43 /* CKPost.swift in Sources */,
+				01C85E9B225D7346007D1237 /* MovieOverlayView.swift in Sources */,
 				012087852184F353007B7C43 /* SectionHeaderCollectionReusableView.swift in Sources */,
 				019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */,
 				01F7B26121964C6F00902239 /* CKComment.swift in Sources */,
+				01C85E99225D5FB3007D1237 /* MovieDBViewController.swift in Sources */,
 				0120870A2184D3CE007B7C43 /* AppDelegate.swift in Sources */,
 				0108764A2188138900FAC3BE /* NetworkError.swift in Sources */,
 				01F7B21721962E7D00902239 /* Post.swift in Sources */,

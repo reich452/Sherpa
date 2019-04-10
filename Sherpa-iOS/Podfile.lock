@@ -20,7 +20,7 @@ PODS:
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
-    - GoogleUtilities/NSData+zlib (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
   - FirebaseAuth (5.0.4):
     - FirebaseAuthInterop (~> 1.0)
@@ -45,7 +45,7 @@ PODS:
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
-    - GoogleUtilities/NSData+zlib (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
   - GoogleUtilities/AppDelegateSwizzler (5.3.4):
     - GoogleUtilities/Environment
@@ -58,26 +58,49 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/Network (5.3.4):
     - GoogleUtilities/Logger
-    - GoogleUtilities/NSData+zlib
+    - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - GoogleUtilities/NSData+zlib (5.3.4)
+  - "GoogleUtilities/NSData+zlib (5.3.4)"
   - GoogleUtilities/Reachability (5.3.4):
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.4):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
+  - Koloda (4.7):
+    - pop (~> 1.0)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - pop (1.0.12)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - Koloda
+  - pop (~> 1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseAuth
+    - FirebaseAuthInterop
+    - FirebaseCore
+    - FirebaseDatabase
+    - FirebaseInstanceID
+    - FirebaseStorage
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - GTMSessionFetcher
+    - Koloda
+    - leveldb-library
+    - nanopb
+    - pop
 
 SPEC CHECKSUMS:
   Firebase: b48f9e653da971ecce5b8c749684bc8bb2d26bd3
@@ -91,9 +114,11 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  Koloda: f456d003d2ce15ef9f10c2874a444f1f570b490c
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
 
-PODFILE CHECKSUM: 6d620b7d1636e132219cfd540705f8ba8d3ce8c9
+PODFILE CHECKSUM: c638b171b1b0aa97aa95d8623cf8f9bf2e2b66f6
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.0.beta.2

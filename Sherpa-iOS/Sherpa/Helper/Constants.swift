@@ -35,6 +35,7 @@ struct Constants {
     static let rdPostTVC = "RedditTableViewController"
     static let readOrWriteTVC = "ReadOrWriteTableViewController"
     static let authorTVC = "AuthorTableViewController"
+    static let movieVC = "MovieDBViewController"
     
     // MARK: - Segue
     static let toUpLoadingVC = "toUpLoadingVC"
