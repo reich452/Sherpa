@@ -14,12 +14,17 @@ class MovieDBViewController: UIViewController {
     
     @IBOutlet weak var kolodaView: KolodaView!
     
+    var movieController: MovieController?
     var images: [UIImage] = [#imageLiteral(resourceName: "xcTMDB_logo"), #imageLiteral(resourceName: "xcCloudKit_Icon"), #imageLiteral(resourceName: "xcFirebase_logo"), #imageLiteral(resourceName: "xcCloudKit_logo")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         kolodaView.dataSource = self
         kolodaView.delegate = self
+        
+        movieController?.getNewMovies(page: 1, completion: { result  in
+            print(result)
+        })
     }
     
 
@@ -35,6 +40,9 @@ class MovieDBViewController: UIViewController {
 }
 
 extension MovieDBViewController: KolodaViewDelegate {
+    
+    // MARK: - Koloda Delegate
+    
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         koloda.reloadData()
     }
@@ -45,6 +53,9 @@ extension MovieDBViewController: KolodaViewDelegate {
 }
 
 extension MovieDBViewController: KolodaViewDataSource {
+    
+    // MARK: - Koloda View DataSource 
+    
     func kolodaNumberOfCards(_ koloda:KolodaView) -> Int {
         return images.count
     }

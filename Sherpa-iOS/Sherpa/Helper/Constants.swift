@@ -41,6 +41,18 @@ struct Constants {
     static let toUpLoadingVC = "toUpLoadingVC"
     static let toCommentVC = "toCommentVC"
     static let toAuthorTVC = "toAuthorTVC"
+    
+    struct Query {
+        
+        static fileprivate let API_KEY: String = "fb333a11ee907b2868d5e2141a2c0222"
+        static let searchBase_url = "https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY
+        static let trendingBase_url = "https://api.themoviedb.org/3/trending/all/day?api_key=" + API_KEY
+        static let query_param = "&query="
+        static let page_parm = "&page=1"
+        static let include_alult_parm = "&include_adult=true"
+        static let image_base_url = "https://image.tmdb.org/t/p/w500"
+    }
+
 }
 
 extension Constants {

@@ -8,16 +8,20 @@
 
 import Foundation
 enum NetworkError: Error {
-    case noConnection
-    case noDataReturned
+    case authentication
+    case badRequest
     case dataNotDecodable
-    case unauthorized
-    case unknown
-    case internalServerError
-    case incorrectParameters
+    case encodingFailure(Error)
     case forwarded(Error)
     case forwardedString(errorString: String)
     case jsonConversionFailure
-    case invalidUrl
     case imageDataFailure
+    case internalServerError
+    case incorrectParameters
+    case invalidUrl
+    case noConnection
+    case noDataReturned
+    case outdated
+    case unauthorized
+    case unknown
 }

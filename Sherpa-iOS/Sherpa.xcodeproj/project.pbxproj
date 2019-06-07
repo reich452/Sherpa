@@ -76,6 +76,15 @@
 		012D059F22124C1E00741413 /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D059E22124C1E00741413 /* MyTimer.swift */; };
 		0135D6742204E79900C301A2 /* TimeIntervalExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */; };
 		0135D6762206384C00C301A2 /* IntExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135D6752206384C00C301A2 /* IntExtention.swift */; };
+		0140A5C822AAB44B00228F52 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5C722AAB44B00228F52 /* ServiceProtocol.swift */; };
+		0140A5CA22AAB4A700228F52 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5C922AAB4A700228F52 /* HTTPMethod.swift */; };
+		0140A5CC22AAB4F600228F52 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5CB22AAB4F600228F52 /* HTTPTask.swift */; };
+		0140A5CE22AAB5A600228F52 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5CD22AAB5A600228F52 /* Router.swift */; };
+		0140A5D022AAB8B800228F52 /* PrameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5CF22AAB8B800228F52 /* PrameterEncoding.swift */; };
+		0140A5D222AAB8DF00228F52 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5D122AAB8DF00228F52 /* URLParameterEncoder.swift */; };
+		0140A5D422AABC7B00228F52 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5D322AABC7B00228F52 /* JSONParameterEncoder.swift */; };
+		0140A5D622AACA2C00228F52 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5D522AACA2C00228F52 /* NetworkLogger.swift */; };
+		0140A5DA22AACBB500228F52 /* MovieEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5D922AACBB500228F52 /* MovieEndPoint.swift */; };
 		01474E102188E38F003B29A0 /* RdPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01474E0F2188E38F003B29A0 /* RdPost.swift */; };
 		014C8D422203F96C00B4A1E6 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C8D412203F96C00B4A1E6 /* RepeatingTimer.swift */; };
 		015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3C0219C99C70038EA7F /* AuthorController.swift */; };
@@ -95,6 +104,7 @@
 		017BD90A221769E2002669EE /* CKPostTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017BD909221769E2002669EE /* CKPostTest.swift */; };
 		017BD90C22177A43002669EE /* ThreadSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017BD90B22177A43002669EE /* ThreadSafe.swift */; };
 		017BD90E22177ADB002669EE /* ArrayExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017BD90D22177ADB002669EE /* ArrayExtention.swift */; };
+		017E345A2266BB9800B493E1 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E34592266BB9800B493E1 /* MovieController.swift */; };
 		019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */; };
 		019EB3E121A1325A00BD9FC2 /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */; };
 		019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E221A135D800BD9FC2 /* CardView.swift */; };
@@ -105,6 +115,7 @@
 		01C85E99225D5FB3007D1237 /* MovieDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E98225D5FB3007D1237 /* MovieDBViewController.swift */; };
 		01C85E9B225D7346007D1237 /* MovieOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E9A225D7346007D1237 /* MovieOverlayView.swift */; };
 		01C85E9E225D7582007D1237 /* MovieOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C85E9D225D7582007D1237 /* MovieOverlayView.xib */; };
+		01C85EA0225D8062007D1237 /* Moive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E9F225D8062007D1237 /* Moive.swift */; };
 		01F7B21721962E7D00902239 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B21621962E7D00902239 /* Post.swift */; };
 		01F7B25F21964BA700902239 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B25E21964BA700902239 /* Comment.swift */; };
 		01F7B26121964C6F00902239 /* CKComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B26021964C6F00902239 /* CKComment.swift */; };
@@ -196,6 +207,15 @@
 		012D059E22124C1E00741413 /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
 		0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtention.swift; sourceTree = "<group>"; };
 		0135D6752206384C00C301A2 /* IntExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtention.swift; sourceTree = "<group>"; };
+		0140A5C722AAB44B00228F52 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		0140A5C922AAB4A700228F52 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		0140A5CB22AAB4F600228F52 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		0140A5CD22AAB5A600228F52 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		0140A5CF22AAB8B800228F52 /* PrameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrameterEncoding.swift; sourceTree = "<group>"; };
+		0140A5D122AAB8DF00228F52 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		0140A5D322AABC7B00228F52 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		0140A5D522AACA2C00228F52 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		0140A5D922AACBB500228F52 /* MovieEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEndPoint.swift; sourceTree = "<group>"; };
 		01474E0F2188E38F003B29A0 /* RdPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdPost.swift; sourceTree = "<group>"; };
 		014C8D412203F96C00B4A1E6 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		015FE3C0219C99C70038EA7F /* AuthorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorController.swift; sourceTree = "<group>"; };
@@ -216,6 +236,7 @@
 		017BD909221769E2002669EE /* CKPostTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKPostTest.swift; sourceTree = "<group>"; };
 		017BD90B22177A43002669EE /* ThreadSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafe.swift; sourceTree = "<group>"; };
 		017BD90D22177ADB002669EE /* ArrayExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtention.swift; sourceTree = "<group>"; };
+		017E34592266BB9800B493E1 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
 		019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewController.swift; sourceTree = "<group>"; };
 		019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewCell.swift; sourceTree = "<group>"; };
 		019EB3E221A135D800BD9FC2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -226,6 +247,7 @@
 		01C85E98225D5FB3007D1237 /* MovieDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBViewController.swift; sourceTree = "<group>"; };
 		01C85E9A225D7346007D1237 /* MovieOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOverlayView.swift; sourceTree = "<group>"; };
 		01C85E9D225D7582007D1237 /* MovieOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieOverlayView.xib; sourceTree = "<group>"; };
+		01C85E9F225D8062007D1237 /* Moive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moive.swift; sourceTree = "<group>"; };
 		01F7B21621962E7D00902239 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		01F7B25E21964BA700902239 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		01F7B26021964C6F00902239 /* CKComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKComment.swift; sourceTree = "<group>"; };
@@ -467,6 +489,7 @@
 				01F7B26021964C6F00902239 /* CKComment.swift */,
 				01035FF521C6C4580023BD60 /* Author.swift */,
 				012D059E22124C1E00741413 /* MyTimer.swift */,
+				01C85E9F225D8062007D1237 /* Moive.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -478,6 +501,7 @@
 				01087647218812B000FAC3BE /* FireBasePostController.swift */,
 				0108765B2188337B00FAC3BE /* RedditPostController.swift */,
 				015FE3C0219C99C70038EA7F /* AuthorController.swift */,
+				017E34592266BB9800B493E1 /* MovieController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -485,6 +509,7 @@
 		012087932185370E007B7C43 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				0140A5C422AAB3B500228F52 /* Networking */,
 				017978F221875BCA004BA6C7 /* CameraManager.swift */,
 				0108764B2188178E00FAC3BE /* NetworkManager.swift */,
 				0108765F2188BBA800FAC3BE /* StorageManager.swift */,
@@ -509,6 +534,46 @@
 				012521BD21E93F5800BCD32F /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		0140A5C422AAB3B500228F52 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0140A5D722AACB8E00228F52 /* EndPoint */,
+				0140A5C622AAB43300228F52 /* Service */,
+				0140A5C522AAB3C900228F52 /* Encoding */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		0140A5C522AAB3C900228F52 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				0140A5CF22AAB8B800228F52 /* PrameterEncoding.swift */,
+				0140A5D122AAB8DF00228F52 /* URLParameterEncoder.swift */,
+				0140A5D322AABC7B00228F52 /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		0140A5C622AAB43300228F52 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0140A5C722AAB44B00228F52 /* ServiceProtocol.swift */,
+				0140A5C922AAB4A700228F52 /* HTTPMethod.swift */,
+				0140A5CB22AAB4F600228F52 /* HTTPTask.swift */,
+				0140A5CD22AAB5A600228F52 /* Router.swift */,
+				0140A5D522AACA2C00228F52 /* NetworkLogger.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0140A5D722AACB8E00228F52 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				0140A5D922AACBB500228F52 /* MovieEndPoint.swift */,
+			);
+			path = EndPoint;
 			sourceTree = "<group>";
 		};
 		017978EF21874C36004BA6C7 /* Subclass */ = {
@@ -770,7 +835,9 @@
 				0108765C2188337B00FAC3BE /* RedditPostController.swift in Sources */,
 				01F7B26321979E8C00902239 /* CommentListTableViewController.swift in Sources */,
 				017978EE21874952004BA6C7 /* UploadingViewController.swift in Sources */,
+				01C85EA0225D8062007D1237 /* Moive.swift in Sources */,
 				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
+				0140A5D622AACA2C00228F52 /* NetworkLogger.swift in Sources */,
 				014C8D422203F96C00B4A1E6 /* RepeatingTimer.swift in Sources */,
 				0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */,
 				019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */,
@@ -778,27 +845,35 @@
 				01035FF621C6C4580023BD60 /* Author.swift in Sources */,
 				012087882184F59B007B7C43 /* ColorTheme.swift in Sources */,
 				01208797218538B4007B7C43 /* Extentions.swift in Sources */,
+				017E345A2266BB9800B493E1 /* MovieController.swift in Sources */,
+				0140A5C822AAB44B00228F52 /* ServiceProtocol.swift in Sources */,
 				01035FF921C6E8A50023BD60 /* Protocols.swift in Sources */,
 				015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */,
+				0140A5D422AABC7B00228F52 /* JSONParameterEncoder.swift in Sources */,
 				017BD90C22177A43002669EE /* ThreadSafe.swift in Sources */,
 				012087462184E814007B7C43 /* HomeSections.swift in Sources */,
 				0120878F2185303F007B7C43 /* CKPost.swift in Sources */,
 				01C85E9B225D7346007D1237 /* MovieOverlayView.swift in Sources */,
 				012087852184F353007B7C43 /* SectionHeaderCollectionReusableView.swift in Sources */,
 				019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */,
+				0140A5D022AAB8B800228F52 /* PrameterEncoding.swift in Sources */,
 				01F7B26121964C6F00902239 /* CKComment.swift in Sources */,
+				0140A5CA22AAB4A700228F52 /* HTTPMethod.swift in Sources */,
 				01C85E99225D5FB3007D1237 /* MovieDBViewController.swift in Sources */,
+				0140A5CE22AAB5A600228F52 /* Router.swift in Sources */,
 				0120870A2184D3CE007B7C43 /* AppDelegate.swift in Sources */,
 				0108764A2188138900FAC3BE /* NetworkError.swift in Sources */,
 				01F7B21721962E7D00902239 /* Post.swift in Sources */,
 				0179790D21878661004BA6C7 /* FeedTableViewCell.swift in Sources */,
 				0179790B21878595004BA6C7 /* FeedTableViewController.swift in Sources */,
 				01087648218812B000FAC3BE /* FireBasePostController.swift in Sources */,
+				0140A5DA22AACBB500228F52 /* MovieEndPoint.swift in Sources */,
 				01C85E95225CF244007D1237 /* OverlayVC.swift in Sources */,
 				0120872F2184D83D007B7C43 /* HomeViewController.swift in Sources */,
 				012087442184E4F5007B7C43 /* Constants.swift in Sources */,
 				012087352184DA36007B7C43 /* DataBaseActionTableViewController.swift in Sources */,
 				0135D6742204E79900C301A2 /* TimeIntervalExtention.swift in Sources */,
+				0140A5CC22AAB4F600228F52 /* HTTPTask.swift in Sources */,
 				017BD90E22177ADB002669EE /* ArrayExtention.swift in Sources */,
 				0120878C21851D0A007B7C43 /* CustomFont.swift in Sources */,
 				01474E102188E38F003B29A0 /* RdPost.swift in Sources */,
@@ -812,6 +887,7 @@
 				0120878A2185035C007B7C43 /* ActionTableViewCell.swift in Sources */,
 				0108765E2188A63A00FAC3BE /* RedditTableViewCell.swift in Sources */,
 				019EB3E121A1325A00BD9FC2 /* AuthorTableViewCell.swift in Sources */,
+				0140A5D222AAB8DF00228F52 /* URLParameterEncoder.swift in Sources */,
 				0108765021881C1600FAC3BE /* FBPostTableViewController.swift in Sources */,
 				01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */,
 				012087412184E362007B7C43 /* HomeCollectionViewCell.swift in Sources */,

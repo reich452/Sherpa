@@ -119,6 +119,7 @@ extension HomeViewController: HomeCollectionViewCellDelegate {
         } else if indexPath.row == 0 && indexPath.section == 1 {
            let sb = UIStoryboard(name: "MovieDB", bundle: nil)
             guard let vc = sb.instantiateViewController(withIdentifier: Constants.movieVC) as? MovieDBViewController else { return }
+            vc.movieController = MovieController()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             let sb = UIStoryboard(name: "Reddit", bundle: nil)
