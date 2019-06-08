@@ -7,23 +7,22 @@
 //
 
 import Foundation
+import UIKit
 
 struct MovieController {
     
     static let environment : NetworkEnvironment = .production
     let router = Router<MovieApi>()
+   
     typealias MovieCompletion = (Result<[Movie]?, Error>) ->()
-    let printTest = "Testttt"
-    init() {
-        print("MovieController getting init")
-    }
     
     func getNewMovies(page: Int, completion: @escaping MovieCompletion){
         router.request(.newMovies(page: page)) { data, response, error in
             self.handelData(data: data, response: response, error: error, completion: { result in
                 switch result {
-                case .success(let moives):
-                    completion(.success(moives))
+                case .success(let movies):
+                    guard let movies = movies else { return }
+                    completion(.success(movies))
                 case .failure(let error):
                     completion(.failure(error))
                 }
@@ -35,8 +34,8 @@ struct MovieController {
         router.request(.popular(page: page)) {  (data, response, error) in
             self.handelData(data: data, response: response, error: error, completion: { result in
                 switch result {
-                case .success(let moives):
-                    completion(.success(moives))
+                case .success(let movies):
+                    completion(.success(movies))
                 case .failure(let error):
                     completion(.failure(error))
                 }
@@ -56,12 +55,26 @@ struct MovieController {
             })
         }
     }
+    
+    func fetchImageFrom(movies: [Movie], completion: @escaping (UIImage?) -> ()) {
+       
+        for movie in movies {
+            if let posterPath = movie.posterPath {
+                router.fetchImageData(.imageData(str: posterPath), imageStr: posterPath) { (data, response, error) in
+                    if let error = error {
+                        print("Error getting image \(error) \(error.localizedDescription)")
+                    }
+                    guard let data = data else { return }
+                    guard let image = UIImage(data: data) else { return }
+                    completion(image)
+                }
+            }
+        }
+    }
 
     fileprivate func handelData(data: Data?, response: URLResponse?, error: Error?, completion: @escaping MovieCompletion) {
-        
-        
+
         NetworkLogger.log(response: response!)
-        
         //this is not an API failure. Such failures are client side and will probably be due to a poor internet connection.
         if let error = error {
             print("Check your network connection \n\n \(error) \(error.localizedDescription)")

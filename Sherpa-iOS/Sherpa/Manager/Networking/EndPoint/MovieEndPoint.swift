@@ -15,13 +15,18 @@ enum NetworkEnvironment {
 }
 
 public enum MovieApi {
-    case recommended(id:Int)
-    case popular(page:Int)
-    case newMovies(page:Int)
-    case video(id:Int)
+    case recommended(id: Int)
+    case popular(page: Int)
+    case newMovies(page: Int)
+    case video(id: Int)
+    case imageData(str: String)
   
     func apiKey() -> String {
         return "c7b1811db3e27e7c2623fd449aa25310"
+    }
+    
+    func imageURL() -> URL {
+        return URL(string: "https://image.tmdb.org/t/p/w500")!
     }
 }
 
@@ -40,6 +45,10 @@ extension MovieApi: ServiceProtocol {
         return url
     }
     
+    var baseImageURL: URL {
+       return imageURL()
+    }
+    
     var path: String {
         switch self {
         case .recommended(let id):
@@ -50,6 +59,8 @@ extension MovieApi: ServiceProtocol {
             return "now_playing"
         case .video(let id):
             return "\(id)/videos"
+        case .imageData(let imageStr):
+            return imageURL().absoluteString + imageStr
         }
     }
     

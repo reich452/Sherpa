@@ -21,10 +21,6 @@ class Router<Service: ServiceProtocol>: NetworkRouter {
     private let session = URLSession(configuration: .default)
     private var task: URLSessionTask?
     
-    init() {
-        print("Router getting init")
-    }
-    
     func request(_ route: Service, completion: @escaping NetworkRouterCompletion) {
         do {
             let request = try self.buildRequest(from: route)
@@ -40,6 +36,15 @@ class Router<Service: ServiceProtocol>: NetworkRouter {
     
     func cancel() {
         self.task?.cancel()
+    }
+    
+    func fetchImageData(_ route: Service, imageStr: String, completion: @escaping NetworkRouterCompletion) {
+        let url = route.baseImageURL.appendingPathComponent(imageStr)
+        
+        task = session.dataTask(with: url, completionHandler: { (data, response, error) in
+            completion(data, response, error)
+        })
+        self.task?.resume()
     }
     
     fileprivate func buildRequest(from route: Service) throws -> URLRequest {

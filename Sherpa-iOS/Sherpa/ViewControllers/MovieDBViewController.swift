@@ -15,15 +15,38 @@ class MovieDBViewController: UIViewController {
     @IBOutlet weak var kolodaView: KolodaView!
     
     var movieController: MovieController?
-    var images: [UIImage] = [#imageLiteral(resourceName: "xcTMDB_logo"), #imageLiteral(resourceName: "xcCloudKit_Icon"), #imageLiteral(resourceName: "xcFirebase_logo"), #imageLiteral(resourceName: "xcCloudKit_logo")]
+    var images: [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         kolodaView.dataSource = self
         kolodaView.delegate = self
+        self.view.backgroundColor = .offsetBlack
+        self.title = "Title"
         
-        movieController?.getNewMovies(page: 1, completion: { result  in
-            print(result)
+        // TODO: Clean this up: potential options - double completion or count to the first. Reload once. than reload again ?
+        movieController?.getNewMovies(page: 1, completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let movies):
+                guard let movies = movies else { return }
+                print(movies.count)
+                DispatchQueue.main.async {
+                    self.title = "Moive count \(movies.count)"
+                }
+                self.movieController?.fetchImageFrom(movies: movies, completion: { (image) in
+                    if let image = image {
+                        self.images.append(image)
+                        DispatchQueue.main.async {
+                            // FIXME: - This is getting called to many times 
+                            print("Reloaded! \(self.images.count)")
+                            self.kolodaView.reloadData()
+                        }
+                    }
+                })
+            case.failure(let error):
+                print(error)
+            }
         })
     }
     
@@ -56,7 +79,7 @@ extension MovieDBViewController: KolodaViewDataSource {
     
     // MARK: - Koloda View DataSource 
     
-    func kolodaNumberOfCards(_ koloda:KolodaView) -> Int {
+    func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
         return images.count
     }
     
@@ -72,3 +95,5 @@ extension MovieDBViewController: KolodaViewDataSource {
         return Bundle.main.loadNibNamed("MovieOverlayView", owner: self, options: nil)![0] as? MovieOverlayView
     }
 }
+
+

@@ -10,6 +10,7 @@ import Foundation
 
 protocol ServiceProtocol {
     var baseURL: URL { get }
+    var baseImageURL: URL { get }
     var path: String { get }
     var httpMethod: HTTPMethod { get }
     var task: HTTPTask { get }

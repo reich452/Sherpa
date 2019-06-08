@@ -20,8 +20,6 @@ public enum ParameterEncoding {
     
     public func encode(urlRequest: inout URLRequest, bodyParameters: Parameters?,
                        urlParameters: Parameters?) throws {
-        
-        print("PRAMETER------")
         do {
             switch self {
             case .urlEncoding:
