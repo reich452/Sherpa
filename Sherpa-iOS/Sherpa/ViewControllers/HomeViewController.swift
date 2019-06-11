@@ -26,7 +26,8 @@ class HomeViewController: UIViewController {
     }
     
     func setUpUI() {
-        homeCollectionView.backgroundColor = .sherpaBackgroundColor
+        homeCollectionView.backgroundColor = .primaryColor
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 }
@@ -52,9 +53,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.dataBaseCell, for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
-        cell.backContainerView.clipsToBounds = true
-        cell.topContainerView.clipsToBounds = true
-        cell.logoImageView.clipsToBounds = true
         cell.delegate = self 
         switch indexPath.section {
         case 0:

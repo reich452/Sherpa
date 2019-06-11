@@ -35,10 +35,10 @@ class MovieDBViewController: UIViewController {
     // MARK: - Actions 
     
     @IBAction func dislikeBtnTapped(_ sender: UIButton) {
-        kolodaView?.swipe(.left)
+        kolodaView.swipe(.left)
     }
     @IBAction func likeBtnTapped(_ sender: UIButton) {
-        kolodaView?.swipe(.right)
+        kolodaView.swipe(.right)
     }
     
     // MARK: - Main

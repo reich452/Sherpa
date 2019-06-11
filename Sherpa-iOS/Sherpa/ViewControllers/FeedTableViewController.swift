@@ -25,6 +25,7 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 350
+        navigationController?.navigationBar.prefersLargeTitles = true
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(postsChanged), name: Notification.Name.PostsChangedNotification, object: nil)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true

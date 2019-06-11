@@ -18,7 +18,8 @@ class DataBaseActionTVC: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .sherpaBackgroundColor
+        tableView.backgroundColor = .primaryColor
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +39,7 @@ class DataBaseActionTVC: UITableViewController{
         
         cell.delegate = self
         cell.pushVCDelegate = self 
-        cell.backgroundColor = .sherpaBackgroundColor
+        cell.backgroundColor = .primaryColor
         
         switch tabBarController?.selectedIndex{
         case 0:
@@ -83,7 +84,7 @@ class DataBaseActionTVC: UITableViewController{
         }
     }
     
-    
+
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -98,8 +99,18 @@ class DataBaseActionTVC: UITableViewController{
 // MARK: - Custom Delegate
 extension DataBaseActionTVC: ActionTableViewCellDelegate {
     
+    // MARK: - UI
+    func setUpTitle(tab: SelectedIconDB) {
+        switch tab {
+        case .cloudKit:
+            self.title = "CloudKit"
+        case .firebase:
+            self.title = "Firebase"
+        }
+    }
+    
     func hideSelectedObjects(sender: ActionTableViewCell) {
-        
+            setUpTitle(tab: sender.selectedDB ?? .cloudKit)
         if self.tabBarController?.selectedIndex == 1 {
             sender.iconImageView.image = #imageLiteral(resourceName: "xcCloudKit_logo")
             sender.actionLabel.textColor = .cloudKitLightBlue
@@ -109,6 +120,8 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
             sender.actionLabel.textColor = .firebaseDarkOrange
         }
     }
+    
+    // MARK: - Custom Delegate Segue
     
     func performSegueFrom(cell: ActionTableViewCell) {
         let indexPath = tableView.indexPath(for: cell)
@@ -141,6 +154,5 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
         default:
             print("Something broke \(#file) \(#function)")
         }
-    
     }
 }

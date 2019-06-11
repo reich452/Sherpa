@@ -17,7 +17,7 @@ class ReadOrWriteTableViewController: UITableViewController {
     }
     
     var dataBaseString = ""
-    let options = ["Author", "Write"]
+    let options = ["Author", "Comments"]
     let cellSpacing: CGFloat = 10
     
 
@@ -83,6 +83,7 @@ extension ReadOrWriteTableViewController {
     
     // MARK: - UI
     func setUpUI() {
+        title = "Discussion"
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 120

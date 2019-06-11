@@ -22,6 +22,7 @@ class AuthorTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 300
+        self.title = authorController.filterString
     }
   
     
@@ -41,11 +42,6 @@ class AuthorTableViewController: UITableViewController {
         print(indexPath.row)
         
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return authorController.filterString
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

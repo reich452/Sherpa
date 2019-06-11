@@ -30,6 +30,7 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 350
+        navigationController?.navigationBar.prefersLargeTitles = true
         fbPostController.timerDelegate = self
         fbPostController.myTimer.delegate = self
         self.showActivityIndicator()

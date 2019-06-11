@@ -23,4 +23,12 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBAction func didTapCellButton(_ sender: UIButton) {
         delegate?.didTapCellButton(cell: self)
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        backContainerView.clipsToBounds = true
+        topContainerView.clipsToBounds = true
+        logoImageView.clipsToBounds = true
+    }
+ 
 }
