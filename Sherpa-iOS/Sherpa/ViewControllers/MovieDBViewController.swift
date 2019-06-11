@@ -13,6 +13,9 @@ import pop
 class MovieDBViewController: UIViewController {
     
     @IBOutlet weak var kolodaView: KolodaView!
+    @IBOutlet weak var defaultImageView: UIImageView!
+    @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var movieController: MovieController?
     var movies: [Movie] = []
     var pageNumber = 1
@@ -21,9 +24,11 @@ class MovieDBViewController: UIViewController {
         super.viewDidLoad()
         kolodaView.dataSource = self
         kolodaView.delegate = self
+        defaultImageView.clipsToBounds = true 
+        defaultImageView.layer.cornerRadius = 15
         kolodaView.layer.cornerRadius = 15
         self.view.backgroundColor = .offsetBlack
-        self.title = "Title"
+        self.title = "New Releases"
         fetchMovies(pageNumber: pageNumber)
     }
     
@@ -33,6 +38,9 @@ class MovieDBViewController: UIViewController {
     }
     
     // MARK: - Actions 
+    @IBAction func didTapInfoBtn(_ sender: UIButton) {
+        
+    }
     
     @IBAction func dislikeBtnTapped(_ sender: UIButton) {
         kolodaView.swipe(.left)
@@ -45,6 +53,8 @@ class MovieDBViewController: UIViewController {
     
     func fetchMovies(pageNumber: Int) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         movieController?.getNewMovies(page: pageNumber, completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -52,18 +62,21 @@ class MovieDBViewController: UIViewController {
                 guard let movies = movies else { return }
                 print(movies.count)
                 DispatchQueue.main.async {
-                    self.title = "Moive count \(movies.count)"
+                    self.title = "New Releases"
                 }
                 self.movieController?.fetchImageFrom(movies: movies, completion: { (movies) in
                     print("Movies \(Thread.isMainThread)")
                     self.movies = movies
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
                     self.kolodaView.reloadData()
                 })
             case.failure(let error):
                 print(error.localizedDescription)
                 DispatchQueue.main.async {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.activityIndicator.stopAnimating()
                 }
             }
         })
