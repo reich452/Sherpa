@@ -13,19 +13,39 @@ import pop
 class MovieDBViewController: UIViewController {
     
     @IBOutlet weak var kolodaView: KolodaView!
-    
     var movieController: MovieController?
-    var images: [UIImage] = []
+    var movies: [Movie] = []
+    var pageNumber = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         kolodaView.dataSource = self
         kolodaView.delegate = self
+        kolodaView.layer.cornerRadius = 15
         self.view.backgroundColor = .offsetBlack
         self.title = "Title"
-        
-        // TODO: Clean this up: potential options - double completion or count to the first. Reload once. than reload again ?
-        movieController?.getNewMovies(page: 1, completion: { [weak self] result in
+        fetchMovies(pageNumber: pageNumber)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    // MARK: - Actions 
+    
+    @IBAction func dislikeBtnTapped(_ sender: UIButton) {
+        kolodaView?.swipe(.left)
+    }
+    @IBAction func likeBtnTapped(_ sender: UIButton) {
+        kolodaView?.swipe(.right)
+    }
+    
+    // MARK: - Main
+    
+    func fetchMovies(pageNumber: Int) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        movieController?.getNewMovies(page: pageNumber, completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let movies):
@@ -34,44 +54,36 @@ class MovieDBViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.title = "Moive count \(movies.count)"
                 }
-                self.movieController?.fetchImageFrom(movies: movies, completion: { (image) in
-                    if let image = image {
-                        self.images.append(image)
-                        DispatchQueue.main.async {
-                            // FIXME: - This is getting called to many times 
-                            print("Reloaded! \(self.images.count)")
-                            self.kolodaView.reloadData()
-                        }
-                    }
+                self.movieController?.fetchImageFrom(movies: movies, completion: { (movies) in
+                    print("Movies \(Thread.isMainThread)")
+                    self.movies = movies
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.kolodaView.reloadData()
                 })
             case.failure(let error):
-                print(error)
+                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
             }
         })
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
+
+
 
 extension MovieDBViewController: KolodaViewDelegate {
     
     // MARK: - Koloda Delegate
     
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        koloda.reloadData()
+        pageNumber += 1
+        kolodaView.resetCurrentCardIndex()
+        fetchMovies(pageNumber: pageNumber)
     }
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        UIApplication.shared.open(URL(string: "https://yalantis.com/")!)
+        UIApplication.shared.open(URL(string: "https://www.themoviedb.org/")!)
     }
 }
 
@@ -80,7 +92,7 @@ extension MovieDBViewController: KolodaViewDataSource {
     // MARK: - Koloda View DataSource 
     
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
-        return images.count
+        return movies.count
     }
     
     func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
@@ -88,11 +100,17 @@ extension MovieDBViewController: KolodaViewDataSource {
     }
     
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-        return UIImageView(image: images[index])
+        let kolodaImageView = UIImageView(image: movies[index].image)
+        kolodaImageView.clipsToBounds = true
+        kolodaImageView.layer.cornerRadius = 15
+        return kolodaImageView
     }
     
     func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
-        return Bundle.main.loadNibNamed("MovieOverlayView", owner: self, options: nil)![0] as? MovieOverlayView
+        let overlayView = Bundle.main.loadNibNamed("MovieOverlayView", owner: self, options: nil)![0] as? OverlayView
+        overlayView?.clipsToBounds = true
+        overlayView?.layer.cornerRadius = 15
+        return overlayView
     }
 }
 

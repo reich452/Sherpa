@@ -6,7 +6,7 @@
 //  Copyright © 2019 Nick Reichard. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct MovieApiResponse {
     let page: Int
@@ -33,6 +33,7 @@ struct Movie {
     let releaseDate: String
     let rating: Double
     let overview: String
+    var image: UIImage? = #imageLiteral(resourceName: "xcTMDB_logo")
 }
 
 extension Movie: Decodable {

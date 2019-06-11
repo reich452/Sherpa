@@ -56,19 +56,27 @@ struct MovieController {
         }
     }
     
-    func fetchImageFrom(movies: [Movie], completion: @escaping (UIImage?) -> ()) {
-       
+    func fetchImageFrom(movies: [Movie], completion: @escaping ([Movie]) -> ()) {
+        let group = DispatchGroup()
+        var updatedMovies: [Movie] = []
         for movie in movies {
+            var movie = movie
             if let posterPath = movie.posterPath {
+                group.enter()
                 router.fetchImageData(.imageData(str: posterPath), imageStr: posterPath) { (data, response, error) in
                     if let error = error {
                         print("Error getting image \(error) \(error.localizedDescription)")
                     }
                     guard let data = data else { return }
                     guard let image = UIImage(data: data) else { return }
-                    completion(image)
+                    movie.image = image
+                    updatedMovies.append(movie)
+                    group.leave()
                 }
             }
+        }
+        group.notify(queue: .main) {
+             completion(updatedMovies)
         }
     }
 

@@ -18,18 +18,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjO-7O-Fsq" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="53" y="198" width="309" height="352"/>
+                                <rect key="frame" x="25" y="148" width="364" height="420"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="352" id="owP-1g-I4o"/>
+                                    <constraint firstAttribute="height" constant="420" id="owP-1g-I4o"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pc5-yA-yPF">
+                                <rect key="frame" x="20.5" y="608" width="373" height="71.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Sr-ln-jM5">
+                                        <rect key="frame" x="0.0" y="0.0" width="179" height="71.5"/>
+                                        <state key="normal" image="thumbsDown"/>
+                                        <connections>
+                                            <action selector="dislikeBtnTapped:" destination="eYf-LY-ase" eventType="touchUpInside" id="53R-Bh-brG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7J-eQ-mJq">
+                                        <rect key="frame" x="194" y="0.0" width="179" height="71.5"/>
+                                        <state key="normal" image="thumbsUp"/>
+                                        <connections>
+                                            <action selector="likeBtnTapped:" destination="eYf-LY-ase" eventType="touchUpInside" id="8za-8Z-ktV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.18789982799999999" green="0.19226974250000001" blue="0.20888087150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VH6-2L-Utm" firstAttribute="trailing" secondItem="RjO-7O-Fsq" secondAttribute="trailing" constant="52" id="UhZ-8N-ec7"/>
-                            <constraint firstItem="RjO-7O-Fsq" firstAttribute="leading" secondItem="VH6-2L-Utm" secondAttribute="leading" constant="53" id="WOk-jy-foO"/>
-                            <constraint firstItem="RjO-7O-Fsq" firstAttribute="top" secondItem="VH6-2L-Utm" secondAttribute="top" constant="110" id="nkU-xd-7sZ"/>
+                            <constraint firstItem="pc5-yA-yPF" firstAttribute="height" secondItem="q76-6N-NU5" secondAttribute="height" multiplier="0.08" id="246-iM-gYW"/>
+                            <constraint firstItem="pc5-yA-yPF" firstAttribute="centerX" secondItem="VH6-2L-Utm" secondAttribute="centerX" id="Pbc-Om-gIa"/>
+                            <constraint firstItem="VH6-2L-Utm" firstAttribute="trailing" secondItem="RjO-7O-Fsq" secondAttribute="trailing" constant="25" id="UhZ-8N-ec7"/>
+                            <constraint firstItem="pc5-yA-yPF" firstAttribute="top" secondItem="RjO-7O-Fsq" secondAttribute="bottom" constant="40" id="UxC-Qs-9nP"/>
+                            <constraint firstItem="RjO-7O-Fsq" firstAttribute="leading" secondItem="VH6-2L-Utm" secondAttribute="leading" constant="25" id="WOk-jy-foO"/>
+                            <constraint firstItem="RjO-7O-Fsq" firstAttribute="top" secondItem="VH6-2L-Utm" secondAttribute="top" constant="60" id="nkU-xd-7sZ"/>
+                            <constraint firstItem="pc5-yA-yPF" firstAttribute="width" secondItem="q76-6N-NU5" secondAttribute="width" multiplier="0.9" id="rs9-8t-zlN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VH6-2L-Utm"/>
                     </view>
@@ -61,4 +84,8 @@
             <point key="canvasLocation" x="150.72463768115944" y="134.59821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="thumbsDown" width="312.5" height="114"/>
+        <image name="thumbsUp" width="312.5" height="114"/>
+    </resources>
 </document>

@@ -12,9 +12,28 @@ import Koloda
 class MovieOverlayView: OverlayView {
 
 
-    override func draw(_ rect: CGRect) {
-      print("Work??")
+    @IBOutlet lazy var overlayImageView: UIImageView! = {
+        [unowned self] in
+    
+        var imageView = UIImageView(frame: self.bounds)
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 15
+        imageView.layer.opacity = 0.7
+        self.addSubview(imageView)
+        return imageView
+        }()
+    
+    override var overlayState: SwipeResultDirection? {
+        didSet {
+            switch overlayState {
+            case .left? :
+                overlayImageView.image = #imageLiteral(resourceName: "xcePoopEmoji")
+            case .right? :
+                overlayImageView.image = #imageLiteral(resourceName: "xceHappyFace")
+            default:
+                overlayImageView.image = nil
+            }
+        }
     }
-   
 
 }

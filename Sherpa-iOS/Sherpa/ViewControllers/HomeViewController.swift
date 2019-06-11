@@ -20,6 +20,11 @@ class HomeViewController: UIViewController {
         setUpUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     func setUpUI() {
         homeCollectionView.backgroundColor = .sherpaBackgroundColor
     }
