@@ -36,19 +36,23 @@ class FeedTableViewCell: UITableViewCell {
     func updateViews() {
         guard let post = post else { return }
         titleLabel.text = post.title
-        photoImageView.image = post.image
+        photoImageView.image = #imageLiteral(resourceName: "xceCloudLoad")
         commnetLabel.text = "Comments \(post.comments.count)"
+        CloudKitPostController.shared.fetchImages(cKpost: post as! CKPost) { (image) in
+            DispatchQueue.main.async {
+                self.photoImageView.image = image
+            }
+        }
         CloudKitPostController.shared.fetchComments(from: post) { (comments) in
             if comments != nil {
                 DispatchQueue.main.async {
                     self.commnetLabel.text = "Comments \(comments?.count ??? "")"
                 }
             } else {
-                self.commnetLabel.text = "0 Comments"
+                DispatchQueue.main.async {
+                    self.commnetLabel.text = "0 Comments"
+                }
             }
         }
     }
-        
-    
-    
 }

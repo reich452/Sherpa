@@ -26,38 +26,23 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 350
         navigationController?.navigationBar.prefersLargeTitles = true
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(postsChanged), name: Notification.Name.PostsChangedNotification, object: nil)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
         CloudKitPostController.shared.fetchQueriedPosts { (didFinish, counter) in
             if didFinish != false {
                 DispatchQueue.main.async {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                }
-            } else {
-                DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                   let mil = CloudKitPostController.shared.rTimer.timeInterval.milliseconds
-                    print(mil)
+                    self.tableView.reloadData()
                 }
             }
         }
     }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.PostsChangedNotification, object: nil)
-
-    }
     
-    @objc func postsChanged() {
-        let indexPath = IndexPath(item: CloudKitPostController.shared.ckPosts.count - 1, section: 0)
-        
-        self.tableView.insertRows(at: [indexPath], with: .fade)
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        CloudKitPostController.shared.cancelRepeatTimer()
     }
-    
+
     // MARK: - Custom Delegate
     
     func increaseFetchTimer() {
@@ -69,7 +54,7 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
     func timerCompleted() {
         print("Feching complete")
         DispatchQueue.main.async {
-            self.navigationItem.title = "Fetching Complete \(String(format:"%.1f", CloudKitPostController.shared.fetchCounter))"
+            self.navigationItem.title = "Fetching Time: \(String(format:"%.1f", CloudKitPostController.shared.fetchCounter))"
         }
     }
     

@@ -54,7 +54,7 @@ class MovieDBWebVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
         webView.load(request)
     }
     
-    // MARK: - Delegate 
+    // MARK: - Delegate
     
     func webView(_: WKWebView, didStartProvisionalNavigation _: WKNavigation!) {
         if progressView.isHidden {

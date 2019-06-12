@@ -29,7 +29,7 @@ class CKPost: Post {
             return UIImage(data: photoData)
         }
         set{
-            photoData = newValue?.jpegData(compressionQuality: 0.6)
+            photoData = newValue?.jpegData(compressionQuality: 0.5)
         }
     }
     
@@ -69,17 +69,17 @@ class CKPost: Post {
     // MARK: - Fetching
     init?(record: CKRecord) {
         guard let title = record[Constants.titleKey] as? String,
-            let timestamp = record.creationDate,
-            let imageAsset = record[Constants.imageDataKey] as? CKAsset else { return nil }
-        guard let photoData = try? Data(contentsOf: imageAsset.fileURL) else { return nil }
+            let timestamp = record.creationDate else { return nil }
         
+        let imageAsset = record[Constants.imageDataKey] as? CKAsset ?? nil
+        if let imageFileURL = imageAsset?.fileURL {
+            self.photoData = try! Data(contentsOf: imageFileURL) 
+        }
         self.title = title
         self.timestamp = timestamp
-        self.photoData = photoData
         self.ckComments = []
         self.recordID = record.recordID
     }
-    
 }
 
 extension CKRecord {

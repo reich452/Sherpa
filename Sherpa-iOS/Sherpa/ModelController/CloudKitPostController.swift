@@ -17,27 +17,22 @@ protocol CommentUpdatedToDelegate: class {
 class CloudKitPostController {
     
     static let shared = CloudKitPostController()
-    
     private init() {}
     
-    let publicDB = CKContainer.default().publicCloudDatabase
+    deinit {
+        rTimer.suspend()
+    }
+    
+    private let rTimer = RepeatingTimer(timeInterval: 0.1)
+    private var imageCache = NSCache<CKRecord.ID, NSURL>()
     weak var delegate: CommentUpdatedToDelegate?
     weak var timerDelegate: FetchAndUploadCounter?
-    let rTimer = RepeatingTimer(timeInterval: 0.1)
+    let publicDB = CKContainer.default().publicCloudDatabase
     let myTimer = MyTimer()
     var fetchCounter = 0.0
     var uploadCounter = 0.0
     var totalCounter = 0.0
-    
-    var ckPosts = [CKPost]() {
-        didSet {
-            DispatchQueue.main.async {
-                let nc = NotificationCenter.default
-                nc.post(name: Notification.Name.PostsChangedNotification, object: self)
-            }
-        }
-    }
-    
+    var ckPosts = [CKPost]()
     
     // MARK: - CloudKit Availablity
     
@@ -103,8 +98,7 @@ class CloudKitPostController {
     
     func createPostWith(titleText: String, image: UIImage, completion: @escaping (CKPost?) -> ()){
         let ckPost = CKPost(title: titleText, image: image)
-   
-      
+        
         self.rTimer.resume()
         rTimer.eventHandler = { [weak self] in
             guard let self = self else { return }
@@ -143,7 +137,7 @@ class CloudKitPostController {
             }
             DispatchQueue.main.async {
                 self.delegate?.commentsWereAddedTo()
-//                ckComment.recordID = record?.recordID
+                //                ckComment.recordID = record?.recordID
                 completion(ckComment)
             }
         }
@@ -152,7 +146,7 @@ class CloudKitPostController {
     // MARK: - Fetch
     
     func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil, completion: @escaping (Bool, Double?) -> Void) {
-      
+        
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: CKPost.Constants.ckPostKey, predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
@@ -166,10 +160,9 @@ class CloudKitPostController {
             query.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
             operation = CKQueryOperation(query: query)
         }
-        operation.desiredKeys = ["title", "imageData", "timestamp"]
-        operation.resultsLimit = 5
-        operation.queuePriority = .veryHigh
-        operation.qualityOfService = .userInteractive
+        operation.desiredKeys = ["title", "timestamp"]
+        operation.resultsLimit = 30
+        operation.queuePriority = .high
         rTimer.eventHandler = { [weak self] in
             guard let self = self else { return }
             self.fetchCounter += 0.1
@@ -191,12 +184,11 @@ class CloudKitPostController {
             print("🎃 fetching ckPosts \(self.ckPosts.count)")
             print(self.ckPosts.count)
             completion(false, nil)
-    
-            DispatchQueue.main.sync {
-
+            
+            DispatchQueue.main.async {
+                
             }
         }
-        
         operation.queryCompletionBlock = { [unowned self] cursor, error in
             if let error = error {
                 print("Error fethcing posts \(error)")
@@ -205,17 +197,61 @@ class CloudKitPostController {
                 print("Fetching more results \(self.ckPosts.count)")
             } else {
                 print("Done Fetching CKPosts")
-               
+                
                 self.rTimer.suspend()
                 self.timerDelegate?.timerCompleted()
                 self.totalCounter = self.fetchCounter
                 completion(true, self.fetchCounter)
-                
             }
         }
         publicDB.add(operation)
     }
-
+    
+    func fetchImages(cKpost: CKPost, completion: @escaping (UIImage?) -> Void) {
+        
+        let fetchImageOperation = CKFetchRecordsOperation(recordIDs: [cKpost.recordID])
+        fetchImageOperation.recordIDs = [cKpost.recordID]
+        rTimer.eventHandler = { [weak self] in
+            guard let self = self else { return }
+            self.fetchCounter += 0.1
+            self.timerDelegate?.increaseFetchTimer()
+            print(" 2⏲ Timer:  \(self.fetchCounter ??? "can't count")")
+        }
+        rTimer.resume()
+        
+        if let imageFileURL = imageCache.object(forKey: cKpost.recordID) {
+            
+            print("-- Getting the image from cache -- ")
+            if let imageData = try? Data(contentsOf: imageFileURL as URL) {
+                let image = UIImage(data: imageData)
+                completion(image)
+            }
+        } else {
+            fetchImageOperation.desiredKeys = ["imageData"]
+            fetchImageOperation.queuePriority = .veryHigh
+            fetchImageOperation.qualityOfService = .userInteractive
+            
+            fetchImageOperation.perRecordCompletionBlock = { record, recordID, error in
+                if let error = error {
+                    print("Error feching image completion \(error)")
+                    completion(nil); return
+                }
+                guard let record = record,
+                    let imageAsset = record.object(forKey: "imageData") as? CKAsset else {
+                        completion(nil); return
+                }
+                if let imageData = try? Data(contentsOf: imageAsset.fileURL) {
+                    let image = UIImage(data: imageData)
+                    self.imageCache.setObject(imageAsset.fileURL as NSURL, forKey: cKpost.recordID)
+                    self.rTimer.suspend()
+                    self.timerDelegate?.timerCompleted()
+                    completion(image)
+                }
+            }
+            publicDB.add(fetchImageOperation)
+        }
+    }
+    
     func fetchComments(from post: Post, completion: @escaping ([CKComment]?) -> Void) {
         guard let ckPost = post as? CKPost else { completion(nil); return }
         let postRef = ckPost.recordID
@@ -224,7 +260,6 @@ class CloudKitPostController {
         let predicate2 = NSPredicate(format: "NOT(recordID IN %@)", commentIDs)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
         let query = CKQuery(recordType: "CKComment", predicate: compoundPredicate)
-        
         
         publicDB.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
@@ -239,6 +274,10 @@ class CloudKitPostController {
             ckPost.comments = ckComments
             completion(ckComments)
         }
+    }
+    
+    func cancelRepeatTimer() {
+        rTimer.suspend()
     }
 }
 

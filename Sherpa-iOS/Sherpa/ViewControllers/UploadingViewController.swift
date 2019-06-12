@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
+class UploadingViewController: ShiftableViewController, ActivityIndicatorPresenter {
     
     @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet weak var captionSpTextField: SherpaTextField!
@@ -32,6 +32,7 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        captionSpTextField.delegate = self
         setUpUI()
     }
     
@@ -45,7 +46,6 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
         CloudKitPostController.shared.myTimer.resetTimer()
     }
     
-    
     // MARK: - Actions
     
     @IBAction func selectImageButtonTapped(_ sender: UIButton) {
@@ -55,7 +55,6 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
         cameraManager?.imagePickedBlock = { [weak self] (image) in
             self?.imageView.image = image
         }
-        
     }
     
     @IBAction func updLoadButtonTapped(_ sender: UIButton) {
@@ -69,14 +68,9 @@ class UploadingViewController: UIViewController, ActivityIndicatorPresenter {
         uploadButton.layer.borderColor = UIColor.gray.cgColor
         uploadButton.setTitleColor(.gray, for: .normal)
         CloudKitPostController.shared.createPostWith(titleText: title, image: image) { (post) in
-            if post != nil {
-                DispatchQueue.main.async {
-                    self.hideActivityIndicator()
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.hideActivityIndicator()
-                }
+            self.hideActivityIndicator()
+            if post == nil {
+                self.showNoActionAlert(titleStr: "Error", messageStr: "Error uploading to CloudKit", style: .cancel)
             }
         }
     }
@@ -156,7 +150,6 @@ extension UploadingViewController: FetchAndUploadCounter, OverlayVCDelegate {
     }
     
     func increaseCkUploadTimer(time: Double) {
-        print("The THREAD \(Thread.isMainThread)")
         DispatchQueue.main.async {
             self.uploadTime = time
             self.title = "Upload Time: \(time.formattedTime)"

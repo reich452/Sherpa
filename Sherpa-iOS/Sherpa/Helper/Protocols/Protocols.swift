@@ -13,10 +13,12 @@ protocol FetchAndUploadCounter: class {
     func increaseCkUploadTimer(time: Double)
     func timerCompleted()
     func increaseFbUploadTimer(time: Double)
+    func cancelTimer()
 }
 
 extension FetchAndUploadCounter {
     func increaseFetchTimer() {}
     func increaseCkUploadTimer(time: Double) {}
     func increaseFbUploadTimer(time: Double) {}
+    func cancelTimer() {}
 }
