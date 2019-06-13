@@ -15,7 +15,6 @@ enum SelectedIconDB {
 
 class DataBaseActionTVC: UITableViewController{
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .primaryColor
@@ -25,6 +24,7 @@ class DataBaseActionTVC: UITableViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        tabBarController?.tabBar.isHidden = false 
     }
     
     
@@ -47,14 +47,12 @@ class DataBaseActionTVC: UITableViewController{
         case 1:
             cell.selectedDB = .cloudKit
             checkCaseOne(indexPath: indexPath, cell: cell)
-            
         case 2:
             cell.selectedDB = .firebase
             checkCaseTwo(indexPath: indexPath, cell: cell)
         default:
             print("oh 💩 you  need to fix this \(#file) \(#function)")
         }
-        
         return cell
     }
     
@@ -83,7 +81,6 @@ class DataBaseActionTVC: UITableViewController{
             cell.secondIconImageView.isHidden = true
         }
     }
-    
 
     // MARK: - Navigation
     
@@ -147,9 +144,18 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         case 2:
-            let sb = UIStoryboard(name: "Uploading", bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: Constants.uploadVC) as? UploadingViewController else { return }
-            self.navigationController?.pushViewController(vc, animated: true)
+            if cell.selectedDB == .cloudKit {
+                let sb = UIStoryboard(name: "Uploading", bundle: nil)
+                guard let vc = sb.instantiateViewController(withIdentifier: Constants.uploadVC) as? UploadingViewController else { return }
+                vc.isCKupload = true
+
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let sb = UIStoryboard(name: "Uploading", bundle: nil)
+                guard let vc = sb.instantiateViewController(withIdentifier: Constants.uploadVC) as? UploadingViewController else { return }
+                vc.isCKupload = false
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
 
         default:
             print("Something broke \(#file) \(#function)")

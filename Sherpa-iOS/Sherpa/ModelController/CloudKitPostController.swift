@@ -207,8 +207,8 @@ class CloudKitPostController {
         publicDB.add(operation)
     }
     
-    func fetchImages(cKpost: CKPost, completion: @escaping (UIImage?) -> Void) {
-        
+    func fetchImages(cKpost: Post, completion: @escaping (UIImage?) -> Void) {
+        guard let cKpost = cKpost as? CKPost else { return }
         let fetchImageOperation = CKFetchRecordsOperation(recordIDs: [cKpost.recordID])
         fetchImageOperation.recordIDs = [cKpost.recordID]
         rTimer.eventHandler = { [weak self] in

@@ -38,7 +38,7 @@ class FeedTableViewCell: UITableViewCell {
         titleLabel.text = post.title
         photoImageView.image = #imageLiteral(resourceName: "xceCloudLoad")
         commnetLabel.text = "Comments \(post.comments.count)"
-        CloudKitPostController.shared.fetchImages(cKpost: post as! CKPost) { (image) in
+        CloudKitPostController.shared.fetchImages(cKpost: post) { (image) in
             DispatchQueue.main.async {
                 self.photoImageView.image = image
             }

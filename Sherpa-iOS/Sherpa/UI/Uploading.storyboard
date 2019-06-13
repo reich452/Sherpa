@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dPG-eK-nee">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dPG-eK-nee">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,15 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jVy-QK-OpF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jVy-QK-OpF">
                                 <rect key="frame" x="16" y="49" width="343" height="267"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zDU-SN-0PW" customClass="SherpaTextField" customModule="Sherpa" customModuleProvider="target">
-                                <rect key="frame" x="50.5" y="387" width="274" height="39"/>
+                                <rect key="frame" x="33" y="387" width="309" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="lwF-KT-BWd"/>
+                                    <constraint firstAttribute="height" constant="45" id="lwF-KT-BWd"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -40,20 +40,37 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xB-mB-deB">
-                                <rect key="frame" x="94" y="456" width="187.5" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xB-mB-deB" customClass="CustomButton" customModule="Sherpa" customModuleProvider="target">
+                                <rect key="frame" x="94" y="462" width="187.5" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="LLk-8i-DpK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Upload Image to ☁">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isGradientBgOn" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topGradiant">
+                                        <color key="value" red="0.96106988191604614" green="0.76660728454589844" blue="0.23749071359634399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomGradiant">
+                                        <color key="value" red="0.9377129077911377" green="0.49559777975082397" blue="0.059318400919437408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="updLoadButtonTapped:" destination="dPG-eK-nee" eventType="touchUpInside" id="X6w-Pu-VoG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXj-um-YGg">
-                                <rect key="frame" x="102" y="167" width="171.5" height="31"/>
+                                <rect key="frame" x="102" y="238" width="171.5" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="NA5-Zm-f4E"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Select Image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -61,41 +78,54 @@
                                     <action selector="selectImageButtonTapped:" destination="dPG-eK-nee" eventType="touchUpInside" id="EEO-m3-LjG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5f0-yy-03o">
-                                <rect key="frame" x="94" y="514" width="187.5" height="30"/>
-                                <state key="normal" title="Upload to 🔥">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y61-g8-NU5">
+                                <rect key="frame" x="110.5" y="129" width="154" height="107"/>
+                                <state key="normal" image="xceUploadOarnge"/>
                                 <connections>
-                                    <action selector="uploadFBbuttonTapped:" destination="dPG-eK-nee" eventType="touchUpInside" id="0OD-m2-xXe"/>
+                                    <action selector="selectImageButtonTapped:" destination="dPG-eK-nee" eventType="touchUpInside" id="xFB-u2-oNE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4z-F3-9eL" userLabel="CancelBtn">
+                                <rect key="frame" x="334" y="49" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="3qR-ry-uQc"/>
+                                    <constraint firstAttribute="width" constant="25" id="nXQ-yk-ULO"/>
+                                </constraints>
+                                <state key="normal" image="xceCancel"/>
+                                <connections>
+                                    <action selector="cancelBtnTapped:" destination="dPG-eK-nee" eventType="touchUpInside" id="VUp-Rr-7aL"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5f0-yy-03o" firstAttribute="firstBaseline" secondItem="1xB-mB-deB" secondAttribute="baseline" constant="58" id="3rF-A7-RcI"/>
                             <constraint firstItem="jVy-QK-OpF" firstAttribute="top" secondItem="gsI-TL-Pl1" secondAttribute="top" constant="29" id="4jd-Gs-wBj"/>
                             <constraint firstItem="zDU-SN-0PW" firstAttribute="centerX" secondItem="gsI-TL-Pl1" secondAttribute="centerX" id="9Re-f3-ttO"/>
-                            <constraint firstItem="5f0-yy-03o" firstAttribute="width" secondItem="QI5-Bh-N8o" secondAttribute="width" multiplier="0.5" id="Be7-QF-f6w"/>
+                            <constraint firstItem="y61-g8-NU5" firstAttribute="centerY" secondItem="jVy-QK-OpF" secondAttribute="centerY" id="BXQ-JS-7ex"/>
+                            <constraint firstItem="Y4z-F3-9eL" firstAttribute="top" secondItem="jVy-QK-OpF" secondAttribute="top" id="FKx-PZ-nm3"/>
                             <constraint firstItem="1xB-mB-deB" firstAttribute="centerX" secondItem="gsI-TL-Pl1" secondAttribute="centerX" id="GbC-b7-xfk"/>
                             <constraint firstItem="jVy-QK-OpF" firstAttribute="centerX" secondItem="QI5-Bh-N8o" secondAttribute="centerX" id="JBI-dp-fI1"/>
                             <constraint firstItem="gsI-TL-Pl1" firstAttribute="trailing" secondItem="jVy-QK-OpF" secondAttribute="trailing" constant="16" id="JNI-en-YND"/>
-                            <constraint firstItem="zDU-SN-0PW" firstAttribute="width" secondItem="jVy-QK-OpF" secondAttribute="width" multiplier="0.8" id="KsL-Jb-Cjx"/>
+                            <constraint firstItem="zDU-SN-0PW" firstAttribute="width" secondItem="jVy-QK-OpF" secondAttribute="width" multiplier="0.9" id="KsL-Jb-Cjx"/>
                             <constraint firstItem="iXj-um-YGg" firstAttribute="centerX" secondItem="jVy-QK-OpF" secondAttribute="centerX" id="NFh-gC-Ual"/>
+                            <constraint firstItem="y61-g8-NU5" firstAttribute="centerX" secondItem="jVy-QK-OpF" secondAttribute="centerX" id="PgJ-Ci-eqk"/>
                             <constraint firstItem="1xB-mB-deB" firstAttribute="top" secondItem="zDU-SN-0PW" secondAttribute="bottom" constant="30" id="Qzc-fO-oeH"/>
+                            <constraint firstItem="y61-g8-NU5" firstAttribute="height" secondItem="jVy-QK-OpF" secondAttribute="height" multiplier="0.4" id="RwS-w0-rbj"/>
                             <constraint firstItem="zDU-SN-0PW" firstAttribute="top" secondItem="jVy-QK-OpF" secondAttribute="bottom" constant="71" id="T31-Av-hFw"/>
                             <constraint firstItem="jVy-QK-OpF" firstAttribute="height" secondItem="QI5-Bh-N8o" secondAttribute="height" multiplier="0.4" id="VkR-rm-37e"/>
+                            <constraint firstItem="Y4z-F3-9eL" firstAttribute="trailing" secondItem="jVy-QK-OpF" secondAttribute="trailing" id="X6P-IK-HO1"/>
+                            <constraint firstItem="y61-g8-NU5" firstAttribute="width" secondItem="jVy-QK-OpF" secondAttribute="width" multiplier="0.45" id="e75-64-mqG"/>
                             <constraint firstItem="1xB-mB-deB" firstAttribute="width" secondItem="QI5-Bh-N8o" secondAttribute="width" multiplier="0.5" id="k3r-Rq-5BW"/>
+                            <constraint firstItem="iXj-um-YGg" firstAttribute="top" secondItem="y61-g8-NU5" secondAttribute="bottom" constant="2" id="rnp-KC-tKp"/>
                             <constraint firstItem="iXj-um-YGg" firstAttribute="width" secondItem="jVy-QK-OpF" secondAttribute="width" multiplier="0.5" id="uvP-Jl-HmF"/>
-                            <constraint firstItem="5f0-yy-03o" firstAttribute="centerX" secondItem="gsI-TL-Pl1" secondAttribute="centerX" id="vU7-PK-hqa"/>
-                            <constraint firstItem="iXj-um-YGg" firstAttribute="centerY" secondItem="jVy-QK-OpF" secondAttribute="centerY" id="via-5D-YN8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gsI-TL-Pl1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="nIn-92-EmO"/>
                     <connections>
+                        <outlet property="cancelBtn" destination="Y4z-F3-9eL" id="B9x-cT-iEf"/>
                         <outlet property="captionSpTextField" destination="zDU-SN-0PW" id="Zp7-rT-crn"/>
-                        <outlet property="fbUploadButton" destination="5f0-yy-03o" id="wRu-bk-JWg"/>
+                        <outlet property="defaultUploadBtn" destination="y61-g8-NU5" id="mxo-Pe-3CZ"/>
                         <outlet property="imageView" destination="jVy-QK-OpF" id="yew-AM-Yk6"/>
                         <outlet property="selectImageButton" destination="iXj-um-YGg" id="G9c-17-GEG"/>
                         <outlet property="uploadButton" destination="1xB-mB-deB" id="IXZ-gd-xTQ"/>
@@ -115,4 +145,8 @@
             <point key="canvasLocation" x="1639" y="164"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xceCancel" width="142" height="145"/>
+        <image name="xceUploadOarnge" width="401" height="295"/>
+    </resources>
 </document>

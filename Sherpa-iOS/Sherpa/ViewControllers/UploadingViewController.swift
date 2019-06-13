@@ -13,17 +13,19 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
     
     @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet weak var captionSpTextField: SherpaTextField!
-    @IBOutlet weak var uploadButton: UIButton!
+    @IBOutlet weak var uploadButton: CustomButton!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var fbUploadButton: UIButton!
-    
+    @IBOutlet weak var defaultUploadBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     // MARK: - Properties
     
-    var activityIndicator = UIActivityIndicatorView()
-    var cameraManager: CameraManager?
-    var uploadTime: Double = 0.0
-    var isCKupload = false
+    public var isCKupload = false
+    public var activityIndicator = UIActivityIndicatorView()
+    fileprivate var uploadTime: Double = 0.0
+    private var cameraManager: CameraManager?
+    private let blurEffect = UIBlurEffect(style: .light)
+    private var visualEffectView: UIVisualEffectView?
     private lazy var fbPostController: FireBasePostController = {
         let storageRef = StorageReference()
         let storageManager = StorageManager(storageRef: storageRef)
@@ -33,67 +35,75 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
     override func viewDidLoad() {
         super.viewDidLoad()
         captionSpTextField.delegate = self
-        setUpUI()
+        setUpUI(selectedDb: isCKupload)
+        
     }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        setUpSubViews()
-    }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         CloudKitPostController.shared.myTimer.resetTimer()
     }
     
     // MARK: - Actions
-    
+
+    @IBAction func cancelBtnTapped(_ sender: UIButton) {
+        view.insertSubview(defaultUploadBtn, at: 2)
+        view.insertSubview(selectImageButton, at: 2)
+        
+        visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView?.frame = imageView.frame
+        guard let effectView = visualEffectView else { return }
+        UIView.animate(withDuration: 1.0) {
+            self.view.insertSubview(effectView, aboveSubview: self.imageView)
+            sender.isHidden = true
+        }
+    }
     @IBAction func selectImageButtonTapped(_ sender: UIButton) {
-        selectImageButton.isHidden = true
         cameraManager = CameraManager()
         cameraManager?.showActionSheet(vc: self)
         cameraManager?.imagePickedBlock = { [weak self] (image) in
-            self?.imageView.image = image
+            guard let self = self else { return }
+            self.cancelBtn.isHidden = false
+            self.view.sendSubviewToBack(self.defaultUploadBtn)
+            self.view.sendSubviewToBack(self.selectImageButton)
+            self.visualEffectView?.removeFromSuperview()
+            self.imageView.image = image
         }
     }
     
     @IBAction func updLoadButtonTapped(_ sender: UIButton) {
-        CloudKitPostController.shared.timerDelegate = self
-        guard let title = captionSpTextField.text,
-            title != "", let image = imageView.image else { return }
-        
-        showActivityIndicator()
-        sender.isEnabled = false
-        isCKupload = true
-        uploadButton.layer.borderColor = UIColor.gray.cgColor
-        uploadButton.setTitleColor(.gray, for: .normal)
-        CloudKitPostController.shared.createPostWith(titleText: title, image: image) { (post) in
-            self.hideActivityIndicator()
-            if post == nil {
-                self.showNoActionAlert(titleStr: "Error", messageStr: "Error uploading to CloudKit", style: .cancel)
-            }
-        }
-    }
-    
-    @IBAction func uploadFBbuttonTapped(_ sender: UIButton) {
-        guard let title = captionSpTextField.text,
-            title != "", let image = imageView.image else { return }
-        showActivityIndicator()
-        sender.isEnabled = false
-        uploadButton.layer.borderColor = UIColor.gray.cgColor
-        uploadButton.setTitleColor(.gray, for: .normal)
-        sender.isEnabled = false
-        fbUploadButton.layer.borderColor = UIColor.gray.cgColor
-        fbUploadButton.setTitleColor(.gray, for: .normal)
-        fbPostController.timerDelegate = self
-        fbPostController.createPost(with: title, image: image) { (success, _) in
-            if success  {
-                DispatchQueue.main.async {
-                    self.hideActivityIndicator()
+        switch isCKupload {
+        case true:
+            CloudKitPostController.shared.timerDelegate = self
+            guard let title = captionSpTextField.text,
+                title != "", let image = imageView.image else { return }
+            
+            showActivityIndicator()
+            sender.isEnabled = false
+            isCKupload = true
+            uploadButton.layer.borderColor = UIColor.gray.cgColor
+            uploadButton.setTitleColor(.gray, for: .normal)
+            CloudKitPostController.shared.createPostWith(titleText: title, image: image) { (post) in
+                self.hideActivityIndicator()
+                if post == nil {
+                    self.showNoActionAlert(titleStr: "Error", messageStr: "Error uploading to CloudKit", style: .cancel)
                 }
-            } else {
-                DispatchQueue.main.async {
-                    self.hideActivityIndicator()
+            }
+        case false:
+            guard let title = captionSpTextField.text,
+                title != "", let image = imageView.image else { return }
+            showActivityIndicator()
+            sender.isEnabled = false
+            uploadButton.layer.borderColor = UIColor.gray.cgColor
+            uploadButton.setTitleColor(.gray, for: .normal)
+            sender.isEnabled = false
+            uploadButton.layer.borderColor = UIColor.gray.cgColor
+            uploadButton.setTitleColor(.gray, for: .normal)
+            fbPostController.timerDelegate = self
+            fbPostController.createPost(with: title, image: image) { (success, _) in
+                self.hideActivityIndicator()
+                if !success {
+                    self.showNoActionAlert(titleStr: "Error", messageStr: "Error uploading to firebase", style: .cancel)
                 }
             }
         }
@@ -101,27 +111,34 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
     
     // MARK: - Main
     
-    func setUpUI() {
-        selectImageButton.clipsToBounds = true
-        selectImageButton.layer.cornerRadius = 15
-        selectImageButton.layer.borderColor = UIColor.white.cgColor
-        selectImageButton.layer.borderWidth = 1
-        uploadButton.clipsToBounds = true
-        uploadButton.layer.cornerRadius = 15
-        uploadButton.layer.borderColor = UIColor.white.cgColor
-        uploadButton.layer.borderWidth = 1
+    func setUpUI(selectedDb: Bool) {
+        tabBarController?.tabBar.isHidden = true
+        view.backgroundColor = .primaryColor
+        cancelBtn.isHidden = true
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 15
-        imageView.backgroundColor = UIColor.offsetBlack
-        fbUploadButton.clipsToBounds = true
-        fbUploadButton.layer.cornerRadius = 15
-        fbUploadButton.layer.borderColor = UIColor.white.cgColor
-        fbUploadButton.layer.borderWidth = 1
-        captionSpTextField.bottomBorderColor = UIColor.white
-    }
-    
-    func setUpSubViews() {
-        view.addVerticalGradientLayer(topColor: UIColor.cloudKitLightBlue, bottomColor: UIColor.cloudKitDarkBlue)
+        imageView.backgroundColor = .primaryColor
+        captionSpTextField.bottomBorderColor = .white
+        captionSpTextField.tintColor = .white
+        captionSpTextField.backgroundColor = .white
+        captionSpTextField.textColor = .offsetBlack
+        captionSpTextField.layer.cornerRadius = 20
+        captionSpTextField.clipsToBounds = true 
+        uploadButton.clipsToBounds = true
+        title = "Upload"
+        switch selectedDb {
+        case true:
+            uploadButton.setTitle("Upload to ☁️", for: .normal)
+            uploadButton.setTitleColor(.white, for: .normal)
+            uploadButton.isGradientBgOn = true
+            uploadButton.bottomGradiant = .cloudKitDarkBlue
+            uploadButton.topGradiant = .cloudKitLightBlue
+            uploadButton.layer.borderColor = UIColor.cloudKitDarkBlue.cgColor
+            defaultUploadBtn.setImage(#imageLiteral(resourceName: "xceBlueUpload"), for: .normal)
+        case false:
+            uploadButton.setTitle("Upload to 🔥", for: .normal)
+            uploadButton.setTitleColor(.white, for: .normal)
+        }
     }
     
     // MARK: - Navigation
@@ -133,10 +150,11 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
         }
     }
 }
+// MARK: - CustomDelegate
 
 extension UploadingViewController: FetchAndUploadCounter, OverlayVCDelegate {
     
-    // MARK: - CustomDelegate
+    // MARK: - Timer delegate
     
     func timerCompleted() {
         print("STOPPPPPED")
