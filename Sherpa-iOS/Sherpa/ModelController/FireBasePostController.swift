@@ -18,7 +18,6 @@ class FireBasePostController {
     weak var timerDelegate: FetchAndUploadCounter?
     private let databaseReference = Database.database().reference()
     private let storageReference = Storage.storage().reference()
-    var date = Date()
     var myTimer = MyTimer()
     var timeElapsed = 0.0
     var rTimer = RepeatingTimer(timeInterval: 0.1)
@@ -33,7 +32,6 @@ class FireBasePostController {
     func createPost(with title: String, image: UIImage, completion: @escaping fbCompletion) {
          guard let imageData = image.jpegData(compressionQuality: 0.3) else { completion(false, NetworkError.noDataReturned) ; return }
         let filename = UUID().uuidString
-//        myTimer.startTimer()
         
         rTimer.resume()
         rTimer.eventHandler = { [weak self] in
@@ -50,7 +48,6 @@ class FireBasePostController {
             }
             
             guard let url = url else {completion(false, NetworkError.noDataReturned); return }
-            
             guard let key = self.databaseReference.child("posts").childByAutoId().key else { completion(false, NetworkError.incorrectParameters); return }
             
             let urlString = url.absoluteString
@@ -65,7 +62,6 @@ class FireBasePostController {
                 }
                 self.rTimer.suspend()
                 self.timerDelegate?.timerCompleted()
-//                self.myTimer.stopTimer()
                 completion(true, nil)
             })
         }
@@ -76,15 +72,14 @@ class FireBasePostController {
     func fetchPosts(completion: @escaping fbCompletion) {
         let query = databaseReference.child("posts")
         myTimer.startTimer()
-    
         timerDelegate?.increaseFetchTimer()
+    
         query.observe(.value) { [weak self] (snapshot) in
             guard let self = self else { return }
             for post in snapshot.children.allObjects as? [DataSnapshot] ?? [] {
                 guard let fbPost = FbPost(snapshot: post) else { completion(false, nil); return }
                 self.fbPosts.append(fbPost)
             }
-            print("\(self.date.timeIntervalSinceNow * -1) seconds elapsed")
             completion(true, nil)
         }
     }
@@ -105,7 +100,6 @@ class FireBasePostController {
                 let image = UIImage(data: data) else { completion(nil) ; return }
           
             self.timerDelegate?.timerCompleted()
-            print("\(self.date.timeIntervalSinceNow * -1) seconds elapsed")
             completion(image)
             }.resume()
     }

@@ -13,10 +13,7 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
     @IBOutlet weak var searchBar: UISearchBar!
     var resultsArray: [CKPost]?
     var isSearching: Bool = false
-    var counter = 0.0
-    var totalCount = 0.0
     var activityIndicator = UIActivityIndicatorView()
-    var timeInterval: TimeInterval?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +70,6 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
         return isSearching ? resultsArray?.count ?? 0 : CloudKitPostController.shared.ckPosts.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as? FeedTableViewCell else { return UITableViewCell() }
         
@@ -99,7 +95,6 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
             commentListVC.indexPath = indexPath
         }
     }
-    
 }
 
 // MARK: - Search
@@ -127,3 +122,4 @@ extension FeedTableViewController: UISearchBarDelegate {
         isSearching = false
     }
 }
+

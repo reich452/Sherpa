@@ -13,18 +13,13 @@ import Firebase
 class FBPostTableViewController: UITableViewController, ActivityIndicatorPresenter {
     
     // MARK: - Properties
-    
     @IBOutlet weak var searchBar: UISearchBar!
     var activityIndicator = UIActivityIndicatorView()
-    var counter = 0.0
-    
-    
     private lazy var fbPostController: FireBasePostController = {
         let storageRef = StorageReference()
         let storageManager = StorageManager(storageRef: storageRef)
         return FireBasePostController(storageManager: storageManager)
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,12 +72,6 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
             }
         }
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == 3 {
-            print("Threeee")
-        }
     }
     
     // MARK: - Navigation
