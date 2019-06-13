@@ -82,7 +82,8 @@ struct MovieController {
 
     fileprivate func handelData(data: Data?, response: URLResponse?, error: Error?, completion: @escaping MovieCompletion) {
 
-        NetworkLogger.log(response: response!)
+        guard let response = response else { completion(.failure(NetworkError.badRequest)); return }
+        NetworkLogger.log(response: response)
         //this is not an API failure. Such failures are client side and will probably be due to a poor internet connection.
         if let error = error {
             print("Check your network connection \n\n \(error) \(error.localizedDescription)")
