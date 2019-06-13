@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjO-7O-Fsq" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="56.5" y="178" width="262.5" height="367"/>
+                                <rect key="frame" x="47" y="178" width="281" height="367"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xceMovieDB" translatesAutoresizingMaskIntoConstraints="NO" id="MZG-xT-hdu">
-                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="367"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="281.00000000000011" height="367.00000000000011"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Lhp-Zr-ExH">
-                                        <rect key="frame" x="121" y="173.5" width="20" height="20"/>
+                                        <rect key="frame" x="130.5" y="173.5" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.18789982795715332" green="0.19226974248886108" blue="0.20888087153434753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,6 +72,10 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2Dc-qP-nms"/>
+                                    <constraint firstAttribute="width" constant="150" id="VuP-cV-m0a"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1y-XV-mNe">
                                 <rect key="frame" x="324" y="126" width="30" height="30"/>
@@ -90,15 +94,13 @@
                         <color key="backgroundColor" red="0.18789982799999999" green="0.19226974250000001" blue="0.20888087150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RjO-7O-Fsq" firstAttribute="height" secondItem="q76-6N-NU5" secondAttribute="height" multiplier="0.55" id="0B1-3r-ozk"/>
-                            <constraint firstItem="pc5-yA-yPF" firstAttribute="height" secondItem="q76-6N-NU5" secondAttribute="height" multiplier="0.09" id="246-iM-gYW"/>
+                            <constraint firstItem="VH6-2L-Utm" firstAttribute="bottom" secondItem="pc5-yA-yPF" secondAttribute="bottom" constant="47" id="4yJ-GN-Cl4"/>
                             <constraint firstItem="RjO-7O-Fsq" firstAttribute="centerX" secondItem="VH6-2L-Utm" secondAttribute="centerX" id="8sS-xn-4Xj"/>
-                            <constraint firstItem="pc5-yA-yPF" firstAttribute="top" secondItem="RjO-7O-Fsq" secondAttribute="bottom" constant="15" id="D5g-Pq-j7b"/>
                             <constraint firstItem="VH6-2L-Utm" firstAttribute="trailing" secondItem="w1y-XV-mNe" secondAttribute="trailing" constant="21" id="MDo-Oe-xvK"/>
                             <constraint firstItem="pc5-yA-yPF" firstAttribute="centerX" secondItem="VH6-2L-Utm" secondAttribute="centerX" id="Pbc-Om-gIa"/>
                             <constraint firstItem="w1y-XV-mNe" firstAttribute="top" secondItem="VH6-2L-Utm" secondAttribute="top" constant="10" id="buw-MO-Ys0"/>
-                            <constraint firstItem="pc5-yA-yPF" firstAttribute="width" secondItem="q76-6N-NU5" secondAttribute="width" multiplier="0.4" id="rs9-8t-zlN"/>
                             <constraint firstItem="RjO-7O-Fsq" firstAttribute="centerY" secondItem="VH6-2L-Utm" secondAttribute="centerY" constant="-30" id="tGe-bf-L3K"/>
-                            <constraint firstItem="RjO-7O-Fsq" firstAttribute="width" secondItem="q76-6N-NU5" secondAttribute="width" multiplier="0.7" id="yrW-9s-Wqg"/>
+                            <constraint firstItem="RjO-7O-Fsq" firstAttribute="width" secondItem="q76-6N-NU5" secondAttribute="width" multiplier="0.75" id="yrW-9s-Wqg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VH6-2L-Utm"/>
                     </view>
