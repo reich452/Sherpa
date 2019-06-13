@@ -17,7 +17,7 @@
         <!--OverlayVC-->
         <scene sceneID="ICr-09-z6S">
             <objects>
-                <viewController storyboardIdentifier="OverlayVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="fhg-T3-N46" customClass="OverlayVC" customModule="SalesGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OverlayVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="fhg-T3-N46" customClass="OverlayVC" customModule="Sherpa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mUE-Md-kop">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,6 +80,7 @@
                                             <constraint firstAttribute="height" constant="55" id="6SG-AI-OIl"/>
                                             <constraint firstAttribute="width" secondItem="Wrz-Ma-57K" secondAttribute="height" multiplier="1:1" id="mB5-av-dhT"/>
                                         </constraints>
+                                        <state key="normal" image="xceUploadedCheck"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -127,4 +128,7 @@
             <point key="canvasLocation" x="2015.9420289855075" y="46.205357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xceUploadedCheck" width="57" height="58"/>
+    </resources>
 </document>
