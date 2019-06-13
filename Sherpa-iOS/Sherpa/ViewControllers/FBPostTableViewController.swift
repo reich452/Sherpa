@@ -70,6 +70,8 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
                 DispatchQueue.main.async {
                     if let currentIndexPath = self.tableView.indexPath(for: cell), currentIndexPath == indexPath {
                         cell.photoImageView.image = image
+                        cell.activityIndicator.stopAnimating()
+                        cell.contentView.sendSubviewToBack(cell.activityIndicator)
                     } else { return }
                 }
             }

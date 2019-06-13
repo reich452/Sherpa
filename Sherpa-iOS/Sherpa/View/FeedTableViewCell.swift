@@ -18,12 +18,25 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var commnetLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
+//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.center = CGPoint(x: self.frame.width/2, y: self.frame.height/2.5)
+        self.addSubview(activityIndicator)
+        return activityIndicator
+    }()
 
     var post: Post? {
         didSet {
             updateViews()
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.addSubview(activityIndicator)
     }
     
     weak var delegate: FeedTableViewCellDelegate?  
@@ -38,9 +51,13 @@ class FeedTableViewCell: UITableViewCell {
         titleLabel.text = post.title
         photoImageView.image = #imageLiteral(resourceName: "xceCloudLoad")
         commnetLabel.text = "Comments \(post.comments.count)"
+
+        activityIndicator.startAnimating()
         CloudKitPostController.shared.fetchImages(cKpost: post) { (image) in
             DispatchQueue.main.async {
                 self.photoImageView.image = image
+                self.activityIndicator.stopAnimating()
+                self.contentView.sendSubviewToBack(self.activityIndicator)
             }
         }
         CloudKitPostController.shared.fetchComments(from: post) { (comments) in

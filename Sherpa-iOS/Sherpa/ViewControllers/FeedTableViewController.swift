@@ -80,6 +80,7 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
         let dataSource = isSearching ? resultsArray : CloudKitPostController.shared.ckPosts
         let ckPost = dataSource?[indexPath.row]
         cell.delegate = self
+        cell.photoImageView.image = #imageLiteral(resourceName: "xceCloudLoad")
         cell.post = ckPost
         
         return cell
