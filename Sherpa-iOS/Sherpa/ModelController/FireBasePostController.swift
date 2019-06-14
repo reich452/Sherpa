@@ -11,18 +11,18 @@ import Firebase
 
 class FireBasePostController {
   
-    
     // MARK: - Properties
     typealias fbCompletion = (Bool, NetworkError?) -> Void
-    var fbPosts = [FbPost]()
-    weak var timerDelegate: FetchAndUploadCounter?
     private let databaseReference = Database.database().reference()
     private let storageReference = Storage.storage().reference()
+    private var imageCache = NSCache<NSURL, AnyObject>()
+    private let storageManager: StorageManager
+    
+    weak var timerDelegate: FetchAndUploadCounter?
+    var fbPosts = [FbPost]()
     var myTimer = MyTimer()
     var timeElapsed = 0.0
     var rTimer = RepeatingTimer(timeInterval: 0.1)
-    
-    private let storageManager: StorageManager
     init(storageManager: StorageManager) {
         self.storageManager = storageManager
     }
@@ -80,6 +80,7 @@ class FireBasePostController {
                 guard let fbPost = FbPost(snapshot: post) else { completion(false, nil); return }
                 self.fbPosts.append(fbPost)
             }
+            self.fbPosts.sort(by: { $0.timestamp > $1.timestamp })
             completion(true, nil)
         }
     }
@@ -89,6 +90,10 @@ class FireBasePostController {
         
         self.myTimer.increaseCounter()
         self.timerDelegate?.increaseFetchTimer()
+        if let cachedImage = imageCache.object(forKey: url as NSURL) as? UIImage {
+            self.timerDelegate?.timerCompleted()
+            completion(cachedImage)
+        }
        
         URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
             guard let self = self else { return }
@@ -100,6 +105,7 @@ class FireBasePostController {
                 let image = UIImage(data: data) else { completion(nil) ; return }
           
             self.timerDelegate?.timerCompleted()
+            self.imageCache.setObject(image, forKey: url as NSURL)
             completion(image)
             }.resume()
     }
