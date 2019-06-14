@@ -107,6 +107,8 @@
 		017BD90C22177A43002669EE /* ThreadSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017BD90B22177A43002669EE /* ThreadSafe.swift */; };
 		017BD90E22177ADB002669EE /* ArrayExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017BD90D22177ADB002669EE /* ArrayExtention.swift */; };
 		017E345A2266BB9800B493E1 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E34592266BB9800B493E1 /* MovieController.swift */; };
+		01904BCA22B3063600EBBB89 /* ReportAbuse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01904BC922B3063600EBBB89 /* ReportAbuse.storyboard */; };
+		01904BCC22B3089500EBBB89 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01904BCB22B3089500EBBB89 /* Report.swift */; };
 		019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */; };
 		019EB3E121A1325A00BD9FC2 /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */; };
 		019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EB3E221A135D800BD9FC2 /* CardView.swift */; };
@@ -241,6 +243,8 @@
 		017BD90B22177A43002669EE /* ThreadSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafe.swift; sourceTree = "<group>"; };
 		017BD90D22177ADB002669EE /* ArrayExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtention.swift; sourceTree = "<group>"; };
 		017E34592266BB9800B493E1 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
+		01904BC922B3063600EBBB89 /* ReportAbuse.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReportAbuse.storyboard; sourceTree = "<group>"; };
+		01904BCB22B3089500EBBB89 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		019EB3DC21A1114600BD9FC2 /* AuthorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewController.swift; sourceTree = "<group>"; };
 		019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewCell.swift; sourceTree = "<group>"; };
 		019EB3E221A135D800BD9FC2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -353,6 +357,7 @@
 				0108765321882F4F00FAC3BE /* Reddit.storyboard */,
 				01C85E91225CF1E5007D1237 /* Overlay.storyboard */,
 				01C85E96225D5EA1007D1237 /* MovieDB.storyboard */,
+				01904BC922B3063600EBBB89 /* ReportAbuse.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -495,6 +500,7 @@
 				01035FF521C6C4580023BD60 /* Author.swift */,
 				012D059E22124C1E00741413 /* MyTimer.swift */,
 				01C85E9F225D8062007D1237 /* Moive.swift */,
+				01904BCB22B3089500EBBB89 /* Report.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -730,6 +736,7 @@
 				012087662184F164007B7C43 /* SF-Pro-Display-Thin.otf in Resources */,
 				012087802184F164007B7C43 /* SF-Pro-Text-LightItalic.otf in Resources */,
 				012521B921E93D8800BCD32F /* Login.storyboard in Resources */,
+				01904BCA22B3063600EBBB89 /* ReportAbuse.storyboard in Resources */,
 				0120877C2184F164007B7C43 /* SF-Pro-Text-RegularItalic.otf in Resources */,
 				012087762184F164007B7C43 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				0108765421882F4F00FAC3BE /* Reddit.storyboard in Resources */,
@@ -889,6 +896,7 @@
 				0108765621882F6800FAC3BE /* RedditTableViewController.swift in Sources */,
 				012D059F22124C1E00741413 /* MyTimer.swift in Sources */,
 				017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */,
+				01904BCC22B3089500EBBB89 /* Report.swift in Sources */,
 				0108764C2188178E00FAC3BE /* NetworkManager.swift in Sources */,
 				010876602188BBA800FAC3BE /* StorageManager.swift in Sources */,
 				012521BE21E93F5800BCD32F /* LoginViewController.swift in Sources */,

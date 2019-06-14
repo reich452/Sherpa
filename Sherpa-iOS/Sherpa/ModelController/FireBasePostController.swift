@@ -30,7 +30,7 @@ class FireBasePostController {
     // MARK: - CRUD
     
     func createPost(with title: String, image: UIImage, completion: @escaping fbCompletion) {
-         guard let imageData = image.jpegData(compressionQuality: 0.3) else { completion(false, NetworkError.noDataReturned) ; return }
+         guard let imageData = image.jpegData(compressionQuality: 0.2) else { completion(false, NetworkError.noDataReturned) ; return }
         let filename = UUID().uuidString
         
         rTimer.resume()
@@ -70,7 +70,7 @@ class FireBasePostController {
     // MARK: - Fetch
     
     func fetchPosts(completion: @escaping fbCompletion) {
-        let query = databaseReference.child("posts")
+        let query = databaseReference.child("posts").queryOrdered(byChild: "timestamp")
         myTimer.startTimer()
         timerDelegate?.increaseFetchTimer()
     

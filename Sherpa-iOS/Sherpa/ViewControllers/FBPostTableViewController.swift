@@ -64,7 +64,9 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
             fbPostController.fetchImage(urlString: fbPost.imageStringURL) { (image) in
                 DispatchQueue.main.async {
                     if let currentIndexPath = self.tableView.indexPath(for: cell), currentIndexPath == indexPath {
-                        cell.photoImageView.image = image
+                        UIView.transition(with: cell.contentView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                            cell.photoImageView.image = image
+                        }, completion: nil)
                         cell.activityIndicator.stopAnimating()
                         cell.contentView.sendSubviewToBack(cell.activityIndicator)
                     } else { return }

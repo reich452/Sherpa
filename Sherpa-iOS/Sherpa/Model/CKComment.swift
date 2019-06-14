@@ -20,7 +20,7 @@ class CKComment: Comment {
     var text: String
     var author: String = ""
     var timestamp: Date
-    var ckPost: CKPost?
+    weak var ckPost: CKPost?
     var post: Post?
     
     init(text: String, timestamp: Date = Date(), ckPost: CKPost?, post: Post?) {

@@ -29,7 +29,7 @@ class CKPost: Post {
             return UIImage(data: photoData)
         }
         set{
-            photoData = newValue?.jpegData(compressionQuality: 0.5)
+            photoData = newValue?.jpegData(compressionQuality: 0.2)
         }
     }
     

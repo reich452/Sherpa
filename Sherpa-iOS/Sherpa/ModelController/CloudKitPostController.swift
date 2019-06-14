@@ -143,6 +143,15 @@ class CloudKitPostController {
         }
     }
     
+    func createReport(with title: String, subTitle: String?, reason: String, fromPost: Post) {
+        guard let ckPost = fromPost as? CKPost else { return }
+        let ckReport = CKReport(title: title, subTitle: subTitle, reason: reason, postID: ckPost.recordID.recordName, ckPost: ckPost)
+        
+        
+        // TODO: - finish this bit 
+   
+    }
+    
     // MARK: - Fetch
     
     func fetchQueriedPosts(cursor: CKQueryOperation.Cursor? = nil, completion: @escaping (Bool, Double?) -> Void) {
@@ -224,6 +233,8 @@ class CloudKitPostController {
             print("-- Getting the image from cache -- ")
             if let imageData = try? Data(contentsOf: imageFileURL as URL) {
                 let image = UIImage(data: imageData)
+                self.rTimer.suspend()
+                self.timerDelegate?.timerCompleted()
                 completion(image)
             }
         } else {

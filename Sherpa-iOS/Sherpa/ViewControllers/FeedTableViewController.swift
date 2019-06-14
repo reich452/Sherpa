@@ -10,14 +10,12 @@ import UIKit
 
 class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate, DidPassUpdatedComments, FetchAndUploadCounter  {
     
-    @IBOutlet weak var searchBar: UISearchBar!
     var resultsArray: [CKPost]?
     var isSearching: Bool = false
     var activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
         CloudKitPostController.shared.timerDelegate = self
         
         tableView.rowHeight = UITableView.automaticDimension
@@ -94,32 +92,6 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
             commentListVC.commentDelegate = self
             commentListVC.indexPath = indexPath
         }
-    }
-}
-
-// MARK: - Search
-
-extension FeedTableViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let posts = CloudKitPostController.shared.ckPosts
-        let filteredPosts = posts.filter { $0.matches(searchTerm: searchText) }.compactMap { $0 as CKPost }
-        resultsArray = filteredPosts
-        tableView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-        resultsArray = CloudKitPostController.shared.ckPosts
-        tableView.reloadData()
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        isSearching = true
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        isSearching = false
     }
 }
 

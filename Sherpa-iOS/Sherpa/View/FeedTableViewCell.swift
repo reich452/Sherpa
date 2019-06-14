@@ -55,6 +55,9 @@ class FeedTableViewCell: UITableViewCell {
         activityIndicator.startAnimating()
         CloudKitPostController.shared.fetchImages(cKpost: post) { (image) in
             DispatchQueue.main.async {
+                UIView.transition(with: self.contentView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                    self.photoImageView.image = image
+                }, completion: nil)
                 self.photoImageView.image = image
                 self.activityIndicator.stopAnimating()
                 self.contentView.sendSubviewToBack(self.activityIndicator)

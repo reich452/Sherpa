@@ -21,18 +21,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search through all posts" showsCancelButton="YES" id="9Oe-fB-iAe">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="418" id="81a-Nk-NbS" customClass="FeedTableViewCell" customModule="Sherpa" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="375" height="418"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="418"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="81a-Nk-NbS" id="YgZ-NJ-ezW">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="417.5"/>
@@ -62,6 +53,17 @@
                                                 <action selector="didTapCommentButton:" destination="81a-Nk-NbS" eventType="touchUpInside" id="Vyf-IA-cbN"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNA-lN-HFC">
+                                            <rect key="frame" x="311" y="0.0" width="48" height="51"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="51" id="NcT-Or-RjD"/>
+                                                <constraint firstAttribute="width" constant="48" id="cJR-Lk-0ay"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                            <state key="normal" title="...">
+                                                <color key="titleColor" red="0.59994590280000004" green="0.60003471370000006" blue="0.59992641209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="LPa-i7-Tdn" firstAttribute="leading" secondItem="him-RD-VkS" secondAttribute="leading" id="8HE-P6-eHL"/>
@@ -72,6 +74,7 @@
                                         <constraint firstItem="3Ef-A9-sIN" firstAttribute="bottom" secondItem="LPa-i7-Tdn" secondAttribute="bottom" id="QQI-Cy-36O"/>
                                         <constraint firstItem="5gA-xr-Vaw" firstAttribute="width" secondItem="YgZ-NJ-ezW" secondAttribute="width" multiplier="0.8" id="QXO-z0-LA5"/>
                                         <constraint firstItem="5gA-xr-Vaw" firstAttribute="centerX" secondItem="YgZ-NJ-ezW" secondAttribute="centerX" id="Srt-l0-4Q0"/>
+                                        <constraint firstAttribute="trailing" secondItem="DNA-lN-HFC" secondAttribute="trailing" constant="16" id="T8v-7Z-9x3"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="LPa-i7-Tdn" secondAttribute="bottom" constant="16" id="TIi-9U-ufl"/>
                                         <constraint firstItem="3Ef-A9-sIN" firstAttribute="leading" secondItem="YgZ-NJ-ezW" secondAttribute="leadingMargin" constant="12" id="UHj-Fr-kiC"/>
                                         <constraint firstItem="him-RD-VkS" firstAttribute="leading" secondItem="5gA-xr-Vaw" secondAttribute="leading" id="b9G-NO-PJ0"/>
@@ -80,6 +83,7 @@
                                         <constraint firstItem="LPa-i7-Tdn" firstAttribute="top" secondItem="him-RD-VkS" secondAttribute="bottom" constant="8" id="leL-5R-RQL"/>
                                         <constraint firstItem="3Ef-A9-sIN" firstAttribute="top" secondItem="LPa-i7-Tdn" secondAttribute="top" id="sMe-fV-oYR"/>
                                         <constraint firstItem="LPa-i7-Tdn" firstAttribute="width" secondItem="him-RD-VkS" secondAttribute="width" id="wTs-Hb-ohA"/>
+                                        <constraint firstItem="DNA-lN-HFC" firstAttribute="top" secondItem="YgZ-NJ-ezW" secondAttribute="top" id="ygp-8y-d5G"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -96,7 +100,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Posts" id="RSR-bV-Q38"/>
                     <connections>
-                        <outlet property="searchBar" destination="9Oe-fB-iAe" id="otS-ee-I7X"/>
                         <segue destination="Hm2-EC-tZ8" kind="show" identifier="toCommentVC" id="td7-nj-dk8"/>
                     </connections>
                 </tableViewController>
@@ -195,7 +198,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zou-ad-pIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3120.8000000000002" y="-438.53073463268368"/>
+            <point key="canvasLocation" x="3182" y="-438"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zo7-Zr-e44">
