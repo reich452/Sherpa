@@ -20,7 +20,8 @@ class OverlayVC: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     // MARK: - Properties
-    var uploadTime: Double = 0.0
+    public var uploadTime: Double = 0.0
+    public var message = ""
     weak var delegate: OverlayVCDelegate?
   
     override func viewDidLoad() {
@@ -30,7 +31,13 @@ class OverlayVC: UIViewController {
     }
     
     func updateViews() {
-        timeLabel.text = "\(uploadTime.formattedTime)"
+        if message.isEmpty {
+            timeLabel.text = "\(uploadTime.formattedTime)"
+        } else {
+            titleLabel.text = "Report Sent"
+            timeLabel.text = message
+            timeLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        }
     }
     
     // MARK: - Actions

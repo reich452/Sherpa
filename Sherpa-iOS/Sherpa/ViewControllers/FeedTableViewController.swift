@@ -9,7 +9,7 @@
 import UIKit
 
 class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate, DidPassUpdatedComments, FetchAndUploadCounter  {
-    
+   
     var resultsArray: [CKPost]?
     var isSearching: Bool = false
     var activityIndicator = UIActivityIndicatorView()
@@ -38,30 +38,6 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
         CloudKitPostController.shared.cancelRepeatTimer()
     }
 
-    // MARK: - Custom Delegate
-    
-    func increaseFetchTimer() {
-        DispatchQueue.main.async {
-            self.navigationItem.title = "Fetching Time: \(String(format:"%.1f", CloudKitPostController.shared.fetchCounter))"
-        }
-    }
-    
-    func timerCompleted() {
-        print("Feching complete")
-        DispatchQueue.main.async {
-            self.navigationItem.title = "Fetching Time: \(String(format:"%.1f", CloudKitPostController.shared.fetchCounter))"
-        }
-    }
-    
-    func didTapCommentButton(_ cell: FeedTableViewCell) {
-       performSegue(withIdentifier: Constants.toCommentVC, sender: cell)
-    }
-    
-    func reloadCommentCount(_ indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? FeedTableViewCell else { return }
-        cell.commnetLabel.text = "Comments \(cell.post?.comments.count ??? "")"
-    }
-    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,3 +71,39 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
     }
 }
 
+extension FeedTableViewController {
+    // MARK: - Custom Delegate
+    
+    func increaseFetchTimer() {
+        DispatchQueue.main.async {
+            self.navigationItem.title = "Fetching Time: \(String(format:"%.1f", CloudKitPostController.shared.fetchCounter))"
+        }
+    }
+    
+    func timerCompleted() {
+        print("Feching complete")
+        DispatchQueue.main.async {
+            self.navigationItem.title = "Fetching Time: \(String(format:"%.1f", CloudKitPostController.shared.fetchCounter))"
+        }
+    }
+    
+    
+    func reloadCommentCount(_ indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? FeedTableViewCell else { return }
+        cell.commnetLabel.text = "Comments \(cell.post?.comments.count ??? "")"
+    }
+    
+    func didTapReportButton(_ cell: FeedTableViewCell) {
+        let sb = UIStoryboard(name: "ReportAbuse", bundle: nil)
+        guard let reportVC = sb.instantiateViewController(withIdentifier: Constants.reportTVC) as? ReportTableViewController else { return }
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let ckPost = CloudKitPostController.shared.ckPosts[indexPath.row]
+        reportVC.post = ckPost
+        navigationController?.pushViewController(reportVC, animated: true)
+    }
+    
+    
+    func didTapCommentButton(_ cell: FeedTableViewCell) {
+        performSegue(withIdentifier: Constants.toCommentVC, sender: cell)
+    }
+}

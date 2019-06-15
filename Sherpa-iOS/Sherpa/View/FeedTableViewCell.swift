@@ -11,6 +11,7 @@ import Firebase
 
 protocol FeedTableViewCellDelegate: class {
     func didTapCommentButton(_ cell: FeedTableViewCell)
+    func didTapReportButton(_ cell: FeedTableViewCell)
 }
 
 class FeedTableViewCell: UITableViewCell {
@@ -44,6 +45,12 @@ class FeedTableViewCell: UITableViewCell {
     @IBAction func didTapCommentButton(_ sender: Any) {
         if let delegate = delegate {
             delegate.didTapCommentButton(self)
+        }
+    }
+    
+    @IBAction func didTapReportButton(_ sender: UIButton) {
+        if let delegate = delegate {
+            delegate.didTapReportButton(self)
         }
     }
     func updateViews() {

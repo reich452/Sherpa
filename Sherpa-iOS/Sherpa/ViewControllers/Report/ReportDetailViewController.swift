@@ -9,22 +9,21 @@
 import UIKit
 
 class ReportDetailViewController: UIViewController {
+    
+    public var post: Post!
+    public var reportViewModel: ReportViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        title = reportViewModel.title
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toSubmittReportVC" {
+            guard let submitReportVC = segue.destination as? SubmitReportVC else { return }
+            submitReportVC.post = post
+            submitReportVC.reportViewModel = reportViewModel
+        }
     }
-    */
-
 }

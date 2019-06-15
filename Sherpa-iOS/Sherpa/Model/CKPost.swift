@@ -10,8 +10,9 @@ import UIKit
 import CloudKit
 
 class CKPost: Post {
-//    var comments: [Comment] = []
-    
+
+
+    var dataBase: DataBase = .cloudKit
 
     var imageStringURL: String = ""
     

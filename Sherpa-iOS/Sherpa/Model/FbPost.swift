@@ -12,6 +12,7 @@ import Firebase
 struct FbPost: Post {
     
     var comments: [Comment] = []
+    var dataBase: DataBase = .firebase
     
     enum Constans {
         static let titleKey = "title"

@@ -7,11 +7,18 @@
 //
 
 import UIKit
+
+enum DataBase {
+    case cloudKit
+    case firebase
+}
+
 protocol Post {
     var title: String { get set }
     var timestamp: Date { get set }
     var image: UIImage? { get set }
     var imageStringURL: String { get set }
     var comments: [Comment] { get set }
+    var dataBase: DataBase { get set }
     func matches(searchTerm: String) -> Bool
 }

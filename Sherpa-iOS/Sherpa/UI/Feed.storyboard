@@ -63,6 +63,9 @@
                                             <state key="normal" title="...">
                                                 <color key="titleColor" red="0.59994590280000004" green="0.60003471370000006" blue="0.59992641209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="didTapReportButton:" destination="81a-Nk-NbS" eventType="touchUpInside" id="h5h-QT-TdZ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
