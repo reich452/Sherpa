@@ -28,7 +28,7 @@ extension MovieApiResponse: Decodable {
 struct Movie {
     let id: Int
     let posterPath: String?
-    let backdrop: String
+    let backdrop: String?
     let title: String
     let releaseDate: String
     let rating: Double
