@@ -13,7 +13,6 @@ import Firebase
 class FBPostTableViewController: UITableViewController, ActivityIndicatorPresenter {
     
     // MARK: - Properties
-    @IBOutlet weak var searchBar: UISearchBar!
     var activityIndicator = UIActivityIndicatorView()
     private lazy var fbPostController: FireBasePostController = {
         let storageRef = StorageReference()
@@ -56,10 +55,11 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "fbPostCell", for: indexPath) as? FeedTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FBPostCell", for: indexPath) as? FBFeedTableViewCell else { return UITableViewCell() }
         
         let fbPost = fbPostController.fbPosts[indexPath.row]
         cell.post = fbPost
+        cell.delegate = self
         if fbPost.image == nil {
             fbPostController.fetchImage(urlString: fbPost.imageStringURL) { (image) in
                 DispatchQueue.main.async {
@@ -93,6 +93,19 @@ extension FBPostTableViewController: FetchAndUploadCounter, MyTimerDelegate {
     
     func timerCompleted() {
         self.fbPostController.myTimer.stopTimer()
+    }
+    
+}
+
+extension FBPostTableViewController: FBFeedTableViewCellDelegate {
+  
+    func didTapReportButton(_ cell: FBFeedTableViewCell) {
+        let sb = UIStoryboard(name: "ReportAbuse", bundle: nil)
+        guard let reportVC = sb.instantiateViewController(withIdentifier: Constants.reportTVC) as? ReportTableViewController else { return }
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let fbPost = fbPostController.fbPosts[indexPath.row]
+        reportVC.post = fbPost
+        navigationController?.pushViewController(reportVC, animated: true)
     }
     
 }

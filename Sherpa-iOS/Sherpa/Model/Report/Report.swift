@@ -15,7 +15,6 @@ protocol Report {
     var reason: String { get set }
     var postID: String { get set }
     var post: Post? { get set }
-    init(title: String, subTitle: String?, reason: String, postID: String)
 }
 
 struct ReportViewModel {

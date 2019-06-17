@@ -21,18 +21,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search through all posts" showsCancelButton="YES" id="yJW-LZ-17T">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
-                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fbPostCell" rowHeight="418" id="J9v-9r-whn" customClass="FeedTableViewCell" customModule="Sherpa" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="375" height="418"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FBPostCell" rowHeight="418" id="J9v-9r-whn" customClass="FBFeedTableViewCell" customModule="Sherpa" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="418"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J9v-9r-whn" id="Stn-Rb-Ul5">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="417.5"/>
@@ -56,6 +47,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbw-yS-cfJ">
+                                            <rect key="frame" x="288" y="313" width="49" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="49" id="6CJ-Mi-QCF"/>
+                                                <constraint firstAttribute="height" constant="36" id="LT1-lZ-XiZ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                            <state key="normal" title="...">
+                                                <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="reportBtnTapped:" destination="J9v-9r-whn" eventType="touchUpInside" id="Aah-do-TV5"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="sxS-sL-4Vv" secondAttribute="bottom" constant="16" id="9Mn-ct-6OY"/>
@@ -67,15 +72,17 @@
                                         <constraint firstItem="zf9-U7-Fwb" firstAttribute="leading" secondItem="VoX-Zu-5aa" secondAttribute="leading" id="dm8-4o-Zx4"/>
                                         <constraint firstItem="VoX-Zu-5aa" firstAttribute="width" secondItem="Stn-Rb-Ul5" secondAttribute="width" multiplier="0.8" id="heK-a8-ZXL"/>
                                         <constraint firstItem="VoX-Zu-5aa" firstAttribute="centerX" secondItem="Stn-Rb-Ul5" secondAttribute="centerX" id="ilo-je-U2r"/>
+                                        <constraint firstItem="rbw-yS-cfJ" firstAttribute="top" secondItem="VoX-Zu-5aa" secondAttribute="bottom" constant="2" id="jZh-Le-9L1"/>
                                         <constraint firstItem="sxS-sL-4Vv" firstAttribute="width" secondItem="zf9-U7-Fwb" secondAttribute="width" id="mgb-MX-bu3"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sxS-sL-4Vv" secondAttribute="trailing" constant="20" symbolic="YES" id="mwG-qw-505"/>
+                                        <constraint firstAttribute="trailing" secondItem="rbw-yS-cfJ" secondAttribute="trailing" constant="38" id="qzt-L4-eq4"/>
                                         <constraint firstItem="sxS-sL-4Vv" firstAttribute="top" secondItem="zf9-U7-Fwb" secondAttribute="bottom" constant="8" id="xaD-PU-pTS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="commnetLabel" destination="sxS-sL-4Vv" id="GWA-zf-4MF"/>
-                                    <outlet property="photoImageView" destination="VoX-Zu-5aa" id="BYx-0l-abt"/>
-                                    <outlet property="titleLabel" destination="zf9-U7-Fwb" id="0aq-1K-mfz"/>
+                                    <outlet property="commentLabel" destination="sxS-sL-4Vv" id="kKh-id-PjS"/>
+                                    <outlet property="photoImageView" destination="VoX-Zu-5aa" id="GEF-VZ-a5V"/>
+                                    <outlet property="titleLabel" destination="zf9-U7-Fwb" id="a61-Ad-0XW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,9 +92,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Posts" id="yzS-e7-Usj"/>
-                    <connections>
-                        <outlet property="searchBar" destination="yJW-LZ-17T" id="IXl-TM-tp1"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vuh-Sf-wE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

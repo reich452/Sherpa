@@ -24,6 +24,11 @@ class ReportDetailViewController: UIViewController {
             guard let submitReportVC = segue.destination as? SubmitReportVC else { return }
             submitReportVC.post = post
             submitReportVC.reportViewModel = reportViewModel
+            if post.dataBase == .cloudKit {
+                submitReportVC.ckReportController = CKReportController()
+            } else {
+                submitReportVC.fbReportController = FBReportController()
+            }
         }
     }
 }

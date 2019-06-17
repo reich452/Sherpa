@@ -14,10 +14,6 @@ protocol CommentUpdatedToDelegate: class {
     func commentsWereAddedTo()
 }
 
-protocol ReportToPostDelegate: class {
-    func reportAddedToPost()
-}
-
 class CloudKitPostController {
     
     static let shared = CloudKitPostController()
@@ -31,7 +27,6 @@ class CloudKitPostController {
     private var imageCache = NSCache<CKRecord.ID, NSURL>()
     weak var delegate: CommentUpdatedToDelegate?
     weak var timerDelegate: FetchAndUploadCounter?
-    weak var reportDelegate: ReportToPostDelegate?
     let publicDB = CKContainer.default().publicCloudDatabase
     let myTimer = MyTimer()
     var fetchCounter = 0.0
@@ -144,24 +139,6 @@ class CloudKitPostController {
                 self.delegate?.commentsWereAddedTo()
                 //                ckComment.recordID = record?.recordID
                 completion(ckComment)
-            }
-        }
-    }
-    
-    // MARK: - Create Report
-    
-    func createReport(with title: String, subTitle: String?, reason: String, fromPost: Post, completion: @escaping (Bool, Error?) -> Void) {
-        guard let ckPost = fromPost as? CKPost else { return }
-        let ckReport = CKReport(title: title, subTitle: subTitle, reason: reason, postID: ckPost.recordID.recordName, ckPost: ckPost)
-    
-        publicDB.save(CKRecord(ckReport)) { (record, error) in
-            if let error = error {
-                print("Error saving comment to post \(error) \(error.localizedDescription)")
-                completion(false, error); return
-            }
-            DispatchQueue.main.async {
-                self.reportDelegate?.reportAddedToPost()
-                completion(true, nil)
             }
         }
     }

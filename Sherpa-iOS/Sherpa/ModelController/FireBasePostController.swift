@@ -19,7 +19,7 @@ class FireBasePostController {
     private let storageManager: StorageManager
     
     weak var timerDelegate: FetchAndUploadCounter?
-    var fbPosts = [FbPost]()
+    var fbPosts = [FBPost]()
     var myTimer = MyTimer()
     var timeElapsed = 0.0
     var rTimer = RepeatingTimer(timeInterval: 0.1)
@@ -51,7 +51,7 @@ class FireBasePostController {
             guard let key = self.databaseReference.child("posts").childByAutoId().key else { completion(false, NetworkError.incorrectParameters); return }
             
             let urlString = url.absoluteString
-            let fbPost = FbPost(title: title, imageStringURL: urlString)
+            let fbPost = FBPost(title: title, imageStringURL: urlString, uuid: key)
             let values = [key : fbPost.dictionaryRep]
             
             self.databaseReference.child("posts").updateChildValues(values, withCompletionBlock: { (error, ref) in
@@ -77,7 +77,7 @@ class FireBasePostController {
         query.observe(.value) { [weak self] (snapshot) in
             guard let self = self else { return }
             for post in snapshot.children.allObjects as? [DataSnapshot] ?? [] {
-                guard let fbPost = FbPost(snapshot: post) else { completion(false, nil); return }
+                guard let fbPost = FBPost(snapshot: post) else { completion(false, nil); return }
                 self.fbPosts.append(fbPost)
             }
             self.fbPosts.sort(by: { $0.timestamp > $1.timestamp })

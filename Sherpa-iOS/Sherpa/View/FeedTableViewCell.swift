@@ -34,10 +34,10 @@ class FeedTableViewCell: UITableViewCell {
             updateViews()
         }
     }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.addSubview(activityIndicator)
+       
     }
     
     weak var delegate: FeedTableViewCellDelegate?  
