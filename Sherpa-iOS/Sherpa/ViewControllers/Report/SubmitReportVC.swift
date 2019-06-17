@@ -62,7 +62,6 @@ class SubmitReportVC: ShiftableViewController, OverlayVCDelegate {
     
     // MARK: - Delegates
     func reportAddedToPost() {
-        textView.text = ""
         let sb = UIStoryboard(name: "Overlay", bundle: nil)
         guard let overlayVC = sb.instantiateViewController(withIdentifier: "OverlayVC") as? OverlayVC else {
             titleLabel.text = "Thank you for reporting. We will review within 48 hours."
@@ -71,9 +70,9 @@ class SubmitReportVC: ShiftableViewController, OverlayVCDelegate {
         overlayVC.message = "Thank you for submitting this report. We will review this information within 48 hours. Please contact the developer if you have any other questions"
         overlayVC.delegate = self
         DispatchQueue.main.async {
+            self.textView.text = ""
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.present(overlayVC, animated: true, completion: nil)
-            
         }
     }
     
