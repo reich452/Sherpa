@@ -58,7 +58,7 @@ class ReadOrWriteTableViewController: UITableViewController {
         
         let clearColor = UIColor.clear
         cell.backgroundColor = clearColor
-        cell.textLabel?.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        cell.textLabel?.backgroundColor = UIColor(white: 1, alpha: 0.9)
         cell.textLabel?.clipsToBounds = true
         cell.textLabel?.layer.cornerRadius = 15
         cell.detailTextLabel?.backgroundColor = clearColor
@@ -87,15 +87,6 @@ extension ReadOrWriteTableViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 120
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "xcCloudKit_Icon"))
-        tableView.backgroundView = imageView
-        imageView.contentMode = .scaleAspectFill
-        
-        // Make a blur effect
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = imageView.bounds
-        imageView.addSubview(blurView)
-        imageView.clipsToBounds = true
+        tableView.backgroundColor = .primaryColor
     }
 }

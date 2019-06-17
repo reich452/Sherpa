@@ -28,16 +28,13 @@ class MainTabBarViewController: UITabBarController {
         let secondNavigationController = UINavigationController(rootViewController: decadeSearchTVC)
         secondNavigationController.title = "CloudKit"
         secondNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcCloudKit_Icon")
-    
         
         let storyboard3 = UIStoryboard(name: Constants.dbActionTab, bundle: nil)
         let saveSearchTVC = storyboard3.instantiateViewController(withIdentifier: Constants.dataBaseActionTVC)
         let thridNavigationController = UINavigationController(rootViewController: saveSearchTVC)
         thridNavigationController.title = "Firebase"
         thridNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcFirebase_Icon")
-        
 
-        
         viewControllers = [firstNavigationController, secondNavigationController, thridNavigationController]
         tabBar.isTranslucent = true
         
@@ -45,7 +42,7 @@ class MainTabBarViewController: UITabBarController {
         topBorder.frame = CGRect(x: 0, y: 0, width: 1000, height: 0.5)
         
         // MARK: TODO - Solidify Theme 
-        topBorder.backgroundColor = UIColor.blue.cgColor
+        topBorder.backgroundColor = UIColor.darkGray.cgColor
         tabBar.layer.addSublayer(topBorder)
         tabBar.clipsToBounds = true
         
