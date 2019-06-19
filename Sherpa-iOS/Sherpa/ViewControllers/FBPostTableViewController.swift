@@ -88,7 +88,7 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
 extension FBPostTableViewController: FetchAndUploadCounter, MyTimerDelegate {
     
     func updateTimeLable(counterStr: String) {
-        self.navigationItem.title = counterStr
+        self.navigationItem.title = "Fetching Time: \(counterStr)"
     }
     
     func timerCompleted() {

@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Posts-->
+        <!--Fetching Time:-->
         <scene sceneID="p4a-hX-Ha0">
             <objects>
                 <tableViewController storyboardIdentifier="FBPostTableViewController" id="ioo-s5-ZFk" customClass="FBPostTableViewController" customModule="Sherpa" customModuleProvider="target" sceneMemberID="viewController">
@@ -91,7 +91,7 @@
                             <outlet property="delegate" destination="ioo-s5-ZFk" id="TyO-nX-yXb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Posts" id="yzS-e7-Usj"/>
+                    <navigationItem key="navigationItem" title="Fetching Time:" id="yzS-e7-Usj"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vuh-Sf-wE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

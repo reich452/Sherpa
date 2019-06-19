@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Posts-->
+        <!--Fetching Time:-->
         <scene sceneID="6mJ-cF-cr4">
             <objects>
                 <tableViewController storyboardIdentifier="FeedTableViewController" id="hhI-wE-fVb" customClass="FeedTableViewController" customModule="Sherpa" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,7 +54,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNA-lN-HFC">
-                                            <rect key="frame" x="311" y="0.0" width="48" height="51"/>
+                                            <rect key="frame" x="298" y="319" width="48" height="51"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="51" id="NcT-Or-RjD"/>
                                                 <constraint firstAttribute="width" constant="48" id="cJR-Lk-0ay"/>
@@ -70,6 +70,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="LPa-i7-Tdn" firstAttribute="leading" secondItem="him-RD-VkS" secondAttribute="leading" id="8HE-P6-eHL"/>
+                                        <constraint firstItem="DNA-lN-HFC" firstAttribute="top" secondItem="him-RD-VkS" secondAttribute="top" id="AsT-KT-SqW"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="him-RD-VkS" secondAttribute="trailing" constant="20" symbolic="YES" id="Cys-f6-hUW"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="3Ef-A9-sIN" secondAttribute="trailing" constant="13" id="DLf-IU-bBb"/>
                                         <constraint firstItem="him-RD-VkS" firstAttribute="top" secondItem="5gA-xr-Vaw" secondAttribute="bottom" constant="8" id="Iss-3s-tcR"/>
@@ -77,7 +78,7 @@
                                         <constraint firstItem="3Ef-A9-sIN" firstAttribute="bottom" secondItem="LPa-i7-Tdn" secondAttribute="bottom" id="QQI-Cy-36O"/>
                                         <constraint firstItem="5gA-xr-Vaw" firstAttribute="width" secondItem="YgZ-NJ-ezW" secondAttribute="width" multiplier="0.8" id="QXO-z0-LA5"/>
                                         <constraint firstItem="5gA-xr-Vaw" firstAttribute="centerX" secondItem="YgZ-NJ-ezW" secondAttribute="centerX" id="Srt-l0-4Q0"/>
-                                        <constraint firstAttribute="trailing" secondItem="DNA-lN-HFC" secondAttribute="trailing" constant="16" id="T8v-7Z-9x3"/>
+                                        <constraint firstAttribute="trailing" secondItem="DNA-lN-HFC" secondAttribute="trailing" constant="29" id="T8v-7Z-9x3"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="LPa-i7-Tdn" secondAttribute="bottom" constant="16" id="TIi-9U-ufl"/>
                                         <constraint firstItem="3Ef-A9-sIN" firstAttribute="leading" secondItem="YgZ-NJ-ezW" secondAttribute="leadingMargin" constant="12" id="UHj-Fr-kiC"/>
                                         <constraint firstItem="him-RD-VkS" firstAttribute="leading" secondItem="5gA-xr-Vaw" secondAttribute="leading" id="b9G-NO-PJ0"/>
@@ -86,7 +87,6 @@
                                         <constraint firstItem="LPa-i7-Tdn" firstAttribute="top" secondItem="him-RD-VkS" secondAttribute="bottom" constant="8" id="leL-5R-RQL"/>
                                         <constraint firstItem="3Ef-A9-sIN" firstAttribute="top" secondItem="LPa-i7-Tdn" secondAttribute="top" id="sMe-fV-oYR"/>
                                         <constraint firstItem="LPa-i7-Tdn" firstAttribute="width" secondItem="him-RD-VkS" secondAttribute="width" id="wTs-Hb-ohA"/>
-                                        <constraint firstItem="DNA-lN-HFC" firstAttribute="top" secondItem="YgZ-NJ-ezW" secondAttribute="top" id="ygp-8y-d5G"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -101,7 +101,7 @@
                             <outlet property="delegate" destination="hhI-wE-fVb" id="jdg-hl-Y9z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Posts" id="RSR-bV-Q38"/>
+                    <navigationItem key="navigationItem" title="Fetching Time:" id="RSR-bV-Q38"/>
                     <connections>
                         <segue destination="Hm2-EC-tZ8" kind="show" identifier="toCommentVC" id="td7-nj-dk8"/>
                     </connections>

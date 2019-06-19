@@ -57,8 +57,8 @@ class FeedTableViewCell: UITableViewCell {
         guard let post = post else { return }
         titleLabel.text = post.title
         photoImageView.image = #imageLiteral(resourceName: "xceCloudLoad")
-        commnetLabel.text = "Comments \(post.comments.count)"
-
+//        commnetLabel.text = "Comments \(post.comments.count)"
+        commnetLabel.isHidden = true
         activityIndicator.startAnimating()
         CloudKitPostController.shared.fetchImages(cKpost: post) { (image) in
             DispatchQueue.main.async {
