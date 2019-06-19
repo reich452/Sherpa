@@ -30,13 +30,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bne-aL-vUv">
-                                            <rect key="frame" x="8" y="10" width="359" height="102.5"/>
+                                            <rect key="frame" x="15" y="10" width="345" height="102.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fK9-Pz-0Dz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="102.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="102.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kWE-3h-slW">
-                                                            <rect key="frame" x="114" y="3" width="131" height="96.5"/>
+                                                            <rect key="frame" x="114" y="3" width="117" height="96.5"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                     <integer key="value" value="14"/>
@@ -44,16 +44,16 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zU1-sP-o79">
-                                                            <rect key="frame" x="94.5" y="20" width="170.5" height="60"/>
+                                                            <rect key="frame" x="87.5" y="20" width="170.5" height="60"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Thin" family="SF Pro Display" pointSize="50"/>
                                                             <color key="textColor" red="0.29019607843137252" green="0.77647058823529413" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kda-ac-5gT">
-                                                            <rect key="frame" x="54" y="3" width="251" height="96.5"/>
+                                                            <rect key="frame" x="54" y="3" width="237" height="96.5"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhi-nO-1zz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="102.5"/>
+                                                            <rect key="frame" x="17.5" y="0.0" width="310.5" height="102.5"/>
                                                             <connections>
                                                                 <action selector="didTapCellButton:" destination="2zo-zM-y5I" eventType="touchUpInside" id="ZFC-ZH-GZw"/>
                                                             </connections>
@@ -73,7 +73,7 @@
                                                         <constraint firstItem="zU1-sP-o79" firstAttribute="top" secondItem="fK9-Pz-0Dz" secondAttribute="top" constant="20" id="Rpp-ok-ess"/>
                                                         <constraint firstItem="zU1-sP-o79" firstAttribute="centerY" secondItem="fK9-Pz-0Dz" secondAttribute="centerY" constant="-1.25" id="XYs-7Y-nRJ"/>
                                                         <constraint firstItem="kda-ac-5gT" firstAttribute="centerY" secondItem="fK9-Pz-0Dz" secondAttribute="centerY" id="XZ0-cM-L8H"/>
-                                                        <constraint firstItem="lhi-nO-1zz" firstAttribute="width" secondItem="fK9-Pz-0Dz" secondAttribute="width" id="YH2-qA-rer"/>
+                                                        <constraint firstItem="lhi-nO-1zz" firstAttribute="width" secondItem="fK9-Pz-0Dz" secondAttribute="width" multiplier="0.9" id="YH2-qA-rer"/>
                                                         <constraint firstItem="kda-ac-5gT" firstAttribute="top" secondItem="fK9-Pz-0Dz" secondAttribute="top" constant="3" id="cbo-NA-AxE"/>
                                                         <constraint firstItem="lhi-nO-1zz" firstAttribute="centerX" secondItem="fK9-Pz-0Dz" secondAttribute="centerX" id="gP0-Id-g3F"/>
                                                     </constraints>
@@ -109,8 +109,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="bne-aL-vUv" secondAttribute="bottom" constant="10" id="Ngn-rQ-Btu"/>
-                                        <constraint firstAttribute="trailing" secondItem="bne-aL-vUv" secondAttribute="trailing" constant="8" id="eQ6-Wt-0hV"/>
-                                        <constraint firstItem="bne-aL-vUv" firstAttribute="leading" secondItem="YqL-ka-5cE" secondAttribute="leading" constant="8" id="fIi-rR-qYg"/>
+                                        <constraint firstAttribute="trailing" secondItem="bne-aL-vUv" secondAttribute="trailing" constant="15" id="eQ6-Wt-0hV"/>
+                                        <constraint firstItem="bne-aL-vUv" firstAttribute="leading" secondItem="YqL-ka-5cE" secondAttribute="leading" constant="15" id="fIi-rR-qYg"/>
                                         <constraint firstItem="bne-aL-vUv" firstAttribute="top" secondItem="YqL-ka-5cE" secondAttribute="top" constant="10" id="jWD-GP-dA7"/>
                                     </constraints>
                                 </tableViewCellContentView>
