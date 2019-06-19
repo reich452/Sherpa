@@ -41,6 +41,7 @@ class ActionTableViewCell: UITableViewCell {
         switch slectedIcon {
         case .cloudKit:
             self.iconImageView.image = #imageLiteral(resourceName: "xcCloudKit_logo")
+            self.iconImageView.contentMode = .scaleAspectFit
             self.actionLabel.textColor = UIColor.cloudKitLightBlue
         case .firebase:
             self.iconImageView.image = #imageLiteral(resourceName: "xcFirebase_logo")
