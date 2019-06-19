@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.0.0.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -26,9 +26,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow access to camera?</string>
+	<string>Allow CloudKit and Firebase access to camera?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Please allow access to photo library.</string>
+	<string>Please allow access to photo library to beable to upload images.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SF-Pro-Display-Thin.otf</string>

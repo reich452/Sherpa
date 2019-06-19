@@ -21,7 +21,7 @@
                                 <rect key="frame" x="47" y="178" width="281" height="367"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xceMovieDB" translatesAutoresizingMaskIntoConstraints="NO" id="MZG-xT-hdu">
-                                        <rect key="frame" x="0.0" y="0.0" width="281.00000000000011" height="367.00000000000011"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="367"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Lhp-Zr-ExH">
                                         <rect key="frame" x="130.5" y="173.5" width="20" height="20"/>
