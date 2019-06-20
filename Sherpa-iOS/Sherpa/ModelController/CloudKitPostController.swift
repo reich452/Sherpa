@@ -130,14 +130,16 @@ class CloudKitPostController {
         ckPost.comments.append(ckComment)
         ckComment.ckPost = ckPost
         
-        publicDB.save(CKRecord(ckComment)) { (record, error) in
+        let reccord = CKRecord(ckComment)
+        
+        publicDB.save(reccord) { (record, error) in
             if let error = error {
                 print("Error saving comment to post \(error) \(error.localizedDescription)")
                 completion(nil); return
             }
             DispatchQueue.main.async {
                 self.delegate?.commentsWereAddedTo()
-                //                ckComment.recordID = record?.recordID
+        
                 completion(ckComment)
             }
         }
@@ -172,14 +174,6 @@ class CloudKitPostController {
         rTimer.resume()
         operation.recordFetchedBlock = { [unowned self] record in
             guard let post = CKPost(record: record) else { return }
-            if self.ckPosts.contains(where: { (ckPost) -> Bool in
-                post.recordID == ckPost.recordID
-            }) {
-                operation.cancel()
-                self.rTimer.suspend()
-                self.timerDelegate?.timerCompleted()
-                completion(true, nil); return
-            }
             self.ckPosts.append(post)
             print("🎃 fetching ckPosts \(self.ckPosts.count)")
             print(self.ckPosts.count)
@@ -192,6 +186,7 @@ class CloudKitPostController {
         operation.queryCompletionBlock = { [unowned self] cursor, error in
             if let error = error {
                 print("Error fethcing posts \(error)")
+                completion(false, nil);return 
             } else if let cursor = cursor {
                 self.fetchQueriedPosts(cursor: cursor, completion: completion)
                 print("Fetching more results \(self.ckPosts.count)")
@@ -244,6 +239,7 @@ class CloudKitPostController {
                 }
                 if let imageData = try? Data(contentsOf: imageAsset.fileURL) {
                     let image = UIImage(data: imageData)
+                    cKpost.image = image
                     self.imageCache.setObject(imageAsset.fileURL as NSURL, forKey: cKpost.recordID)
                     self.rTimer.suspend()
                     self.timerDelegate?.timerCompleted()
@@ -254,8 +250,8 @@ class CloudKitPostController {
         }
     }
     
-    func fetchComments(from post: Post, completion: @escaping ([CKComment]?) -> Void) {
-        guard let ckPost = post as? CKPost else { completion(nil); return }
+    func fetchComments(from post: Post, completion: @escaping ([CKComment]?, Error?) -> Void) {
+        guard let ckPost = post as? CKPost else { completion(nil, nil); return }
         let postRef = ckPost.recordID
         let predicate = NSPredicate(format: "postReference == %@", postRef)
         let commentIDs = ckPost.ckComments.compactMap({$0.recordID})
@@ -266,15 +262,18 @@ class CloudKitPostController {
         publicDB.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
                 print("Error fetching comments from cloudKit \(#function) \(error) \(error.localizedDescription)")
-                completion(nil)
+                completion(nil, error)
                 return
             }
-            guard let records = records else { completion(nil); return }
+            guard let records = records else { completion(nil, nil); return }
             let ckComments = records.compactMap{CKComment(record: $0)}
+            if ckComments.isEmpty {
+                completion(nil, nil); return
+            }
             ckPost.ckComments.append(contentsOf: ckComments)
             ckPost.ckComments = ckComments
             ckPost.comments = ckComments
-            completion(ckComments)
+            completion(ckComments, nil)
         }
     }
     

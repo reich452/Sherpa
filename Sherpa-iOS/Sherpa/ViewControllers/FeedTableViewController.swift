@@ -56,6 +56,11 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)!
+        performSegue(withIdentifier: Constants.toCommentVC, sender: cell)
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

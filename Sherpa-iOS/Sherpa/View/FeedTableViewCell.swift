@@ -19,7 +19,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var commnetLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
-//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .gray)
@@ -57,8 +57,8 @@ class FeedTableViewCell: UITableViewCell {
         guard let post = post else { return }
         titleLabel.text = post.title
         photoImageView.image = #imageLiteral(resourceName: "xceCloudLoad")
-//        commnetLabel.text = "Comments \(post.comments.count)"
-        commnetLabel.isHidden = true
+        commnetLabel.text = "Comments..."
+        dateLabel.text = "\(DateHelper.shared.dateToString(date: post.timestamp)) ago"
         activityIndicator.startAnimating()
         CloudKitPostController.shared.fetchImages(cKpost: post) { (image) in
             DispatchQueue.main.async {
@@ -68,17 +68,6 @@ class FeedTableViewCell: UITableViewCell {
                 self.photoImageView.image = image
                 self.activityIndicator.stopAnimating()
                 self.contentView.sendSubviewToBack(self.activityIndicator)
-            }
-        }
-        CloudKitPostController.shared.fetchComments(from: post) { (comments) in
-            if comments != nil {
-                DispatchQueue.main.async {
-                    self.commnetLabel.text = "Comments \(comments?.count ??? "")"
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.commnetLabel.text = "0 Comments"
-                }
             }
         }
     }

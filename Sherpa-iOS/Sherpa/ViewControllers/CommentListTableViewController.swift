@@ -14,7 +14,7 @@ protocol DidPassUpdatedComments: class {
 }
 
 class CommentListTableViewController: UITableViewController, CommentUpdatedToDelegate {
-
+    
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var commentTextField: UITextField!
@@ -36,10 +36,29 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
         formatter.doesRelativeDateFormatting = true
         return formatter
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         CloudKitPostController.shared.delegate = self
+        guard let post = post else { return }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        CloudKitPostController.shared.fetchComments(from: post) { (comments, error) in
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.showNoActionAlert(titleStr: "Error loading comments for CKpost", messageStr: error?.localizedDescription ?? "Please try again", style: .cancel)
+                }
+            }
+            guard let comments = comments else { return }
+            self.post?.comments = comments
+            if !comments.isEmpty {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -53,13 +72,15 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     // MARK: - Main
     func updateView() {
         guard let post = post else { return }
-        photoImageView.image = post.image
+        DispatchQueue.main.async {
+            self.photoImageView.image = post.image
+        }
     }
     // MARK: - Comment Delegate
     func commentsWereAddedTo() {
         DispatchQueue.main.async {
             let commentCount = self.post?.comments.count ?? 0
-    
+            
             let indexPath = IndexPath(row: commentCount - 1, section: 0)
             self.tableView.insertRows(at: [indexPath], with: .fade)
         }
@@ -71,13 +92,13 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     @IBAction func addButtonTapped(_ sender: UIButton) {
         guard let post = post,
             let title = commentTextField.text else { return }
-        CloudKitPostController.shared.addComent(title, to: post) { (_) in
-      
+        CloudKitPostController.shared.addComent(title, to: post) { (comment) in
+            
         }
     }
     
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return post?.comments.count ?? 0
