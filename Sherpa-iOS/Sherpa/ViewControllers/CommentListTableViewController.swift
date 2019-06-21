@@ -42,6 +42,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
         CloudKitPostController.shared.delegate = self
         commentTextField.delegate = self
         tableView.separatorColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -157,6 +158,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
         cell.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 12, weight: .thin)
         cell.textLabel?.text = comment.text
+        cell.accessoryType = .disclosureIndicator
         switch post!.dataBase {
         case .cloudKit:
             cell.detailTextLabel?.text = DateHelper.shared.dateToString(date: comment.timestamp)
@@ -169,8 +171,14 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
             let cellImage = didSeeFbComments ? #imageLiteral(resourceName: "xceGrayCircle") : #imageLiteral(resourceName: "xceBlueCircle")
             cell.imageView?.image = cellImage
         }
-        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       let sb = UIStoryboard(name: Constants.reportAbuse, bundle: nil)
+        guard let reportTVC = sb.instantiateViewController(withIdentifier: Constants.reportTVC) as? ReportTableViewController else { return }
+        reportTVC.post = self.post
+        navigationController?.pushViewController(reportTVC, animated: true)
     }
 }
 
