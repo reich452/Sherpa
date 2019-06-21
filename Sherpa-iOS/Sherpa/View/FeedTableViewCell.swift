@@ -13,7 +13,7 @@ protocol FeedTableViewCellDelegate: class {
     func didTapCommentButton(_ cell: FeedTableViewCell)
     func didTapReportButton(_ cell: FeedTableViewCell)
 }
-
+// TODO: - Make this a nib for one cell 
 class FeedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!

@@ -42,8 +42,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxS-sL-4Vv">
-                                            <rect key="frame" x="37.5" y="351" width="300" height="40"/>
-                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="17"/>
+                                            <rect key="frame" x="37.5" y="359" width="300" height="36"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -61,27 +61,40 @@
                                                 <action selector="reportBtnTapped:" destination="J9v-9r-whn" eventType="touchUpInside" id="Aah-do-TV5"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBc-6n-FDo">
+                                            <rect key="frame" x="37" y="343" width="31" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="EsT-Um-u0f"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="sxS-sL-4Vv" secondAttribute="bottom" constant="16" id="9Mn-ct-6OY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="sxS-sL-4Vv" secondAttribute="bottom" constant="12" id="9Mn-ct-6OY"/>
                                         <constraint firstItem="zf9-U7-Fwb" firstAttribute="width" secondItem="VoX-Zu-5aa" secondAttribute="width" id="JQu-Li-P4d"/>
                                         <constraint firstItem="sxS-sL-4Vv" firstAttribute="leading" secondItem="zf9-U7-Fwb" secondAttribute="leading" id="Z8a-V9-thr"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zf9-U7-Fwb" secondAttribute="trailing" constant="20" symbolic="YES" id="aPs-X1-mo2"/>
                                         <constraint firstItem="zf9-U7-Fwb" firstAttribute="top" secondItem="VoX-Zu-5aa" secondAttribute="bottom" constant="8" id="cwR-qA-ugb"/>
                                         <constraint firstItem="VoX-Zu-5aa" firstAttribute="top" secondItem="Stn-Rb-Ul5" secondAttribute="topMargin" id="d4l-RX-e5t"/>
                                         <constraint firstItem="zf9-U7-Fwb" firstAttribute="leading" secondItem="VoX-Zu-5aa" secondAttribute="leading" id="dm8-4o-Zx4"/>
+                                        <constraint firstItem="rbw-yS-cfJ" firstAttribute="leading" secondItem="Stn-Rb-Ul5" secondAttribute="leading" constant="288" id="feU-6R-57w"/>
+                                        <constraint firstItem="GBc-6n-FDo" firstAttribute="leading" secondItem="Stn-Rb-Ul5" secondAttribute="leading" constant="37" id="fgh-ZM-cD2"/>
                                         <constraint firstItem="VoX-Zu-5aa" firstAttribute="width" secondItem="Stn-Rb-Ul5" secondAttribute="width" multiplier="0.8" id="heK-a8-ZXL"/>
                                         <constraint firstItem="VoX-Zu-5aa" firstAttribute="centerX" secondItem="Stn-Rb-Ul5" secondAttribute="centerX" id="ilo-je-U2r"/>
                                         <constraint firstItem="rbw-yS-cfJ" firstAttribute="top" secondItem="VoX-Zu-5aa" secondAttribute="bottom" constant="2" id="jZh-Le-9L1"/>
+                                        <constraint firstItem="GBc-6n-FDo" firstAttribute="bottom" secondItem="zf9-U7-Fwb" secondAttribute="bottom" constant="15" id="lix-Ja-9mh"/>
                                         <constraint firstItem="sxS-sL-4Vv" firstAttribute="width" secondItem="zf9-U7-Fwb" secondAttribute="width" id="mgb-MX-bu3"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sxS-sL-4Vv" secondAttribute="trailing" constant="20" symbolic="YES" id="mwG-qw-505"/>
                                         <constraint firstAttribute="trailing" secondItem="rbw-yS-cfJ" secondAttribute="trailing" constant="38" id="qzt-L4-eq4"/>
-                                        <constraint firstItem="sxS-sL-4Vv" firstAttribute="top" secondItem="zf9-U7-Fwb" secondAttribute="bottom" constant="8" id="xaD-PU-pTS"/>
+                                        <constraint firstItem="sxS-sL-4Vv" firstAttribute="top" secondItem="zf9-U7-Fwb" secondAttribute="bottom" constant="16" id="xaD-PU-pTS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentLabel" destination="sxS-sL-4Vv" id="kKh-id-PjS"/>
                                     <outlet property="photoImageView" destination="VoX-Zu-5aa" id="GEF-VZ-a5V"/>
+                                    <outlet property="timestampLabel" destination="GBc-6n-FDo" id="PTx-Dt-eQy"/>
                                     <outlet property="titleLabel" destination="zf9-U7-Fwb" id="a61-Ad-0XW"/>
                                     <segue destination="PTC-43-rYh" kind="show" identifier="toCommentsVC" id="BCb-ar-x9z"/>
                                 </connections>

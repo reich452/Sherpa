@@ -11,12 +11,13 @@ import UIKit
 protocol FBFeedTableViewCellDelegate: class {
     func didTapReportButton(_ cell: FBFeedTableViewCell)
 }
-
+// TODO: - Make this a nib for one cell 
 class FBFeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
     
     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .gray)
@@ -40,7 +41,10 @@ class FBFeedTableViewCell: UITableViewCell {
     func updateViews() {
         guard let post = post else { return }
         titleLabel.text = post.title
-
+        if let fbPost = post as? FBPost {
+            let date = Date(timeIntervalSince1970: TimeInterval(fbPost.timeInt/1000))
+            timestampLabel.text = " \(DateHelper.shared.dateToString(date: date))"
+        }
     }
    
     // MARK: - Actions
