@@ -19,6 +19,7 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
         let storageManager = StorageManager(storageRef: storageRef)
         return FireBasePostController(storageManager: storageManager)
     }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,8 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
         fbPostController.timerDelegate = self
         fbPostController.myTimer.delegate = self
         self.showActivityIndicator()
-
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         reloadFbPosts()
+
     }
     
     // MARK: - Actions
@@ -61,7 +59,7 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
         cell.post = fbPost
         cell.delegate = self
         if fbPost.image == nil {
-            fbPostController.fetchImage(urlString: fbPost.imageStringURL) { (image) in
+            fbPostController.fetchImage(post: fbPost) { (image) in
                 DispatchQueue.main.async {
                     if let currentIndexPath = self.tableView.indexPath(for: cell), currentIndexPath == indexPath {
                         UIView.transition(with: cell.contentView, duration: 0.3, options: .transitionCrossDissolve, animations: {
@@ -76,11 +74,17 @@ class FBPostTableViewController: UITableViewController, ActivityIndicatorPresent
         return cell
     }
     
+
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // TODO: - 
+        if segue.identifier == "toCommentsVC" {
+            guard let destinationVC = segue.destination as? CommentListTableViewController,
+                let indexPath = tableView.indexPathForSelectedRow else { return }
+            let fbPost = fbPostController.fbPosts[indexPath.row]
+            destinationVC.post = fbPost
+            destinationVC.fbCommentController = FBCommnetController()
+        }
     }
 }
 // MARK: - FetchAndUploadCounter Delegate

@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct FBPost: Post {
+class FBPost: Post {
     
     var comments: [Comment] = []
     var dataBase: DataBase = .firebase
@@ -28,6 +28,7 @@ struct FBPost: Post {
     var image: UIImage?
     var imageStringURL: String
     var timeInt: Int
+
     
     init(title: String, imageStringURL: String, timeInt: Int = Int(NSDate().timeIntervalSince1970 * 1000), uuid: String) {
         self.title = title
@@ -47,7 +48,7 @@ struct FBPost: Post {
         ]
     }
     
-    init?(snapshot: DataSnapshot) {
+    convenience init?(snapshot: DataSnapshot) {
         guard let dictionary = snapshot.value as? [String: Any] else { return nil }
         guard let title = dictionary[Constans.titleKey] as? String,
             let imageStringUrl = dictionary[Constans.imageStringURL] as? String,
@@ -55,8 +56,8 @@ struct FBPost: Post {
             let uuid = dictionary[Constans.uuidKey] as? String else { return nil}
         self.init(title: title, imageStringURL: imageStringUrl, timeInt: timeInt, uuid: uuid)
     }
-    
 }
+
 
 // MARK: - Search 
 

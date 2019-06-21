@@ -15,8 +15,8 @@ class FireBasePostController {
     typealias fbCompletion = (Bool, NetworkError?) -> Void
     private let databaseReference = Database.database().reference()
     private let storageReference = Storage.storage().reference()
-    private var imageCache = NSCache<NSURL, AnyObject>()
     private let storageManager: StorageManager
+    private var imageCache = NSCache<NSURL, AnyObject>()
     
     weak var timerDelegate: FetchAndUploadCounter?
     var fbPosts = [FBPost]()
@@ -85,9 +85,9 @@ class FireBasePostController {
         }
     }
     
-    func fetchImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
-        guard let url = URL(string: urlString) else { completion(nil) ; return }
-        
+    func fetchImage(post: Post, completion: @escaping (UIImage?) -> Void) {
+        guard let fbPost = post as? FBPost,
+            let url = URL(string: fbPost.imageStringURL) else { completion(nil) ; return }
         self.myTimer.increaseCounter()
         self.timerDelegate?.increaseFetchTimer()
         if let cachedImage = imageCache.object(forKey: url as NSURL) as? UIImage {
@@ -105,10 +105,11 @@ class FireBasePostController {
                 let image = UIImage(data: data) else { completion(nil) ; return }
           
             self.timerDelegate?.timerCompleted()
+            fbPost.image = image
             self.imageCache.setObject(image, forKey: url as NSURL)
             completion(image)
             }.resume()
     }
-    
+  
 }
 

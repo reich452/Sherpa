@@ -35,7 +35,6 @@ class FBFeedTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       commentLabel.isHidden = true
     }
     
     func updateViews() {

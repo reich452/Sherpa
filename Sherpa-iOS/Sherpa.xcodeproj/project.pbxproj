@@ -111,6 +111,8 @@
 		017BD90C22177A43002669EE /* ThreadSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017BD90B22177A43002669EE /* ThreadSafe.swift */; };
 		017BD90E22177ADB002669EE /* ArrayExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017BD90D22177ADB002669EE /* ArrayExtention.swift */; };
 		017E345A2266BB9800B493E1 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E34592266BB9800B493E1 /* MovieController.swift */; };
+		018E18DB22BBEFE100955731 /* FBCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E18DA22BBEFE100955731 /* FBCommentController.swift */; };
+		018E18DD22BBF07400955731 /* FBComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E18DC22BBF07400955731 /* FBComment.swift */; };
 		01904BCA22B3063600EBBB89 /* ReportAbuse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01904BC922B3063600EBBB89 /* ReportAbuse.storyboard */; };
 		01904BCC22B3089500EBBB89 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01904BCB22B3089500EBBB89 /* Report.swift */; };
 		01904BCF22B3FD9300EBBB89 /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01904BCE22B3FD9300EBBB89 /* ReportTableViewController.swift */; };
@@ -256,6 +258,8 @@
 		017BD90B22177A43002669EE /* ThreadSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafe.swift; sourceTree = "<group>"; };
 		017BD90D22177ADB002669EE /* ArrayExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtention.swift; sourceTree = "<group>"; };
 		017E34592266BB9800B493E1 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
+		018E18DA22BBEFE100955731 /* FBCommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBCommentController.swift; sourceTree = "<group>"; };
+		018E18DC22BBF07400955731 /* FBComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBComment.swift; sourceTree = "<group>"; };
 		01904BC922B3063600EBBB89 /* ReportAbuse.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReportAbuse.storyboard; sourceTree = "<group>"; };
 		01904BCB22B3089500EBBB89 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		01904BCE22B3FD9300EBBB89 /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
@@ -518,6 +522,7 @@
 				01474E0F2188E38F003B29A0 /* RdPost.swift */,
 				01F7B25E21964BA700902239 /* Comment.swift */,
 				01F7B26021964C6F00902239 /* CKComment.swift */,
+				018E18DC22BBF07400955731 /* FBComment.swift */,
 				01035FF521C6C4580023BD60 /* Author.swift */,
 				012D059E22124C1E00741413 /* MyTimer.swift */,
 				01C85E9F225D8062007D1237 /* Moive.swift */,
@@ -531,6 +536,7 @@
 			children = (
 				01208791218536E3007B7C43 /* CloudKitPostController.swift */,
 				01087647218812B000FAC3BE /* FireBasePostController.swift */,
+				018E18DA22BBEFE100955731 /* FBCommentController.swift */,
 				0108765B2188337B00FAC3BE /* RedditPostController.swift */,
 				015FE3C0219C99C70038EA7F /* AuthorController.swift */,
 				017E34592266BB9800B493E1 /* MovieController.swift */,
@@ -924,6 +930,7 @@
 				0120872F2184D83D007B7C43 /* HomeViewController.swift in Sources */,
 				012087442184E4F5007B7C43 /* Constants.swift in Sources */,
 				012087352184DA36007B7C43 /* DataBaseActionTableViewController.swift in Sources */,
+				018E18DB22BBEFE100955731 /* FBCommentController.swift in Sources */,
 				0135D6742204E79900C301A2 /* TimeIntervalExtention.swift in Sources */,
 				0140A5CC22AAB4F600228F52 /* HTTPTask.swift in Sources */,
 				017BD90E22177ADB002669EE /* ArrayExtention.swift in Sources */,
@@ -934,6 +941,7 @@
 				012D059F22124C1E00741413 /* MyTimer.swift in Sources */,
 				017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */,
 				011B109E22B5E1810092BADE /* FBFeedTableViewCell.swift in Sources */,
+				018E18DD22BBF07400955731 /* FBComment.swift in Sources */,
 				01904BCC22B3089500EBBB89 /* Report.swift in Sources */,
 				0108764C2188178E00FAC3BE /* NetworkManager.swift in Sources */,
 				010876602188BBA800FAC3BE /* StorageManager.swift in Sources */,
