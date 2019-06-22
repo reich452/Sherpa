@@ -21,13 +21,13 @@ class MainTabBarViewController: UITabBarController {
         let navigationController = storyboard1.instantiateViewController(withIdentifier: "HomeViewController")
         let firstNavigationController = UINavigationController(rootViewController: navigationController)
         firstNavigationController.title = "Home"
-        firstNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcHome_Icon")
+        firstNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcHome")
         
         let storyboard2 = UIStoryboard(name: Constants.dbActionTab, bundle: nil)
         let decadeSearchTVC = storyboard2.instantiateViewController(withIdentifier: Constants.dataBaseActionTVC)
         let secondNavigationController = UINavigationController(rootViewController: decadeSearchTVC)
         secondNavigationController.title = "CloudKit"
-        secondNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcCloudKit_Icon")
+        secondNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcCloud")
         
         let storyboard3 = UIStoryboard(name: Constants.dbActionTab, bundle: nil)
         let saveSearchTVC = storyboard3.instantiateViewController(withIdentifier: Constants.dataBaseActionTVC)
