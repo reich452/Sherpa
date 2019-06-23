@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 class ReadOrWriteTableViewController: UITableViewController {
 
@@ -27,44 +28,11 @@ class ReadOrWriteTableViewController: UITableViewController {
         return 1
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return options.count
-    }
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.readOrWriteCell, for: indexPath)
-        
-        let option = options[indexPath.section]
-        cell.textLabel?.text = option
-        cell.textLabel?.textAlignment = .center
-       
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.readOrWriteCell, for: indexPath) as? ReadOrWriteTableViewCell else { return UITableViewCell() }
+       cell.delegate = self
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return cellSpacing
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = .clear
-        return headerView
-    }
-    
-
-    // MARK: - Visuial effect
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        let clearColor = UIColor.clear
-        cell.backgroundColor = clearColor
-        cell.textLabel?.backgroundColor = UIColor(white: 1, alpha: 0.9)
-        cell.textLabel?.clipsToBounds = true
-        cell.textLabel?.layer.cornerRadius = 15
-        cell.detailTextLabel?.backgroundColor = clearColor
-    }
-    
-    
 
     // MARK: - Navigation
 
@@ -74,9 +42,23 @@ class ReadOrWriteTableViewController: UITableViewController {
             guard let destinationVC = segue.destination as? AuthorTableViewController else { return }
             destinationVC.dataBaseString = dataBaseString
         }
-   
     }
-    
+}
+
+extension ReadOrWriteTableViewController: ReadOrWriteTavleViewCellDelegate {
+    func didTapPlayButton(_ cell: ReadOrWriteTableViewCell) {
+        let urlString = "https://devstreaming-cdn.apple.com/videos/wwdc/2019/202mm1h4jl4wiz1h3/202/202_sd_using_core_data_with_cloudkit.mp4?dl=1"
+        
+        let url = URL(string: urlString)
+        let player = AVPlayer(url: url!)
+        
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        
+        present(playerController, animated: true) {
+            player.play()
+        }
+    }
 }
 
 extension ReadOrWriteTableViewController {
@@ -85,8 +67,6 @@ extension ReadOrWriteTableViewController {
     func setUpUI() {
         title = "Discussion"
         tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 120
         tableView.backgroundColor = .primaryColor
     }
 }

@@ -32,7 +32,12 @@ extension UIViewController {
 
 extension UIView {
     
-    func addVerticalGradientLayer(topColor:UIColor, bottomColor:UIColor) {
+    func makeRoundView() {
+        self.layer.cornerRadius = self.frame.width / 2
+        self.layer.masksToBounds = true
+    }
+    
+    func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = [
@@ -75,12 +80,33 @@ extension UIView {
     }
 }
 
+extension UIImageView {
+    func roundCornersForAspectFit(radius: CGFloat) {
+        if let image = self.image {
+            //calculate drawingRect
+            let boundsScale = self.bounds.size.width / self.bounds.size.height
+            let imageScale = image.size.width / image.size.height
+            
+            var drawingRect: CGRect = self.bounds
+            
+            if boundsScale > imageScale {
+                drawingRect.size.width =  drawingRect.size.height * imageScale
+                drawingRect.origin.x = (self.bounds.size.width - drawingRect.size.width) / 2
+            } else {
+                drawingRect.size.height = drawingRect.size.width / imageScale
+                drawingRect.origin.y = (self.bounds.size.height - drawingRect.size.height) / 2
+            }
+            let path = UIBezierPath(roundedRect: drawingRect, cornerRadius: radius)
+            let mask = CAShapeLayer()
+            mask.path = path.cgPath
+            self.layer.mask = mask
+        }
+    }
+}
 
 // MARK: - Notification Names
 
 extension Notification.Name {
     static let PostsChangedNotification = Notification.Name("PostsChangedNotification")
 }
-
-
 
