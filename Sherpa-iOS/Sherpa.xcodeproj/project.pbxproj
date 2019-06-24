@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		01035FF621C6C4580023BD60 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01035FF521C6C4580023BD60 /* Author.swift */; };
 		01035FF921C6E8A50023BD60 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01035FF821C6E8A50023BD60 /* Protocols.swift */; };
+		0107E1B422C07A5A006B8555 /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107E1B322C07A5A006B8555 /* Thought.swift */; };
+		0107E1B622C11D71006B8555 /* CKThought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107E1B522C11D71006B8555 /* CKThought.swift */; };
 		0108764621880CB300FAC3BE /* FBPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108764521880CB300FAC3BE /* FBPost.swift */; };
 		01087648218812B000FAC3BE /* FireBasePostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01087647218812B000FAC3BE /* FireBasePostController.swift */; };
 		0108764A2188138900FAC3BE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010876492188138900FAC3BE /* NetworkError.swift */; };
@@ -155,6 +157,8 @@
 /* Begin PBXFileReference section */
 		01035FF521C6C4580023BD60 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		01035FF821C6E8A50023BD60 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		0107E1B322C07A5A006B8555 /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
+		0107E1B522C11D71006B8555 /* CKThought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKThought.swift; sourceTree = "<group>"; };
 		0108764521880CB300FAC3BE /* FBPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBPost.swift; sourceTree = "<group>"; };
 		01087647218812B000FAC3BE /* FireBasePostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBasePostController.swift; sourceTree = "<group>"; };
 		010876492188138900FAC3BE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -322,6 +326,29 @@
 				01035FF821C6E8A50023BD60 /* Protocols.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0107E1B122C079FF006B8555 /* Disscussion */ = {
+			isa = PBXGroup;
+			children = (
+				0107E1B322C07A5A006B8555 /* Thought.swift */,
+				0107E1B522C11D71006B8555 /* CKThought.swift */,
+			);
+			path = Disscussion;
+			sourceTree = "<group>";
+		};
+		0107E1B222C07A13006B8555 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				01F7B21621962E7D00902239 /* Post.swift */,
+				0120878E2185303F007B7C43 /* CKPost.swift */,
+				0108764521880CB300FAC3BE /* FBPost.swift */,
+				01F7B25E21964BA700902239 /* Comment.swift */,
+				01F7B26021964C6F00902239 /* CKComment.swift */,
+				018E18DC22BBF07400955731 /* FBComment.swift */,
+				0107E1B122C079FF006B8555 /* Disscussion */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		012086FD2184D3CE007B7C43 = {
@@ -526,13 +553,8 @@
 		0120878D21853029007B7C43 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				01F7B21621962E7D00902239 /* Post.swift */,
-				0120878E2185303F007B7C43 /* CKPost.swift */,
-				0108764521880CB300FAC3BE /* FBPost.swift */,
+				0107E1B222C07A13006B8555 /* DataBase */,
 				01474E0F2188E38F003B29A0 /* RdPost.swift */,
-				01F7B25E21964BA700902239 /* Comment.swift */,
-				01F7B26021964C6F00902239 /* CKComment.swift */,
-				018E18DC22BBF07400955731 /* FBComment.swift */,
 				01035FF521C6C4580023BD60 /* Author.swift */,
 				012D059E22124C1E00741413 /* MyTimer.swift */,
 				01C85E9F225D8062007D1237 /* Moive.swift */,
@@ -933,6 +955,7 @@
 				0120878F2185303F007B7C43 /* CKPost.swift in Sources */,
 				01C85E9B225D7346007D1237 /* MovieOverlayView.swift in Sources */,
 				012087852184F353007B7C43 /* SectionHeaderCollectionReusableView.swift in Sources */,
+				0107E1B622C11D71006B8555 /* CKThought.swift in Sources */,
 				019EB3DD21A1114600BD9FC2 /* AuthorTableViewController.swift in Sources */,
 				0140A5D022AAB8B800228F52 /* PrameterEncoding.swift in Sources */,
 				01F7B26121964C6F00902239 /* CKComment.swift in Sources */,
@@ -978,6 +1001,7 @@
 				01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */,
 				012087412184E362007B7C43 /* HomeCollectionViewCell.swift in Sources */,
 				0108764621880CB300FAC3BE /* FBPost.swift in Sources */,
+				0107E1B422C07A5A006B8555 /* Thought.swift in Sources */,
 				017979122187AA9B004BA6C7 /* PublicProtocols.swift in Sources */,
 				01904BD822B47A0000EBBB89 /* CKReport.swift in Sources */,
 				0135D6762206384C00C301A2 /* IntExtention.swift in Sources */,
