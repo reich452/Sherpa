@@ -14,8 +14,11 @@ class DiscussionTableViewController: UITableViewController {
     // MARK: - Properties
     
     public var dataBaseString = ""
-    
-    enum DisscussionSections: CaseIterable {
+    public var selectedDB: SelectedIconDB!
+    public var cKDiscussionController: CKDiscussionController!
+
+    private var thoughs: [Thought] = []
+    private enum DisscussionSections: CaseIterable {
         case news
         case add
         case discussionHeader
@@ -28,6 +31,34 @@ class DiscussionTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setUpUI()
+        fetchCKThoughts()
+    }
+    
+
+    
+    func fetchCKThoughts() {
+        
+        if selectedDB == .cloudKit {
+            print("CLOUD KIT")
+        } else {
+            print("na!")
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        cKDiscussionController.fetchThoughts { (result) in
+            switch result {
+            case .success(let ckThoughts):
+                guard let ckThoughts = ckThoughts else { return }
+               self.thoughs = ckThoughts
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.tableView.reloadData()
+                }
+                
+            case .failure(let error):
+                self.showNoActionAlert(titleStr: "Error Fetching CKThoughts", messageStr: error.localizedDescription, style: .cancel)
+            }
+        }
     }
     
   
@@ -39,7 +70,11 @@ class DiscussionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 3 {
+            return thoughs.count
+        } else {
+            return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,16 +86,16 @@ class DiscussionTableViewController: UITableViewController {
             
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.addThoughtCell, for: indexPath) as? AddThoughtTableViewCell else { return UITableViewCell() }
-          
             return cell
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.thoughtSectionCell, for: indexPath)
-            
             return cell
             
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.thoughtCell, for: indexPath) as? ThoughtTableViewCell else { return UITableViewCell() }
+            let thought = self.thoughs[indexPath.row]
+            cell.thought = thought
             
             return cell
             
@@ -73,9 +108,9 @@ class DiscussionTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
    
-        if segue.identifier == Constants.toAuthorTVC {
-            guard let destinationVC = segue.destination as? AuthorTableViewController else { return }
-            destinationVC.dataBaseString = dataBaseString
+        if segue.identifier == Constants.toAddThoughtVC {
+            guard let destinationVC = segue.destination as? ShareThoughtViewController else { return }
+            destinationVC.ckDiscussionController = CKDiscussionController()
         }
     }
 }

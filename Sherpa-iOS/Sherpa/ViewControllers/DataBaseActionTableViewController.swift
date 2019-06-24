@@ -128,6 +128,9 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
             guard let vc = sb.instantiateViewController(withIdentifier: Constants.discussionTVC) as? DiscussionTableViewController else { return }
             if cell.selectedDB == .cloudKit {
                 vc.dataBaseString = "CloudKit"
+                vc.selectedDB = .cloudKit
+                vc.cKDiscussionController = CKDiscussionController()
+                
             } else {
                 vc.dataBaseString = "Firebase"
             }

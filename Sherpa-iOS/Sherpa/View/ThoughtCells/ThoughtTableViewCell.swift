@@ -17,5 +17,18 @@ class ThoughtTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    var thought: Thought? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func updateViews() {
+        guard let thought = thought else { return }
+        
+        nameLabel.text = thought.author
+        thoughtText.text = thought.text
+        dateLabel.text = DateHelper.shared.dateToString(date: thought.timestamp)
+    }
  
 }

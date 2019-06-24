@@ -46,6 +46,7 @@ struct Constants {
     static let toUpLoadingVC = "toUpLoadingVC"
     static let toCommentVC = "toCommentVC"
     static let toAuthorTVC = "toAuthorTVC"
+    static let toAddThoughtVC = "toAddThought"
     
     struct Query {
         

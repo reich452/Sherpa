@@ -49,8 +49,9 @@ extension CKThought {
 extension CKRecord {
     
     convenience init(_ ckThought: CKThought) {
-        self.init(recordType: CKThought.Keys.ckThought.rawValue, recordID: ckThought.recordID)
+        self.init(recordType: "CKThought", recordID: ckThought.recordID)
         self.setValue(ckThought.text, forKey: CKThought.Keys.text.rawValue)
+        self.setValue(ckThought.author, forKey: CKThought.Keys.author.rawValue)
         self.setValue(ckThought.timestamp, forKey: CKThought.Keys.timestamp.rawValue)
     }
 }

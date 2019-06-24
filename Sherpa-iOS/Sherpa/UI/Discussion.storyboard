@@ -32,7 +32,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xceHeader2" translatesAutoresizingMaskIntoConstraints="NO" id="h7a-fc-1JO">
-                                            <rect key="frame" x="19" y="73" width="337.5" height="180.5"/>
+                                            <rect key="frame" x="19" y="73" width="337.50000000000011" height="180.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="180.5" id="vxc-SS-nKA"/>
                                             </constraints>
@@ -209,6 +209,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oQB-2C-cr3">
+                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -297,7 +298,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EEI-io-Uzk">
-                                <rect key="frame" x="19" y="101" width="337.5" height="255"/>
+                                <rect key="frame" x="19" y="134" width="337.5" height="255"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="255" id="Pyc-G6-ewg"/>
@@ -327,13 +328,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your thought..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyC-IA-exP">
-                                <rect key="frame" x="19" y="101" width="199.5" height="27"/>
+                                <rect key="frame" x="19" y="134" width="199.5" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xST-dz-rOd" customClass="CustomButton" customModule="Sherpa" customModuleProvider="target">
-                                <rect key="frame" x="94" y="406" width="187.5" height="44"/>
+                                <rect key="frame" x="94" y="439" width="187.5" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vYj-4t-2L5"/>
                                 </constraints>
@@ -353,6 +354,26 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addBtnTapped:" destination="T2d-KT-bRU" eventType="touchUpInside" id="avf-3B-Du2"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JAk-UW-lYi">
+                                <rect key="frame" x="19" y="96" width="292" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="292" id="VFO-Pe-yRb"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcT-iv-Tjk">
+                                <rect key="frame" x="224" y="96" width="135" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Randomize Me!"/>
+                                <connections>
+                                    <action selector="randomizeBtnTapped:" destination="T2d-KT-bRU" eventType="touchUpInside" id="lC9-o6-F16"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -362,13 +383,18 @@
                             <constraint firstItem="xST-dz-rOd" firstAttribute="width" secondItem="lnG-vP-pCQ" secondAttribute="width" multiplier="0.5" id="CrQ-Tk-oZe"/>
                             <constraint firstItem="ILF-gP-3ia" firstAttribute="centerX" secondItem="BZc-t9-s7r" secondAttribute="centerX" id="EeA-Y7-DC1"/>
                             <constraint firstItem="EEI-io-Uzk" firstAttribute="width" secondItem="lnG-vP-pCQ" secondAttribute="width" multiplier="0.9" id="F2R-UF-CBg"/>
-                            <constraint firstItem="EEI-io-Uzk" firstAttribute="top" secondItem="ILF-gP-3ia" secondAttribute="bottom" constant="27" id="GHG-j1-aei"/>
+                            <constraint firstItem="EEI-io-Uzk" firstAttribute="top" secondItem="ILF-gP-3ia" secondAttribute="bottom" constant="60" id="GHG-j1-aei"/>
+                            <constraint firstItem="EcT-iv-Tjk" firstAttribute="leading" secondItem="JAk-UW-lYi" secondAttribute="trailing" constant="-87" id="PuI-gX-L3K"/>
+                            <constraint firstItem="EcT-iv-Tjk" firstAttribute="top" secondItem="ILF-gP-3ia" secondAttribute="bottom" constant="22" id="SQc-Y4-yzo"/>
                             <constraint firstItem="q22-xl-xZx" firstAttribute="top" secondItem="BZc-t9-s7r" secondAttribute="top" constant="9" id="SsF-CH-9ZP"/>
                             <constraint firstItem="pyC-IA-exP" firstAttribute="top" secondItem="EEI-io-Uzk" secondAttribute="top" id="czN-hH-KnN"/>
                             <constraint firstItem="xST-dz-rOd" firstAttribute="centerX" secondItem="BZc-t9-s7r" secondAttribute="centerX" id="dRb-dv-z2r"/>
+                            <constraint firstItem="JAk-UW-lYi" firstAttribute="leading" secondItem="BZc-t9-s7r" secondAttribute="leading" constant="19" id="f2G-TH-qrF"/>
                             <constraint firstItem="pyC-IA-exP" firstAttribute="leading" secondItem="EEI-io-Uzk" secondAttribute="leading" id="l8p-h8-4Tm"/>
+                            <constraint firstItem="BZc-t9-s7r" firstAttribute="trailing" secondItem="EcT-iv-Tjk" secondAttribute="trailing" constant="16" id="oGk-N5-Axd"/>
                             <constraint firstItem="q22-xl-xZx" firstAttribute="leading" secondItem="BZc-t9-s7r" secondAttribute="leading" constant="16" id="sAj-VT-2DI"/>
                             <constraint firstItem="ILF-gP-3ia" firstAttribute="top" secondItem="BZc-t9-s7r" secondAttribute="top" constant="20" id="y9Z-Xe-CcW"/>
+                            <constraint firstItem="JAk-UW-lYi" firstAttribute="top" secondItem="ILF-gP-3ia" secondAttribute="bottom" constant="22" id="zHc-vx-iYm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BZc-t9-s7r"/>
                     </view>
@@ -377,6 +403,7 @@
                         <outlet property="placeholderLabel" destination="pyC-IA-exP" id="H6a-G5-i86"/>
                         <outlet property="textView" destination="EEI-io-Uzk" id="7xg-bQ-gk1"/>
                         <outlet property="titleLabel" destination="ILF-gP-3ia" id="jfA-Nz-Txa"/>
+                        <outlet property="userNameTextField" destination="JAk-UW-lYi" id="mQu-gv-jXw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlO-a8-cpa" userLabel="First Responder" sceneMemberID="firstResponder"/>
