@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol ReadOrWriteTavleViewCellDelegate: class {
-    func didTapPlayButton(_ cell: ReadOrWriteTableViewCell)
+protocol LatestNewsTableViewCellDelegate: class {
+    func didTapPlayButton(_ cell: LatestNewsTableViewCell)
 }
 
-class ReadOrWriteTableViewCell: UITableViewCell {
+class LatestNewsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var headerImage: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var playViewBackground: UIView!
     @IBOutlet weak var overlayPlayBtn: UIButton!
     
-    weak var delegate: ReadOrWriteTavleViewCellDelegate?
+    weak var delegate: LatestNewsTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

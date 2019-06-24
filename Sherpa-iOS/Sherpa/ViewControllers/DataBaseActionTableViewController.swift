@@ -124,9 +124,8 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
         let indexPath = tableView.indexPath(for: cell)
         switch indexPath?.row {
         case 0:
-            print("First cell tapped")
-            let sb = UIStoryboard(name: "ReadOrWrite", bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: Constants.readOrWriteTVC) as? ReadOrWriteTableViewController else { return }
+            let sb = UIStoryboard(name: "Discussion", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: Constants.discussionTVC) as? DiscussionTableViewController else { return }
             if cell.selectedDB == .cloudKit {
                 vc.dataBaseString = "CloudKit"
             } else {

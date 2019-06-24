@@ -16,8 +16,11 @@ struct Constants {
     static let cloudKitCell = "cloudKitCell"
     static let redditCell = "redditPostCell"
     static let commentCell = "commentCell"
-    static let readOrWriteCell = "readOrWriteCell"
+    static let latestNewsCell = "latestNewsCellId"
     static let authorCell = "authorCell"
+    static let addThoughtCell = "addThoughtCellId"
+    static let thoughtSectionCell = "thoughtSectionCell"
+    static let thoughtCell = "thoughtCellId"
     
     // MARK: - Storyboard Name
     static let dbActionTab = "DataBaseActionTab"
@@ -34,7 +37,7 @@ struct Constants {
     static let feedTVC = "FeedTableViewController"
     static let fbFeedTVC = "FBPostTableViewController"
     static let rdPostTVC = "RedditTableViewController"
-    static let readOrWriteTVC = "ReadOrWriteTableViewController"
+    static let discussionTVC = "DiscussionTableViewController"
     static let authorTVC = "AuthorTableViewController"
     static let movieVC = "MovieDBViewController"
     static let reportTVC = "ReportTableViewController"
