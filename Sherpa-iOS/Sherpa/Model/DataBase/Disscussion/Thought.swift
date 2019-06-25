@@ -10,7 +10,8 @@ import Foundation
 
 protocol Thought {
     var author: String { get set }
-    var text: String { get set }
+    var title: String { get set }
+    var body: String { get set }
     var timestamp: Date { get set }
     var database: DataBase { get set }
     var comments: [Comment] { get set }

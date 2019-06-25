@@ -26,6 +26,19 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func setupHideKeyboardOnTap() {
+        self.view.addGestureRecognizer(self.endEditingRecognizer())
+        self.navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
+    }
+    
+    /// Dismisses the keyboard from self.view
+    private func endEditingRecognizer() -> UIGestureRecognizer {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        return tap
+    }
+    
 }
 
 // MARK: - UIView
@@ -101,6 +114,70 @@ extension UIImageView {
             mask.path = path.cgPath
             self.layer.mask = mask
         }
+    }
+}
+
+// MARK: - TextField
+
+extension UITextField {
+    
+    func setBottomBorder(withColor color: UIColor) {
+        self.borderStyle = UITextField.BorderStyle.none
+        self.backgroundColor = UIColor.clear
+        let width: CGFloat = 1.0
+        
+        let borderLine = UIView(frame: CGRect(x: 0, y: self.frame.height - width, width: self.frame.width, height: width))
+        borderLine.backgroundColor = color
+        self.addSubview(borderLine)
+    }
+}
+
+extension UITextView {
+    
+    func addAccessoryView(_ text: String) {
+        let accessory: UIView = {
+            let accessoryView = UIView(frame: .zero)
+            accessoryView.backgroundColor = UIColor.groupTableViewBackground
+            return accessoryView
+        }()
+        let cancelButton: UIButton = {
+            let cancelButton = UIButton(type: .custom)
+            cancelButton.setTitle("Done", for: .normal)
+            cancelButton.setTitleColor(#colorLiteral(red: 0.1607843137, green: 0.368627451, blue: 0.5803921569, alpha: 1), for: .normal)
+            cancelButton.addTarget(self, action:
+                #selector(doneClicked), for: .touchUpInside)
+            cancelButton.showsTouchWhenHighlighted = true
+            return cancelButton
+        }()
+        let charactersLeftLabel: UILabel = {
+            let charactersLeftLabel = UILabel()
+            charactersLeftLabel.text = text
+            charactersLeftLabel.textColor = UIColor.lightGray
+            return charactersLeftLabel
+        }()
+        accessory.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 45)
+        accessory.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        charactersLeftLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.inputAccessoryView = accessory
+        accessory.addSubview(cancelButton)
+        accessory.addSubview(charactersLeftLabel)
+        
+        NSLayoutConstraint.activate([
+            cancelButton.leadingAnchor.constraint(equalTo:
+                accessory.leadingAnchor, constant: 20),
+            cancelButton.centerYAnchor.constraint(equalTo:
+                accessory.centerYAnchor),
+            charactersLeftLabel.centerXAnchor.constraint(equalTo:
+                accessory.centerXAnchor),
+            charactersLeftLabel.centerYAnchor.constraint(equalTo:
+                accessory.centerYAnchor)
+            ])
+    }
+    
+    @objc func doneClicked() {
+        self.resignFirstResponder()
     }
 }
 

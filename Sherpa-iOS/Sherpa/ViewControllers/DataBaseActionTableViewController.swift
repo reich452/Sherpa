@@ -127,12 +127,10 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
             let sb = UIStoryboard(name: "Discussion", bundle: nil)
             guard let vc = sb.instantiateViewController(withIdentifier: Constants.discussionTVC) as? DiscussionTableViewController else { return }
             if cell.selectedDB == .cloudKit {
-                vc.dataBaseString = "CloudKit"
                 vc.selectedDB = .cloudKit
                 vc.cKDiscussionController = CKDiscussionController()
-                
             } else {
-                vc.dataBaseString = "Firebase"
+                vc.selectedDB = .firebase
             }
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:

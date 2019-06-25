@@ -16,14 +16,16 @@ class CKDiscussionController {
     typealias CKThoughtCompletion = (Bool, Error?) -> Void
     private let publicDB = CKContainer.default().publicCloudDatabase
     
-    func createThought(text: String, author: String, completion: @escaping CKThoughtCompletion) {
-        let ckThought = CKThought(text: text, author: author)
+    func createThought(author: String, title: String, body: String, completion: @escaping CKThoughtCompletion) {
+        let ckThought = CKThought(author: author, title: title, body: body)
         
         publicDB.save(CKRecord(ckThought)) { (record, error) in
             if let error = error {
                 print("Error saving CKThought Record \(error.localizedDescription)")
                 completion(false, error); return
             }
+            let thought = CKThought(record!)
+            print(thought)
             completion(true, nil)
         }
     }

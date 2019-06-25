@@ -12,8 +12,6 @@ import AVKit
 class DiscussionTableViewController: UITableViewController {
     
     // MARK: - Properties
-    
-    public var dataBaseString = ""
     public var selectedDB: SelectedIconDB!
     public var cKDiscussionController: CKDiscussionController!
 
@@ -29,19 +27,20 @@ class DiscussionTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpUI()
-        fetchCKThoughts()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchCKThoughts()
+    }
 
-    
-    func fetchCKThoughts() {
+    private func fetchCKThoughts() {
         
         if selectedDB == .cloudKit {
-            print("CLOUD KIT")
+            // TODO: - Comments for a thought
         } else {
-            print("na!")
+            // TODO: - Firebase
         }
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -56,13 +55,13 @@ class DiscussionTableViewController: UITableViewController {
                 }
                 
             case .failure(let error):
-                self.showNoActionAlert(titleStr: "Error Fetching CKThoughts", messageStr: error.localizedDescription, style: .cancel)
+                DispatchQueue.main.async {
+                    self.showNoActionAlert(titleStr: "Error Fetching CKThoughts", messageStr: error.localizedDescription, style: .cancel)
+                }
             }
         }
     }
     
-  
-
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -109,8 +108,8 @@ class DiscussionTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
    
         if segue.identifier == Constants.toAddThoughtVC {
-            guard let destinationVC = segue.destination as? ShareThoughtViewController else { return }
-            destinationVC.ckDiscussionController = CKDiscussionController()
+            guard let shareThoughtVC = segue.destination as? ShareThoughtViewController else { return }
+            shareThoughtVC.ckDiscussionController = CKDiscussionController()
         }
     }
 }
@@ -121,7 +120,6 @@ extension DiscussionTableViewController: LatestNewsTableViewCellDelegate {
         
         let url = URL(string: urlString)
         let player = AVPlayer(url: url!)
-        
         let playerController = AVPlayerViewController()
         playerController.player = player
         
@@ -129,14 +127,15 @@ extension DiscussionTableViewController: LatestNewsTableViewCellDelegate {
             player.play()
         }
     }
+    
+    // TODO: - Video and UI for Firebase 
 }
 
 extension DiscussionTableViewController {
     
     // MARK: - UI
-    func setUpUI() {
+   fileprivate func setUpUI() {
         title = "Discussion"
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .primaryColor
     }
 }

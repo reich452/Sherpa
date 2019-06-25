@@ -27,7 +27,8 @@ class ThoughtTableViewCell: UITableViewCell {
         guard let thought = thought else { return }
         
         nameLabel.text = thought.author
-        thoughtText.text = thought.text
+        
+        thoughtText.text = thought.body
         dateLabel.text = DateHelper.shared.dateToString(date: thought.timestamp)
     }
  

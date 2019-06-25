@@ -10,63 +10,119 @@ import UIKit
 
 class ShareThoughtViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var addButton: CustomButton!
-    @IBOutlet weak var placeholderLabel: UILabel!
-    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var textView: UITextView!
+    @IBOutlet private weak var addButton: CustomButton!
+    @IBOutlet private weak var placeholderLabel: UILabel!
+    @IBOutlet private weak var userNameTextField: UITextField!
+    @IBOutlet private weak var titleTextField: UITextField!
     
+    private var didClear = true
     public var ckDiscussionController: CKDiscussionController!
-    
-    public enum DataBase {
-        case cloudKit
-        case firebase
-    }
+    public var selectedDB: SelectedIconDB!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleTextField.delegate = self
+        userNameTextField.delegate = self
         textView.delegate = self
-    
-    
+        setupHideKeyboardOnTap()
+        setUpUI()
     }
     
     
-    @IBAction func randomizeBtnTapped(_ sender: Any) {
+    // MARK: - Actions
+    
+    @IBAction func randomizeBtnTapped(_ sender: UIButton) {
+        userNameTextField.text = randomName()
+        didClear = !didClear
+        switch didClear {
+        case true:
+            userNameTextField.text = ""
+            sender.setTitle("Randomize Me!", for: .normal)
+        case false:
+            sender.setTitle("Clear", for: .normal)
+        }
     }
     
     @IBAction func addBtnTapped(_ sender: CustomButton) {
-        guard let text = textView.text, !text.isEmpty,
+        guard let body = textView.text, !body.isEmpty,
+            let title = titleTextField.text, !title.isEmpty,
             let author = userNameTextField.text, !author.isEmpty  else {
-            self.showNoActionAlert(titleStr: "Ops", messageStr: "You gotta enter some text and a username to share your thoughts", style: .cancel)
-            return
+                self.showNoActionAlert(titleStr: "Ops", messageStr: "All fields need to be filled in to share your thought", style: .cancel)
+                return
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        ckDiscussionController.createThought(author: author, title: title, body: body) { (success, error) in
             
-        ckDiscussionController.createThought(text: text, author: author) { [weak self] (success, error) in
-            guard let self = self else { return }
             if error != nil {
                 DispatchQueue.main.async {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     self.showNoActionAlert(titleStr: "Error saving CKThought", messageStr: error?.localizedDescription ?? "Can't read CKError", style: .cancel)
                 }
-                if success == true {
-                    DispatchQueue.main.async {
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                        self.dismiss(animated: true, completion: nil)
-                    }
+            }
+            if success == true {
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.dismiss(animated: true, completion: nil)
                 }
+                
             }
         }
     }
-    
+
     @IBAction func cancelBtnTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: - Class Methods
+    class func storyBoardInstance() -> ShareThoughtViewController? {
+        return UIStoryboard(name: "ShareThought", bundle: nil).instantiateInitialViewController() as? ShareThoughtViewController
+    }
+    
+    
 }
 
-extension ShareThoughtViewController: UITextViewDelegate {
+extension ShareThoughtViewController: UITextViewDelegate, UITextFieldDelegate {
+    
+    // MARK: - Field Delegates
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        switch textField {
+        case userNameTextField:
+            titleTextField.becomeFirstResponder()
+        case titleTextField:
+            textView.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return false
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         placeholderLabel.text = ""
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" || textView.text == " " {
+            placeholderLabel.text = "Share your thought..."
+        }
+    }
+}
+
+extension ShareThoughtViewController {
+    
+    // MARK: - UI
+    
+    func setUpUI() {
+        userNameTextField.setBottomBorder(withColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+        titleTextField.setBottomBorder(withColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+        textView.addAccessoryView("Share your thought...")
+    }
+    
+    func randomName() -> String {
+        let names = ["Sally Sall", "Bruce Lee", "Tom Cruise", "Taylor Swift", "Beyonce", "Elvis Presley", "Kim Kardashian", "Ariana Grande", "Snoop Dog"]
+        return names.randomElement()!
     }
 }

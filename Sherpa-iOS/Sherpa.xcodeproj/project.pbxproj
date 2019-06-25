@@ -12,6 +12,7 @@
 		0107E1B422C07A5A006B8555 /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107E1B322C07A5A006B8555 /* Thought.swift */; };
 		0107E1B622C11D71006B8555 /* CKThought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107E1B522C11D71006B8555 /* CKThought.swift */; };
 		0107E1B822C12E4E006B8555 /* CKDisicussionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107E1B722C12E4E006B8555 /* CKDisicussionController.swift */; };
+		0107E1BA22C19675006B8555 /* ShareThought.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0107E1B922C19675006B8555 /* ShareThought.storyboard */; };
 		0108764621880CB300FAC3BE /* FBPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108764521880CB300FAC3BE /* FBPost.swift */; };
 		01087648218812B000FAC3BE /* FireBasePostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01087647218812B000FAC3BE /* FireBasePostController.swift */; };
 		0108764A2188138900FAC3BE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010876492188138900FAC3BE /* NetworkError.swift */; };
@@ -161,6 +162,7 @@
 		0107E1B322C07A5A006B8555 /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
 		0107E1B522C11D71006B8555 /* CKThought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKThought.swift; sourceTree = "<group>"; };
 		0107E1B722C12E4E006B8555 /* CKDisicussionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKDisicussionController.swift; sourceTree = "<group>"; };
+		0107E1B922C19675006B8555 /* ShareThought.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShareThought.storyboard; sourceTree = "<group>"; };
 		0108764521880CB300FAC3BE /* FBPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBPost.swift; sourceTree = "<group>"; };
 		01087647218812B000FAC3BE /* FireBasePostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBasePostController.swift; sourceTree = "<group>"; };
 		010876492188138900FAC3BE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 				0120870D2184D3CE007B7C43 /* Main.storyboard */,
 				012087302184D977007B7C43 /* DataBaseActionTab.storyboard */,
 				015FE3C2219CDECF0038EA7F /* Discussion.storyboard */,
+				0107E1B922C19675006B8555 /* ShareThought.storyboard */,
 				017978EB218745ED004BA6C7 /* Uploading.storyboard */,
 				01797908218784B0004BA6C7 /* Feed.storyboard */,
 				0108765121881CDB00FAC3BE /* FBPost.storyboard */,
@@ -870,6 +873,7 @@
 				017978EC218745ED004BA6C7 /* Uploading.storyboard in Resources */,
 				012087822184F164007B7C43 /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				012087692184F164007B7C43 /* SF-Pro-Display-RegularItalic.otf in Resources */,
+				0107E1BA22C19675006B8555 /* ShareThought.storyboard in Resources */,
 				0120876B2184F164007B7C43 /* SF-Pro-Display-Regular.otf in Resources */,
 				01C85E92225CF1E5007D1237 /* Overlay.storyboard in Resources */,
 				0120870F2184D3CE007B7C43 /* Main.storyboard in Resources */,
