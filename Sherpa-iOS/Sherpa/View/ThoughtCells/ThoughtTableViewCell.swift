@@ -23,6 +23,7 @@ class ThoughtTableViewCell: UITableViewCell {
         }
     }
     
+    // TODO: - Better UI 
     func updateViews() {
         guard let thought = thought else { return }
         

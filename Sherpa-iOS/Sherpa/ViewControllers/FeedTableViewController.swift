@@ -22,6 +22,8 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
         tableView.estimatedRowHeight = 350
         navigationController?.navigationBar.prefersLargeTitles = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        // TODO: Make this one TVC with Firebase 
 
         CloudKitPostController.shared.fetchQueriedPosts { (didFinish, counter) in
             if didFinish != false {
