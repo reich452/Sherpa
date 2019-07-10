@@ -1,5 +1,5 @@
 # Sherpa
-App that covers the differences between CloudKit, Firebase, and also has pagination. 
+App that covers the differences between CloudKit, Firebase, and several bouns features!  
 
 <image src="https://user-images.githubusercontent.com/23179585/60299999-468ea200-98eb-11e9-925e-326fd4138a6c.png" width ="150">   
 
