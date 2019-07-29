@@ -14,7 +14,7 @@ class DiscussionTableViewController: UITableViewController {
     // MARK: - Properties
     public var selectedDB: SelectedIconDB!
     public var cKDiscussionController: CKDiscussionController!
-
+    
     private var thoughs: [Thought] = []
     private enum DisscussionSections: CaseIterable {
         case news
@@ -24,7 +24,7 @@ class DiscussionTableViewController: UITableViewController {
     }
     
     // MARK: - Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -34,32 +34,32 @@ class DiscussionTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         fetchCKThoughts()
     }
-
+    
     private func fetchCKThoughts() {
         
         if selectedDB == .cloudKit {
             // TODO: - Comments for a thought
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            cKDiscussionController.fetchThoughts { (result) in
+                switch result {
+                case .success(let ckThoughts):
+                    guard let ckThoughts = ckThoughts else { return }
+                    self.thoughs = ckThoughts
+                    DispatchQueue.main.async {
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.showNoActionAlert(titleStr: "Error Fetching CKThoughts", messageStr: error.localizedDescription, style: .cancel)
+                    }
+                }
+            }
         } else {
             // TODO: - Firebase
         }
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        cKDiscussionController.fetchThoughts { (result) in
-            switch result {
-            case .success(let ckThoughts):
-                guard let ckThoughts = ckThoughts else { return }
-               self.thoughs = ckThoughts
-                DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    self.tableView.reloadData()
-                }
-                
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.showNoActionAlert(titleStr: "Error Fetching CKThoughts", messageStr: error.localizedDescription, style: .cancel)
-                }
-            }
-        }
+        
     }
     
     // MARK: - Table view data source
@@ -67,7 +67,7 @@ class DiscussionTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return DisscussionSections.allCases.count
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 3 {
             return thoughs.count
@@ -81,6 +81,7 @@ class DiscussionTableViewController: UITableViewController {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.latestNewsCell, for: indexPath) as? LatestNewsTableViewCell else { return UITableViewCell() }
             cell.delegate = self
+            cell.updateViews(selectedDB: selectedDB)
             return cell
             
         case 1:
@@ -102,11 +103,11 @@ class DiscussionTableViewController: UITableViewController {
             return UITableViewCell()
         }
     }
-
+    
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   
+        
         if segue.identifier == Constants.toAddThoughtVC {
             guard let shareThoughtVC = segue.destination as? ShareThoughtViewController else { return }
             shareThoughtVC.ckDiscussionController = CKDiscussionController()
@@ -116,7 +117,7 @@ class DiscussionTableViewController: UITableViewController {
 
 extension DiscussionTableViewController: LatestNewsTableViewCellDelegate {
     func didTapPlayButton(_ cell: LatestNewsTableViewCell) {
-        let urlString = "https://devstreaming-cdn.apple.com/videos/wwdc/2019/202mm1h4jl4wiz1h3/202/202_sd_using_core_data_with_cloudkit.mp4?dl=1"
+        let urlString = "https://www.youtube.com/embed/iMkifTEaefE"
         
         let url = URL(string: urlString)
         let player = AVPlayer(url: url!)
@@ -128,14 +129,16 @@ extension DiscussionTableViewController: LatestNewsTableViewCellDelegate {
         }
     }
     
-    // TODO: - Video and UI for Firebase 
+    // TODO: - Video and UI for Firebase
 }
 
 extension DiscussionTableViewController {
     
     // MARK: - UI
-   fileprivate func setUpUI() {
+    fileprivate func setUpUI() {
         title = "Discussion"
-        tableView.separatorStyle = .none
+        
+    
+        
     }
 }

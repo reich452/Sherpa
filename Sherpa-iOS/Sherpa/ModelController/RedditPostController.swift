@@ -26,7 +26,7 @@ class RedditPostController {
         guard let url = baseURL else { completion(nil,.invalidUrl); return }
         let jsonUrl = url.appendingPathExtension("json")
         
-        // TODO: Delete NetworkManager and Networking Layer 
+        // TODO: Delete NetworkManager and Networking Layer
         NetworkManager.performRequest(for: jsonUrl, httpMethod: .get, body: nil) { (data, error) in
             do {
                 if let error = error { throw error }

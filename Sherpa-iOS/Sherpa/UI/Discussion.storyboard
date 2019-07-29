@@ -64,15 +64,35 @@
                                                 <action selector="playBtnTapped:" destination="yRf-7D-eIf" eventType="touchUpInside" id="Nfn-gQ-mgv"/>
                                             </connections>
                                         </button>
+                                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FH4-1Z-gcG">
+                                            <rect key="frame" x="16" y="73" width="341" height="181"/>
+                                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <wkWebViewConfiguration key="configuration">
+                                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                <wkPreferences key="preferences"/>
+                                            </wkWebViewConfiguration>
+                                        </wkWebView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hn-9P-QBs">
+                                            <rect key="frame" x="179.5" y="108" width="14" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="h7a-fc-1JO" firstAttribute="centerX" secondItem="nhv-ye-bV9" secondAttribute="centerX" id="13f-Ej-CGT"/>
+                                        <constraint firstAttribute="bottom" secondItem="FH4-1Z-gcG" secondAttribute="bottom" constant="19.5" id="3Pa-J8-BVc"/>
+                                        <constraint firstItem="FH4-1Z-gcG" firstAttribute="top" secondItem="nhv-ye-bV9" secondAttribute="bottom" constant="10" id="Cjv-7I-wQc"/>
                                         <constraint firstItem="nhv-ye-bV9" firstAttribute="leading" secondItem="2eq-Fa-NLl" secondAttribute="leading" constant="25" id="DJw-tF-DRm"/>
                                         <constraint firstItem="saN-wj-gCT" firstAttribute="leading" secondItem="eRx-c4-Jhl" secondAttribute="leading" constant="14" id="IsM-ke-LY4"/>
+                                        <constraint firstItem="3Hn-9P-QBs" firstAttribute="centerX" secondItem="FH4-1Z-gcG" secondAttribute="centerX" id="JEu-65-R9W"/>
                                         <constraint firstItem="eRx-c4-Jhl" firstAttribute="leading" secondItem="2eq-Fa-NLl" secondAttribute="leading" constant="56" id="Kfz-GE-O9e"/>
                                         <constraint firstItem="1fD-kc-3b3" firstAttribute="top" secondItem="2eq-Fa-NLl" secondAttribute="top" constant="87" id="Osc-su-DMV"/>
                                         <constraint firstItem="nhv-ye-bV9" firstAttribute="centerX" secondItem="2eq-Fa-NLl" secondAttribute="centerX" id="QAA-mg-jqa"/>
+                                        <constraint firstItem="FH4-1Z-gcG" firstAttribute="leading" secondItem="2eq-Fa-NLl" secondAttribute="leading" constant="16" id="Rbk-HI-hxA"/>
+                                        <constraint firstItem="3Hn-9P-QBs" firstAttribute="centerY" secondItem="FH4-1Z-gcG" secondAttribute="centerY" constant="-45" id="Zuh-Fz-wU9"/>
                                         <constraint firstItem="1fD-kc-3b3" firstAttribute="leading" secondItem="2eq-Fa-NLl" secondAttribute="leading" constant="33" id="fcK-YE-Nr1"/>
+                                        <constraint firstAttribute="trailing" secondItem="FH4-1Z-gcG" secondAttribute="trailing" constant="18" id="gih-Rl-oEb"/>
                                         <constraint firstAttribute="bottom" secondItem="h7a-fc-1JO" secondAttribute="bottom" constant="20" id="i7y-jY-Q3r"/>
                                         <constraint firstItem="nhv-ye-bV9" firstAttribute="top" secondItem="2eq-Fa-NLl" secondAttribute="top" constant="15" id="iVJ-ry-II2"/>
                                         <constraint firstItem="saN-wj-gCT" firstAttribute="top" secondItem="eRx-c4-Jhl" secondAttribute="top" constant="9" id="jrm-3O-3Mq"/>
@@ -84,9 +104,12 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="headerImage" destination="h7a-fc-1JO" id="ZJz-fO-UGt"/>
+                                    <outlet property="headerTitleLabel" destination="nhv-ye-bV9" id="mdE-PI-Yjz"/>
                                     <outlet property="overlayPlayBtn" destination="1fD-kc-3b3" id="3GO-cV-vM2"/>
+                                    <outlet property="percentLabel" destination="3Hn-9P-QBs" id="pxH-uy-Mi0"/>
                                     <outlet property="playButton" destination="saN-wj-gCT" id="1X4-o1-Y4R"/>
                                     <outlet property="playViewBackground" destination="eRx-c4-Jhl" id="4JO-AT-aPp"/>
+                                    <outlet property="webView" destination="FH4-1Z-gcG" id="fEz-5e-8f3"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addThoughtCellId" rowHeight="225" id="mF2-14-1DE" customClass="AddThoughtTableViewCell" customModule="Sherpa" customModuleProvider="target">
@@ -128,6 +151,9 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhs-4l-VfX" customClass="CustomButton" customModule="Sherpa" customModuleProvider="target">
                                             <rect key="frame" x="94" y="141" width="187.5" height="46.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="46.5" id="ycT-FZ-hZ5"/>
+                                            </constraints>
                                             <state key="normal" title="Share Your Thought">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
@@ -214,15 +240,15 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="thoughtCellId" rowHeight="178" id="Aqs-6c-Shn" customClass="ThoughtTableViewCell" customModule="Sherpa" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="567" width="375" height="178"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="thoughtCellId" rowHeight="99" id="Aqs-6c-Shn" customClass="ThoughtTableViewCell" customModule="Sherpa" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="567" width="375" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Aqs-6c-Shn" id="4Ov-Dh-Pef">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="177.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hU-h8-JJG">
-                                            <rect key="frame" x="19" y="18" width="337.5" height="142"/>
+                                            <rect key="frame" x="19" y="10" width="337.5" height="78.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-aL-eY9">
                                                     <rect key="frame" x="25" y="8" width="84.5" height="18"/>
@@ -248,9 +274,9 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1U2-g1-o6L" secondAttribute="trailing" constant="207.5" id="CpV-hn-7Di"/>
                                                 <constraint firstItem="uXe-aL-eY9" firstAttribute="top" secondItem="4hU-h8-JJG" secondAttribute="top" constant="8" id="DSH-zG-jmn"/>
                                                 <constraint firstItem="0WB-TZ-NhM" firstAttribute="top" secondItem="1U2-g1-o6L" secondAttribute="bottom" constant="7.5" id="EvO-Hc-rXl"/>
+                                                <constraint firstAttribute="bottom" secondItem="0WB-TZ-NhM" secondAttribute="bottom" constant="4" id="G5r-3i-6f5"/>
                                                 <constraint firstItem="0WB-TZ-NhM" firstAttribute="leading" secondItem="1U2-g1-o6L" secondAttribute="leading" id="Iu2-XR-O4I"/>
                                                 <constraint firstItem="uXe-aL-eY9" firstAttribute="leading" secondItem="4hU-h8-JJG" secondAttribute="leading" constant="25" id="PxH-oz-sXe"/>
-                                                <constraint firstAttribute="bottom" secondItem="0WB-TZ-NhM" secondAttribute="bottom" constant="67.5" id="k5y-US-Ykw"/>
                                                 <constraint firstItem="1U2-g1-o6L" firstAttribute="top" secondItem="uXe-aL-eY9" secondAttribute="bottom" constant="8" id="ksq-7F-4qU"/>
                                                 <constraint firstItem="1U2-g1-o6L" firstAttribute="leading" secondItem="4hU-h8-JJG" secondAttribute="leading" constant="25" id="rtB-In-iiC"/>
                                             </constraints>
