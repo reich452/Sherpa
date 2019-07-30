@@ -61,7 +61,8 @@ class ShareThoughtViewController: UIViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         if selectedDB == .cloudKit {
-            ckDiscussionController?.createThought(author: author, title: title, body: body) { (ckThought, error) in
+            ckDiscussionController?.createThought(author: author, title: title, body: body) { [weak self] (ckThought, error) in
+                guard let self = self else { return }
                 if error != nil {
                     DispatchQueue.main.async {
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false

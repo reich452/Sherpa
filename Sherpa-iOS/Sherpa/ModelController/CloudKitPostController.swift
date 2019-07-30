@@ -174,6 +174,9 @@ class CloudKitPostController {
         rTimer.resume()
         operation.recordFetchedBlock = { [unowned self] record in
             guard let post = CKPost(record: record) else { return }
+            if let _ = self.ckPosts.index(of: post) {
+                completion(false, nil); return
+            }
             self.ckPosts.append(post)
             print("🎃 fetching ckPosts \(self.ckPosts.count)")
             print(self.ckPosts.count)

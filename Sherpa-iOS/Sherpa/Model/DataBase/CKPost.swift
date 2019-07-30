@@ -94,7 +94,17 @@ extension CKRecord {
         
     }
 }
-
+extension CKPost: Equatable {
+    static func == (lhs: CKPost, rhs: CKPost) -> Bool {
+        if lhs.title != rhs.title { return false }
+        if lhs.recordID != rhs.recordID { return false }
+        if lhs.title != rhs.title { return false }
+        if lhs.timestamp != rhs.timestamp { return false }
+        return true
+    }
+    
+    
+}
 extension CKPost {
     
     func matches(searchTerm: String) -> Bool {
