@@ -11,22 +11,17 @@ import CloudKit
 
 class CKDiscussionController {
     
-    public var ckThoughts: [Thought] = []
-    
-    typealias CKThoughtCompletion = (Bool, Error?) -> Void
+    typealias CKThoughtCompletion = (CKThought?, Error?) -> Void
     private let publicDB = CKContainer.default().publicCloudDatabase
     
     func createThought(author: String, title: String, body: String, completion: @escaping CKThoughtCompletion) {
         let ckThought = CKThought(author: author, title: title, body: body)
-        
         publicDB.save(CKRecord(ckThought)) { (record, error) in
             if let error = error {
                 print("Error saving CKThought Record \(error.localizedDescription)")
-                completion(false, error); return
+                completion(nil, error); return
             }
-            let thought = CKThought(record!)
-            print(thought)
-            completion(true, nil)
+            completion(ckThought, nil)
         }
     }
     
@@ -35,15 +30,15 @@ class CKDiscussionController {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "CKThought", predicate: predicate)
         
-        publicDB.perform(query, inZoneWith: nil) { [weak self] (records, error) in
+        publicDB.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
                 print("Error Fetching CKThought Record \(error.localizedDescription)")
                 completion(.failure(error)); return
             }
             guard let records = records else { completion(.failure(NetworkError.noDataReturned)); return }
             
-            let ckThoughts = records.compactMap({ CKThought($0) })
-            self?.ckThoughts = ckThoughts
+            var ckThoughts = records.compactMap({ CKThought($0) })
+            ckThoughts.sort(by: {$0.timestamp > $1.timestamp})
             completion(.success(ckThoughts))
         }
     }

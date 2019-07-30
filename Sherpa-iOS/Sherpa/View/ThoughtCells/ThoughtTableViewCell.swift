@@ -28,9 +28,14 @@ class ThoughtTableViewCell: UITableViewCell {
         guard let thought = thought else { return }
         
         nameLabel.text = thought.author
-        
         thoughtText.text = thought.body
-        dateLabel.text = DateHelper.shared.dateToString(date: thought.timestamp)
+        if thought.database == .cloudKit {
+            dateLabel.text = DateHelper.shared.dateToString(date: thought.timestamp)
+        } else {
+            let fbThought = thought as! FBThought
+            let date = Date(timeIntervalSince1970: TimeInterval(fbThought.timeInt/1000))
+            dateLabel.text = DateHelper.shared.dateToString(date: date)
+        }
     }
  
 }

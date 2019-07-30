@@ -131,6 +131,8 @@
 		019FEAB522C057E900419590 /* AddThoughtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019FEAB422C057E900419590 /* AddThoughtTableViewCell.swift */; };
 		019FEAB722C0591800419590 /* ThoughtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019FEAB622C0591800419590 /* ThoughtTableViewCell.swift */; };
 		019FEAB922C0762200419590 /* ShareThoughtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019FEAB822C0762200419590 /* ShareThoughtViewController.swift */; };
+		01B1F74A22F0B84100A128BA /* FBThought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1F74922F0B84100A128BA /* FBThought.swift */; };
+		01B1F74C22F0C00700A128BA /* FBDiscussionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1F74B22F0C00700A128BA /* FBDiscussionController.swift */; };
 		01C85E90225BD72E007D1237 /* BenchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E8F225BD72D007D1237 /* BenchTimer.swift */; };
 		01C85E92225CF1E5007D1237 /* Overlay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C85E91225CF1E5007D1237 /* Overlay.storyboard */; };
 		01C85E95225CF244007D1237 /* OverlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E94225CF244007D1237 /* OverlayVC.swift */; };
@@ -286,6 +288,8 @@
 		019FEAB422C057E900419590 /* AddThoughtTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThoughtTableViewCell.swift; sourceTree = "<group>"; };
 		019FEAB622C0591800419590 /* ThoughtTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtTableViewCell.swift; sourceTree = "<group>"; };
 		019FEAB822C0762200419590 /* ShareThoughtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareThoughtViewController.swift; sourceTree = "<group>"; };
+		01B1F74922F0B84100A128BA /* FBThought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBThought.swift; sourceTree = "<group>"; };
+		01B1F74B22F0C00700A128BA /* FBDiscussionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDiscussionController.swift; sourceTree = "<group>"; };
 		01C85E8F225BD72D007D1237 /* BenchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchTimer.swift; sourceTree = "<group>"; };
 		01C85E91225CF1E5007D1237 /* Overlay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Overlay.storyboard; sourceTree = "<group>"; };
 		01C85E94225CF244007D1237 /* OverlayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayVC.swift; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 			children = (
 				0107E1B322C07A5A006B8555 /* Thought.swift */,
 				0107E1B522C11D71006B8555 /* CKThought.swift */,
+				01B1F74922F0B84100A128BA /* FBThought.swift */,
 			);
 			path = Disscussion;
 			sourceTree = "<group>";
@@ -580,6 +585,7 @@
 				011B109F22B5E88E0092BADE /* FBReportController.swift */,
 				011B10A122B7FCA30092BADE /* CKReportController.swift */,
 				0107E1B722C12E4E006B8555 /* CKDisicussionController.swift */,
+				01B1F74B22F0C00700A128BA /* FBDiscussionController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -941,7 +947,9 @@
 				019FEAB922C0762200419590 /* ShareThoughtViewController.swift in Sources */,
 				012087392184DB56007B7C43 /* MainTabBarViewController.swift in Sources */,
 				0140A5D622AACA2C00228F52 /* NetworkLogger.swift in Sources */,
+				01B1F74C22F0C00700A128BA /* FBDiscussionController.swift in Sources */,
 				014C8D422203F96C00B4A1E6 /* RepeatingTimer.swift in Sources */,
+				01B1F74A22F0B84100A128BA /* FBThought.swift in Sources */,
 				0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */,
 				019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */,
 				01904BCF22B3FD9300EBBB89 /* ReportTableViewController.swift in Sources */,

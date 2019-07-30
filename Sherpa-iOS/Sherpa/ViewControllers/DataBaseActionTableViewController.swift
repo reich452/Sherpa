@@ -131,6 +131,7 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
                 vc.cKDiscussionController = CKDiscussionController()
             } else {
                 vc.selectedDB = .firebase
+                vc.fbDiscussionController = FBDiscussionController()
             }
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:

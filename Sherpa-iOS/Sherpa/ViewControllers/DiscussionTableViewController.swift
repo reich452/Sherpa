@@ -13,7 +13,8 @@ class DiscussionTableViewController: UITableViewController {
     
     // MARK: - Properties
     public var selectedDB: SelectedIconDB!
-    public var cKDiscussionController: CKDiscussionController!
+    public var cKDiscussionController: CKDiscussionController?
+    public var fbDiscussionController: FBDiscussionController?
     
     private var thoughs: [Thought] = []
     private enum DisscussionSections: CaseIterable {
@@ -27,27 +28,28 @@ class DiscussionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+         title = "Discussion"
+        fetchCKThoughts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchCKThoughts()
     }
     
     private func fetchCKThoughts() {
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if selectedDB == .cloudKit {
             // TODO: - Comments for a thought
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            cKDiscussionController.fetchThoughts { (result) in
+            cKDiscussionController?.fetchThoughts { [weak self] (result) in
+                guard let self = self else { return }
                 switch result {
                 case .success(let ckThoughts):
                     guard let ckThoughts = ckThoughts else { return }
                     self.thoughs = ckThoughts
                     DispatchQueue.main.async {
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                        self.tableView.reloadData()
+                        self.tableView.reloadSections(IndexSet(integer: 3), with: .fade)
                     }
                 case .failure(let error):
                     DispatchQueue.main.async {
@@ -56,10 +58,20 @@ class DiscussionTableViewController: UITableViewController {
                 }
             }
         } else {
-            // TODO: - Firebase
+            fbDiscussionController?.fetchFBThoughts(completion: { [weak self] (result) in
+                guard let self = self else { return }
+                switch result {
+                case .success(let fbThought):
+                    guard let fbThought = fbThought, !fbThought.isEmpty else { return }
+                    self.thoughs = fbThought
+                    self.tableView.reloadSections(IndexSet(integersIn: 3...3), with: .fade)
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                case .failure(let error):
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.showNoActionAlert(titleStr: "Error Fetching Firebase Thoughts", messageStr: error.localizedDescription, style: .cancel)
+                }
+            })
         }
-        
-        
     }
     
     // MARK: - Table view data source
@@ -111,17 +123,20 @@ class DiscussionTableViewController: UITableViewController {
         
         if segue.identifier == Constants.toAddThoughtVC {
             guard let shareThoughtVC = segue.destination as? ShareThoughtViewController else { return }
-            shareThoughtVC.ckDiscussionController = CKDiscussionController()
+            shareThoughtVC.selectedDB = self.selectedDB
+            shareThoughtVC.delegate = self
+            if selectedDB == .cloudKit {
+                shareThoughtVC.ckDiscussionController = CKDiscussionController()
+            } else {
+                shareThoughtVC.fbDiscussionController = FBDiscussionController()
+            }
         }
     }
 }
 
 extension DiscussionTableViewController: LatestNewsTableViewCellDelegate {
     func didTapPlayButton(_ cell: LatestNewsTableViewCell) {
-        let urlString = "https://www.youtube.com/embed/iMkifTEaefE"
-        
-        let url = URL(string: urlString)
-        let player = AVPlayer(url: url!)
+        let player = AVPlayer(url: URL(string: Constants.cloudKitVideo)!)
         let playerController = AVPlayerViewController()
         playerController.player = player
         
@@ -129,17 +144,12 @@ extension DiscussionTableViewController: LatestNewsTableViewCellDelegate {
             player.play()
         }
     }
-    
-    // TODO: - Video and UI for Firebase
 }
 
-extension DiscussionTableViewController {
-    
-    // MARK: - UI
-    fileprivate func setUpUI() {
-        title = "Discussion"
-        
-    
-        
+extension DiscussionTableViewController: ShareThoughtViewControllerDelegate {
+    func reloadThoughts(_ thought: Thought) {
+        self.thoughs.insert(thought, at: 0)
+        self.tableView.reloadSections(IndexSet(integersIn: 3...3), with: .fade)
     }
 }
+
