@@ -14,11 +14,25 @@ class AddThoughtTableViewCell: UITableViewCell {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var underLineBtn: CustomButton!
     @IBOutlet weak var addButton: CustomButton!
+    @IBOutlet weak var bottomButton: CustomButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+  
+
+    func updateViews(selectedDB: SelectedIconDB) {
+        if selectedDB == .cloudKit {
+            
+        } else {
+            titleLabel.text = "Add Thought On Firebase"
+            let infoText = infoLabel.text?.replacingOccurrences(of: "CloudKit", with: "Firebase")
+            infoLabel.text = infoText ?? ""
+            addButton.topGradiant = .firebaseDarkOrange
+            addButton.bottomGradiant = .firebaseYellow
+            underLineBtn.topGradiant = .firebaseDarkOrange
+            underLineBtn.bottomGradiant = .yellow
+            bottomButton.topGradiant = .firebaseDarkOrange
+            bottomButton.bottomGradiant = .yellow
+        }
     }
-    
     
     @IBAction func addButtonTapped(_ sender: CustomButton) {
     }

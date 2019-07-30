@@ -62,9 +62,6 @@ class LatestNewsTableViewCell: UITableViewCell, WKNavigationDelegate {
             self?.percentLabel.text = "\(webView.estimatedProgress.rounded(.toNearestOrAwayFromZero))0%".replacingOccurrences(of: ".", with: "")
         }
     }
-    
-
-    
     // MARK: - Delegate
     
     func webView(_: WKWebView, didStartProvisionalNavigation _: WKNavigation!) {
@@ -87,5 +84,4 @@ class LatestNewsTableViewCell: UITableViewCell, WKNavigationDelegate {
                         self.percentLabel.isHidden = isFinished
         })
     }
-
 }

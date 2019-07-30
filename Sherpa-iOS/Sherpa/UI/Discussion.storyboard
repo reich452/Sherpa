@@ -31,7 +31,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xceHeader2" translatesAutoresizingMaskIntoConstraints="NO" id="h7a-fc-1JO">
-                                            <rect key="frame" x="19" y="73" width="337.5" height="180.5"/>
+                                            <rect key="frame" x="19" y="73" width="337.50000000000011" height="180.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="180.5" id="vxc-SS-nKA"/>
                                             </constraints>
@@ -154,6 +154,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="46.5" id="ycT-FZ-hZ5"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <state key="normal" title="Share Your Thought">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
@@ -214,6 +215,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addButton" destination="Jhs-4l-VfX" id="uYR-Re-1h8"/>
+                                    <outlet property="bottomButton" destination="1Tb-56-mcG" id="g6L-2c-jWL"/>
                                     <outlet property="infoLabel" destination="f6R-sN-Ca2" id="3UH-er-4be"/>
                                     <outlet property="titleLabel" destination="lvY-Ya-Ea1" id="4vs-GJ-gwu"/>
                                     <outlet property="underLineBtn" destination="Atz-sq-Vef" id="26r-2i-BCW"/>
@@ -348,6 +350,6 @@
         <image name="xcePlay2" width="46" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YFI-eb-ue1"/>
+        <segue reference="Rb1-cI-gWA"/>
     </inferredMetricsTieBreakers>
 </document>

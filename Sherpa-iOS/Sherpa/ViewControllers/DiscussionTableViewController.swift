@@ -86,6 +86,7 @@ class DiscussionTableViewController: UITableViewController {
             
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.addThoughtCell, for: indexPath) as? AddThoughtTableViewCell else { return UITableViewCell() }
+            cell.updateViews(selectedDB: selectedDB)
             return cell
             
         case 2:
