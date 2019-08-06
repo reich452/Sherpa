@@ -13,7 +13,6 @@ protocol LatestNewsTableViewCellDelegate: class {
     func didTapPlayButton(_ cell: LatestNewsTableViewCell)
 }
 
-
 class LatestNewsTableViewCell: UITableViewCell, WKNavigationDelegate {
     
     @IBOutlet weak var headerTitleLabel: UILabel!
@@ -45,8 +44,10 @@ class LatestNewsTableViewCell: UITableViewCell, WKNavigationDelegate {
         if selectedDB == .cloudKit {
             webView.isHidden = true
             headerTitleLabel.text = "Check out the latest from WWDC. Using CoreData with CloudKit."
+            percentLabel.isHidden = true
         } else {
             webView.isHidden = false
+            percentLabel.isHidden = false
             webView.alpha = 0
             headerImage.image = #imageLiteral(resourceName: "xcFirebase_logo")
             setupEstimatedProgressObserver()

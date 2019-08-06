@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cwj-GO-eXS">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding PageVC-->
+        <scene sceneID="wTX-c7-Fhm">
+            <objects>
+                <pageViewController storyboardIdentifier="OnboardingPageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Cwj-GO-eXS" customClass="OnboardingPageVC" customModule="SalesGrowth" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Z7-fX-XB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-704" y="127"/>
+        </scene>
+        <!--First OnboardVC-->
+        <scene sceneID="klV-aN-WbW">
+            <objects>
+                <viewController storyboardIdentifier="FirstOnboardVC" id="viP-MV-xnH" customClass="FirstOnboardVC" customModule="SalesGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Jh-Gf-SIR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="uy2-le-55G">
+                                <rect key="frame" x="41.5" y="355.5" width="331" height="195"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To CloudKit &amp; Firebase!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPy-TR-A89">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="81.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
+                                        <color key="textColor" red="0.15781732971081877" green="0.77495728603211822" blue="0.89282598350253806" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PG-vI-I9C">
+                                        <rect key="frame" x="0.0" y="87.5" width="320.5" height="107.5"/>
+                                        <string key="text">If you're here to see the performance diffrence between CloudKit &amp; Firebase. You're in the right spot! This app also has a bonus swiping feature to see the top new movies.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.099419198929999994" green="0.1339030266" blue="0.20799922940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="uy2-le-55G" firstAttribute="centerX" secondItem="RZC-9Y-g4d" secondAttribute="centerX" id="NVW-vs-Nm4"/>
+                            <constraint firstItem="uy2-le-55G" firstAttribute="centerY" secondItem="RZC-9Y-g4d" secondAttribute="centerY" id="azq-i8-DnM"/>
+                            <constraint firstItem="uy2-le-55G" firstAttribute="width" secondItem="7Jh-Gf-SIR" secondAttribute="width" multiplier="0.8" id="sLh-q1-tTy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RZC-9Y-g4d"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lSp-ry-dJS" appends="YES" id="drH-bf-Bu0"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="bodyLabel" destination="4PG-vI-I9C" id="1m4-If-5Mu"/>
+                        <outlet property="titleLabel" destination="pPy-TR-A89" id="e1e-Vq-tpZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QrI-sm-jQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="lSp-ry-dJS">
+                    <connections>
+                        <action selector="handelTapGestures:" destination="viP-MV-xnH" id="ckV-B9-OPN"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="145" y="127"/>
+        </scene>
+        <!--Second OnboardVC-->
+        <scene sceneID="0JR-ul-o4H">
+            <objects>
+                <viewController storyboardIdentifier="SecondOnboardVC" id="RDE-CP-dIr" customClass="SecondOnboardVC" customModule="SalesGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TLJ-Fl-Exd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fkm-sn-RGh">
+                                <rect key="frame" x="41.5" y="310.5" width="331" height="285"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xcCloudKit_logo" translatesAutoresizingMaskIntoConstraints="NO" id="DHN-6a-xir">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujt-qb-jKP">
+                                        <rect key="frame" x="0.0" y="156" width="331" height="129"/>
+                                        <string key="text">See the posts from CloudKit along with the fetching time. Upload your own post to see how long it takes. Or view the discussion boarrd to see what people are saying about CloudKit. Add your own thoughts.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.099419198929999994" green="0.1339030266" blue="0.20799922940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="fkm-sn-RGh" firstAttribute="centerY" secondItem="f8D-hb-FPP" secondAttribute="centerY" id="SpX-XZ-Hzp"/>
+                            <constraint firstItem="fkm-sn-RGh" firstAttribute="width" secondItem="TLJ-Fl-Exd" secondAttribute="width" multiplier="0.8" id="gEH-W2-biG"/>
+                            <constraint firstItem="fkm-sn-RGh" firstAttribute="centerX" secondItem="f8D-hb-FPP" secondAttribute="centerX" id="uQV-pj-wI3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f8D-hb-FPP"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="UtI-iP-RnN" appends="YES" id="PZF-mf-Idi"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="bodyLabel" destination="ujt-qb-jKP" id="Xxv-sN-UuK"/>
+                        <outlet property="dbImageView" destination="DHN-6a-xir" id="Lk0-SV-vi2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vF2-id-8gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="UtI-iP-RnN">
+                    <connections>
+                        <action selector="handelTapGestures:" destination="RDE-CP-dIr" id="e6V-dA-kHb"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="851" y="127"/>
+        </scene>
+        <!--Third OnboardVC-->
+        <scene sceneID="Ref-OI-bki">
+            <objects>
+                <viewController storyboardIdentifier="ThirdOnboardVC" id="gAg-Vj-xoM" customClass="ThirdOnboardVC" customModule="SalesGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YEg-nH-oYv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="HLs-ug-rwy">
+                                <rect key="frame" x="41.5" y="332" width="331" height="242"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xcFirebase_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gns-XW-wH0">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-3C-TB4">
+                                        <rect key="frame" x="0.0" y="156" width="330" height="86"/>
+                                        <string key="text">Want to see the same app but with Firebase? This app has the same UX but with Firebase. An app within an app. Choose your backend!  </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.099419198929999994" green="0.1339030266" blue="0.20799922940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="HLs-ug-rwy" firstAttribute="centerX" secondItem="gAa-P4-Ts5" secondAttribute="centerX" id="40s-ml-KO7"/>
+                            <constraint firstItem="HLs-ug-rwy" firstAttribute="centerY" secondItem="gAa-P4-Ts5" secondAttribute="centerY" id="JSk-mq-TIJ"/>
+                            <constraint firstItem="HLs-ug-rwy" firstAttribute="width" secondItem="YEg-nH-oYv" secondAttribute="width" multiplier="0.8" id="LZZ-D1-q5h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gAa-P4-Ts5"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="XXy-Rf-8iD" appends="YES" id="TGd-UT-wXU"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="bodyLabel" destination="hSM-3C-TB4" id="tOn-h5-ylR"/>
+                        <outlet property="dbImageView" destination="Gns-XW-wH0" id="FVW-Jy-0YO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I14-mg-oW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XXy-Rf-8iD">
+                    <connections>
+                        <action selector="handelTapGestures:" destination="gAg-Vj-xoM" id="mQf-t1-WEr"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1584" y="127"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="xcCloudKit_logo" width="150" height="150"/>
+        <image name="xcFirebase_logo" width="150" height="150"/>
+    </resources>
+</document>

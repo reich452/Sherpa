@@ -49,6 +49,9 @@ struct Constants {
     static let toAuthorTVC = "toAuthorTVC"
     static let toAddThoughtVC = "toAddThought"
     
+    // MARK: - UserDefaultKeys 
+    static let hasSeenOnboarding = "hasSeenOnboarding"
+    
     struct Query {
         
         static fileprivate let API_KEY: String = "fb333a11ee907b2868d5e2141a2c0222"
