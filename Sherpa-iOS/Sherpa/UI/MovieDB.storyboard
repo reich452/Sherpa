@@ -21,7 +21,7 @@
                                 <rect key="frame" x="47" y="178" width="281" height="367"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xceMovieDB" translatesAutoresizingMaskIntoConstraints="NO" id="MZG-xT-hdu">
-                                        <rect key="frame" x="0.0" y="0.0" width="281" height="367"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="281.00000000000011" height="367.00000000000011"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Lhp-Zr-ExH">
                                         <rect key="frame" x="130.5" y="173.5" width="20" height="20"/>
@@ -77,19 +77,31 @@
                                     <constraint firstAttribute="width" constant="150" id="VuP-cV-m0a"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1y-XV-mNe">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1y-XV-mNe" customClass="CustomButton" customModule="Sherpa" customModuleProvider="target">
                                 <rect key="frame" x="324" y="126" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="LT7-5s-kJu"/>
                                     <constraint firstAttribute="width" constant="30" id="iKM-ui-YpL"/>
                                     <constraint firstAttribute="width" secondItem="w1y-XV-mNe" secondAttribute="height" multiplier="1:1" id="rZF-uM-wfI"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="xceInfoIcon"/>
+                                <state key="normal" image="icons8-info_filled"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isGradientBgOn" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRighImageAligned" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapInfoBtn:" destination="eYf-LY-ase" eventType="touchUpInside" id="szV-q3-ITG"/>
-                                    <segue destination="8uh-QC-xAE" kind="show" id="17i-JD-mf7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swiping Speed: Fast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tij-1Q-17d">
+                                <rect key="frame" x="87.5" y="126" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6LZ-u0-kHl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.18789982799999999" green="0.19226974250000001" blue="0.20888087150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -97,6 +109,8 @@
                             <constraint firstItem="VH6-2L-Utm" firstAttribute="bottom" secondItem="pc5-yA-yPF" secondAttribute="bottom" constant="47" id="4yJ-GN-Cl4"/>
                             <constraint firstItem="RjO-7O-Fsq" firstAttribute="centerX" secondItem="VH6-2L-Utm" secondAttribute="centerX" id="8sS-xn-4Xj"/>
                             <constraint firstItem="VH6-2L-Utm" firstAttribute="trailing" secondItem="w1y-XV-mNe" secondAttribute="trailing" constant="21" id="MDo-Oe-xvK"/>
+                            <constraint firstItem="tij-1Q-17d" firstAttribute="centerX" secondItem="VH6-2L-Utm" secondAttribute="centerX" id="MWp-Ks-sFa"/>
+                            <constraint firstItem="tij-1Q-17d" firstAttribute="top" secondItem="VH6-2L-Utm" secondAttribute="top" constant="10" id="NCH-Kh-AmR"/>
                             <constraint firstItem="pc5-yA-yPF" firstAttribute="centerX" secondItem="VH6-2L-Utm" secondAttribute="centerX" id="Pbc-Om-gIa"/>
                             <constraint firstItem="w1y-XV-mNe" firstAttribute="top" secondItem="VH6-2L-Utm" secondAttribute="top" constant="10" id="buw-MO-Ys0"/>
                             <constraint firstItem="RjO-7O-Fsq" firstAttribute="centerY" secondItem="VH6-2L-Utm" secondAttribute="centerY" constant="-30" id="tGe-bf-L3K"/>
@@ -104,12 +118,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VH6-2L-Utm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dvC-R8-Bkl"/>
+                    <navigationItem key="navigationItem" id="tx8-ky-Cu7">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-more_filled" id="g21-kh-30W">
+                            <color key="tintColor" red="0.37736916542053223" green="0.81969982385635376" blue="0.48621958494186401" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="editBtnTapped:" destination="eYf-LY-ase" id="5fa-Y0-WmT"/>
+                                <segue destination="8uh-QC-xAE" kind="showDetail" id="rpr-ly-Q5i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="Lhp-Zr-ExH" id="fUC-VQ-Geg"/>
                         <outlet property="defaultImageView" destination="MZG-xT-hdu" id="wFe-uh-yok"/>
                         <outlet property="infoButton" destination="w1y-XV-mNe" id="5SI-Dp-kIa"/>
                         <outlet property="kolodaView" destination="RjO-7O-Fsq" id="9yo-0W-S9P"/>
+                        <outlet property="speedLabel" destination="tij-1Q-17d" id="tB3-Bm-SFn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfD-he-hlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -125,7 +148,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JaI-dD-QSm">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -150,6 +173,21 @@
             </objects>
             <point key="canvasLocation" x="1801" y="134"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="6fu-Mf-fRw">
+            <objects>
+                <viewController id="ZoN-aA-bao" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lCG-3P-EPc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="s96-Oo-Yff"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9E-X3-Z0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2476" y="134"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gbL-ey-kZU">
             <objects>
@@ -170,8 +208,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-info_filled" width="25" height="25"/>
+        <image name="icons8-more_filled" width="16" height="16"/>
         <image name="xceGreenCheck" width="317" height="304"/>
-        <image name="xceInfoIcon" width="395" height="395"/>
         <image name="xceMovieDB" width="412" height="412"/>
         <image name="xceRedX" width="304" height="304"/>
     </resources>

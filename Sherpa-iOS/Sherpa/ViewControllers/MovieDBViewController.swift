@@ -12,6 +12,7 @@ import pop
 
 class MovieDBViewController: UIViewController {
     
+    @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var kolodaView: KolodaView!
     @IBOutlet weak var defaultImageView: UIImageView!
     @IBOutlet weak var infoButton: UIButton!
@@ -19,6 +20,7 @@ class MovieDBViewController: UIViewController {
     var movieController: MovieController?
     var movies: [Movie] = []
     var pageNumber = 1
+    fileprivate var dragSpeed: DragSpeed?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,7 @@ class MovieDBViewController: UIViewController {
         defaultImageView.clipsToBounds = true 
         defaultImageView.layer.cornerRadius = 15
         kolodaView.layer.cornerRadius = 15
+        infoButton.makeRoundView()
         self.view.backgroundColor = .offsetBlack
         self.title = "New Releases"
         fetchMovies(pageNumber: pageNumber)
@@ -38,8 +41,37 @@ class MovieDBViewController: UIViewController {
     }
     
     // MARK: - Actions 
-    @IBAction func didTapInfoBtn(_ sender: UIButton) {
+    @IBAction func editBtnTapped(_ sender: UIBarButtonItem) {
         
+    }
+    
+    @IBAction func didTapInfoBtn(_ sender: UIButton) {
+        let actionSheet = UIAlertController(title: "Change Swipe Speed", message: "Edit the swiping drag speed", preferredStyle: .actionSheet)
+        let fastAction = UIAlertAction(title: "Fast", style: .default) { (_) in
+            self.dragSpeed = .fast
+            self.changeDragSpeed(self.dragSpeed ?? .fast)
+        }
+        
+        let defaultAction = UIAlertAction(title: "Default", style: .default) { (_) in
+            self.dragSpeed = .default
+            self.changeDragSpeed(self.dragSpeed ?? .default)
+        }
+        
+        let moderateAction = UIAlertAction(title: "Moderate", style: .default) { (_) in
+            self.dragSpeed = .moderate
+            self.changeDragSpeed(self.dragSpeed ?? .moderate)
+        }
+        
+        let slowAction = UIAlertAction(title: "Slow", style: .default) { (_) in
+            self.dragSpeed = .slow
+            self.changeDragSpeed(self.dragSpeed ?? .slow)
+        }
+        
+        actionSheet.addAction(fastAction)
+        actionSheet.addAction(defaultAction)
+        actionSheet.addAction(moderateAction)
+        actionSheet.addAction(slowAction)
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     @IBAction func dislikeBtnTapped(_ sender: UIButton) {
@@ -50,6 +82,23 @@ class MovieDBViewController: UIViewController {
     }
     
     // MARK: - Main
+    
+    func changeDragSpeed(_ speed: DragSpeed) {
+        switch speed {
+        case .fast:
+            speedLabel.text = "Swiping Speed: Fast"
+            kolodaView.reloadData()
+        case .default:
+            speedLabel.text = "Swiping Speed: Default"
+            kolodaView.reloadData()
+        case .moderate:
+            speedLabel.text = "Swiping Speed: Moderate"
+            kolodaView.reloadData()
+        case .slow:
+            speedLabel.text = "Swiping Speed: Slow"
+            kolodaView.reloadData()
+        }
+    }
     
     func fetchMovies(pageNumber: Int) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -96,7 +145,7 @@ extension MovieDBViewController: KolodaViewDelegate {
     }
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        UIApplication.shared.open(URL(string: "https://www.themoviedb.org/")!)
+        
     }
 }
 
@@ -109,7 +158,7 @@ extension MovieDBViewController: KolodaViewDataSource {
     }
     
     func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
-        return .fast
+        return dragSpeed ?? .fast
     }
     
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
