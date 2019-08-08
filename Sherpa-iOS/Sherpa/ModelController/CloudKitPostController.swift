@@ -56,6 +56,8 @@ class CloudKitPostController {
                 case .restricted:
                     self?.presentErrorAlert(errorTitle: errrorText, errorMessage: "Restricted iCloud account")
                     completion(false)
+                @unknown default:
+                        break
                 }
             }
         }
@@ -174,7 +176,7 @@ class CloudKitPostController {
         rTimer.resume()
         operation.recordFetchedBlock = { [unowned self] record in
             guard let post = CKPost(record: record) else { return }
-            if let _ = self.ckPosts.index(of: post) {
+            if let _ = self.ckPosts.firstIndex(of: post) {
                 completion(false, nil); return
             }
             self.ckPosts.append(post)
@@ -240,10 +242,10 @@ class CloudKitPostController {
                     let imageAsset = record.object(forKey: "imageData") as? CKAsset else {
                         completion(nil); return
                 }
-                if let imageData = try? Data(contentsOf: imageAsset.fileURL) {
+                if let imageData = try? Data(contentsOf: imageAsset.fileURL!) {
                     let image = UIImage(data: imageData)
                     cKpost.image = image
-                    self.imageCache.setObject(imageAsset.fileURL as NSURL, forKey: cKpost.recordID)
+                    self.imageCache.setObject(imageAsset.fileURL! as NSURL, forKey: cKpost.recordID)
                     self.rTimer.suspend()
                     self.timerDelegate?.timerCompleted()
                     completion(image)
