@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.3.0):
+    - Charts/Core (= 3.3.0)
+  - Charts/Core (3.3.0)
   - Firebase/Auth (6.6.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.2.2)
@@ -92,6 +95,7 @@ PODS:
   - pop (1.0.12)
 
 DEPENDENCIES:
+  - Charts
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -101,6 +105,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Charts
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -122,6 +127,7 @@ SPEC REPOS:
     - pop
 
 SPEC CHECKSUMS:
+  Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
   Firebase: a2b5951f30ff38fd3b3bdae9c7d340f940fd3c51
   FirebaseAnalytics: 48414ae5cbf6976d8a2f7177e0466540e5ab33ce
   FirebaseAuth: 2be1924ddbc741fe2a02cb6963ca747e09a2e05c
@@ -142,6 +148,6 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
 
-PODFILE CHECKSUM: c638b171b1b0aa97aa95d8623cf8f9bf2e2b66f6
+PODFILE CHECKSUM: c083eb667a93ebe864425df5a6b38dc10bd560fa
 
 COCOAPODS: 1.7.4

@@ -13,5 +13,6 @@ target 'Sherpa' do
   pod 'Firebase/Core'
   pod 'Koloda'
   pod 'pop', '~> 1.0'
+  pod 'Charts'
 
 end
