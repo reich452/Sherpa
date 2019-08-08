@@ -138,6 +138,9 @@
 		01A41BC822F9046A00F37E02 /* ScondOnboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A41BC722F9046A00F37E02 /* ScondOnboardVC.swift */; };
 		01A41BCA22F9049500F37E02 /* ThridOnboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A41BC922F9049500F37E02 /* ThridOnboardVC.swift */; };
 		01A41BCC22F9056800F37E02 /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01A41BCB22F9056800F37E02 /* Onboard.storyboard */; };
+		01AB924822FC89F7001D86DE /* Vote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01AB924722FC89F7001D86DE /* Vote.storyboard */; };
+		01AB924A22FC91CA001D86DE /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AB924922FC91CA001D86DE /* VoteViewController.swift */; };
+		01AB924C22FC9C6F001D86DE /* VoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AB924B22FC9C6F001D86DE /* VoteController.swift */; };
 		01B1F74A22F0B84100A128BA /* FBThought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1F74922F0B84100A128BA /* FBThought.swift */; };
 		01B1F74C22F0C00700A128BA /* FBDiscussionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1F74B22F0C00700A128BA /* FBDiscussionController.swift */; };
 		01C85E90225BD72E007D1237 /* BenchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E8F225BD72D007D1237 /* BenchTimer.swift */; };
@@ -302,6 +305,9 @@
 		01A41BC722F9046A00F37E02 /* ScondOnboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScondOnboardVC.swift; sourceTree = "<group>"; };
 		01A41BC922F9049500F37E02 /* ThridOnboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThridOnboardVC.swift; sourceTree = "<group>"; };
 		01A41BCB22F9056800F37E02 /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
+		01AB924722FC89F7001D86DE /* Vote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vote.storyboard; sourceTree = "<group>"; };
+		01AB924922FC91CA001D86DE /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		01AB924B22FC9C6F001D86DE /* VoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteController.swift; sourceTree = "<group>"; };
 		01B1F74922F0B84100A128BA /* FBThought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBThought.swift; sourceTree = "<group>"; };
 		01B1F74B22F0C00700A128BA /* FBDiscussionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDiscussionController.swift; sourceTree = "<group>"; };
 		01C85E8F225BD72D007D1237 /* BenchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchTimer.swift; sourceTree = "<group>"; };
@@ -439,6 +445,7 @@
 				01C85E91225CF1E5007D1237 /* Overlay.storyboard */,
 				01C85E96225D5EA1007D1237 /* MovieDB.storyboard */,
 				01904BC922B3063600EBBB89 /* ReportAbuse.storyboard */,
+				01AB924722FC89F7001D86DE /* Vote.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -475,6 +482,7 @@
 				01904BCD22B3FD7200EBBB89 /* Report */,
 				01C85E93225CF227007D1237 /* Other */,
 				0140A5E122B024F800228F52 /* MovieDBWebVC.swift */,
+				01AB924922FC91CA001D86DE /* VoteViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -603,6 +611,7 @@
 				011B10A122B7FCA30092BADE /* CKReportController.swift */,
 				0107E1B722C12E4E006B8555 /* CKDisicussionController.swift */,
 				01B1F74B22F0C00700A128BA /* FBDiscussionController.swift */,
+				01AB924B22FC9C6F001D86DE /* VoteController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -893,6 +902,7 @@
 				012087782184F164007B7C43 /* SF-Pro-Display-LightItalic.otf in Resources */,
 				0120872C2184D68F007B7C43 /* MainTabBar.storyboard in Resources */,
 				012087732184F164007B7C43 /* SF-Pro-Text-Bold.otf in Resources */,
+				01AB924822FC89F7001D86DE /* Vote.storyboard in Resources */,
 				0120877D2184F164007B7C43 /* SF-Pro-Text-Semibold.otf in Resources */,
 				017979142187CCE1004BA6C7 /* GoogleService-Info.plist in Resources */,
 				012087712184F164007B7C43 /* SF-Pro-Display-Semibold.otf in Resources */,
@@ -1023,6 +1033,7 @@
 				0108764A2188138900FAC3BE /* NetworkError.swift in Sources */,
 				01F7B21721962E7D00902239 /* Post.swift in Sources */,
 				0179790D21878661004BA6C7 /* FeedTableViewCell.swift in Sources */,
+				01AB924A22FC91CA001D86DE /* VoteViewController.swift in Sources */,
 				0179790B21878595004BA6C7 /* FeedTableViewController.swift in Sources */,
 				01904BDA22B47A4700EBBB89 /* FbReport.swift in Sources */,
 				01087648218812B000FAC3BE /* FireBasePostController.swift in Sources */,
@@ -1060,6 +1071,7 @@
 				01208792218536E3007B7C43 /* CloudKitPostController.swift in Sources */,
 				012087412184E362007B7C43 /* HomeCollectionViewCell.swift in Sources */,
 				0108764621880CB300FAC3BE /* FBPost.swift in Sources */,
+				01AB924C22FC9C6F001D86DE /* VoteController.swift in Sources */,
 				01A41BBC22F901BD00F37E02 /* AnimationStep.swift in Sources */,
 				0107E1B422C07A5A006B8555 /* Thought.swift in Sources */,
 				017979122187AA9B004BA6C7 /* PublicProtocols.swift in Sources */,

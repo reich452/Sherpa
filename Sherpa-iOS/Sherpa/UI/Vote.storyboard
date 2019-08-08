@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hhh-bq-WmY">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Vote View Controller-->
+        <scene sceneID="y5Y-xw-EUf">
+            <objects>
+                <viewController storyboardIdentifier="VoteViewController" id="hhh-bq-WmY" customClass="VoteViewController" customModule="Sherpa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J3D-ke-qb1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiE-Ku-5cI" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="10.5" y="396.5" width="393" height="452.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you like CloudKit or Firebase more?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afk-JJ-1AN">
+                                <rect key="frame" x="26.5" y="93" width="361" height="50.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsi-Uk-9aP" customClass="CardView" customModule="Sherpa" customModuleProvider="target">
+                                <rect key="frame" x="62" y="170" width="290" height="135"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tKP-nS-k9h">
+                                        <rect key="frame" x="7.5" y="6.5" width="275" height="122"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvs-83-9he">
+                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="122"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Wvs-83-9he" secondAttribute="height" multiplier="1:1" id="Sav-MI-KFp"/>
+                                                </constraints>
+                                                <state key="normal" image="xcCloudKit_logo"/>
+                                                <connections>
+                                                    <action selector="cloudKitBtnTapped:" destination="hhh-bq-WmY" eventType="touchUpInside" id="vkI-BL-d3v"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9W-ES-uGo">
+                                                <rect key="frame" x="137.5" y="0.0" width="0.0" height="122"/>
+                                                <color key="backgroundColor" red="0.76239955455518615" green="0.76239955455518615" blue="0.76239955455518615" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="2" id="FNe-dn-obw"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGg-BM-JN5">
+                                                <rect key="frame" x="153.5" y="0.0" width="121.5" height="122"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="FGg-BM-JN5" secondAttribute="height" multiplier="1:1" id="PVH-zd-8zK"/>
+                                                </constraints>
+                                                <state key="normal" image="xcFirebase_logo"/>
+                                                <connections>
+                                                    <action selector="firebaseBtnTapped:" destination="hhh-bq-WmY" eventType="touchUpInside" id="lFD-Vb-6EX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="tKP-nS-k9h" firstAttribute="height" secondItem="xsi-Uk-9aP" secondAttribute="height" multiplier="0.9" id="QXh-J0-NIp"/>
+                                    <constraint firstItem="tKP-nS-k9h" firstAttribute="centerX" secondItem="xsi-Uk-9aP" secondAttribute="centerX" id="aJg-6L-UxZ"/>
+                                    <constraint firstItem="tKP-nS-k9h" firstAttribute="centerY" secondItem="xsi-Uk-9aP" secondAttribute="centerY" id="gU2-sD-b2Y"/>
+                                    <constraint firstItem="tKP-nS-k9h" firstAttribute="width" secondItem="xsi-Uk-9aP" secondAttribute="width" multiplier="0.95" id="id0-hs-J65"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Votes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gte-6I-Qch">
+                                <rect key="frame" x="176" y="351.5" width="62" height="27.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18044790625572205" green="0.18025019764900208" blue="0.18823665380477905" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="xsi-Uk-9aP" firstAttribute="centerX" secondItem="jD9-Bg-rpn" secondAttribute="centerX" id="0AS-YF-G85"/>
+                            <constraint firstItem="Afk-JJ-1AN" firstAttribute="leading" secondItem="jD9-Bg-rpn" secondAttribute="leading" constant="26.5" id="4Wa-HC-NIy"/>
+                            <constraint firstItem="jD9-Bg-rpn" firstAttribute="bottom" secondItem="HiE-Ku-5cI" secondAttribute="bottom" constant="18" id="7Ld-pB-Qgv"/>
+                            <constraint firstItem="HiE-Ku-5cI" firstAttribute="centerX" secondItem="jD9-Bg-rpn" secondAttribute="centerX" id="Bsk-Zw-jVf"/>
+                            <constraint firstItem="Afk-JJ-1AN" firstAttribute="centerX" secondItem="jD9-Bg-rpn" secondAttribute="centerX" id="EC3-75-fSL"/>
+                            <constraint firstItem="xsi-Uk-9aP" firstAttribute="width" secondItem="J3D-ke-qb1" secondAttribute="width" multiplier="0.7" id="KfE-iw-k7P"/>
+                            <constraint firstItem="xsi-Uk-9aP" firstAttribute="top" secondItem="Afk-JJ-1AN" secondAttribute="bottom" constant="26.5" id="NjA-Zv-B3y"/>
+                            <constraint firstItem="HiE-Ku-5cI" firstAttribute="top" secondItem="Gte-6I-Qch" secondAttribute="bottom" constant="17.5" id="Xuz-yS-Bo9"/>
+                            <constraint firstItem="HiE-Ku-5cI" firstAttribute="width" secondItem="J3D-ke-qb1" secondAttribute="width" multiplier="0.95" id="au3-HD-3Uh"/>
+                            <constraint firstItem="jD9-Bg-rpn" firstAttribute="trailing" secondItem="Afk-JJ-1AN" secondAttribute="trailing" constant="26.5" id="eV8-Xv-dsY"/>
+                            <constraint firstItem="xsi-Uk-9aP" firstAttribute="height" secondItem="J3D-ke-qb1" secondAttribute="height" multiplier="0.15" id="n1Z-vt-rmp"/>
+                            <constraint firstItem="Gte-6I-Qch" firstAttribute="centerX" secondItem="xsi-Uk-9aP" secondAttribute="centerX" id="szX-qF-Sx3"/>
+                            <constraint firstItem="Afk-JJ-1AN" firstAttribute="top" secondItem="jD9-Bg-rpn" secondAttribute="top" constant="49" id="uIh-XA-j0E"/>
+                            <constraint firstItem="Gte-6I-Qch" firstAttribute="top" secondItem="xsi-Uk-9aP" secondAttribute="bottom" constant="46.5" id="zcR-qo-9U6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jD9-Bg-rpn"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardView" destination="xsi-Uk-9aP" id="TO0-xK-fIQ"/>
+                        <outlet property="cloudKitBtn" destination="Wvs-83-9he" id="pJT-Rn-sug"/>
+                        <outlet property="dbStackView" destination="tKP-nS-k9h" id="wRe-by-ghc"/>
+                        <outlet property="firebaseBtn" destination="FGg-BM-JN5" id="eCT-5m-99h"/>
+                        <outlet property="pieChartView" destination="HiE-Ku-5cI" id="a5W-go-GYc"/>
+                        <outlet property="titleLabel" destination="Afk-JJ-1AN" id="FRZ-P3-xYj"/>
+                        <outlet property="voteLabel" destination="Gte-6I-Qch" id="Dte-Hz-Jql"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uhk-Bl-zNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="205.79710144927537" y="144.64285714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="xcCloudKit_logo" width="150" height="150"/>
+        <image name="xcFirebase_logo" width="150" height="150"/>
+    </resources>
+</document>
