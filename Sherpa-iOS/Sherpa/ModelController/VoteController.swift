@@ -16,8 +16,6 @@ enum DBVoteKey: String {
 
 class VoteController {
     
-    static let shared = VoteController()
-    private init() { }
     private let databaseReference = Database.database().reference()
     private let userDefaults = UserDefaults.standard
     

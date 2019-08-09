@@ -10,7 +10,7 @@ import UIKit
 
 enum AppStoryboard: String {
     
-    case DataBaseActionTab, Discussion, Feed, FBPost, Main, MainTabBar, MovieDB, Overlay, Onboard, Reddit, ReportAbuse, ShareThought
+    case DataBaseActionTab, Discussion, Feed, FBPost, Main, MainTabBar, MovieDB, Overlay, Onboard, Reddit, ReportAbuse, ShareThought, Vote
     
     var instance: UIStoryboard {
         return UIStoryboard(name: self.rawValue, bundle: Bundle.main)

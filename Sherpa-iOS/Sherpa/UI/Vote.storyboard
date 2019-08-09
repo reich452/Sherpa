@@ -79,6 +79,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-checked_filled" translatesAutoresizingMaskIntoConstraints="NO" id="AmY-Mf-ZKw">
+                                <rect key="frame" x="57" y="187" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AmY-Mf-ZKw" secondAttribute="height" multiplier="1:1" id="QL8-0D-ESw"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Votes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gte-6I-Qch">
                                 <rect key="frame" x="147.5" y="363" width="119" height="27.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
@@ -91,12 +97,16 @@
                                     <constraint firstAttribute="width" secondItem="Es2-om-tnu" secondAttribute="height" multiplier="1:1" id="HRK-cH-WIs"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-checked_filled" translatesAutoresizingMaskIntoConstraints="NO" id="AmY-Mf-ZKw">
-                                <rect key="frame" x="57" y="187" width="25" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nma-Rd-fbd">
+                                <rect key="frame" x="24" y="47" width="28" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="AmY-Mf-ZKw" secondAttribute="height" multiplier="1:1" id="QL8-0D-ESw"/>
+                                    <constraint firstAttribute="width" secondItem="nma-Rd-fbd" secondAttribute="height" multiplier="1:1" id="d6C-UH-zxp"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" image="xceCancel"/>
+                                <connections>
+                                    <action selector="cancelBtnTapped:" destination="hhh-bq-WmY" eventType="touchUpInside" id="Qrh-zr-Rmr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18044790625572205" green="0.18025019764900208" blue="0.18823665380477905" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -107,12 +117,15 @@
                             <constraint firstItem="Es2-om-tnu" firstAttribute="top" secondItem="xsi-Uk-9aP" secondAttribute="top" constant="5" id="DY9-08-9gc"/>
                             <constraint firstItem="Afk-JJ-1AN" firstAttribute="centerX" secondItem="jD9-Bg-rpn" secondAttribute="centerX" id="EC3-75-fSL"/>
                             <constraint firstItem="AmY-Mf-ZKw" firstAttribute="leading" secondItem="xsi-Uk-9aP" secondAttribute="leading" constant="5" id="EcK-KS-8Ps"/>
+                            <constraint firstItem="nma-Rd-fbd" firstAttribute="leading" secondItem="jD9-Bg-rpn" secondAttribute="leading" constant="24" id="Gxx-dy-R5K"/>
                             <constraint firstItem="xsi-Uk-9aP" firstAttribute="width" secondItem="J3D-ke-qb1" secondAttribute="width" multiplier="0.75" id="KfE-iw-k7P"/>
                             <constraint firstItem="AmY-Mf-ZKw" firstAttribute="top" secondItem="xsi-Uk-9aP" secondAttribute="top" constant="5" id="Lce-Tg-1Ha"/>
                             <constraint firstItem="xsi-Uk-9aP" firstAttribute="top" secondItem="Afk-JJ-1AN" secondAttribute="bottom" constant="26.5" id="NjA-Zv-B3y"/>
+                            <constraint firstItem="nma-Rd-fbd" firstAttribute="top" secondItem="jD9-Bg-rpn" secondAttribute="top" constant="3" id="P3W-2c-Wr7"/>
                             <constraint firstItem="Es2-om-tnu" firstAttribute="trailing" secondItem="xsi-Uk-9aP" secondAttribute="trailing" constant="-5" id="WwZ-dc-axP"/>
                             <constraint firstItem="HiE-Ku-5cI" firstAttribute="top" secondItem="Gte-6I-Qch" secondAttribute="bottom" constant="17.5" id="Xuz-yS-Bo9"/>
                             <constraint firstItem="HiE-Ku-5cI" firstAttribute="width" secondItem="J3D-ke-qb1" secondAttribute="width" multiplier="0.95" id="au3-HD-3Uh"/>
+                            <constraint firstItem="Afk-JJ-1AN" firstAttribute="top" secondItem="nma-Rd-fbd" secondAttribute="bottom" constant="18" id="dPo-t2-wmu"/>
                             <constraint firstItem="jD9-Bg-rpn" firstAttribute="trailing" secondItem="Afk-JJ-1AN" secondAttribute="trailing" constant="26.5" id="eV8-Xv-dsY"/>
                             <constraint firstItem="xsi-Uk-9aP" firstAttribute="height" secondItem="J3D-ke-qb1" secondAttribute="height" multiplier="0.15" id="n1Z-vt-rmp"/>
                             <constraint firstItem="Gte-6I-Qch" firstAttribute="centerX" secondItem="xsi-Uk-9aP" secondAttribute="centerX" id="szX-qF-Sx3"/>
@@ -142,5 +155,6 @@
         <image name="icons8-checked_filled" width="25" height="25"/>
         <image name="xcCloudKit_logo" width="150" height="150"/>
         <image name="xcFirebase_logo" width="150" height="150"/>
+        <image name="xceCancel" width="142" height="145"/>
     </resources>
 </document>

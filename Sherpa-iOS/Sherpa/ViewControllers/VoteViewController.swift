@@ -23,12 +23,19 @@ class VoteViewController: UIViewController {
     
     // MARK: - Properties
     
-    var cloudKitEntry = PieChartDataEntry(value: 0)
-    var firebaseEntry = PieChartDataEntry(value: 0)
-    var voteDataEntries = [PieChartDataEntry]()
-    var cloudKitCounter: Double = 1
-    var firebaseCounter: Double = 1
-    var vote: Vote?
+    private var cloudKitEntry = PieChartDataEntry(value: 0)
+    private var firebaseEntry = PieChartDataEntry(value: 0)
+    private var voteDataEntries = [PieChartDataEntry]()
+    private var vote: Vote?
+    var voteController: VoteController?
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = UIColor.lightGray
+        activityIndicator.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2.5)
+        self.view.addSubview(activityIndicator)
+        return activityIndicator
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +60,9 @@ class VoteViewController: UIViewController {
     
     func updateViews() {
         checkVote()
-        VoteController.shared.fetchVoteCount { [weak self] (result) in
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        voteController?.fetchVoteCount { [weak self] (result) in
             guard let self = self else { return }
             switch result {
             case .success(let vote):
@@ -67,14 +76,18 @@ class VoteViewController: UIViewController {
                 let colors = [UIColor.firebaseDarkOrange, UIColor.cloudKitLightBlue]
                 chartDataSet.colors = colors
                 self.pieChartView.data = chartData
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.hidesWhenStopped = true
             case .failure(let error):
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.hidesWhenStopped = true 
                 self.showNoActionAlert(titleStr: "Error Getting Live Votes", messageStr: error.localizedDescription, style: .cancel)
             }
         }
     }
     
     func checkVote() {
-        if VoteController.shared.didVoteForCloudKit() == true {
+        if voteController?.didVoteForCloudKit() == true {
             let sequence = AnimationSequence(withStepDuration: 0.5)
             sequence.doStep {
                 self.titleLabel.text = "You voted for CloudKit"
@@ -86,7 +99,7 @@ class VoteViewController: UIViewController {
                 self.ckVotedImageView.isHidden = false
             }
             
-        } else if VoteController.shared.didVoteForFirebase() == true {
+        } else if voteController?.didVoteForFirebase() == true {
             let sequence = AnimationSequence(withStepDuration: 0.5)
             sequence.doStep {
                 self.titleLabel.text = "You voted for Firebase"
@@ -101,9 +114,12 @@ class VoteViewController: UIViewController {
     }
     
     // MARK: - Actions
+    @IBAction func cancelBtnTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func cloudKitBtnTapped(_ sender: Any) {
-        VoteController.shared.updateVote(dbVoteKey: .cloudKitCount, compeletion: { (result) in
+        voteController?.updateVote(dbVoteKey: .cloudKitCount, compeletion: { (result) in
             switch result {
             case .success(_):
                 print("A user updated")
@@ -117,7 +133,7 @@ class VoteViewController: UIViewController {
         }
     }
     @IBAction func firebaseBtnTapped(_ sender: Any) {
-        VoteController.shared.updateVote(dbVoteKey: .firebaseCount, compeletion: { (result) in
+        voteController?.updateVote(dbVoteKey: .firebaseCount, compeletion: { (result) in
             switch result {
             case .success(_):
                 print("A user updated")

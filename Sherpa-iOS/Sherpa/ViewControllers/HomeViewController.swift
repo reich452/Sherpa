@@ -79,7 +79,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if indexPath.section == 0 {
                 header.sectionHeaderLabel.text = "Choose Your Backend"
             } else {
-                header.sectionHeaderLabel.text = "Fun Api's"
+                header.sectionHeaderLabel.text = "Voting"
             }
             return header
             
@@ -125,9 +125,9 @@ extension HomeViewController: HomeCollectionViewCellDelegate {
             vc.movieController = MovieController()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            let sb = UIStoryboard(name: "Reddit", bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: Constants.rdPostTVC) as? RedditTableViewController else { return }
-            self.navigationController?.pushViewController(vc, animated: true)
+            let vc = VoteViewController.instantiate(fromAppStoryboard: .Vote)
+            vc.voteController = VoteController()
+            self.navigationController?.present(vc, animated: true, completion: nil)
         }
     }
     
