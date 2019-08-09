@@ -141,6 +141,7 @@
 		01AB924822FC89F7001D86DE /* Vote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01AB924722FC89F7001D86DE /* Vote.storyboard */; };
 		01AB924A22FC91CA001D86DE /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AB924922FC91CA001D86DE /* VoteViewController.swift */; };
 		01AB924C22FC9C6F001D86DE /* VoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AB924B22FC9C6F001D86DE /* VoteController.swift */; };
+		01AB924E22FC9CB5001D86DE /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AB924D22FC9CB5001D86DE /* Vote.swift */; };
 		01B1F74A22F0B84100A128BA /* FBThought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1F74922F0B84100A128BA /* FBThought.swift */; };
 		01B1F74C22F0C00700A128BA /* FBDiscussionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1F74B22F0C00700A128BA /* FBDiscussionController.swift */; };
 		01C85E90225BD72E007D1237 /* BenchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C85E8F225BD72D007D1237 /* BenchTimer.swift */; };
@@ -308,6 +309,7 @@
 		01AB924722FC89F7001D86DE /* Vote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vote.storyboard; sourceTree = "<group>"; };
 		01AB924922FC91CA001D86DE /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		01AB924B22FC9C6F001D86DE /* VoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteController.swift; sourceTree = "<group>"; };
+		01AB924D22FC9CB5001D86DE /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		01B1F74922F0B84100A128BA /* FBThought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBThought.swift; sourceTree = "<group>"; };
 		01B1F74B22F0C00700A128BA /* FBDiscussionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDiscussionController.swift; sourceTree = "<group>"; };
 		01C85E8F225BD72D007D1237 /* BenchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchTimer.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				012D059E22124C1E00741413 /* MyTimer.swift */,
 				01C85E9F225D8062007D1237 /* Moive.swift */,
 				01904BD622B479E200EBBB89 /* Report */,
+				01AB924D22FC9CB5001D86DE /* Vote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1044,6 +1047,7 @@
 				01A41BBE22F901E500F37E02 /* AnimationSequence.swift in Sources */,
 				012087352184DA36007B7C43 /* DataBaseActionTableViewController.swift in Sources */,
 				018E18DB22BBEFE100955731 /* FBCommentController.swift in Sources */,
+				01AB924E22FC9CB5001D86DE /* Vote.swift in Sources */,
 				0135D6742204E79900C301A2 /* TimeIntervalExtention.swift in Sources */,
 				0140A5CC22AAB4F600228F52 /* HTTPTask.swift in Sources */,
 				019FEAB522C057E900419590 /* AddThoughtTableViewCell.swift in Sources */,
