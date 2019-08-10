@@ -55,19 +55,28 @@ class FeedTableViewCell: UITableViewCell {
     }
     func updateViews() {
         guard let post = post else { return }
-        titleLabel.text = post.title
-        photoImageView.image = #imageLiteral(resourceName: "xceCloudLoad")
-        commnetLabel.text = "Comments..."
-        dateLabel.text = "\(DateHelper.shared.dateToString(date: post.timestamp)) ago"
-        activityIndicator.startAnimating()
-        CloudKitPostController.shared.fetchImages(cKpost: post) { (image) in
-            DispatchQueue.main.async {
-                UIView.transition(with: self.contentView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+        switch post.dataBase {
+        case .cloudKit:
+            titleLabel.text = post.title
+            photoImageView.image = #imageLiteral(resourceName: "xceCloudLoad")
+            commnetLabel.text = "Comments..."
+            dateLabel.text = "\(DateHelper.shared.dateToString(date: post.timestamp)) ago"
+            activityIndicator.startAnimating()
+            CloudKitPostController.shared.fetchImages(cKpost: post) { (image) in
+                DispatchQueue.main.async {
+                    UIView.transition(with: self.contentView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                        self.photoImageView.image = image
+                    }, completion: nil)
                     self.photoImageView.image = image
-                }, completion: nil)
-                self.photoImageView.image = image
-                self.activityIndicator.stopAnimating()
-                self.contentView.sendSubviewToBack(self.activityIndicator)
+                    self.activityIndicator.stopAnimating()
+                    self.contentView.sendSubviewToBack(self.activityIndicator)
+                }
+            }
+        case .firebase:
+            titleLabel.text = post.title
+            if let fbPost = post as? FBPost {
+                let date = Date(timeIntervalSince1970: TimeInterval(fbPost.timeInt/1000))
+                dateLabel.text = " \(DateHelper.shared.dateToString(date: date))"
             }
         }
     }

@@ -20,5 +20,6 @@ protocol Post {
     var imageStringURL: String { get set }
     var comments: [Comment] { get set }
     var dataBase: DataBase { get set }
+    var postID: String { get set }
     func matches(searchTerm: String) -> Bool
 }

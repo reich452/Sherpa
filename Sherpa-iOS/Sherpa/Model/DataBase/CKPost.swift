@@ -13,7 +13,7 @@ class CKPost: Post {
 
 
     var dataBase: DataBase = .cloudKit
-
+    /// Not used for in cloudKit. Leave empty 
     var imageStringURL: String = ""
     
     // MARK: - Properties
@@ -24,6 +24,7 @@ class CKPost: Post {
     var tempURL: URL?
     var comments: [Comment] = []
     var ckComments: [CKComment] = []
+    var postID: String
     var image: UIImage?{
         get{
             guard let photoData = photoData else {return nil}
@@ -63,6 +64,7 @@ class CKPost: Post {
     init(title: String, timestamp: Date = Date(), image: UIImage, ckComments: [CKComment] = []) {
         self.title = title
         self.timestamp = timestamp
+        self.postID = recordID.recordName
         self.image = image
         self.ckComments = ckComments
     }
@@ -80,6 +82,7 @@ class CKPost: Post {
         self.timestamp = timestamp
         self.ckComments = []
         self.recordID = record.recordID
+        self.postID = record.recordID.recordName
     }
 }
 

@@ -120,6 +120,7 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
     
     // MARK: - Custom Delegate Segue
     
+    // TODO: Clean up and make New VC
     func performSegueFrom(cell: ActionTableViewCell) {
         let indexPath = tableView.indexPath(for: cell)
         switch indexPath?.row {
@@ -138,10 +139,12 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
             if cell.selectedDB == .cloudKit {
                 let sb = UIStoryboard(name: "Feed", bundle: nil)
                 guard let vc = sb.instantiateViewController(withIdentifier: Constants.feedTVC) as? FeedTableViewController else { return }
+                vc.selectedDB = .cloudKit
                 self.navigationController?.pushViewController(vc, animated: true)
-            }else {
-                let sb = UIStoryboard(name: "FBPost", bundle: nil)
-                guard let vc = sb.instantiateViewController(withIdentifier: Constants.fbFeedTVC) as? FBPostTableViewController else { return }
+            } else {
+                let sb = UIStoryboard(name: "Feed", bundle: nil)
+                guard let vc = sb.instantiateViewController(withIdentifier: Constants.feedTVC) as? FeedTableViewController else { return }
+                vc.selectedDB = .firebase
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         case 2:

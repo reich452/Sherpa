@@ -13,7 +13,7 @@ class FBPost: Post {
     
     var comments: [Comment] = []
     var dataBase: DataBase = .firebase
-    
+    var postID: String
     enum Constans {
         static let titleKey = "title"
         static let timestampKey = "timestamp"
@@ -35,6 +35,7 @@ class FBPost: Post {
         self.imageStringURL = imageStringURL
         self.timeInt = timeInt
         self.uuid = uuid
+        self.postID = uuid
     }
     
     // MARK: - Dictionary
@@ -55,6 +56,7 @@ class FBPost: Post {
             let timeInt = dictionary[Constans.timestampKey] as? Int,
             let uuid = dictionary[Constans.uuidKey] as? String else { return nil}
         self.init(title: title, imageStringURL: imageStringUrl, timeInt: timeInt, uuid: uuid)
+        self.postID = uuid
     }
 }
 

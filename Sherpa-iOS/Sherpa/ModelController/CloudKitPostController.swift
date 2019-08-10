@@ -32,7 +32,7 @@ class CloudKitPostController {
     var fetchCounter = 0.0
     var uploadCounter = 0.0
     var totalCounter = 0.0
-    var ckPosts = [CKPost]()
+    var ckPosts = [Post]()
     
     // MARK: - CloudKit Availablity
     
@@ -176,11 +176,11 @@ class CloudKitPostController {
         rTimer.resume()
         operation.recordFetchedBlock = { [unowned self] record in
             guard let post = CKPost(record: record) else { return }
-            if let _ = self.ckPosts.firstIndex(of: post) {
+            if let _ = self.ckPosts.first(where: {$0.postID == post.postID}) {
                 completion(false, nil); return
             }
             self.ckPosts.append(post)
-            print("🎃 fetching ckPosts \(self.ckPosts.count)")
+            print("🎃 fetching ckPosts \(post.title) \(self.ckPosts.count)")
             print(self.ckPosts.count)
             completion(false, nil)
             
