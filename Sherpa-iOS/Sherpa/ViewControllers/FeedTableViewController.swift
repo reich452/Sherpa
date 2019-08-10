@@ -91,7 +91,10 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
                             }, completion: nil)
                             cell.activityIndicator.stopAnimating()
                             cell.contentView.sendSubviewToBack(cell.activityIndicator)
-                        } else { return }
+                        } else {
+                            print(" reusing cell")
+                            return
+                        }
                     }
                 }
             }
@@ -164,12 +167,20 @@ extension FeedTableViewController {
     }
     
     func didTapReportButton(_ cell: FeedTableViewCell) {
-        let sb = UIStoryboard(name: "ReportAbuse", bundle: nil)
-        guard let reportVC = sb.instantiateViewController(withIdentifier: Constants.reportTVC) as? ReportTableViewController else { return }
+        
+        let reportVC = ReportTableViewController.instantiate(fromAppStoryboard: .ReportAbuse)
+       
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let ckPost = CloudKitPostController.shared.ckPosts[indexPath.row]
-        reportVC.post = ckPost
-        navigationController?.pushViewController(reportVC, animated: true)
+        switch selectedDB {
+        case .cloudKit:
+            let ckPost = CloudKitPostController.shared.ckPosts[indexPath.row]
+            reportVC.post = ckPost
+            navigationController?.pushViewController(reportVC, animated: true)
+        case .firebase:
+            let fbPost = fbPostController.fbPosts[indexPath.row]
+            reportVC.post = fbPost
+            navigationController?.pushViewController(reportVC, animated: true)
+        }
     }
     
     

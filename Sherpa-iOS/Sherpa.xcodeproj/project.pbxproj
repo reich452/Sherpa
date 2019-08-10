@@ -191,7 +191,7 @@
 		011B109D22B5E1810092BADE /* FBFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBFeedTableViewCell.swift; sourceTree = "<group>"; };
 		011B109F22B5E88E0092BADE /* FBReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBReportController.swift; sourceTree = "<group>"; };
 		011B10A122B7FCA30092BADE /* CKReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKReportController.swift; sourceTree = "<group>"; };
-		012087062184D3CE007B7C43 /* Sherpa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sherpa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		012087062184D3CE007B7C43 /* Cloud.vs.Fire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloud.vs.Fire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		012087092184D3CE007B7C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0120870E2184D3CE007B7C43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		012087132184D3CF007B7C43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -396,7 +396,7 @@
 		012087072184D3CE007B7C43 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				012087062184D3CE007B7C43 /* Sherpa.app */,
+				012087062184D3CE007B7C43 /* Cloud.vs.Fire.app */,
 				0120871A2184D3CF007B7C43 /* SherpaTests.xctest */,
 			);
 			name = Products;
@@ -797,9 +797,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		012087052184D3CE007B7C43 /* Sherpa */ = {
+		012087052184D3CE007B7C43 /* Cloud.vs.Fire */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 012087232184D3CF007B7C43 /* Build configuration list for PBXNativeTarget "Sherpa" */;
+			buildConfigurationList = 012087232184D3CF007B7C43 /* Build configuration list for PBXNativeTarget "Cloud.vs.Fire" */;
 			buildPhases = (
 				6B642983B2A7B1C21E8A04C5 /* [CP] Check Pods Manifest.lock */,
 				012087022184D3CE007B7C43 /* Sources */,
@@ -811,9 +811,9 @@
 			);
 			dependencies = (
 			);
-			name = Sherpa;
+			name = Cloud.vs.Fire;
 			productName = Sherpa;
-			productReference = 012087062184D3CE007B7C43 /* Sherpa.app */;
+			productReference = 012087062184D3CE007B7C43 /* Cloud.vs.Fire.app */;
 			productType = "com.apple.product-type.application";
 		};
 		012087192184D3CF007B7C43 /* SherpaTests */ = {
@@ -874,7 +874,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				012087052184D3CE007B7C43 /* Sherpa */,
+				012087052184D3CE007B7C43 /* Cloud.vs.Fire */,
 				012087192184D3CF007B7C43 /* SherpaTests */,
 			);
 		};
@@ -1103,7 +1103,7 @@
 /* Begin PBXTargetDependency section */
 		0120871C2184D3CF007B7C43 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 012087052184D3CE007B7C43 /* Sherpa */;
+			target = 012087052184D3CE007B7C43 /* Cloud.vs.Fire */;
 			targetProxy = 0120871B2184D3CF007B7C43 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1340,7 +1340,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		012087232184D3CF007B7C43 /* Build configuration list for PBXNativeTarget "Sherpa" */ = {
+		012087232184D3CF007B7C43 /* Build configuration list for PBXNativeTarget "Cloud.vs.Fire" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				012087242184D3CF007B7C43 /* Debug */,
