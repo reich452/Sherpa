@@ -17,6 +17,7 @@ class ThirdOnboardVC: UIViewController {
         super.viewDidLoad()
         dbImageView.clipsToBounds = true
         dbImageView.layer.cornerRadius = 12
+        view.backgroundColor = .primaryColor
     }
 
     

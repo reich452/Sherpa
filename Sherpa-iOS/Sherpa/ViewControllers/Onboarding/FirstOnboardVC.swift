@@ -15,7 +15,7 @@ class FirstOnboardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        view.backgroundColor = .primaryColor
     }
     
     @IBAction func handelTapGestures(_ sender: UITapGestureRecognizer) {

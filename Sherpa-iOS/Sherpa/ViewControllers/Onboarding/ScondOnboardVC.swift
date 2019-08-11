@@ -17,6 +17,7 @@ class SecondOnboardVC: UIViewController {
         super.viewDidLoad()
         dbImageView.clipsToBounds = true
         dbImageView.layer.cornerRadius = 12
+        view.backgroundColor = .primaryColor
     }
     @IBAction func handelTapGestures(_ sender: UITapGestureRecognizer) {
         
