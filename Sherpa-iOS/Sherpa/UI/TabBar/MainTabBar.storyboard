@@ -11,11 +11,16 @@
         <!--Main Tab Bar View Controller-->
         <scene sceneID="RCe-hE-K8I">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBarViewController" id="BZI-vQ-LNw" customClass="MainTabBarViewController" customModule="Sherpa" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarViewController" id="BZI-vQ-LNw" customClass="MainTabBarViewController" customModule="Cloud_vs_Fire" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aYD-nS-Q6K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="wd4-uN-a5n" kind="relationship" relationship="viewControllers" id="uex-QW-vGi"/>
@@ -30,7 +35,9 @@
         <scene sceneID="Mkx-cd-r7j">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="HomeViewController" storyboardName="Main" id="wd4-uN-a5n" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="knz-tP-yfY"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="knz-tP-yfY">
+                        <color key="badgeColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Web-F1-rTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,7 +47,9 @@
         <scene sceneID="b7Y-co-6TS">
             <objects>
                 <viewControllerPlaceholder storyboardName="DataBaseActionTab" id="Eco-2R-Rj7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HPT-ev-T5A"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="HPT-ev-T5A">
+                        <color key="badgeColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhf-Xv-zKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

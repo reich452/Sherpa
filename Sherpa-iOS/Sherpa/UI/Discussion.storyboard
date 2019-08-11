@@ -15,7 +15,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dEY-qu-IiJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.070538274940000006" green="0.070617444809999999" blue="0.074757151310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="latestNewsCellId" rowHeight="274" id="yRf-7D-eIf" customClass="LatestNewsTableViewCell" customModule="Sherpa" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="274"/>
@@ -27,7 +27,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check out the latest from WWDC. Using CoreData with CloudKit." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhv-ye-bV9">
                                             <rect key="frame" x="25" y="15.000000000000004" width="325" height="48.333333333333343"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xceHeader2" translatesAutoresizingMaskIntoConstraints="NO" id="h7a-fc-1JO">
@@ -79,6 +79,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="h7a-fc-1JO" firstAttribute="centerX" secondItem="nhv-ye-bV9" secondAttribute="centerX" id="13f-Ej-CGT"/>
                                         <constraint firstAttribute="bottom" secondItem="FH4-1Z-gcG" secondAttribute="bottom" constant="19.5" id="3Pa-J8-BVc"/>
@@ -127,13 +128,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a thought on CloudKit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvY-Ya-Ea1">
                                             <rect key="frame" x="44" y="37" width="287" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="An on going open discussion on CloudKit. Add your oppinion, experince, or overall throught of this app! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6R-sN-Ca2">
                                             <rect key="frame" x="51" y="73" width="273" height="50.666666666666657"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Atz-sq-Vef" customClass="CustomButton" customModule="Sherpa" customModuleProvider="target">
@@ -199,6 +200,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </button>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.070538274940000006" green="0.070617444809999999" blue="0.074757151310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="Jhs-4l-VfX" firstAttribute="centerX" secondItem="UMF-Vo-PaC" secondAttribute="centerX" id="3VO-Ol-gGv"/>
                                         <constraint firstItem="f6R-sN-Ca2" firstAttribute="leading" secondItem="UMF-Vo-PaC" secondAttribute="leading" constant="51" id="4ad-j8-ZaM"/>
@@ -218,6 +220,7 @@
                                         <constraint firstItem="Jhs-4l-VfX" firstAttribute="width" secondItem="UMF-Vo-PaC" secondAttribute="width" multiplier="0.5" id="pq6-T5-SFG"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.070538274940000006" green="0.070617444809999999" blue="0.074757151310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="addButton" destination="Jhs-4l-VfX" id="uYR-Re-1h8"/>
                                     <outlet property="bottomButton" destination="1Tb-56-mcG" id="g6L-2c-jWL"/>
@@ -236,8 +239,9 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Recent Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mh3-jZ-Xqq">
                                             <rect key="frame" x="16" y="0.0" width="343" height="39.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                            <nil key="textColor"/>
+                                            <color key="backgroundColor" red="0.070538274940000006" green="0.070617444809999999" blue="0.074757151310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oQB-2C-cr3">
@@ -245,6 +249,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.070538274940000006" green="0.070617444809999999" blue="0.074757151310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="thoughtCellId" rowHeight="99" id="Aqs-6c-Shn" customClass="ThoughtTableViewCell" customModule="Sherpa" customModuleProvider="target">
@@ -260,23 +265,23 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-aL-eY9">
                                                     <rect key="frame" x="24.999999999999993" y="8.0000000000000018" width="84.333333333333314" height="18.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Comment Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1U2-g1-o6L">
                                                     <rect key="frame" x="25" y="34.666666666666664" width="305" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="4hs ago" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WB-TZ-NhM">
                                                     <rect key="frame" x="24.999999999999996" y="61.333333333333336" width="42.333333333333329" height="13.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" red="0.070538274943828583" green="0.070617444813251495" blue="0.074757151305675507" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="1U2-g1-o6L" secondAttribute="trailing" constant="7.5" id="CpV-hn-7Di"/>
                                                 <constraint firstItem="0WB-TZ-NhM" firstAttribute="top" secondItem="1U2-g1-o6L" secondAttribute="bottom" constant="7.5" id="Cwr-oG-zCa"/>
@@ -289,6 +294,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.070538274940000006" green="0.070617444809999999" blue="0.074757151310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="4hU-h8-JJG" firstAttribute="width" secondItem="4Ov-Dh-Pef" secondAttribute="width" multiplier="0.9" id="0sC-Hu-LQa"/>
                                         <constraint firstItem="4hU-h8-JJG" firstAttribute="centerY" secondItem="4Ov-Dh-Pef" secondAttribute="centerY" id="1nn-d5-Uvg"/>

@@ -46,6 +46,7 @@ class VoteViewController: UIViewController {
     // MARK: - Main
     
     func setupUI() {
+        view.backgroundColor = .primaryColor
         cloudKitBtn.layer.cornerRadius = 15
         cloudKitBtn.clipsToBounds = true
         firebaseBtn.layer.cornerRadius = 15

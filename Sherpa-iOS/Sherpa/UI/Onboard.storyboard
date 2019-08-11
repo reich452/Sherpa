@@ -12,7 +12,7 @@
         <!--Onboarding PageVC-->
         <scene sceneID="wTX-c7-Fhm">
             <objects>
-                <pageViewController storyboardIdentifier="OnboardingPageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Cwj-GO-eXS" customClass="OnboardingPageVC" customModule="SalesGrowth" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="OnboardingPageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Cwj-GO-eXS" customClass="OnboardingPageVC" customModule="Cloud_vs_Fire" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Z7-fX-XB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-704" y="127"/>
@@ -20,7 +20,7 @@
         <!--First OnboardVC-->
         <scene sceneID="klV-aN-WbW">
             <objects>
-                <viewController storyboardIdentifier="FirstOnboardVC" id="viP-MV-xnH" customClass="FirstOnboardVC" customModule="SalesGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstOnboardVC" id="viP-MV-xnH" customClass="FirstOnboardVC" customModule="Cloud_vs_Fire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Jh-Gf-SIR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To CloudKit &amp; Firebase!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPy-TR-A89">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="81.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
-                                        <color key="textColor" red="0.15781732971081877" green="0.77495728603211822" blue="0.89282598350253806" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PG-vI-I9C">
@@ -44,7 +44,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.099419198929999994" green="0.1339030266" blue="0.20799922940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.17637214064598083" green="0.17652809619903564" blue="0.18480965495109558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="uy2-le-55G" firstAttribute="centerX" secondItem="RZC-9Y-g4d" secondAttribute="centerX" id="NVW-vs-Nm4"/>
@@ -73,7 +73,7 @@
         <!--Second OnboardVC-->
         <scene sceneID="0JR-ul-o4H">
             <objects>
-                <viewController storyboardIdentifier="SecondOnboardVC" id="RDE-CP-dIr" customClass="SecondOnboardVC" customModule="SalesGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondOnboardVC" id="RDE-CP-dIr" customClass="SecondOnboardVC" customModule="Cloud_vs_Fire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TLJ-Fl-Exd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +94,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.099419198929999994" green="0.1339030266" blue="0.20799922940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.18029341101646423" green="0.18044981360435486" blue="0.18873098492622375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="fkm-sn-RGh" firstAttribute="centerY" secondItem="f8D-hb-FPP" secondAttribute="centerY" id="SpX-XZ-Hzp"/>
@@ -123,7 +123,7 @@
         <!--Third OnboardVC-->
         <scene sceneID="Ref-OI-bki">
             <objects>
-                <viewController storyboardIdentifier="ThirdOnboardVC" id="gAg-Vj-xoM" customClass="ThirdOnboardVC" customModule="SalesGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdOnboardVC" id="gAg-Vj-xoM" customClass="ThirdOnboardVC" customModule="Cloud_vs_Fire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YEg-nH-oYv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,7 +144,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.099419198929999994" green="0.1339030266" blue="0.20799922940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.18029341101646423" green="0.18044981360435486" blue="0.18873098492622375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="HLs-ug-rwy" firstAttribute="centerX" secondItem="gAa-P4-Ts5" secondAttribute="centerX" id="40s-ml-KO7"/>

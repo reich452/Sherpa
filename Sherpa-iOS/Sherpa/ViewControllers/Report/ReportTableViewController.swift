@@ -17,6 +17,8 @@ class ReportTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .primaryColor
         guard let post = post else { return }
         createUI(post: post)
     

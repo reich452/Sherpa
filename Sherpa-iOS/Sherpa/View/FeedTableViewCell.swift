@@ -54,6 +54,7 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
     func updateViews() {
+        contentView.backgroundColor = .primaryColor
         guard let post = post else { return }
         switch post.dataBase {
         case .cloudKit:

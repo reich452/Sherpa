@@ -25,8 +25,8 @@ class SubmitReportVC: ShiftableViewController, OverlayVCDelegate {
         titleLabel.text = reportViewModel.title
         let edges = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         textView.textContainerInset = edges
+        view.backgroundColor = .primaryColor
     }
-    
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         placeHolderLabel.text = ""

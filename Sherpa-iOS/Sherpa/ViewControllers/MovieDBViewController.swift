@@ -26,18 +26,24 @@ class MovieDBViewController: UIViewController {
         super.viewDidLoad()
         kolodaView.dataSource = self
         kolodaView.delegate = self
-        defaultImageView.clipsToBounds = true 
-        defaultImageView.layer.cornerRadius = 15
-        kolodaView.layer.cornerRadius = 15
-        infoButton.makeRoundView()
-        self.view.backgroundColor = .offsetBlack
-        self.title = "New Releases"
+        setUpUi()
         fetchMovies(pageNumber: pageNumber)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
+    }
+    
+    func setUpUi() {
+        defaultImageView.clipsToBounds = true
+        defaultImageView.layer.cornerRadius = 15
+        kolodaView.layer.cornerRadius = 15
+        kolodaView.backgroundColor = .primaryColor
+        infoButton.makeRoundView()
+        view.backgroundColor = .offsetBlack
+        title = "New Releases"
+        view.backgroundColor = .primaryColor
     }
     
     // MARK: - Actions 

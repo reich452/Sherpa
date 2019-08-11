@@ -31,6 +31,7 @@
 	<string>Please allow access to photo library to beable to upload images.</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Cabin-Regular.otf</string>
 		<string>SF-Pro-Display-Thin.otf</string>
 		<string>ST-Pro-Display-Bold.otf</string>
 		<string>ST-Pro-Display-Regular.otf</string>

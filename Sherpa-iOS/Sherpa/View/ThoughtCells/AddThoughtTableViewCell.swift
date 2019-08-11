@@ -19,6 +19,7 @@ class AddThoughtTableViewCell: UITableViewCell {
   
 
     func updateViews(selectedDB: SelectedIconDB) {
+        contentView.backgroundColor = .primaryColor
         if selectedDB == .cloudKit {
             
         } else {

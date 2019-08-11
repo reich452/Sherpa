@@ -30,6 +30,7 @@ class LatestNewsTableViewCell: UITableViewCell, WKNavigationDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layoutIfNeeded()
+        contentView.backgroundColor = .primaryColor
         playViewBackground.makeRoundView()
         headerImage.roundCornersForAspectFit(radius: 8)
         webView.navigationDelegate = self

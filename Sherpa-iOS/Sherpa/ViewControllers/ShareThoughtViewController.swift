@@ -137,6 +137,7 @@ extension ShareThoughtViewController {
     // MARK: - UI
     
     func setUpUI() {
+        view.backgroundColor = .primaryColor
         userNameTextField.setBottomBorder(withColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
         titleTextField.setBottomBorder(withColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
         textView.addAccessoryView("Share your thought...")

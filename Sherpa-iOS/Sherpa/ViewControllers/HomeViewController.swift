@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
     func setUpUI() {
         homeCollectionView.backgroundColor = .primaryColor
         navigationController?.navigationBar.prefersLargeTitles = true
+
     }
     
 }

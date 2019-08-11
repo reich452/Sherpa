@@ -31,7 +31,8 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
         tableView.estimatedRowHeight = 350
         navigationController?.navigationBar.prefersLargeTitles = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
- 
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
         switch selectedDB {
         case .cloudKit:
             self.isSearching = true
@@ -39,6 +40,7 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
                 if didFinish != false {
                     DispatchQueue.main.async {
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        self.tableView.separatorStyle = .singleLine
                         self.tableView.reloadData()
                     }
                 }
@@ -48,7 +50,10 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
             fbPostController.fetchPosts { [weak self] (_, error) in
                 guard let self = self else { return }
                 if error == nil {
+                    self.tableView.separatorStyle = .singleLine
                     self.tableView.reloadData()
+                } else {
+                    self.showNoActionAlert(titleStr: "Error Fetching Firebase Posts", messageStr: error?.localizedDescription ?? "Please try again", style: .cancel)
                 }
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }

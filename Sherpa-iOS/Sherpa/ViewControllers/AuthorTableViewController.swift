@@ -22,6 +22,7 @@ class AuthorTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 300
+        tableView.backgroundColor = .primaryColor
         self.title = authorController.filterString
     }
   

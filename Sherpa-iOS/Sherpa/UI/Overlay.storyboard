@@ -83,7 +83,7 @@
                                         <state key="normal" image="xceUploadedCheck"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.1763721406" green="0.17652809620000001" blue="0.18480965499999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="6cb-Dg-DWF" firstAttribute="width" secondItem="yHE-bE-9BX" secondAttribute="width" multiplier="0.7" id="7SD-Oe-e7t"/>
                                     <constraint firstItem="Wrz-Ma-57K" firstAttribute="top" secondItem="Hu9-39-mds" secondAttribute="bottom" constant="151" id="A5H-4Y-ITI"/>

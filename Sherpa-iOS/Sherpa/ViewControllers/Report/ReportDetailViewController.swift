@@ -17,6 +17,7 @@ class ReportDetailViewController: UIViewController {
         super.viewDidLoad()
         
         title = reportViewModel.title
+        view.backgroundColor = .primaryColor
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

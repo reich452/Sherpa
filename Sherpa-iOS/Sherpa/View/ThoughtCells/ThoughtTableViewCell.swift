@@ -15,6 +15,7 @@ class ThoughtTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.backgroundColor = .primaryColor
     }
 
     var thought: Thought? {
@@ -23,7 +24,7 @@ class ThoughtTableViewCell: UITableViewCell {
         }
     }
     
-    // TODO: - Better UI 
+    // TODO: - Better UI
     func updateViews() {
         guard let thought = thought else { return }
         

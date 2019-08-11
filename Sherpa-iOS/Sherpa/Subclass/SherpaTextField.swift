@@ -43,15 +43,6 @@ class SherpaTextField: UITextField {
         }
     }
     
-//    @IBInspectable var placeHolderColor: UIColor? {
-//        get {
-//            return self.placeHolderColor
-//        }
-//        set {
-//            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: newValue!])
-//        }
-//    }
-    
     func updateTextField() {
         
         if borderStyle == UITextField.BorderStyle.none || borderStyle == UITextField.BorderStyle.line {

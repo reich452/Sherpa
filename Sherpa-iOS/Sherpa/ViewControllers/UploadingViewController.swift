@@ -12,7 +12,7 @@ import Firebase
 class UploadingViewController: ShiftableViewController, ActivityIndicatorPresenter {
     
     @IBOutlet weak var selectImageButton: UIButton!
-    @IBOutlet weak var captionSpTextField: SherpaTextField!
+    @IBOutlet weak var captionSpTextField: UITextField!
     @IBOutlet weak var uploadButton: CustomButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var defaultUploadBtn: UIButton!
@@ -118,13 +118,15 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 15
         imageView.backgroundColor = .primaryColor
-        captionSpTextField.bottomBorderColor = .white
         captionSpTextField.tintColor = .white
         captionSpTextField.backgroundColor = .white
         captionSpTextField.textColor = .offsetBlack
         captionSpTextField.layer.cornerRadius = 20
         captionSpTextField.clipsToBounds = true 
         uploadButton.clipsToBounds = true
+        captionSpTextField.placeholderColor(.gray)
+        captionSpTextField.setLeftPaddingPoints(10)
+        captionSpTextField.setRightPaddingPoints(10)
         title = "Upload"
         switch selectedDb {
         case true:

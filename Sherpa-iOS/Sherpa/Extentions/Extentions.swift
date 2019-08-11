@@ -181,6 +181,31 @@ extension UITextView {
     }
 }
 
+// MARK: - TextField
+
+extension UITextField {
+    func placeholderColor(_ color: UIColor){
+        var placeholderText = ""
+        if self.placeholder != nil{
+            placeholderText = self.placeholder!
+        }
+        self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor : color])
+    }
+    
+    func setLeftPaddingPoints(_ amount: CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    
+    func setRightPaddingPoints(_ amount: CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
+    
+}
+
 // MARK: - Notification Names
 
 extension Notification.Name {

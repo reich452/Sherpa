@@ -28,7 +28,8 @@ class DiscussionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         title = "Discussion"
+        title = "Discussion"
+        tableView.backgroundColor = .primaryColor
         fetchCKThoughts()
     }
     

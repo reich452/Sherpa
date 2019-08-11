@@ -42,11 +42,14 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
         CloudKitPostController.shared.delegate = self
         commentTextField.delegate = self
         tableView.separatorColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-        
+        commentTextField.attributedPlaceholder = NSAttributedString(string: "Add a comment",
+                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.backgroundColor = .primaryColor
+        tableView.tableFooterView = UIView()
         guard let post = post else { return }
         checkDB(post: post)
     }
