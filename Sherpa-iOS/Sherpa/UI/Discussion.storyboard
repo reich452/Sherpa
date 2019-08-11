@@ -11,13 +11,13 @@
         <!--Discussion Table View Controller-->
         <scene sceneID="mtP-xB-S2h">
             <objects>
-                <tableViewController storyboardIdentifier="DiscussionTableViewController" id="KwH-CY-NId" customClass="DiscussionTableViewController" customModule="Sherpa" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DiscussionTableViewController" id="KwH-CY-NId" customClass="DiscussionTableViewController" customModule="Cloud_vs_Fire" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dEY-qu-IiJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.070538274940000006" green="0.070617444809999999" blue="0.074757151310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="latestNewsCellId" rowHeight="274" id="yRf-7D-eIf" customClass="LatestNewsTableViewCell" customModule="Sherpa" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="latestNewsCellId" rowHeight="274" id="yRf-7D-eIf" customClass="LatestNewsTableViewCell" customModule="Cloud_vs_Fire" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="274"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yRf-7D-eIf" id="2eq-Fa-NLl">
@@ -118,7 +118,7 @@
                                     <outlet property="webView" destination="FH4-1Z-gcG" id="fEz-5e-8f3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addThoughtCellId" rowHeight="225" id="mF2-14-1DE" customClass="AddThoughtTableViewCell" customModule="Sherpa" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addThoughtCellId" rowHeight="225" id="mF2-14-1DE" customClass="AddThoughtTableViewCell" customModule="Cloud_vs_Fire" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="302" width="375" height="225"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mF2-14-1DE" id="UMF-Vo-PaC">
@@ -137,7 +137,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Atz-sq-Vef" customClass="CustomButton" customModule="Sherpa" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Atz-sq-Vef" customClass="CustomButton" customModule="Cloud_vs_Fire" customModuleProvider="target">
                                             <rect key="frame" x="37.666666666666657" y="10" width="300" height="3"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="3" id="J3d-je-Rrx"/>
@@ -155,7 +155,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhs-4l-VfX" customClass="CustomButton" customModule="Sherpa" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhs-4l-VfX" customClass="CustomButton" customModule="Cloud_vs_Fire" customModuleProvider="target">
                                             <rect key="frame" x="93.666666666666671" y="141.33333333333334" width="187.66666666666663" height="46.333333333333343"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="46.5" id="ycT-FZ-hZ5"/>
@@ -181,7 +181,7 @@
                                                 <segue destination="aKB-jo-Psm" kind="presentation" identifier="toAddThought" id="YFI-eb-ue1"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tb-56-mcG" customClass="CustomButton" customModule="Sherpa" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tb-56-mcG" customClass="CustomButton" customModule="Cloud_vs_Fire" customModuleProvider="target">
                                             <rect key="frame" x="37.666666666666657" y="209.66666666666666" width="300" height="3"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="3" id="QKw-ii-ujb"/>
@@ -252,7 +252,7 @@
                                     <color key="backgroundColor" red="0.070538274940000006" green="0.070617444809999999" blue="0.074757151310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="thoughtCellId" rowHeight="99" id="Aqs-6c-Shn" customClass="ThoughtTableViewCell" customModule="Sherpa" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="thoughtCellId" rowHeight="99" id="Aqs-6c-Shn" customClass="ThoughtTableViewCell" customModule="Cloud_vs_Fire" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="567" width="375" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Aqs-6c-Shn" id="4Ov-Dh-Pef">
