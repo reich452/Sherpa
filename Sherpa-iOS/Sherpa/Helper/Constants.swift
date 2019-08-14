@@ -27,7 +27,6 @@ struct Constants {
     static let dbActionTab = "DataBaseActionTab"
     static let firebaseTab = "FirebaseTab"
     static let feedSB = "Feed"
-    static let firbaseSB = "FBPost"
     static let reportAbuse = "ReportAbuse"
     
     // MARK: - Storyboard ID's
@@ -36,7 +35,6 @@ struct Constants {
     static let firebaseTVC = "FirebaseTableViewController"
     static let uploadVC = "UploadingViewController"
     static let feedTVC = "FeedTableViewController"
-    static let fbFeedTVC = "FBPostTableViewController"
     static let rdPostTVC = "RedditTableViewController"
     static let discussionTVC = "DiscussionTableViewController"
     static let authorTVC = "AuthorTableViewController"
@@ -52,17 +50,6 @@ struct Constants {
     // MARK: - UserDefaultKeys 
     static let hasSeenOnboarding = "hasSeenOnboarding"
     
-    struct Query {
-        
-        static fileprivate let API_KEY: String = "fb333a11ee907b2868d5e2141a2c0222"
-        static let searchBase_url = "https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY
-        static let trendingBase_url = "https://api.themoviedb.org/3/trending/all/day?api_key=" + API_KEY
-        static let query_param = "&query="
-        static let page_parm = "&page=1"
-        static let include_alult_parm = "&include_adult=true"
-        static let image_base_url = "https://image.tmdb.org/t/p/w500"
-    }
-
 }
 
 extension Constants {

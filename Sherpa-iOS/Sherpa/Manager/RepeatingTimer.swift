@@ -61,20 +61,4 @@ class RepeatingTimer {
         state = .suspended
         timer.suspend()
     }
-    
-    
-    @objc func runTimer() -> String {
-        counter += 0.1
-        let flooredCounter = Int(floor(counter))
-        
-        let second = (flooredCounter % 3600) % 60
-        var secondString = "\(second)"
-        if second < 10 {
-            secondString = "\(second)"
-        }
-        print("$$$ REPEAT COUNTER TACK \(counter) $$$$")
-        let decisecond = String(format: "%.1f", counter).components(separatedBy: ".").last!
-        
-        return "\(secondString).\(decisecond)"
-    }
 }

@@ -187,15 +187,8 @@ extension UploadingViewController: FetchAndUploadCounter, OverlayVCDelegate {
     
     // MARK: - OverlayVC Delegate
     func dismissedVC() {
-        if isCKupload == true {
-            let sb = UIStoryboard(name: Constants.feedSB, bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: Constants.feedTVC) as? FeedTableViewController else { return }
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
-            let sb = UIStoryboard(name: Constants.firbaseSB, bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: Constants.fbFeedTVC) as? FBPostTableViewController else { return }
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        let feedVC = FeedTableViewController.instantiate(fromAppStoryboard: .Feed)
+        navigationController?.pushViewController(feedVC, animated: true)
     }
 
 }
