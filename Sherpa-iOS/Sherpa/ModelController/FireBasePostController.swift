@@ -53,7 +53,7 @@ class FireBasePostController {
             let urlString = url.absoluteString
             let fbPost = FBPost(title: title, imageStringURL: urlString, uuid: key)
             let values = [key : fbPost.dictionaryRep]
-            
+            self.fbPosts.insert(fbPost, at: self.fbPosts.startIndex)
             self.databaseReference.child("posts").updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if let error = error {
                     print("Error updating nodes: \(error)")

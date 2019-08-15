@@ -185,8 +185,7 @@ extension UploadingViewController: FetchAndUploadCounter, OverlayVCDelegate {
     
     // MARK: - OverlayVC Delegate
     func dismissedVC() {
-        let feedVC = FeedTableViewController.instantiate(fromAppStoryboard: .Feed)
-        navigationController?.pushViewController(feedVC, animated: true)
+        navigationController?.popViewController(animated: true)
     }
 
 }
