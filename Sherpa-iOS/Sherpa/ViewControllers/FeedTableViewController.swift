@@ -87,20 +87,13 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
             let fbPost = fbPostController.fbPosts[indexPath.row]
             cell.post = fbPost
             cell.delegate = self
-            if fbPost.image == nil {
-                fbPostController.fetchImage(post: fbPost) { (image) in
-                    DispatchQueue.main.async {
-                        if let currentIndexPath = self.tableView.indexPath(for: cell), currentIndexPath == indexPath {
-                            UIView.transition(with: cell.contentView, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                                cell.photoImageView.image = image
-                            }, completion: nil)
-                            cell.activityIndicator.stopAnimating()
-                            cell.contentView.sendSubviewToBack(cell.activityIndicator)
-                        } else {
-                            print(" reusing cell")
-                            return
-                        }
-                    }
+            fbPostController.fetchImage(post: fbPost) { (image) in
+                DispatchQueue.main.async {
+                    UIView.transition(with: cell.contentView, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                        cell.photoImageView.image = image
+                    }, completion: nil)
+                    cell.activityIndicator.stopAnimating()
+                    cell.contentView.sendSubviewToBack(cell.activityIndicator)
                 }
             }
         }
@@ -174,7 +167,7 @@ extension FeedTableViewController {
     func didTapReportButton(_ cell: FeedTableViewCell) {
         
         let reportVC = ReportTableViewController.instantiate(fromAppStoryboard: .ReportAbuse)
-       
+        
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         switch selectedDB {
         case .cloudKit:

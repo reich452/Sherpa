@@ -90,11 +90,11 @@ class FireBasePostController {
             let url = URL(string: fbPost.imageStringURL) else { completion(nil) ; return }
         self.myTimer.increaseCounter()
         self.timerDelegate?.increaseFetchTimer()
-        if let cachedImage = imageCache.object(forKey: url as NSURL) as? UIImage {
-            self.timerDelegate?.timerCompleted()
-            completion(cachedImage)
-        }
-       
+//        if let cachedImage = imageCache.object(forKey: url as NSURL) as? UIImage {
+//            self.timerDelegate?.timerCompleted()
+//            completion(cachedImage)
+//        }
+//
         URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
             guard let self = self else { return }
             if let error = error {
@@ -106,7 +106,7 @@ class FireBasePostController {
           
             self.timerDelegate?.timerCompleted()
             fbPost.image = image
-            self.imageCache.setObject(image, forKey: url as NSURL)
+//            self.imageCache.setObject(image, forKey: url as NSURL)
             completion(image)
             }.resume()
     }

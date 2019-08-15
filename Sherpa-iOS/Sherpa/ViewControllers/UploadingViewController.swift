@@ -19,7 +19,7 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
     @IBOutlet weak var cancelBtn: UIButton!
     
     // MARK: - Properties
-    
+    // TODO: - Take Bool out and use Enum
     public var isCKupload = false
     public var activityIndicator = UIActivityIndicatorView()
     fileprivate var uploadTime: Double = 0.0
@@ -36,7 +36,6 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
         super.viewDidLoad()
         captionSpTextField.delegate = self
         setUpUI(selectedDb: isCKupload)
-        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -159,7 +158,6 @@ extension UploadingViewController: FetchAndUploadCounter, OverlayVCDelegate {
     // MARK: - Timer delegate
     
     func timerCompleted() {
-        print("STOPPPPPED")
         let sb = UIStoryboard(name: "Overlay", bundle: nil)
         guard let overlayVC = sb.instantiateViewController(withIdentifier: "OverlayVC") as? OverlayVC else { return }
         overlayVC.delegate = self

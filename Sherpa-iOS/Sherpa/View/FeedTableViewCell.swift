@@ -74,6 +74,7 @@ class FeedTableViewCell: UITableViewCell {
                 }
             }
         case .firebase:
+            photoImageView.image = #imageLiteral(resourceName: "xceCloudLoad")
             titleLabel.text = post.title
             if let fbPost = post as? FBPost {
                 let date = Date(timeIntervalSince1970: TimeInterval(fbPost.timeInt/1000))
