@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 public protocol ActivityIndicatorPresenter {
     
     var activityIndicator: UIActivityIndicatorView { get }

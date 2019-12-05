@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class StorageManager {
+final class StorageManager {
     
     var storageRef: StorageReference
     

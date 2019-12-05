@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RepeatingTimer {
+final class RepeatingTimer {
     
     let timeInterval: TimeInterval
     var counter = 0.0

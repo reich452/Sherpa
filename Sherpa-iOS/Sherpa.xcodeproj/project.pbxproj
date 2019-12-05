@@ -19,7 +19,6 @@
 		0108764621880CB300FAC3BE /* FBPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108764521880CB300FAC3BE /* FBPost.swift */; };
 		01087648218812B000FAC3BE /* FireBasePostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01087647218812B000FAC3BE /* FireBasePostController.swift */; };
 		0108764A2188138900FAC3BE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010876492188138900FAC3BE /* NetworkError.swift */; };
-		0108764C2188178E00FAC3BE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108764B2188178E00FAC3BE /* NetworkManager.swift */; };
 		010876602188BBA800FAC3BE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108765F2188BBA800FAC3BE /* StorageManager.swift */; };
 		01141AC222BB046E00B4C4BF /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01141AC122BB046E00B4C4BF /* DateHelper.swift */; };
 		011B109E22B5E1810092BADE /* FBFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B109D22B5E1810092BADE /* FBFeedTableViewCell.swift */; };
@@ -177,7 +176,6 @@
 		0108764521880CB300FAC3BE /* FBPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBPost.swift; sourceTree = "<group>"; };
 		01087647218812B000FAC3BE /* FireBasePostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBasePostController.swift; sourceTree = "<group>"; };
 		010876492188138900FAC3BE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		0108764B2188178E00FAC3BE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0108765F2188BBA800FAC3BE /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		01141AC122BB046E00B4C4BF /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		011B109D22B5E1810092BADE /* FBFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBFeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -625,7 +623,6 @@
 			children = (
 				0140A5C422AAB3B500228F52 /* Networking */,
 				017978F221875BCA004BA6C7 /* CameraManager.swift */,
-				0108764B2188178E00FAC3BE /* NetworkManager.swift */,
 				0108765F2188BBA800FAC3BE /* StorageManager.swift */,
 				014C8D412203F96C00B4A1E6 /* RepeatingTimer.swift */,
 				01C85E8F225BD72D007D1237 /* BenchTimer.swift */,
@@ -1059,7 +1056,6 @@
 				018E18DD22BBF07400955731 /* FBComment.swift in Sources */,
 				01001C4022FF6B5B00ECB3DD /* Appearance.swift in Sources */,
 				01904BCC22B3089500EBBB89 /* Report.swift in Sources */,
-				0108764C2188178E00FAC3BE /* NetworkManager.swift in Sources */,
 				010876602188BBA800FAC3BE /* StorageManager.swift in Sources */,
 				012521BE21E93F5800BCD32F /* LoginViewController.swift in Sources */,
 				0120878A2185035C007B7C43 /* ActionTableViewCell.swift in Sources */,
@@ -1296,7 +1292,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wesstpeak.SherpaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sherpa.app/Sherpa";
 			};
@@ -1318,7 +1314,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wesstpeak.SherpaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sherpa.app/Sherpa";
 			};

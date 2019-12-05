@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DateHelper {
+final class DateHelper {
     
     static let shared = DateHelper()
     private init() {}

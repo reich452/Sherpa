@@ -9,7 +9,7 @@
 import Foundation
 import QuartzCore
 
-public class BenchTimer {
+public final class BenchTimer {
 //    @inline(never) - Apple says to no use inline
     /// returns dt time in seconds
     public static func measureBlock(closure:() -> Void) -> CFTimeInterval {

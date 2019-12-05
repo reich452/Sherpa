@@ -14,7 +14,7 @@ enum DBVoteKey: String {
     case cloudKitCount
 }
 
-class VoteController {
+final class VoteController {
     
     private let databaseReference = Database.database().reference()
     private let userDefaults = UserDefaults.standard

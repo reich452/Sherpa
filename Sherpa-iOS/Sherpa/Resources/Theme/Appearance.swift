@@ -13,7 +13,7 @@ enum Appearance {
         
         if #available(iOS 11.0, *) {
             UINavigationBar.appearance().prefersLargeTitles = true
-            UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+          
             UINavigationBar.appearance().backgroundColor = .primaryColor
             UINavigationBar.appearance().tintColor = .white
             UINavigationBar.appearance().barTintColor = .primaryColor

@@ -207,6 +207,8 @@ class CloudKitPostController {
         publicDB.add(operation)
     }
     
+    // MARK: - Image
+    
     func fetchImages(cKpost: Post, completion: @escaping (UIImage?) -> Void) {
         guard let cKpost = cKpost as? CKPost else { return }
         let fetchImageOperation = CKFetchRecordsOperation(recordIDs: [cKpost.recordID])
@@ -255,6 +257,8 @@ class CloudKitPostController {
         }
     }
     
+    // MARK: - Fetch Comments
+    
     func fetchComments(from post: Post, completion: @escaping ([CKComment]?, Error?) -> Void) {
         guard let ckPost = post as? CKPost else { completion(nil, nil); return }
         let postRef = ckPost.recordID
@@ -281,6 +285,8 @@ class CloudKitPostController {
             completion(ckComments, nil)
         }
     }
+    
+    // MARK: - Timer 
     
     func cancelRepeatTimer() {
         rTimer.suspend()
