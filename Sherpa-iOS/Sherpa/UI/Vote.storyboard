@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hhh-bq-WmY">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hhh-bq-WmY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +11,7 @@
         <!--Vote View Controller-->
         <scene sceneID="y5Y-xw-EUf">
             <objects>
-                <viewController storyboardIdentifier="VoteViewController" id="hhh-bq-WmY" customClass="VoteViewController" customModule="Sherpa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VoteViewController" id="hhh-bq-WmY" customClass="VoteViewController" customModule="Cloud_vs_Fire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J3D-ke-qb1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +26,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsi-Uk-9aP" customClass="CardView" customModule="Sherpa" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsi-Uk-9aP" customClass="CardView" customModule="Cloud_vs_Fire" customModuleProvider="target">
                                 <rect key="frame" x="52" y="182" width="310.5" height="134.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tKP-nS-k9h">
@@ -98,7 +97,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nma-Rd-fbd">
-                                <rect key="frame" x="24" y="47" width="28" height="28"/>
+                                <rect key="frame" x="24" y="59" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nma-Rd-fbd" secondAttribute="height" multiplier="1:1" id="d6C-UH-zxp"/>
                                 </constraints>
@@ -121,11 +120,11 @@
                             <constraint firstItem="xsi-Uk-9aP" firstAttribute="width" secondItem="J3D-ke-qb1" secondAttribute="width" multiplier="0.75" id="KfE-iw-k7P"/>
                             <constraint firstItem="AmY-Mf-ZKw" firstAttribute="top" secondItem="xsi-Uk-9aP" secondAttribute="top" constant="5" id="Lce-Tg-1Ha"/>
                             <constraint firstItem="xsi-Uk-9aP" firstAttribute="top" secondItem="Afk-JJ-1AN" secondAttribute="bottom" constant="26.5" id="NjA-Zv-B3y"/>
-                            <constraint firstItem="nma-Rd-fbd" firstAttribute="top" secondItem="jD9-Bg-rpn" secondAttribute="top" constant="3" id="P3W-2c-Wr7"/>
+                            <constraint firstItem="nma-Rd-fbd" firstAttribute="top" secondItem="jD9-Bg-rpn" secondAttribute="top" constant="15" id="P3W-2c-Wr7"/>
                             <constraint firstItem="Es2-om-tnu" firstAttribute="trailing" secondItem="xsi-Uk-9aP" secondAttribute="trailing" constant="-5" id="WwZ-dc-axP"/>
                             <constraint firstItem="HiE-Ku-5cI" firstAttribute="top" secondItem="Gte-6I-Qch" secondAttribute="bottom" constant="17.5" id="Xuz-yS-Bo9"/>
                             <constraint firstItem="HiE-Ku-5cI" firstAttribute="width" secondItem="J3D-ke-qb1" secondAttribute="width" multiplier="0.95" id="au3-HD-3Uh"/>
-                            <constraint firstItem="Afk-JJ-1AN" firstAttribute="top" secondItem="nma-Rd-fbd" secondAttribute="bottom" constant="18" id="dPo-t2-wmu"/>
+                            <constraint firstItem="Afk-JJ-1AN" firstAttribute="top" secondItem="nma-Rd-fbd" secondAttribute="bottom" constant="12" id="dPo-t2-wmu"/>
                             <constraint firstItem="jD9-Bg-rpn" firstAttribute="trailing" secondItem="Afk-JJ-1AN" secondAttribute="trailing" constant="26.5" id="eV8-Xv-dsY"/>
                             <constraint firstItem="xsi-Uk-9aP" firstAttribute="height" secondItem="J3D-ke-qb1" secondAttribute="height" multiplier="0.15" id="n1Z-vt-rmp"/>
                             <constraint firstItem="Gte-6I-Qch" firstAttribute="centerX" secondItem="xsi-Uk-9aP" secondAttribute="centerX" id="szX-qF-Sx3"/>
