@@ -58,20 +58,17 @@ class ShareThoughtViewController: UIViewController {
                 self.showNoActionAlert(titleStr: "Ops", messageStr: "All fields need to be filled in to share your thought", style: .cancel)
                 return
         }
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         if selectedDB == .cloudKit {
             ckDiscussionController?.createThought(author: author, title: title, body: body) { [weak self] (ckThought, error) in
                 guard let self = self else { return }
                 if error != nil {
                     DispatchQueue.main.async {
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         self.showNoActionAlert(titleStr: "Error saving CKThought", messageStr: error?.localizedDescription ?? "Can't read CKError", style: .cancel)
                     }
                 }
                 guard let thought = ckThought else { return }
                 DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     self.dismiss(animated: true, completion: {
                         self.delegate?.reloadThoughts(thought)
                     })
@@ -80,7 +77,6 @@ class ShareThoughtViewController: UIViewController {
         } else {
             fbDiscussionController?.createFBThought(author: author, title: title, body: body, completion: { [weak self] (result)  in
                 guard let self = self else { return }
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case .success(let thought):
                     self.dismiss(animated: true, completion: {

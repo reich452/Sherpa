@@ -137,7 +137,7 @@ extension UITextView {
     func addAccessoryView(_ text: String) {
         let accessory: UIView = {
             let accessoryView = UIView(frame: .zero)
-            accessoryView.backgroundColor = UIColor.groupTableViewBackground
+            accessoryView.backgroundColor = UIColor.systemGroupedBackground
             return accessoryView
         }()
         let cancelButton: UIButton = {

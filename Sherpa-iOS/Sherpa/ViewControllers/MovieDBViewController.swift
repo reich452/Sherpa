@@ -107,7 +107,6 @@ class MovieDBViewController: UIViewController {
     }
     
     func fetchMovies(pageNumber: Int) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         movieController?.getNewMovies(page: pageNumber, completion: { [weak self] result in
@@ -122,7 +121,6 @@ class MovieDBViewController: UIViewController {
                 self.movieController?.fetchImageFrom(movies: movies, completion: { (movies) in
                     print("Movies \(Thread.isMainThread)")
                     self.movies = movies
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     self.activityIndicator.stopAnimating()
                     self.activityIndicator.isHidden = true
                     self.kolodaView.reloadData()
@@ -130,7 +128,6 @@ class MovieDBViewController: UIViewController {
             case.failure(let error):
                 print(error.localizedDescription)
                 DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     self.activityIndicator.stopAnimating()
                 }
             }

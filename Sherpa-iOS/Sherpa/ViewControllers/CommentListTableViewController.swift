@@ -82,11 +82,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     }
     
     func loadCloudKit(post: Post) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         CloudKitPostController.shared.fetchComments(from: post) { (comments, error) in
-            DispatchQueue.main.async {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }
             if error != nil {
                 DispatchQueue.main.async {
                     self.showNoActionAlert(titleStr: "Error loading comments for CKpost", messageStr: error?.localizedDescription ?? "Please try again", style: .cancel)
@@ -103,9 +99,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     }
     
     func loadFBComments(post: Post) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         fbCommentController?.fetchFBComments(from: post) { (fbComments, error) in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             if error == nil {
                 guard let fbComments = fbComments else { return }
                 let fbPost = post as! FBPost

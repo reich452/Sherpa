@@ -33,7 +33,6 @@ class SubmitReportVC: ShiftableViewController, OverlayVCDelegate {
     }
     
     @IBAction func submitBtnTapped(_ sender: Any) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if textView.text.isEmpty {
             self.showNoActionAlert(titleStr: "Please Provide Details", messageStr: "Let us know why this post should be set to review and or removed", style: .cancel); return 
         }
@@ -41,7 +40,6 @@ class SubmitReportVC: ShiftableViewController, OverlayVCDelegate {
             ckReportController.createReport(with: reportViewModel.title, subTitle: reportViewModel.subTitle, reason: textView.text, fromPost: post) { (success, error) in
                 if !success {
                     DispatchQueue.main.async {
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         self.showNoActionAlert(titleStr: "Error Sending Report", messageStr: "\(error?.localizedDescription ??? "Can't upload CKReport at this time")", style: .cancel)
                     }
                 } else {
@@ -50,7 +48,6 @@ class SubmitReportVC: ShiftableViewController, OverlayVCDelegate {
             }
         } else {
             fbReportController.createReport(from: post, title: reportViewModel.title, subTitle: reportViewModel.subTitle, reason: textView.text) { (error) in
-                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 if error == nil {
                    self.reportAddedToPost()
                 } else {
@@ -71,7 +68,6 @@ class SubmitReportVC: ShiftableViewController, OverlayVCDelegate {
         overlayVC.delegate = self
         DispatchQueue.main.async {
             self.textView.text = ""
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.present(overlayVC, animated: true, completion: nil)
         }
     }

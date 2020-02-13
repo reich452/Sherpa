@@ -29,7 +29,7 @@ class VoteViewController: UIViewController {
     private var vote: Vote?
     var voteController: VoteController?
     lazy var activityIndicator: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = UIColor.lightGray
         activityIndicator.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2.5)

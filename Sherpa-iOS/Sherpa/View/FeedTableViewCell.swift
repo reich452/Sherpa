@@ -22,7 +22,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     
     lazy var activityIndicator: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.center = CGPoint(x: self.frame.width/2, y: self.frame.height/2.5)
         self.addSubview(activityIndicator)

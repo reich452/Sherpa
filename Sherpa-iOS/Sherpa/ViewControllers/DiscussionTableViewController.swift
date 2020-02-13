@@ -39,7 +39,6 @@ class DiscussionTableViewController: UITableViewController {
     
     private func fetchCKThoughts() {
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if selectedDB == .cloudKit {
             // TODO: - Comments for a thought
             cKDiscussionController?.fetchThoughts { [weak self] (result) in
@@ -49,7 +48,6 @@ class DiscussionTableViewController: UITableViewController {
                     guard let ckThoughts = ckThoughts else { return }
                     self.thoughs = ckThoughts
                     DispatchQueue.main.async {
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         self.tableView.reloadSections(IndexSet(integer: 3), with: .fade)
                     }
                 case .failure(let error):
@@ -66,9 +64,7 @@ class DiscussionTableViewController: UITableViewController {
                     guard let fbThought = fbThought, !fbThought.isEmpty else { return }
                     self.thoughs = fbThought
                     self.tableView.reloadSections(IndexSet(integersIn: 3...3), with: .fade)
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 case .failure(let error):
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     self.showNoActionAlert(titleStr: "Error Fetching Firebase Thoughts", messageStr: error.localizedDescription, style: .cancel)
                 }
             })
