@@ -35,6 +35,8 @@ class LatestNewsTableViewCell: UITableViewCell, WKNavigationDelegate {
         headerImage.roundCornersForAspectFit(radius: 8)
         webView.navigationDelegate = self
     }
+    
+    // MARK: - Actions
 
     @IBAction func playBtnTapped(_ sender: Any) {
         delegate?.didTapPlayButton(self)

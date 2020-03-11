@@ -17,7 +17,7 @@ class ThoughtTableViewCell: UITableViewCell {
         super.awakeFromNib()
         contentView.backgroundColor = .primaryColor
     }
-
+    
     var thought: Thought? {
         didSet {
             updateViews()
@@ -25,7 +25,7 @@ class ThoughtTableViewCell: UITableViewCell {
     }
     
     // TODO: - Better UI
-    func updateViews() {
+    private func updateViews() {
         guard let thought = thought else { return }
         
         nameLabel.text = thought.author
@@ -38,5 +38,4 @@ class ThoughtTableViewCell: UITableViewCell {
             dateLabel.text = DateHelper.shared.dateToString(date: date)
         }
     }
- 
 }

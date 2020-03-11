@@ -49,5 +49,4 @@ class ActionTableViewCell: UITableViewCell {
      
         }
     }
-
 }

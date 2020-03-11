@@ -27,8 +27,8 @@ class DataBaseActionTVC: UITableViewController{
         tabBarController?.tabBar.isHidden = false 
     }
     
-    
     // MARK: - Table view data source
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return Constants.dataBaseTVCarray.count
@@ -81,7 +81,7 @@ class DataBaseActionTVC: UITableViewController{
             cell.secondIconImageView.isHidden = true
         }
     }
-
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,7 +107,7 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
     }
     
     func hideSelectedObjects(sender: ActionTableViewCell) {
-            setUpTitle(tab: sender.selectedDB ?? .cloudKit)
+        setUpTitle(tab: sender.selectedDB ?? .cloudKit)
         if self.tabBarController?.selectedIndex == 1 {
             sender.iconImageView.image = #imageLiteral(resourceName: "xcCloudKit_logo")
             sender.actionLabel.textColor = .cloudKitLightBlue
@@ -152,7 +152,7 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
                 let sb = UIStoryboard(name: "Uploading", bundle: nil)
                 guard let vc = sb.instantiateViewController(withIdentifier: Constants.uploadVC) as? UploadingViewController else { return }
                 vc.isCKupload = true
-
+                
                 self.navigationController?.pushViewController(vc, animated: true)
             } else {
                 let sb = UIStoryboard(name: "Uploading", bundle: nil)
@@ -160,9 +160,9 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
                 vc.isCKupload = false
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-
+            
         default:
-            print("Something broke \(#file) \(#function)")
+            print("performSegueFrom(cell: ActionTableViewCell broke: \(#file) \(#function)")
         }
     }
 }

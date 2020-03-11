@@ -17,5 +17,4 @@ enum CustomFonts: String {
     func of(size: CGFloat) -> UIFont {
         return  UIFont(name: self.rawValue, size: size) ?? UIFont()
     }
-
 }

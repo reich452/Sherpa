@@ -28,20 +28,21 @@ class FeedTableViewCell: UITableViewCell {
         self.addSubview(activityIndicator)
         return activityIndicator
     }()
-
+    
+    weak var delegate: FeedTableViewCellDelegate?
     var post: Post? {
         didSet {
             updateViews()
         }
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.addSubview(activityIndicator)
-       
     }
     
-    weak var delegate: FeedTableViewCellDelegate?  
- 
+    // MARK: - Actions
+    
     @IBAction func didTapCommentButton(_ sender: Any) {
         if let delegate = delegate {
             delegate.didTapCommentButton(self)
@@ -53,7 +54,8 @@ class FeedTableViewCell: UITableViewCell {
             delegate.didTapReportButton(self)
         }
     }
-    func updateViews() {
+    
+   private func updateViews() {
         contentView.backgroundColor = .primaryColor
         guard let post = post else { return }
         switch post.dataBase {

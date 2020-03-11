@@ -36,7 +36,6 @@ class ShareThoughtViewController: UIViewController {
         setUpUI()
     }
     
-    
     // MARK: - Actions
     
     @IBAction func randomizeBtnTapped(_ sender: UIButton) {
@@ -97,8 +96,6 @@ class ShareThoughtViewController: UIViewController {
     class func storyBoardInstance() -> ShareThoughtViewController? {
         return UIStoryboard(name: "ShareThought", bundle: nil).instantiateInitialViewController() as? ShareThoughtViewController
     }
-    
-    
 }
 
 extension ShareThoughtViewController: UITextViewDelegate, UITextFieldDelegate {

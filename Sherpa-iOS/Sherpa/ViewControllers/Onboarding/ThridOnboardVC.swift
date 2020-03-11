@@ -19,7 +19,6 @@ class ThirdOnboardVC: UIViewController {
         dbImageView.layer.cornerRadius = 12
         view.backgroundColor = .primaryColor
     }
-
     
     @IBAction func handelTapGestures(_ sender: UITapGestureRecognizer) {
         performAnimation()

@@ -10,5 +10,4 @@ import UIKit
 
 class SectionHeaderCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var sectionHeaderLabel: UILabel!
-    
 }

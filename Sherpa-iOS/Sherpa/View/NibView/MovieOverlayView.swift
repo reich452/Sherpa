@@ -11,7 +11,6 @@ import Koloda
 
 class MovieOverlayView: OverlayView {
 
-
     @IBOutlet lazy var overlayImageView: UIImageView! = {
         [unowned self] in
     
@@ -35,5 +34,4 @@ class MovieOverlayView: OverlayView {
             }
         }
     }
-
 }

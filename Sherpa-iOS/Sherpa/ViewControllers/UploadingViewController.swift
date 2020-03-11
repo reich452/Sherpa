@@ -37,14 +37,14 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
         captionSpTextField.delegate = self
         setUpUI(selectedDb: isCKupload)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         CloudKitPostController.shared.myTimer.resetTimer()
     }
     
     // MARK: - Actions
-
+    
     @IBAction func cancelBtnTapped(_ sender: UIButton) {
         view.insertSubview(defaultUploadBtn, at: 2)
         view.insertSubview(selectImageButton, at: 2)
@@ -110,7 +110,7 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
     
     // MARK: - Main
     
-    func setUpUI(selectedDb: Bool) {
+    private func setUpUI(selectedDb: Bool) {
         tabBarController?.tabBar.isHidden = true
         view.backgroundColor = .primaryColor
         cancelBtn.isHidden = true
@@ -187,5 +187,4 @@ extension UploadingViewController: FetchAndUploadCounter, OverlayVCDelegate {
     func dismissedVC() {
         navigationController?.popViewController(animated: true)
     }
-
 }

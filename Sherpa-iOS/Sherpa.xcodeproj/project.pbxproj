@@ -21,7 +21,6 @@
 		0108764A2188138900FAC3BE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010876492188138900FAC3BE /* NetworkError.swift */; };
 		010876602188BBA800FAC3BE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108765F2188BBA800FAC3BE /* StorageManager.swift */; };
 		01141AC222BB046E00B4C4BF /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01141AC122BB046E00B4C4BF /* DateHelper.swift */; };
-		011B109E22B5E1810092BADE /* FBFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B109D22B5E1810092BADE /* FBFeedTableViewCell.swift */; };
 		011B10A022B5E88E0092BADE /* FBReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B109F22B5E88E0092BADE /* FBReportController.swift */; };
 		011B10A222B7FCA30092BADE /* CKReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B10A122B7FCA30092BADE /* CKReportController.swift */; };
 		0120870A2184D3CE007B7C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012087092184D3CE007B7C43 /* AppDelegate.swift */; };
@@ -178,7 +177,6 @@
 		010876492188138900FAC3BE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		0108765F2188BBA800FAC3BE /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		01141AC122BB046E00B4C4BF /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		011B109D22B5E1810092BADE /* FBFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBFeedTableViewCell.swift; sourceTree = "<group>"; };
 		011B109F22B5E88E0092BADE /* FBReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBReportController.swift; sourceTree = "<group>"; };
 		011B10A122B7FCA30092BADE /* CKReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKReportController.swift; sourceTree = "<group>"; };
 		012087062184D3CE007B7C43 /* Cloud.vs.Fire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloud.vs.Fire.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -516,7 +514,6 @@
 				012087842184F353007B7C43 /* SectionHeaderCollectionReusableView.swift */,
 				012087892185035C007B7C43 /* ActionTableViewCell.swift */,
 				0179790C21878661004BA6C7 /* FeedTableViewCell.swift */,
-				011B109D22B5E1810092BADE /* FBFeedTableViewCell.swift */,
 				019FEAB322C0578E00419590 /* ThoughtCells */,
 				019EB3E021A1325A00BD9FC2 /* AuthorTableViewCell.swift */,
 			);
@@ -1052,7 +1049,6 @@
 				012D059F22124C1E00741413 /* MyTimer.swift in Sources */,
 				017978F121874C66004BA6C7 /* SherpaTextField.swift in Sources */,
 				0107E1B822C12E4E006B8555 /* CKDisicussionController.swift in Sources */,
-				011B109E22B5E1810092BADE /* FBFeedTableViewCell.swift in Sources */,
 				018E18DD22BBF07400955731 /* FBComment.swift in Sources */,
 				01001C4022FF6B5B00ECB3DD /* Appearance.swift in Sources */,
 				01904BCC22B3089500EBBB89 /* Report.swift in Sources */,

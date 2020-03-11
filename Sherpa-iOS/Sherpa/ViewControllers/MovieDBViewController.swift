@@ -106,7 +106,7 @@ class MovieDBViewController: UIViewController {
         }
     }
     
-    func fetchMovies(pageNumber: Int) {
+   fileprivate func fetchMovies(pageNumber: Int) {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         movieController?.getNewMovies(page: pageNumber, completion: { [weak self] result in

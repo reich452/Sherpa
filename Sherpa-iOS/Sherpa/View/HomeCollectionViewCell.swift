@@ -20,6 +20,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: HomeCollectionViewCellDelegate?
     
+    // MARK: - Actions
+    
     @IBAction func didTapCellButton(_ sender: UIButton) {
         delegate?.didTapCellButton(cell: self)
     }
@@ -30,5 +32,4 @@ class HomeCollectionViewCell: UICollectionViewCell {
         topContainerView.clipsToBounds = true
         logoImageView.clipsToBounds = true
     }
- 
 }

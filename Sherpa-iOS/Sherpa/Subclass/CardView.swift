@@ -8,11 +8,9 @@
 
 import UIKit
 
-@IBDesignable
-class CardView: UIView {
+@IBDesignable class CardView: UIView {
     
-    @IBInspectable
-    var cornerRadius: CGFloat {
+    @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -21,8 +19,7 @@ class CardView: UIView {
         }
     }
     
-    @IBInspectable
-    var borderWidth: CGFloat {
+    @IBInspectable var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -31,8 +28,7 @@ class CardView: UIView {
         }
     }
     
-    @IBInspectable
-    var borderColor: UIColor? {
+    @IBInspectable var borderColor: UIColor? {
         get {
             if let color = layer.borderColor {
                 return UIColor(cgColor: color)
@@ -48,8 +44,7 @@ class CardView: UIView {
         }
     }
     
-    @IBInspectable
-    var shadowRadius: CGFloat {
+    @IBInspectable var shadowRadius: CGFloat {
         get {
             return layer.shadowRadius
         }
@@ -58,8 +53,7 @@ class CardView: UIView {
         }
     }
     
-    @IBInspectable
-    var shadowOpacity: Float {
+    @IBInspectable var shadowOpacity: Float {
         get {
             return layer.shadowOpacity
         }
@@ -68,8 +62,7 @@ class CardView: UIView {
         }
     }
     
-    @IBInspectable
-    var shadowOffset: CGSize {
+    @IBInspectable var shadowOffset: CGSize {
         get {
             return layer.shadowOffset
         }
@@ -78,8 +71,7 @@ class CardView: UIView {
         }
     }
     
-    @IBInspectable
-    var shadowColor: UIColor? {
+    @IBInspectable var shadowColor: UIColor? {
         get {
             if let color = layer.shadowColor {
                 return UIColor(cgColor: color)

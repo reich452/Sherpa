@@ -10,12 +10,12 @@ import Foundation
 
 extension TimeInterval {
     // MARK: - Computed Type Properties
-    internal static var secondsPerDay: Double { return 24 * 60 * 60 }
-    internal static var secondsPerHour: Double { return 60 * 60 }
-    internal static var secondsPerMinute: Double { return 60 }
-    internal static var millisecondsPerSecond: Double { return 1_000 }
-    internal static var microsecondsPerSecond: Double { return 1_000 * 1_000 }
-    internal static var nanosecondsPerSecond: Double { return 1_000 * 1_000 * 1_000 }
+    static var secondsPerDay: Double { return 24 * 60 * 60 }
+    static var secondsPerHour: Double { return 60 * 60 }
+    static var secondsPerMinute: Double { return 60 }
+    static var millisecondsPerSecond: Double { return 1_000 }
+    static var microsecondsPerSecond: Double { return 1_000 * 1_000 }
+    static var nanosecondsPerSecond: Double { return 1_000 * 1_000 * 1_000 }
     
     // MARK: - Computed Instance Properties
     /// - Returns: The `TimeInterval` in days.
@@ -62,14 +62,16 @@ extension TimeInterval {
     var minuteSecondMS: String {
         return String(format:"%d:%02d.%03d", minute, second, millisecondTotal)
     }
+    
     var minute: Int {
         return Int((self/60).truncatingRemainder(dividingBy: 60))
     }
+    
     var second: Int {
         return Int(truncatingRemainder(dividingBy: 60))
     }
+    
     var millisecondTotal: Int {
         return Int((self*1000).truncatingRemainder(dividingBy: 1000))
     }
-
 }

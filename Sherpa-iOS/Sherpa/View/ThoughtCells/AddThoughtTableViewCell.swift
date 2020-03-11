@@ -16,8 +16,6 @@ class AddThoughtTableViewCell: UITableViewCell {
     @IBOutlet weak var addButton: CustomButton!
     @IBOutlet weak var bottomButton: CustomButton!
     
-  
-
     func updateViews(selectedDB: SelectedIconDB) {
         contentView.backgroundColor = .primaryColor
         if selectedDB == .cloudKit {
@@ -35,7 +33,8 @@ class AddThoughtTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Actions 
+    
     @IBAction func addButtonTapped(_ sender: CustomButton) {
     }
-    
 }

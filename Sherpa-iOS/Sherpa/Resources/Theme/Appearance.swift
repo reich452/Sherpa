@@ -40,5 +40,4 @@ enum Appearance {
             UILabel.appearance().textColor = .appWhite
         }
     }
-    
 }

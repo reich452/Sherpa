@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Constants {
+enum Constants {
     
     static let cloudKitVideo = "https://devstreaming-cdn.apple.com/videos/wwdc/2019/202mm1h4jl4wiz1h3/202/202_sd_using_core_data_with_cloudkit.mp4?dl=1"
     // MARK: - Cell ID's
@@ -49,7 +49,6 @@ struct Constants {
     
     // MARK: - UserDefaultKeys 
     static let hasSeenOnboarding = "hasSeenOnboarding"
-    
 }
 
 extension Constants {

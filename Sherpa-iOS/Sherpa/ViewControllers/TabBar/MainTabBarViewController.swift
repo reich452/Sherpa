@@ -9,14 +9,14 @@
 import UIKit
 
 class MainTabBarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customTabBar()
         self.tabBar.barTintColor = UIColor.black
     }
     
-    func customTabBar() {
+    private func customTabBar() {
         let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
         let navigationController = storyboard1.instantiateViewController(withIdentifier: "HomeViewController")
         let firstNavigationController = UINavigationController(rootViewController: navigationController)
@@ -34,7 +34,7 @@ class MainTabBarViewController: UITabBarController {
         let thridNavigationController = UINavigationController(rootViewController: saveSearchTVC)
         thridNavigationController.title = "Firebase"
         thridNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcFirebase_Icon")
-
+        
         viewControllers = [firstNavigationController, secondNavigationController, thridNavigationController]
         tabBar.isTranslucent = true
         
@@ -47,5 +47,4 @@ class MainTabBarViewController: UITabBarController {
         tabBar.clipsToBounds = true
         
     }
-
 }

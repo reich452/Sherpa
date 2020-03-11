@@ -10,7 +10,6 @@ import UIKit
 
 extension UIFont {
   
-    
     static var commentFont: UIFont {
         return UIFont(name: "Cabin-Regular", size: 13.0)!
     }

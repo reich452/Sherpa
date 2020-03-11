@@ -17,7 +17,6 @@ class AuthorTableViewCell: UITableViewCell {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var opinionLabel: UILabel!
     
-    
     var author: Author? {
         didSet {
             guard let author = author else { return }
@@ -26,14 +25,14 @@ class AuthorTableViewCell: UITableViewCell {
         }
     }
     
-    func updateViews(author: Author) {
+   private func updateViews(author: Author) {
         proTextLabel.text = author.pro
         conTextLabel.text = author.con
         detailLabel.text = author.detail
         opinionLabel.text = author.opinion
     }
     
-    func checkRating(author: Author) {
+   private func checkRating(author: Author) {
         switch author.rating {
         case 0:
             ratingLabel.text = "Rating 0"
