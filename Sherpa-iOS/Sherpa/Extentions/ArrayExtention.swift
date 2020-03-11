@@ -22,6 +22,5 @@ extension Array {
             }
         }
         return result.value.map { $0! }
-        
     }
 }

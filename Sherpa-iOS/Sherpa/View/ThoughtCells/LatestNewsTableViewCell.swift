@@ -15,17 +15,16 @@ protocol LatestNewsTableViewCellDelegate: class {
 
 class LatestNewsTableViewCell: UITableViewCell, WKNavigationDelegate {
     
-    @IBOutlet weak var headerTitleLabel: UILabel!
-    @IBOutlet weak var headerImage: UIImageView!
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var playViewBackground: UIView!
-    @IBOutlet weak var overlayPlayBtn: UIButton!
-    @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var percentLabel: UILabel!
+    @IBOutlet private weak var headerTitleLabel: UILabel!
+    @IBOutlet private weak var headerImage: UIImageView!
+    @IBOutlet private weak var playButton: UIButton!
+    @IBOutlet private weak var playViewBackground: UIView!
+    @IBOutlet private weak var overlayPlayBtn: UIButton!
+    @IBOutlet private weak var webView: WKWebView!
+    @IBOutlet private weak var percentLabel: UILabel!
     
     private var estimatedProgressObserver: NSKeyValueObservation?
     weak var delegate: LatestNewsTableViewCellDelegate?
-    var selectedDB: SelectedIconDB?
     
     override func awakeFromNib() {
         super.awakeFromNib()

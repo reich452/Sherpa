@@ -10,11 +10,11 @@ import UIKit
 
 class AddThoughtTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var underLineBtn: CustomButton!
-    @IBOutlet weak var addButton: CustomButton!
-    @IBOutlet weak var bottomButton: CustomButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var infoLabel: UILabel!
+    @IBOutlet private weak var underLineBtn: CustomButton!
+    @IBOutlet private weak var addButton: CustomButton!
+    @IBOutlet private weak var bottomButton: CustomButton!
     
     func updateViews(selectedDB: SelectedIconDB) {
         contentView.backgroundColor = .primaryColor
@@ -35,6 +35,7 @@ class AddThoughtTableViewCell: UITableViewCell {
     
     // MARK: - Actions 
     
-    @IBAction func addButtonTapped(_ sender: CustomButton) {
+    @IBAction private func addButtonTapped(_ sender: CustomButton) {
+        // no op. 
     }
 }

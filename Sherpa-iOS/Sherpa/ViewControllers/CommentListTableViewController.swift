@@ -17,16 +17,17 @@ protocol DidPassUpdatedComments: class {
 class CommentListTableViewController: UITableViewController, CommentUpdatedToDelegate {
     
     
-    @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var commentTextField: UITextField!
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet private weak var photoImageView: UIImageView!
+    @IBOutlet private weak var commentTextField: UITextField!
+    @IBOutlet private weak var addButton: UIButton!
     
     // MARK: - Properties
+    private var didSeeFbComments = false
+    private var didSeeCkComments = false
+   
     public var indexPath: IndexPath?
     public weak var commentDelegate: DidPassUpdatedComments?
     var fbCommentController: FBCommnetController?
-    var didSeeFbComments = false
-    var didSeeCkComments = false
     
     public var post: Post? {
         didSet {
@@ -63,7 +64,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     }
     
     // MARK: - Main
-    func updateView() {
+   private func updateView() {
         guard let post = post else { return }
         if post.dataBase == .cloudKit {
             DispatchQueue.main.async {

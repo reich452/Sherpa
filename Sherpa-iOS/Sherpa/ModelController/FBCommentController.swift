@@ -49,5 +49,4 @@ class FBCommnetController {
             completion(fbComments, nil)
         }
     }
-    
 }

@@ -11,10 +11,8 @@ import Firebase
 
 class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate, DidPassUpdatedComments, FetchAndUploadCounter  {
     
-    var resultsArray: [Post]?
-    var isSearching: Bool = false
-    var activityIndicator = UIActivityIndicatorView()
     var selectedDB: SelectedIconDB = .cloudKit
+    private var isSearching: Bool = false
     private lazy var fbPostController: FireBasePostController = {
         let storageRef = StorageReference()
         let storageManager = StorageManager(storageRef: storageRef)
@@ -177,7 +175,6 @@ extension FeedTableViewController {
         }
     }
     
-    
     func didTapCommentButton(_ cell: FeedTableViewCell) {
         performSegue(withIdentifier: Constants.toCommentVC, sender: cell)
     }
@@ -189,5 +186,4 @@ extension FeedTableViewController: MyTimerDelegate {
     func updateTimeLable(counterStr: String) {
         self.navigationItem.title = "Fetching Time: \(counterStr)"
     }
-    
 }

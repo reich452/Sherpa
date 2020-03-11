@@ -33,7 +33,7 @@ class ActionTableViewCell: UITableViewCell {
         }
     }
     // MARK: - Actions
-    @IBAction func didTapCellButton(_ sender: Any) {
+    @IBAction private func didTapCellButton(_ sender: Any) {
         pushVCDelegate?.performSegueFrom(cell: self)
     }
     

@@ -10,12 +10,12 @@ import UIKit
 
 class AuthorTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cardView: CardView!
-    @IBOutlet weak var proTextLabel: UILabel!
-    @IBOutlet weak var conTextLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var opinionLabel: UILabel!
+    @IBOutlet private weak var cardView: CardView!
+    @IBOutlet private weak var proTextLabel: UILabel!
+    @IBOutlet private weak var conTextLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var detailLabel: UILabel!
+    @IBOutlet private weak var opinionLabel: UILabel!
     
     var author: Author? {
         didSet {

@@ -76,8 +76,6 @@
 		012521BB21E93E8100BCD32F /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012521BA21E93E8100BCD32F /* CustomButton.swift */; };
 		012521BE21E93F5800BCD32F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012521BD21E93F5800BCD32F /* LoginViewController.swift */; };
 		012D059F22124C1E00741413 /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D059E22124C1E00741413 /* MyTimer.swift */; };
-		0135D6742204E79900C301A2 /* TimeIntervalExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */; };
-		0135D6762206384C00C301A2 /* IntExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135D6752206384C00C301A2 /* IntExtention.swift */; };
 		0140A5C822AAB44B00228F52 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5C722AAB44B00228F52 /* ServiceProtocol.swift */; };
 		0140A5CA22AAB4A700228F52 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5C922AAB4A700228F52 /* HTTPMethod.swift */; };
 		0140A5CC22AAB4F600228F52 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5CB22AAB4F600228F52 /* HTTPTask.swift */; };
@@ -90,7 +88,6 @@
 		0140A5E222B024F900228F52 /* MovieDBWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5E122B024F800228F52 /* MovieDBWebVC.swift */; };
 		0140A5E422B18DB700228F52 /* ShiftableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140A5E322B18DB700228F52 /* ShiftableViewController.swift */; };
 		014C8D422203F96C00B4A1E6 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C8D412203F96C00B4A1E6 /* RepeatingTimer.swift */; };
-		015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3C0219C99C70038EA7F /* AuthorController.swift */; };
 		015FE3C3219CDECF0038EA7F /* Discussion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015FE3C2219CDECF0038EA7F /* Discussion.storyboard */; };
 		015FE3C5219CDF5A0038EA7F /* DiscussionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FE3C4219CDF5A0038EA7F /* DiscussionTableViewController.swift */; };
 		017978EC218745ED004BA6C7 /* Uploading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017978EB218745ED004BA6C7 /* Uploading.storyboard */; };
@@ -236,8 +233,6 @@
 		012521BA21E93E8100BCD32F /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		012521BD21E93F5800BCD32F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		012D059E22124C1E00741413 /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
-		0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtention.swift; sourceTree = "<group>"; };
-		0135D6752206384C00C301A2 /* IntExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtention.swift; sourceTree = "<group>"; };
 		0140A5C722AAB44B00228F52 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		0140A5C922AAB4A700228F52 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		0140A5CB22AAB4F600228F52 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -250,7 +245,6 @@
 		0140A5E122B024F800228F52 /* MovieDBWebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBWebVC.swift; sourceTree = "<group>"; };
 		0140A5E322B18DB700228F52 /* ShiftableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftableViewController.swift; sourceTree = "<group>"; };
 		014C8D412203F96C00B4A1E6 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
-		015FE3C0219C99C70038EA7F /* AuthorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorController.swift; sourceTree = "<group>"; };
 		015FE3C2219CDECF0038EA7F /* Discussion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discussion.storyboard; sourceTree = "<group>"; };
 		015FE3C4219CDF5A0038EA7F /* DiscussionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionTableViewController.swift; sourceTree = "<group>"; };
 		017978EB218745ED004BA6C7 /* Uploading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Uploading.storyboard; sourceTree = "<group>"; };
@@ -578,8 +572,6 @@
 			isa = PBXGroup;
 			children = (
 				01208796218538B4007B7C43 /* Extentions.swift */,
-				0135D6732204E79900C301A2 /* TimeIntervalExtention.swift */,
-				0135D6752206384C00C301A2 /* IntExtention.swift */,
 				017BD90D22177ADB002669EE /* ArrayExtention.swift */,
 			);
 			path = Extentions;
@@ -604,7 +596,6 @@
 				01208791218536E3007B7C43 /* CloudKitPostController.swift */,
 				01087647218812B000FAC3BE /* FireBasePostController.swift */,
 				018E18DA22BBEFE100955731 /* FBCommentController.swift */,
-				015FE3C0219C99C70038EA7F /* AuthorController.swift */,
 				017E34592266BB9800B493E1 /* MovieController.swift */,
 				011B109F22B5E88E0092BADE /* FBReportController.swift */,
 				011B10A122B7FCA30092BADE /* CKReportController.swift */,
@@ -1006,7 +997,6 @@
 				01904BD122B4146400EBBB89 /* ReportDetailViewController.swift in Sources */,
 				0140A5C822AAB44B00228F52 /* ServiceProtocol.swift in Sources */,
 				01035FF921C6E8A50023BD60 /* Protocols.swift in Sources */,
-				015FE3C1219C99C70038EA7F /* AuthorController.swift in Sources */,
 				0140A5D422AABC7B00228F52 /* JSONParameterEncoder.swift in Sources */,
 				0140A5E422B18DB700228F52 /* ShiftableViewController.swift in Sources */,
 				017BD90C22177A43002669EE /* ThreadSafe.swift in Sources */,
@@ -1040,7 +1030,6 @@
 				012087352184DA36007B7C43 /* DataBaseActionTableViewController.swift in Sources */,
 				018E18DB22BBEFE100955731 /* FBCommentController.swift in Sources */,
 				01AB924E22FC9CB5001D86DE /* Vote.swift in Sources */,
-				0135D6742204E79900C301A2 /* TimeIntervalExtention.swift in Sources */,
 				0140A5CC22AAB4F600228F52 /* HTTPTask.swift in Sources */,
 				019FEAB522C057E900419590 /* AddThoughtTableViewCell.swift in Sources */,
 				017BD90E22177ADB002669EE /* ArrayExtention.swift in Sources */,
@@ -1067,7 +1056,6 @@
 				0107E1B422C07A5A006B8555 /* Thought.swift in Sources */,
 				017979122187AA9B004BA6C7 /* PublicProtocols.swift in Sources */,
 				01904BD822B47A0000EBBB89 /* CKReport.swift in Sources */,
-				0135D6762206384C00C301A2 /* IntExtention.swift in Sources */,
 				01F7B25F21964BA700902239 /* Comment.swift in Sources */,
 				011B10A022B5E88E0092BADE /* FBReportController.swift in Sources */,
 				01001C4222FF6CD500ECB3DD /* AppFont.swift in Sources */,

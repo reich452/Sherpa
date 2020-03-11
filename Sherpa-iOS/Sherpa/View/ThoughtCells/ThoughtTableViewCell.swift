@@ -9,9 +9,9 @@
 import UIKit
 
 class ThoughtTableViewCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var thoughtText: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var thoughtText: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

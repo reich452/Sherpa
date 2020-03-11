@@ -11,12 +11,12 @@ import Firebase
 
 class UploadingViewController: ShiftableViewController, ActivityIndicatorPresenter {
     
-    @IBOutlet weak var selectImageButton: UIButton!
-    @IBOutlet weak var captionSpTextField: UITextField!
-    @IBOutlet weak var uploadButton: CustomButton!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var defaultUploadBtn: UIButton!
-    @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet private weak var selectImageButton: UIButton!
+    @IBOutlet private weak var captionSpTextField: UITextField!
+    @IBOutlet private weak var uploadButton: CustomButton!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var defaultUploadBtn: UIButton!
+    @IBOutlet private weak var cancelBtn: UIButton!
     
     // MARK: - Properties
     // TODO: - Take Bool out and use Enum

@@ -14,10 +14,10 @@ protocol OverlayVCDelegate: class {
 
 class OverlayVC: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var cardView: CardView!
-    @IBOutlet weak var checkBtn: UIButton!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var cardView: CardView!
+    @IBOutlet private weak var checkBtn: UIButton!
+    @IBOutlet private weak var timeLabel: UILabel!
     
     // MARK: - Properties
     public var uploadTime: Double = 0.0

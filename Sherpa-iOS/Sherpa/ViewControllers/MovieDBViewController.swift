@@ -12,14 +12,14 @@ import pop
 
 class MovieDBViewController: UIViewController {
     
-    @IBOutlet weak var speedLabel: UILabel!
-    @IBOutlet weak var kolodaView: KolodaView!
-    @IBOutlet weak var defaultImageView: UIImageView!
-    @IBOutlet weak var infoButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var speedLabel: UILabel!
+    @IBOutlet private weak var kolodaView: KolodaView!
+    @IBOutlet private weak var defaultImageView: UIImageView!
+    @IBOutlet private weak var infoButton: UIButton!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     var movieController: MovieController?
-    var movies: [Movie] = []
-    var pageNumber = 1
+    fileprivate var pageNumber = 1
+    fileprivate var movies: [Movie] = []
     fileprivate var dragSpeed: DragSpeed?
     
     override func viewDidLoad() {
@@ -35,7 +35,7 @@ class MovieDBViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
     }
     
-    func setUpUi() {
+    private func setUpUi() {
         defaultImageView.clipsToBounds = true
         defaultImageView.layer.cornerRadius = 15
         kolodaView.layer.cornerRadius = 15
@@ -48,7 +48,7 @@ class MovieDBViewController: UIViewController {
     
     // MARK: - Actions 
     @IBAction func editBtnTapped(_ sender: UIBarButtonItem) {
-        
+        // no op.
     }
     
     @IBAction func didTapInfoBtn(_ sender: UIButton) {
@@ -89,7 +89,7 @@ class MovieDBViewController: UIViewController {
     
     // MARK: - Main
     
-    func changeDragSpeed(_ speed: DragSpeed) {
+    private func changeDragSpeed(_ speed: DragSpeed) {
         switch speed {
         case .fast:
             speedLabel.text = "Swiping Speed: Fast"
@@ -106,7 +106,7 @@ class MovieDBViewController: UIViewController {
         }
     }
     
-   fileprivate func fetchMovies(pageNumber: Int) {
+    fileprivate func fetchMovies(pageNumber: Int) {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         movieController?.getNewMovies(page: pageNumber, completion: { [weak self] result in

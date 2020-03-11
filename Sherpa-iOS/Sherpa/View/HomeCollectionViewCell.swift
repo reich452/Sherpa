@@ -13,8 +13,8 @@ protocol HomeCollectionViewCellDelegate: class {
 }
 
 class HomeCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var backContainerView: UIView!
-    @IBOutlet weak var topContainerView: UIView!
+    @IBOutlet private weak var backContainerView: UIView!
+    @IBOutlet private weak var topContainerView: UIView!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var cellButton: UIButton!
     
@@ -22,7 +22,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Actions
     
-    @IBAction func didTapCellButton(_ sender: UIButton) {
+    @IBAction private func didTapCellButton(_ sender: UIButton) {
         delegate?.didTapCellButton(cell: self)
     }
     

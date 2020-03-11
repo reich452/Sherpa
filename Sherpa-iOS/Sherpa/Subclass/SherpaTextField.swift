@@ -49,7 +49,9 @@ import UIKit
         }
     }
     
-    func setup() {
+    // MARK: - Private 
+    
+    private func setup() {
         border.borderColor = self.borderColor?.cgColor
         
         border.borderWidth = borderWidth

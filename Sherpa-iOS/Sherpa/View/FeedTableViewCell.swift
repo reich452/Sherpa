@@ -16,10 +16,10 @@ protocol FeedTableViewCellDelegate: class {
 // TODO: - Make this a nib for one cell 
 class FeedTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet weak var commnetLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
     
     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
@@ -43,13 +43,13 @@ class FeedTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     
-    @IBAction func didTapCommentButton(_ sender: Any) {
+    @IBAction private func didTapCommentButton(_ sender: Any) {
         if let delegate = delegate {
             delegate.didTapCommentButton(self)
         }
     }
     
-    @IBAction func didTapReportButton(_ sender: UIButton) {
+    @IBAction private func didTapReportButton(_ sender: UIButton) {
         if let delegate = delegate {
             delegate.didTapReportButton(self)
         }

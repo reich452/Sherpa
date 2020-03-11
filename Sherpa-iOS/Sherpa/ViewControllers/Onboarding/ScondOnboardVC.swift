@@ -10,8 +10,8 @@ import UIKit
 
 class SecondOnboardVC: UIViewController {
    
-    @IBOutlet weak var dbImageView: UIImageView!
-    @IBOutlet weak var bodyLabel: UILabel!
+    @IBOutlet private weak var dbImageView: UIImageView!
+    @IBOutlet private weak var bodyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
