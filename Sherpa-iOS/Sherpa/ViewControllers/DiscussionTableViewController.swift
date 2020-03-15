@@ -28,13 +28,15 @@ class DiscussionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Discussion"
-        tableView.backgroundColor = .primaryColor
+        setUPUI()
         fetchCKThoughts()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func setUPUI() {
+        title = "Discussion"
+        tableView.backgroundColor = .primaryColor
+        tableView.estimatedRowHeight = 99
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     private func fetchCKThoughts() {
