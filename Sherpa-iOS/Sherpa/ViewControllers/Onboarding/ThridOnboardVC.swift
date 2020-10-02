@@ -9,9 +9,13 @@
 import UIKit
 
 class ThirdOnboardVC: UIViewController {
-  
+    
+    // MARK: - IBOutlets 
+    
     @IBOutlet private weak var dbImageView: UIImageView!
     @IBOutlet private weak var bodyLabel: UILabel!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +24,18 @@ class ThirdOnboardVC: UIViewController {
         view.backgroundColor = .primaryColor
     }
     
+    // MARK: - Actions
+    
     @IBAction func handelTapGestures(_ sender: UITapGestureRecognizer) {
         performAnimation()
     }
+}
+
+// MARK - Private
+
+private extension ThirdOnboardVC {
     
-    private func performAnimation() {
+    func performAnimation() {
         let sequence = AnimationSequence(withStepDuration: 0.5)
         sequence.doStep {
             self.dbImageView.transform = CGAffineTransform(translationX: -30, y: 0)
@@ -49,9 +60,9 @@ class ThirdOnboardVC: UIViewController {
         }
     }
     
-    private func goToMainTab() {
-        let vc = UIStoryboard(name: "MainTabBar", bundle: nil).instantiateViewController(withIdentifier: "MainTabBarViewController")
-        self.present(vc, animated: true) {
+    func goToMainTab() {
+        let mainVC = MainTabBarViewController.instantiate(fromAppStoryboard: .MainTabBar)
+        self.present(mainVC, animated: true) {
             UserDefaults.standard.set(true, forKey: Constants.hasSeenOnboarding)
         }
     }

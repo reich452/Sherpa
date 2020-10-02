@@ -41,12 +41,11 @@ class OverlayVC: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func okButtonTapped(_ sender: CustomButton) {
+    @IBAction private func okButtonTapped(_ sender: CustomButton) {
 
         dismiss(animated: true) {
             guard let delegate = self.delegate else { return }
             delegate.dismissedVC()
         }
     }
-    
 }

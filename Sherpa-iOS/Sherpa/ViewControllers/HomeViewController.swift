@@ -118,8 +118,7 @@ extension HomeViewController: HomeCollectionViewCellDelegate {
         } else if indexPath.row == 1 && indexPath.section == 0 {
             self.tabBarController?.selectedIndex = 2
         } else if indexPath.row == 0 && indexPath.section == 1 {
-           let sb = UIStoryboard(name: "MovieDB", bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: Constants.movieVC) as? MovieDBViewController else { return }
+            let vc = MovieDBViewController.instantiate(fromAppStoryboard: .MovieDB)
             vc.movieController = MovieController()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {

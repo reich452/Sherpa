@@ -37,7 +37,7 @@ class LatestNewsTableViewCell: UITableViewCell, WKNavigationDelegate {
     
     // MARK: - Actions
 
-    @IBAction func playBtnTapped(_ sender: Any) {
+    @IBAction private func playBtnTapped(_ sender: Any) {
         delegate?.didTapPlayButton(self)
     }
     

@@ -45,7 +45,7 @@ class VoteViewController: UIViewController {
     
     // MARK: - Main
     
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .primaryColor
         cloudKitBtn.layer.cornerRadius = 15
         cloudKitBtn.clipsToBounds = true
@@ -59,7 +59,7 @@ class VoteViewController: UIViewController {
         fbVotedImageView.isHidden = true
     }
     
-    func updateViews() {
+    private func updateViews() {
         checkVote()
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
@@ -87,7 +87,7 @@ class VoteViewController: UIViewController {
         }
     }
     
-    func checkVote() {
+   private func checkVote() {
         if voteController?.didVoteForCloudKit() == true {
             let sequence = AnimationSequence(withStepDuration: 0.5)
             sequence.doStep {
@@ -115,11 +115,11 @@ class VoteViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func cancelBtnTapped(_ sender: Any) {
+    @IBAction private func cancelBtnTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func cloudKitBtnTapped(_ sender: Any) {
+    @IBAction private func cloudKitBtnTapped(_ sender: Any) {
         voteController?.updateVote(dbVoteKey: .cloudKitCount, compeletion: { (result) in
             switch result {
             case .success(_):
@@ -133,7 +133,8 @@ class VoteViewController: UIViewController {
             self.showNoActionAlert(titleStr: message, messageStr: "Can't vote twice 🤓. Thanks for voting!", style: .cancel)
         }
     }
-    @IBAction func firebaseBtnTapped(_ sender: Any) {
+    
+    @IBAction private func firebaseBtnTapped(_ sender: Any) {
         voteController?.updateVote(dbVoteKey: .firebaseCount, compeletion: { (result) in
             switch result {
             case .success(_):
@@ -147,5 +148,4 @@ class VoteViewController: UIViewController {
             self.showNoActionAlert(titleStr: message, messageStr: "Can't vote twice 🤓. Thanks for voting!", style: .cancel)
         }
     }
-    
 }

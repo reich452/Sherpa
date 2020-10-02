@@ -32,7 +32,7 @@ class SubmitReportVC: ShiftableViewController, OverlayVCDelegate {
         placeHolderLabel.text = ""
     }
     
-    @IBAction func submitBtnTapped(_ sender: Any) {
+    @IBAction private func submitBtnTapped(_ sender: Any) {
         if textView.text.isEmpty {
             self.showNoActionAlert(titleStr: "Please Provide Details", messageStr: "Let us know why this post should be set to review and or removed", style: .cancel); return 
         }

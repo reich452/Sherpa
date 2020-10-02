@@ -17,9 +17,8 @@ class MainTabBarViewController: UITabBarController {
     }
     
     private func customTabBar() {
-        let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
-        let navigationController = storyboard1.instantiateViewController(withIdentifier: "HomeViewController")
-        let firstNavigationController = UINavigationController(rootViewController: navigationController)
+        let homeVC = HomeViewController.instantiate(fromAppStoryboard: .Main)
+        let firstNavigationController = UINavigationController(rootViewController: homeVC)
         firstNavigationController.title = "Home"
         firstNavigationController.tabBarItem.image = #imageLiteral(resourceName: "xcHome")
         
