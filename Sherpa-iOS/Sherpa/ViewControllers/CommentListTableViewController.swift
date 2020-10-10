@@ -24,7 +24,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     // MARK: - Properties
     private var didSeeFbComments = false
     private var didSeeCkComments = false
-   
+    
     public var indexPath: IndexPath?
     public weak var commentDelegate: DidPassUpdatedComments?
     var fbCommentController: FBCommnetController?
@@ -44,7 +44,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
         commentTextField.delegate = self
         tableView.separatorColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         commentTextField.attributedPlaceholder = NSAttributedString(string: "Add a comment",
-                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+                                                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +64,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     }
     
     // MARK: - Main
-   private func updateView() {
+    private func updateView() {
         guard let post = post else { return }
         if post.dataBase == .cloudKit {
             DispatchQueue.main.async {
@@ -111,6 +111,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     }
     
     // MARK: - Comment Delegate
+    
     func commentsWereAddedTo() {
         DispatchQueue.main.async {
             let commentCount = self.post?.comments.count ?? 0
@@ -119,12 +120,11 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
         }
     }
     
-    
     // MARK: - Actions
     
-    @IBAction func addButtonTapped(_ sender: UIButton) {
+    @IBAction private func addButtonTapped(_ sender: UIButton) {
         guard let post = post,
-            let title = commentTextField.text, !title.isEmpty else { return }
+              let title = commentTextField.text, !title.isEmpty else { return }
         commentTextField.text = ""
         if post.dataBase == .cloudKit {
             CloudKitPostController.shared.addComent(title, to: post) { (comment) in
@@ -145,7 +145,6 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return post?.comments.count ?? 0
     }
     
@@ -173,7 +172,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       let sb = UIStoryboard(name: Constants.reportAbuse, bundle: nil)
+        let sb = UIStoryboard(name: Constants.reportAbuse, bundle: nil)
         guard let reportTVC = sb.instantiateViewController(withIdentifier: Constants.reportTVC) as? ReportTableViewController else { return }
         reportTVC.post = self.post
         navigationController?.pushViewController(reportTVC, animated: true)

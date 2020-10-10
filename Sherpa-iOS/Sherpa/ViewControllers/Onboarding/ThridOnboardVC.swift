@@ -62,8 +62,10 @@ private extension ThirdOnboardVC {
     
     func goToMainTab() {
         let mainVC = MainTabBarViewController.instantiate(fromAppStoryboard: .MainTabBar)
-        self.present(mainVC, animated: true) {
-            UserDefaults.standard.set(true, forKey: Constants.hasSeenOnboarding)
+        let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+
+        window?.switchRootViewController(mainVC, animated: true) {
+//            UserDefaults.standard.set(true, forKey: Constants.hasSeenOnboarding)
         }
     }
 }
