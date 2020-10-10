@@ -65,7 +65,7 @@ private extension ThirdOnboardVC {
         let window = UIApplication.shared.windows.first { $0.isKeyWindow }
 
         window?.switchRootViewController(mainVC, animated: true) {
-//            UserDefaults.standard.set(true, forKey: Constants.hasSeenOnboarding)
+            UserDefaults.standard.set(true, forKey: Constants.hasSeenOnboarding)
         }
     }
 }
