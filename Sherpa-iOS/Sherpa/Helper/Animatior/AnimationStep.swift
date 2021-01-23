@@ -20,12 +20,11 @@ final class AnimationStep {
     
     func onCompleted(completed: @escaping (() -> Void)) -> Self {
         self.completed = completed
-        
         return self
     }
     
     func execute() {
-        UIView.animate(withDuration: duration, animations: animations) { (_) in
+        UIView.animate(withDuration: duration, animations: animations) { _ in
             self.completed()
         }
     }

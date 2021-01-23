@@ -21,14 +21,12 @@ final class AnimationSequence {
     func doStep(_ animations: @escaping (() -> Void)) -> Self {
         let step = AnimationStep(withAnimations: animations, duration: stepDuration)
         sequence.append(step)
-        
         return self
     }
     
     @discardableResult
     func onCompletion(_ sequenceCompletion: @escaping (() -> Void)) -> Self {
         completion = sequenceCompletion
-        
         return self
     }
     
@@ -39,11 +37,9 @@ final class AnimationSequence {
     fileprivate func executeSteps() {
         if sequence.isEmpty == false {
             let step = sequence.removeFirst()
-            step
-                .onCompleted {
-                    self.executeSteps()
-                }
-                .execute()
+            step.onCompleted {
+                self.executeSteps()
+            }.execute()
         } else {
             completion()
         }

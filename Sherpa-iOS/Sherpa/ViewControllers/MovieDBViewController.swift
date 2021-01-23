@@ -47,11 +47,11 @@ class MovieDBViewController: UIViewController {
     }
     
     // MARK: - Actions 
-    @IBAction func editBtnTapped(_ sender: UIBarButtonItem) {
+    @IBAction private func editBtnTapped(_ sender: UIBarButtonItem) {
         // no op.
     }
     
-    @IBAction func didTapInfoBtn(_ sender: UIButton) {
+    @IBAction private func didTapInfoBtn(_ sender: UIButton) {
         let actionSheet = UIAlertController(title: "Change Swipe Speed", message: "Edit the swiping drag speed", preferredStyle: .actionSheet)
         let fastAction = UIAlertAction(title: "Fast", style: .default) { (_) in
             self.dragSpeed = .fast
@@ -77,13 +77,14 @@ class MovieDBViewController: UIViewController {
         actionSheet.addAction(defaultAction)
         actionSheet.addAction(moderateAction)
         actionSheet.addAction(slowAction)
+        actionSheet.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    @IBAction func dislikeBtnTapped(_ sender: UIButton) {
+    @IBAction private func dislikeBtnTapped(_ sender: UIButton) {
         kolodaView.swipe(.left)
     }
-    @IBAction func likeBtnTapped(_ sender: UIButton) {
+    @IBAction private func likeBtnTapped(_ sender: UIButton) {
         kolodaView.swipe(.right)
     }
     
@@ -106,7 +107,7 @@ class MovieDBViewController: UIViewController {
         }
     }
     
-    fileprivate func fetchMovies(pageNumber: Int) {
+    private func fetchMovies(pageNumber: Int) {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         movieController?.getNewMovies(page: pageNumber, completion: { [weak self] result in
@@ -148,7 +149,7 @@ extension MovieDBViewController: KolodaViewDelegate {
     }
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        
+        // no op.
     }
 }
 
