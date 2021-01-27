@@ -115,19 +115,19 @@ class MovieDBViewController: UIViewController {
             switch result {
             case .success(let movies):
                 guard let movies = movies else { return }
-                print(movies.count)
+                debugPrint(movies.count)
                 DispatchQueue.main.async {
                     self.title = "New Releases"
                 }
                 self.movieController?.fetchImageFrom(movies: movies, completion: { (movies) in
-                    print("Movies \(Thread.isMainThread)")
+                    debugPrint("Movies \(Thread.isMainThread)")
                     self.movies = movies
                     self.activityIndicator.stopAnimating()
                     self.activityIndicator.isHidden = true
                     self.kolodaView.reloadData()
                 })
             case.failure(let error):
-                print(error.localizedDescription)
+                debugPrint(error.localizedDescription)
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                 }

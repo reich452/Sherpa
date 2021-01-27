@@ -51,7 +51,7 @@ class DataBaseActionTVC: UITableViewController{
             cell.selectedDB = .firebase
             checkCaseTwo(indexPath: indexPath, cell: cell)
         default:
-            print("oh 💩 you  need to fix this \(#file) \(#function)")
+            debugPrint("oh 💩 you  need to fix this \(#file) \(#function)")
         }
         return cell
     }
@@ -162,7 +162,7 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
             }
             
         default:
-            print("performSegueFrom(cell: ActionTableViewCell broke: \(#file) \(#function)")
+            debugPrint("performSegueFrom(cell: ActionTableViewCell broke: \(#file) \(#function)")
         }
     }
 }

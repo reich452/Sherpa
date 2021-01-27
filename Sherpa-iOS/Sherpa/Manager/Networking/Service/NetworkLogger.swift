@@ -12,8 +12,8 @@ enum NetworkLogger {
     
     static func log(request: URLRequest) {
         
-        print("\n - - - - - - - - - - OUTGOING - - - - - - - - - - \n")
-        defer { print("\n - - - - - - - - - -  END - - - - - - - - - - \n") }
+        debugPrint("\n - - - - - - - - - - OUTGOING - - - - - - - - - - \n")
+        defer { debugPrint("\n - - - - - - - - - -  END - - - - - - - - - - \n") }
         
         let urlAsString = request.url?.absoluteString ?? ""
         let urlComponents = NSURLComponents(string: urlAsString)
@@ -35,21 +35,21 @@ enum NetworkLogger {
             logOutput += "\n \(NSString(data: body, encoding: String.Encoding.utf8.rawValue) ?? "")"
         }
         
-        print(logOutput)
+        debugPrint(logOutput)
     }
     
     static func log(response: URLResponse) {
-        print("\n - - - - - - - - - - INCOMING - - - - - - - - - - \n")
-        defer { print("\n - - - - - - - - - -  END - - - - - - - - - - \n") }
+        debugPrint("\n - - - - - - - - - - INCOMING - - - - - - - - - - \n")
+        defer { debugPrint("\n - - - - - - - - - -  END - - - - - - - - - - \n") }
         let urlStr = response.url?.absoluteString ?? ""
         let encodingName = response.textEncodingName ?? ""
         let mimeType = response.mimeType ?? ""
         
-        print("\n URL: \(urlStr)\n encodingName \(encodingName)\n MIMEtype \(mimeType) ")
+        debugPrint("\n URL: \(urlStr)\n encodingName \(encodingName)\n MIMEtype \(mimeType) ")
         let httpUrlResponse = response as? HTTPURLResponse
         
         if let httpResponse = httpUrlResponse {
-            print("\n\n Response code: \(httpResponse.statusCode)\n\n  all headerFields \(httpResponse.allHeaderFields)\n\n Localized String \(HTTPURLResponse.localizedString(forStatusCode: httpResponse.statusCode))")
+            debugPrint("\n\n Response code: \(httpResponse.statusCode)\n\n  all headerFields \(httpResponse.allHeaderFields)\n\n Localized String \(HTTPURLResponse.localizedString(forStatusCode: httpResponse.statusCode))")
         }
         
     }

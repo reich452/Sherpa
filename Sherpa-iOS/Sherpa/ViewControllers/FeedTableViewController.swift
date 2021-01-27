@@ -135,7 +135,7 @@ extension FeedTableViewController {
     }
     
     func timerCompleted() {
-        print("Feching complete")
+        debugPrint("Feching complete")
         switch selectedDB {
         case .cloudKit:
             DispatchQueue.main.async {

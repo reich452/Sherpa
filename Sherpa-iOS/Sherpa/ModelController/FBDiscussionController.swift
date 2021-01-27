@@ -20,7 +20,7 @@ struct FBDiscussionController {
         let values = [key: thought.dictionaryRep]
         databaseReference.child("thought").updateChildValues(values) { (error, nil) in
             if let error = error {
-                print("Error in \(#function) \(error) \(error.localizedDescription)")
+                debugPrint("Error in \(#function) \(error) \(error.localizedDescription)")
                 completion(.failure(NetworkError.forwarded(error))); return
             } else {
                 completion(.success(thought))

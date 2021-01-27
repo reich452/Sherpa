@@ -147,7 +147,7 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
         
         if segue.identifier == "toFeedTVC" {
             guard let destinationVC = segue.destination as? FeedTableViewController else { return }
-            print(destinationVC.isViewLoaded)
+            debugPrint(destinationVC.isViewLoaded)
         }
     }
 }
@@ -175,9 +175,9 @@ extension UploadingViewController: FetchAndUploadCounter, OverlayVCDelegate {
     }
     
     func increaseFbUploadTimer(time: Double) {
-        print("😎 FB increase THREAD  is on main: \(Thread.isMainThread) /n  time \(time)")
+        debugPrint("😎 FB increase THREAD  is on main: \(Thread.isMainThread) /n  time \(time)")
         DispatchQueue.main.async {
-            print("Time elapsed \(time)")
+            debugPrint("Time elapsed \(time)")
             self.uploadTime = time
             self.title = "Upload Time: \(time.formattedTime)"
         }

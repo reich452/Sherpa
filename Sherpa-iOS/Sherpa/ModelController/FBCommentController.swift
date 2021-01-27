@@ -25,7 +25,7 @@ class FBCommnetController {
         let values = ["/fbComments/\(key)": fbComment.dictionaryRep, "/post-fbComments/\(fbPost.uuid)/\(key)/": fbComment.dictionaryRep]
         databaseReference.child("fbComment").updateChildValues(values) { (error, reference) in
             if let error = error {
-                print("Error Creating Report \(error) \(error.localizedDescription)")
+                debugPrint("Error Creating Report \(error) \(error.localizedDescription)")
                 completion(nil,.forwarded(error))
             }
             fbPost.comments.append(fbComment)
@@ -36,7 +36,7 @@ class FBCommnetController {
     
     func fetchFBComments(from post: Post, completion: @escaping ([FBComment]?, NetworkError?) -> Void) {
         guard let fbPost = post as? FBPost else { return }
-        print("The TITLE IS \(post.title)")
+        debugPrint("The TITLE IS \(post.title)")
          let query = databaseReference.child("fbComment").child("post-fbComments").child(fbPost.uuid).queryOrdered(byChild: "timestamp")
         
         var fbComments: [FBComment] = []

@@ -25,7 +25,7 @@ class FBReportController {
         
         databaseReference.child("report").updateChildValues(values) { (error, reference) in
             if let error = error {
-                print("Error Creating Report \(error) \(error.localizedDescription)")
+                debugPrint("Error Creating Report \(error) \(error.localizedDescription)")
                 completion(.forwarded(error))
             }
             completion(nil)

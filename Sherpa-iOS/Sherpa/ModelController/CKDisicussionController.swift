@@ -18,7 +18,7 @@ class CKDiscussionController {
         let ckThought = CKThought(author: author, title: title, body: body)
         publicDB.save(CKRecord(ckThought)) { (record, error) in
             if let error = error {
-                print("Error saving CKThought Record \(error.localizedDescription)")
+                debugPrint("Error saving CKThought Record \(error.localizedDescription)")
                 completion(nil, error); return
             }
             completion(ckThought, nil)
@@ -32,7 +32,7 @@ class CKDiscussionController {
         
         publicDB.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
-                print("Error Fetching CKThought Record \(error.localizedDescription)")
+                debugPrint("Error Fetching CKThought Record \(error.localizedDescription)")
                 completion(.failure(error)); return
             }
             guard let records = records else { completion(.failure(NetworkError.noDataReturned)); return }

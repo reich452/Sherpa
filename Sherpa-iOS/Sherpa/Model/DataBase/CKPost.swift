@@ -44,7 +44,7 @@ class CKPost: Post {
             do {
                 try photoData?.write(to: fileURL)
             } catch let error {
-                print("Error writing to temp url \(error) \(error.localizedDescription)")
+                debugPrint("Error writing to temp url \(error) \(error.localizedDescription)")
             }
             return CKAsset(fileURL: fileURL)
         }

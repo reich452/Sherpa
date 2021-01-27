@@ -65,7 +65,7 @@ struct MovieController {
                 group.enter()
                 router.fetchImageData(.imageData(str: posterPath), imageStr: posterPath) { (data, response, error) in
                     if let error = error {
-                        print("Error getting image \(error) \(error.localizedDescription)")
+                        debugPrint("Error getting image \(error) \(error.localizedDescription)")
                     }
                     guard let data = data else { return }
                     guard let image = UIImage(data: data) else { return }
@@ -86,7 +86,7 @@ struct MovieController {
         NetworkLogger.log(response: response)
         //this is not an API failure. Such failures are client side and will probably be due to a poor internet connection.
         if let error = error {
-            print("Check your network connection \n\n \(error) \(error.localizedDescription)")
+            debugPrint("Check your network connection \n\n \(error) \(error.localizedDescription)")
             completion(.failure(error))
         }
         guard let data = data else { completion(.failure(NetworkError.noDataReturned)); return }
@@ -95,7 +95,7 @@ struct MovieController {
             let moives = try JSONDecoder().decode(MovieApiResponse.self, from: data).movies
             completion(.success(moives))
         } catch let error {
-            print("Error with JSONDecoder object \(error) \(error.localizedDescription)")
+            debugPrint("Error with JSONDecoder object \(error) \(error.localizedDescription)")
             completion(.failure(error))
         }
     }

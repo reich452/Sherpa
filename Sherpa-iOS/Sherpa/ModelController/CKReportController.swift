@@ -20,7 +20,7 @@ class CKReportController {
         
         publicDB.save(CKRecord(ckReport)) { (record, error) in
             if let error = error {
-                print("Error saving comment to post \(error) \(error.localizedDescription)")
+                debugPrint("Error saving comment to post \(error) \(error.localizedDescription)")
                 completion(false, error); return
             }
             

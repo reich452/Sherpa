@@ -14,14 +14,15 @@ class SubmitReportVC: ShiftableViewController, OverlayVCDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var placeHolderLabel: UILabel!
     
-    public var reportViewModel: ReportViewModel!
-    public var post: Post!
-    public var fbReportController: FBReportController!
-    public var ckReportController: CKReportController!
+    var reportViewModel: ReportViewModel!
+    var post: Post!
+    var fbReportController: FBReportController!
+    var ckReportController: CKReportController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
+        title = "Submit Report"
         titleLabel.text = reportViewModel.title
         let edges = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         textView.textContainerInset = edges

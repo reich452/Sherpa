@@ -49,7 +49,7 @@ class MyTimer {
         let result = f()
         let endTime = DispatchTime.now()
         let diff = Double(endTime.uptimeNanoseconds - startTime.uptimeNanoseconds) / 1_000_000_000 as Double
-        print("\(name) (line \(line)): \(diff) sec")
+        debugPrint("\(name) (line \(line)): \(diff) sec")
         return result
     }
 
@@ -70,7 +70,7 @@ class MyTimer {
         if second < 10 {
             secondString = "\(second)"
         }
-        print(" +++++ MY counter is \(counter) +++++")
+        debugPrint(" +++++ MY counter is \(counter) +++++")
         let deciSecond = String(format: "%.1f", counter).components(separatedBy: ".").last!
         let secondStr = "\(secondString).\(deciSecond)"
         delegate?.updateTimeLable(counterStr: secondStr)

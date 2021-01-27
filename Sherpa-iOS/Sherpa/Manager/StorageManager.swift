@@ -30,7 +30,7 @@ final class StorageManager {
         
         ref.putData(data, metadata: metatdata) { (metadata, error) in
             if let error = error {
-                print("Error with putData: \(#function) \(error)")
+                debugPrint("Error with putData: \(#function) \(error)")
                 completion(nil, error)
                 return
             }

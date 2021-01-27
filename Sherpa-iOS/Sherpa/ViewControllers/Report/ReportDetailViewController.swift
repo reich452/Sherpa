@@ -16,7 +16,7 @@ class ReportDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = reportViewModel.title
+        title = "Report Details"
         view.backgroundColor = .primaryColor
     }
 

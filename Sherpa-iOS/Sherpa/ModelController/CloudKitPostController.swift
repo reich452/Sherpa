@@ -31,7 +31,6 @@ class CloudKitPostController {
     let myTimer = MyTimer()
     var fetchCounter = 0.0
     var uploadCounter = 0.0
-    var totalCounter = 0.0
     var ckPosts = [Post]()
     
     // MARK: - CloudKit Availablity
@@ -39,7 +38,7 @@ class CloudKitPostController {
     func checkAccountStatus(completion: @escaping (_ isLoggedIn: Bool?) -> ()) {
         CKContainer.default().accountStatus { [weak self] (status, error) in
             if let error = error {
-                print("Error checking accountStatus \(error) \(error.localizedDescription)")
+                debugPrint("Error checking accountStatus \(error) \(error.localizedDescription)")
                 completion(false); return
             } else {
                 let errrorText = "Sign into iCloud in Settings"
@@ -74,10 +73,10 @@ class CloudKitPostController {
                     }
                     if UIApplication.shared.canOpenURL(settingsUrl) {
                         UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                            print("Settings opened: \(success)") // Prints true
+                            debugPrint("Settings opened: \(success)") // Prints true
                         })
                     } else {
-                        print("bad url to settings app")
+                        debugPrint("bad url to settings app")
                     }
                 })
             }
@@ -89,10 +88,10 @@ class CloudKitPostController {
         
         if UIApplication.shared.canOpenURL(settingsUrl) {
             UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                print("Settings opened: \(success)") // Prints true
+                debugPrint("Settings opened: \(success)") // Prints true
             })
         } else {
-            print("bad url to settings app")
+            debugPrint("bad url to settings app")
         }
     }
     
@@ -111,7 +110,7 @@ class CloudKitPostController {
         publicDB.save(CKRecord(ckPost)) { [weak self] (_, error) in
             guard let self = self else { return }
             if let error = error {
-                print("Error saving post record \(error) \(error.localizedDescription)")
+                debugPrint("Error saving post record \(error) \(error.localizedDescription)")
                 self.rTimer.suspend()
                 self.checkAccountStatus(completion: { (isLoggedIn) in
                     completion(nil); return
@@ -136,7 +135,7 @@ class CloudKitPostController {
         
         publicDB.save(reccord) { (record, error) in
             if let error = error {
-                print("Error saving comment to post \(error) \(error.localizedDescription)")
+                debugPrint("Error saving comment to post \(error) \(error.localizedDescription)")
                 completion(nil); return
             }
             DispatchQueue.main.async {
@@ -171,7 +170,7 @@ class CloudKitPostController {
             guard let self = self else { return }
             self.fetchCounter += 0.1
             self.timerDelegate?.increaseFetchTimer()
-            print(" ⏲ Timer:  \(self.fetchCounter ??? "can't count")")
+            debugPrint(" ⏲ Timer:  \(self.fetchCounter ??? "can't count")")
         }
         rTimer.resume()
         operation.recordFetchedBlock = { [unowned self] record in
@@ -180,8 +179,8 @@ class CloudKitPostController {
                 completion(false, nil); return
             }
             self.ckPosts.append(post)
-            print("🎃 fetching ckPosts \(post.title) \(self.ckPosts.count)")
-            print(self.ckPosts.count)
+            debugPrint("🎃 fetching ckPosts \(post.title) \(self.ckPosts.count)")
+            debugPrint(self.ckPosts.count)
             completion(false, nil)
             
             DispatchQueue.main.async {
@@ -190,17 +189,16 @@ class CloudKitPostController {
         }
         operation.queryCompletionBlock = { [unowned self] cursor, error in
             if let error = error {
-                print("Error fethcing posts \(error)")
+                debugPrint("Error fethcing posts \(error)")
                 completion(false, nil);return 
             } else if let cursor = cursor {
                 self.fetchQueriedPosts(cursor: cursor, completion: completion)
-                print("Fetching more results \(self.ckPosts.count)")
+                debugPrint("Fetching more results \(self.ckPosts.count)")
             } else {
-                print("Done Fetching CKPosts")
+                debugPrint("Done Fetching CKPosts")
                 
                 self.rTimer.suspend()
                 self.timerDelegate?.timerCompleted()
-                self.totalCounter = self.fetchCounter
                 completion(true, self.fetchCounter)
             }
         }
@@ -217,13 +215,13 @@ class CloudKitPostController {
             guard let self = self else { return }
             self.fetchCounter += 0.1
             self.timerDelegate?.increaseFetchTimer()
-            print(" 2⏲ Timer:  \(self.fetchCounter ??? "can't count")")
+            debugPrint(" 2⏲ Timer:  \(self.fetchCounter ??? "can't count")")
         }
         rTimer.resume()
         
         if let imageFileURL = imageCache.object(forKey: cKpost.recordID) {
             
-            print("-- Getting the image from cache -- ")
+            debugPrint("-- Getting the image from cache -- ")
             if let imageData = try? Data(contentsOf: imageFileURL as URL) {
                 let image = UIImage(data: imageData)
                 self.rTimer.suspend()
@@ -237,7 +235,7 @@ class CloudKitPostController {
             
             fetchImageOperation.perRecordCompletionBlock = { record, recordID, error in
                 if let error = error {
-                    print("Error feching image completion \(error)")
+                    debugPrint("Error feching image completion \(error)")
                     completion(nil); return
                 }
                 guard let record = record,
@@ -270,7 +268,7 @@ class CloudKitPostController {
         
         publicDB.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
-                print("Error fetching comments from cloudKit \(#function) \(error) \(error.localizedDescription)")
+                debugPrint("Error fetching comments from cloudKit \(#function) \(error) \(error.localizedDescription)")
                 completion(nil, error)
                 return
             }

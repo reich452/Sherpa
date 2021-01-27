@@ -123,7 +123,7 @@ class VoteViewController: UIViewController {
         voteController?.updateVote(dbVoteKey: .cloudKitCount, compeletion: { (result) in
             switch result {
             case .success(_):
-                print("A user updated")
+                debugPrint("A user updated")
                 self.updateViews()
             case .failure(let error):
                 
@@ -138,7 +138,7 @@ class VoteViewController: UIViewController {
         voteController?.updateVote(dbVoteKey: .firebaseCount, compeletion: { (result) in
             switch result {
             case .success(_):
-                print("A user updated")
+                debugPrint("A user updated")
                 self.updateViews()
             case .failure(let error):
                 

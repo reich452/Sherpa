@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         CloudKitPostController.shared.checkAccountStatus { (success) in
             if success != false  {
-                print("user is signed into iCloud")
+                debugPrint("user is signed into iCloud")
             } else {
-                print("User needs to sign into iCloud")
+                debugPrint("User needs to sign into iCloud")
             }
         }
         

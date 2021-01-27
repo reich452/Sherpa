@@ -38,12 +38,12 @@ class FireBasePostController {
             guard let self = self else { return }
             self.timeElapsed += 0.1
             self.timerDelegate?.increaseFbUploadTimer(time: self.timeElapsed)
-            print(" ⏲ Timer:  \(self.timeElapsed ??? "can't count")")
+            debugPrint(" ⏲ Timer:  \(self.timeElapsed ??? "can't count")")
         }
         storageManager.uploadData(imageData, named: "images/shera.jpg", file: filename, contentType: .imageJpeg) { [weak self] (url, error) in
             guard let self = self else { return }
             if let error = error {
-                print("Error saving image to firebase storage \(error) \(error.localizedDescription)")
+                debugPrint("Error saving image to firebase storage \(error) \(error.localizedDescription)")
                 completion(false, .forwarded(error)); return
             }
             
@@ -56,7 +56,7 @@ class FireBasePostController {
             self.fbPosts.insert(fbPost, at: self.fbPosts.startIndex)
             self.databaseReference.child("posts").updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if let error = error {
-                    print("Error updating nodes: \(error)")
+                    debugPrint("Error updating nodes: \(error)")
                     self.rTimer.suspend()
                     completion(false, .forwarded(error)); return
                 }
@@ -94,7 +94,7 @@ class FireBasePostController {
         URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
             guard let self = self else { return }
             if let error = error {
-                print("❌Error fetching image for FB User: \(error.localizedDescription)")
+                debugPrint("❌Error fetching image for FB User: \(error.localizedDescription)")
                 completion(nil); return
             }
             guard let data = data,

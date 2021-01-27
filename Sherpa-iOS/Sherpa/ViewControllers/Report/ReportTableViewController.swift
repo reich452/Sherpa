@@ -12,7 +12,7 @@ class ReportTableViewController: UITableViewController {
     
     // MARK: - Properties
 
-    public var post: Post?
+    var post: Post?
     fileprivate var reportVMs = [ReportViewModel]()
     
     override func viewDidLoad() {
@@ -54,7 +54,7 @@ class ReportTableViewController: UITableViewController {
 }
 
 
-extension ReportTableViewController {
+private extension ReportTableViewController {
     
     // MARK: - UI
     func createUI(post: Post) {

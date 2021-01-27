@@ -64,11 +64,11 @@ final class VoteController {
             
         }, andCompletionBlock: { [weak self] (error, bool, snap) in
             if let error = error {
-                print("Error updating vote count: \(#function) \(error) \(error.localizedDescription)")
+                debugPrint("Error updating vote count: \(#function) \(error) \(error.localizedDescription)")
                 compeletion(.failure(error))
             }
             if !bool {
-                print("Cannot Complete vote updates")
+                debugPrint("Cannot Complete vote updates")
             } else {
                 self?.userDefaults.set(true, forKey: dbVoteKey.rawValue)
                 compeletion(.success(true))

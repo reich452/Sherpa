@@ -38,7 +38,7 @@ class ShareThoughtViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func randomizeBtnTapped(_ sender: UIButton) {
+    @IBAction private func randomizeBtnTapped(_ sender: UIButton) {
         userNameTextField.text = randomName()
         didClear = !didClear
         switch didClear {
@@ -50,7 +50,7 @@ class ShareThoughtViewController: UIViewController {
         }
     }
     
-    @IBAction func addBtnTapped(_ sender: CustomButton) {
+    @IBAction private func addBtnTapped(_ sender: CustomButton) {
         guard let body = textView.text, !body.isEmpty,
             let title = titleTextField.text, !title.isEmpty,
             let author = userNameTextField.text, !author.isEmpty  else {

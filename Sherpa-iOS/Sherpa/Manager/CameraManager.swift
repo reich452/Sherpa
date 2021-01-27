@@ -77,7 +77,7 @@ extension CameraManager: UIImagePickerControllerDelegate, UINavigationController
          
             self.imagePickedBlock?(image)
         }else{
-            print("Something went wrong")
+            debugPrint("Something went wrong")
         }
         currentVC.dismiss(animated: true, completion: nil)
     }
