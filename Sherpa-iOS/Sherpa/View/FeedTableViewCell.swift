@@ -21,6 +21,8 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var commnetLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     
+    private let dateFormatter = DateFormatter.yearMonthDayFormat
+    
     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         activityIndicator.hidesWhenStopped = true
@@ -63,7 +65,7 @@ class FeedTableViewCell: UITableViewCell {
             titleLabel.text = post.title
             photoImageView.image = #imageLiteral(resourceName: "xceCloudLoad")
             commnetLabel.text = "Comments..."
-            dateLabel.text = "\(DateHelper.shared.dateToString(date: post.timestamp)) ago"
+            dateLabel.text = "\(DateFormatter.dateToString(date: post.timestamp)) ago"
             activityIndicator.startAnimating()
             CloudKitPostController.shared.fetchImages(cKpost: post) { (image) in
                 DispatchQueue.main.async {
@@ -80,7 +82,7 @@ class FeedTableViewCell: UITableViewCell {
             titleLabel.text = post.title
             if let fbPost = post as? FBPost {
                 let date = Date(timeIntervalSince1970: TimeInterval(fbPost.timeInt/1000))
-                dateLabel.text = " \(DateHelper.shared.dateToString(date: date))"
+                dateLabel.text = " \(DateFormatter.dateToString(date: date)) ago"
             }
         }
     }

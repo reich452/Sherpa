@@ -24,6 +24,7 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     // MARK: - Properties
     private var didSeeFbComments = false
     private var didSeeCkComments = false
+    private let dateFormatter = DateFormatter.yearMonthDayFormat
     
     public var indexPath: IndexPath?
     public weak var commentDelegate: DidPassUpdatedComments?
@@ -158,13 +159,13 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
         cell.accessoryType = .disclosureIndicator
         switch post!.dataBase {
         case .cloudKit:
-            cell.detailTextLabel?.text = DateHelper.shared.dateToString(date: comment.timestamp)
+            cell.detailTextLabel?.text = dateFormatter.string(from: comment.timestamp)
             let cellImage = didSeeCkComments ? #imageLiteral(resourceName: "xceGrayCircle") : #imageLiteral(resourceName: "xceBlueCircle")
             cell.imageView?.image = cellImage
         case .firebase:
             guard let fbComment = comment as? FBComment else { return UITableViewCell() }
             let date = Date(timeIntervalSince1970: TimeInterval(fbComment.timeInt/1000))
-            cell.detailTextLabel?.text = " \(DateHelper.shared.dateToString(date: date))"
+            cell.detailTextLabel?.text = " \(dateFormatter.string(from: date))"
             let cellImage = didSeeFbComments ? #imageLiteral(resourceName: "xceGrayCircle") : #imageLiteral(resourceName: "xceBlueCircle")
             cell.imageView?.image = cellImage
         }

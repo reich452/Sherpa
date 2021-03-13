@@ -13,6 +13,9 @@ class ThoughtTableViewCell: UITableViewCell {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var thoughtText: UILabel!
     
+    private let dateFormatter = DateFormatter.yearMonthDayFormat
+    private let customFont: CustomFonts = .helvetica
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.backgroundColor = .primaryColor
@@ -29,13 +32,13 @@ class ThoughtTableViewCell: UITableViewCell {
         guard let thought = thought else { return }
         
         nameLabel.text = thought.author
-        thoughtText.text = thought.body
+        thoughtText.text = "\(thought.title) \n\n\(thought.body)"
         if thought.database == .cloudKit {
-            dateLabel.text = DateHelper.shared.dateToString(date: thought.timestamp)
+            dateLabel.text = dateFormatter.string(from: thought.timestamp)
         } else {
-            let fbThought = thought as! FBThought
+            guard let fbThought = thought as? FBThought else { return }
             let date = Date(timeIntervalSince1970: TimeInterval(fbThought.timeInt/1000))
-            dateLabel.text = DateHelper.shared.dateToString(date: date)
+            dateLabel.text = dateFormatter.string(from: date)
         }
     }
 }
