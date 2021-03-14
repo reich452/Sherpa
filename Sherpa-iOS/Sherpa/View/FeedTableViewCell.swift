@@ -21,8 +21,6 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var commnetLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     
-    private let dateFormatter = DateFormatter.yearMonthDayFormat
-    
     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         activityIndicator.hidesWhenStopped = true

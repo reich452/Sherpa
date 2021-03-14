@@ -26,7 +26,7 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow CloudKit and Firebase access to camera?</string>
+	<string>This app needs camera access to take picture so it can be uploaded.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Please allow access to photo library to beable to upload images.</string>
 	<key>UIAppFonts</key>

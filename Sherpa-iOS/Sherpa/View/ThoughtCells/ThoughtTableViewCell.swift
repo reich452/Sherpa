@@ -14,7 +14,6 @@ class ThoughtTableViewCell: UITableViewCell {
     @IBOutlet private weak var thoughtText: UILabel!
     
     private let dateFormatter = DateFormatter.yearMonthDayFormat
-    private let customFont: CustomFonts = .helvetica
     
     override func awakeFromNib() {
         super.awakeFromNib()
