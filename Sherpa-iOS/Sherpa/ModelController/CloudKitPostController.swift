@@ -164,14 +164,14 @@ class CloudKitPostController {
             operation = CKQueryOperation(query: query)
         }
         operation.desiredKeys = ["title", "timestamp"]
-        operation.resultsLimit = 10
+        operation.resultsLimit = 6
         operation.queuePriority = .high
         operation.qualityOfService = .userInteractive
         rTimer.eventHandler = { [weak self] in
             guard let self = self else { return }
             self.fetchCounter += 0.1
             self.timerDelegate?.increaseFetchTimer()
-            debugPrint(" ⏲ Timer:  \(self.fetchCounter ??? "can't count")")
+            NSLog(" ⏲ Timer:  \(self.fetchCounter ??? "can't count")")
         }
         rTimer.resume()
         operation.recordFetchedBlock = { [unowned self] record in
@@ -180,8 +180,7 @@ class CloudKitPostController {
                 completion(false, nil); return
             }
             self.ckPosts.append(post)
-            debugPrint("🎃 fetching ckPosts \(post.title) \(self.ckPosts.count)")
-            debugPrint(self.ckPosts.count)
+            NSLog("🎃 fetching ckPosts \(post.title) count: \(self.ckPosts.count)")
             completion(false, nil)
             
             DispatchQueue.main.async {
@@ -194,9 +193,9 @@ class CloudKitPostController {
                 completion(false, nil);return 
             } else if let cursor = cursor {
                 self.fetchQueriedPosts(cursor: cursor, completion: completion)
-                debugPrint("Fetching more results \(self.ckPosts.count)")
+                NSLog("Fetching more results \(self.ckPosts.count)")
             } else {
-                debugPrint("Done Fetching CKPosts")
+                NSLog("Done Fetching CKPosts")
                 
                 self.rTimer.suspend()
                 self.timerDelegate?.timerCompleted()

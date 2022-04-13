@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OverlayVCDelegate: class {
+protocol OverlayVCDelegate: AnyObject {
     func dismissedVC()
 }
 

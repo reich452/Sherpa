@@ -12,7 +12,6 @@ import Firebase
 class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate, DidPassUpdatedComments, FetchAndUploadCounter  {
     
     var selectedDB: SelectedIconDB = .cloudKit
-    private var isSearching: Bool = false
     private lazy var fbPostController: FireBasePostController = {
         let storageRef = StorageReference()
         let storageManager = StorageManager(storageRef: storageRef)
@@ -32,7 +31,6 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
         tableView.tableFooterView = UIView()
         switch selectedDB {
         case .cloudKit:
-            self.isSearching = true
             CloudKitPostController.shared.fetchQueriedPosts { (didFinish, counter) in
                 if didFinish != false {
                     DispatchQueue.main.async {
@@ -93,13 +91,40 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
         }
         return cell
     }
+}
+
+// MARK: - UITableViewDataSourcePrefetching
+
+extension FeedTableViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            switch selectedDB {
+            case .cloudKit:
+                let ckPost = CloudKitPostController.shared.ckPosts[indexPath.row]
+                CloudKitPostController.shared.fetchImages(cKpost: ckPost) { _ in
+                    
+                }
+               
+            case .firebase:
+                let fbPost = fbPostController.fbPosts[indexPath.row]
+                fbPostController.fetchImage(post: fbPost) { _ in
+                    
+                }
+            }
+        }
+    }
+}
+
+// MARK: - Navigation
+
+extension FeedTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
         performSegue(withIdentifier: Constants.toCommentVC, sender: cell)
     }
     
-    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.toCommentVC {
@@ -123,8 +148,9 @@ class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate,
     }
 }
 
+// MARK: - Custom Delegate
+
 extension FeedTableViewController {
-    // MARK: - Custom Delegate
     
     func increaseFetchTimer() {
         if selectedDB == .cloudKit {
@@ -179,6 +205,8 @@ extension FeedTableViewController {
         performSegue(withIdentifier: Constants.toCommentVC, sender: cell)
     }
 }
+
+// MARK: - MyTimerDelegate
 
 extension FeedTableViewController: MyTimerDelegate {
     
