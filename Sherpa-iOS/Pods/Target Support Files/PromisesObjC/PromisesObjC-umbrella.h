@@ -10,18 +10,15 @@
 #endif
 #endif
 
-#import "FBLPromise+All 2.h"
 #import "FBLPromise+All.h"
 #import "FBLPromise+Always.h"
 #import "FBLPromise+Any.h"
 #import "FBLPromise+Async.h"
 #import "FBLPromise+Await.h"
-#import "FBLPromise+Catch 2.h"
 #import "FBLPromise+Catch.h"
 #import "FBLPromise+Delay.h"
 #import "FBLPromise+Do.h"
 #import "FBLPromise+Race.h"
-#import "FBLPromise+Recover 2.h"
 #import "FBLPromise+Recover.h"
 #import "FBLPromise+Reduce.h"
 #import "FBLPromise+Retry.h"
