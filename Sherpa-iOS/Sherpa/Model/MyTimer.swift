@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MyTimerDelegate: class {
+protocol MyTimerDelegate: AnyObject {
     func updateTimeLable(counterStr: String)
 }
 

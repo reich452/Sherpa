@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ShareThoughtViewControllerDelegate: class {
+protocol ShareThoughtViewControllerDelegate: AnyObject {
     func reloadThoughts(_ thought: Thought)
 }
 

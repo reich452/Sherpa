@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FetchAndUploadCounter: class {
+protocol FetchAndUploadCounter: AnyObject{
     func increaseFetchTimer()
     func increaseCkUploadTimer(time: Double)
     func timerCompleted()

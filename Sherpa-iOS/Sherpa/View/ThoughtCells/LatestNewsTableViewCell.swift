@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-protocol LatestNewsTableViewCellDelegate: class {
+protocol LatestNewsTableViewCellDelegate: AnyObject {
     func didTapPlayButton(_ cell: LatestNewsTableViewCell)
 }
 

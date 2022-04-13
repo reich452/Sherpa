@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol HomeCollectionViewCellDelegate: class {
+protocol HomeCollectionViewCellDelegate: AnyObject {
     func didTapCellButton(cell: HomeCollectionViewCell)
 }
 

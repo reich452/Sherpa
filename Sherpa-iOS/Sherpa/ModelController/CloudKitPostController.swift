@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 import UserNotifications
 
-protocol CommentUpdatedToDelegate: class {
+protocol CommentUpdatedToDelegate: AnyObject {
     func commentsWereAddedTo()
 }
 
@@ -52,11 +52,11 @@ class CloudKitPostController {
                 case .couldNotDetermine:
                     self?.presentErrorAlert(errorTitle: errrorText, errorMessage: "Error with iCloud account status, Open Settings")
                     completion(false)
-                case .restricted:
+                case .restricted:    
                     self?.presentErrorAlert(errorTitle: errrorText, errorMessage: "Restricted iCloud account")
                     completion(false)
-                @unknown default:
-                        break
+                default:
+                    break
                 }
             }
         }
@@ -164,8 +164,9 @@ class CloudKitPostController {
             operation = CKQueryOperation(query: query)
         }
         operation.desiredKeys = ["title", "timestamp"]
-        operation.resultsLimit = 30
+        operation.resultsLimit = 10
         operation.queuePriority = .high
+        operation.qualityOfService = .userInteractive
         rTimer.eventHandler = { [weak self] in
             guard let self = self else { return }
             self.fetchCounter += 0.1
@@ -210,6 +211,8 @@ class CloudKitPostController {
     func fetchImages(cKpost: Post, completion: @escaping (UIImage?) -> Void) {
         guard let cKpost = cKpost as? CKPost else { return }
         let fetchImageOperation = CKFetchRecordsOperation(recordIDs: [cKpost.recordID])
+        fetchImageOperation.queuePriority = .veryHigh
+        fetchImageOperation.qualityOfService = .userInteractive
         fetchImageOperation.recordIDs = [cKpost.recordID]
         rTimer.eventHandler = { [weak self] in
             guard let self = self else { return }
@@ -230,8 +233,6 @@ class CloudKitPostController {
             }
         } else {
             fetchImageOperation.desiredKeys = ["imageData"]
-            fetchImageOperation.queuePriority = .veryHigh
-            fetchImageOperation.qualityOfService = .userInteractive
             
             fetchImageOperation.perRecordCompletionBlock = { record, recordID, error in
                 if let error = error {

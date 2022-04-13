@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-protocol FeedTableViewCellDelegate: class {
+protocol FeedTableViewCellDelegate: AnyObject {
     func didTapCommentButton(_ cell: FeedTableViewCell)
     func didTapReportButton(_ cell: FeedTableViewCell)
 }

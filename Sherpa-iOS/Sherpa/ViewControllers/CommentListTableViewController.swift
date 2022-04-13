@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-protocol DidPassUpdatedComments: class {
+protocol DidPassUpdatedComments: AnyObject {
     func reloadCommentCount(_ indexPath: IndexPath)
 }
 

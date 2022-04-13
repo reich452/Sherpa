@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ActionTableViewCellDelegate: class {
+protocol ActionTableViewCellDelegate: AnyObject {
     func hideSelectedObjects(sender: ActionTableViewCell)
     func performSegueFrom(cell: ActionTableViewCell)
 }
