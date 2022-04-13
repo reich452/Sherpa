@@ -1,6 +1,0 @@
-framework module Pods_Cloud_vs_Fire {
-  umbrella header "Pods-Cloud.vs.Fire-umbrella.h"
-
-  export *
-  module * { export * }
-}
