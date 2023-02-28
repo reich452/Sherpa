@@ -147,7 +147,6 @@
 		01F7B25F21964BA700902239 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B25E21964BA700902239 /* Comment.swift */; };
 		01F7B26121964C6F00902239 /* CKComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B26021964C6F00902239 /* CKComment.swift */; };
 		01F7B26321979E8C00902239 /* CommentListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B26221979E8C00902239 /* CommentListTableViewController.swift */; };
-		E0FE8454B3483FEEA201F6A9 /* Pods_Cloud_vs_Fire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B23555E33AAE1FFF4E5EF8 /* Pods_Cloud_vs_Fire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,9 +305,6 @@
 		01F7B25E21964BA700902239 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		01F7B26021964C6F00902239 /* CKComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKComment.swift; sourceTree = "<group>"; };
 		01F7B26221979E8C00902239 /* CommentListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListTableViewController.swift; sourceTree = "<group>"; };
-		10B23555E33AAE1FFF4E5EF8 /* Pods_Cloud_vs_Fire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloud_vs_Fire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9EA63A8E80EBFD92B8A4CB8D /* Pods-Cloud.vs.Fire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud.vs.Fire.release.xcconfig"; path = "Target Support Files/Pods-Cloud.vs.Fire/Pods-Cloud.vs.Fire.release.xcconfig"; sourceTree = "<group>"; };
-		D7810F5A138E88B237C71907 /* Pods-Cloud.vs.Fire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud.vs.Fire.debug.xcconfig"; path = "Target Support Files/Pods-Cloud.vs.Fire/Pods-Cloud.vs.Fire.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,7 +313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0179790521877C91004BA6C7 /* CloudKit.framework in Frameworks */,
-				E0FE8454B3483FEEA201F6A9 /* Pods_Cloud_vs_Fire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +383,6 @@
 				0120871D2184D3CF007B7C43 /* SherpaTests */,
 				012087072184D3CE007B7C43 /* Products */,
 				0179790321877C91004BA6C7 /* Frameworks */,
-				3739D068CA41A325FD5C97AA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -683,7 +677,6 @@
 			isa = PBXGroup;
 			children = (
 				0179790421877C91004BA6C7 /* CloudKit.framework */,
-				10B23555E33AAE1FFF4E5EF8 /* Pods_Cloud_vs_Fire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -772,16 +765,6 @@
 			path = NibView;
 			sourceTree = "<group>";
 		};
-		3739D068CA41A325FD5C97AA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D7810F5A138E88B237C71907 /* Pods-Cloud.vs.Fire.debug.xcconfig */,
-				9EA63A8E80EBFD92B8A4CB8D /* Pods-Cloud.vs.Fire.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -789,11 +772,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 012087232184D3CF007B7C43 /* Build configuration list for PBXNativeTarget "Cloud.vs.Fire" */;
 			buildPhases = (
-				72755CC3C816936F56FAE015 /* [CP] Check Pods Manifest.lock */,
 				012087022184D3CE007B7C43 /* Sources */,
 				012087032184D3CE007B7C43 /* Frameworks */,
 				012087042184D3CE007B7C43 /* Resources */,
-				CD456D3C51145833AAD66DD6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -931,48 +912,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		72755CC3C816936F56FAE015 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Cloud.vs.Fire-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CD456D3C51145833AAD66DD6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cloud.vs.Fire/Pods-Cloud.vs.Fire-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cloud.vs.Fire/Pods-Cloud.vs.Fire-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cloud.vs.Fire/Pods-Cloud.vs.Fire-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		012087022184D3CE007B7C43 /* Sources */ = {
@@ -1231,7 +1170,6 @@
 		};
 		012087242184D3CF007B7C43 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7810F5A138E88B237C71907 /* Pods-Cloud.vs.Fire.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sherpa/Sherpa.entitlements;
@@ -1254,7 +1192,6 @@
 		};
 		012087252184D3CF007B7C43 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EA63A8E80EBFD92B8A4CB8D /* Pods-Cloud.vs.Fire.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sherpa/Sherpa.entitlements;
