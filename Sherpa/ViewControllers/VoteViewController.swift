@@ -71,7 +71,7 @@ class VoteViewController: UIViewController {
                 self.cloudKitEntry.value = Double(vote.cloudKitCount)
                 self.firebaseEntry.value = Double(vote.firebaseCount)
                 self.voteDataEntries = [self.firebaseEntry, self.cloudKitEntry]
-                let chartDataSet = PieChartDataSet(entries: self.voteDataEntries, label: nil)
+                let chartDataSet = PieChartDataSet(entries: self.voteDataEntries, label: "")
                 let chartData = PieChartData(dataSet: chartDataSet)
                 
                 let colors = [UIColor.firebaseDarkOrange, UIColor.cloudKitLightBlue]
