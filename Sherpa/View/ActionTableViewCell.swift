@@ -23,7 +23,6 @@ class ActionTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     weak var delegate: ActionTableViewCellDelegate?
-    weak var pushVCDelegate: ActionTableViewCellDelegate?
     
     var selectedDB: SelectedIconDB? {
         didSet {
@@ -34,7 +33,7 @@ class ActionTableViewCell: UITableViewCell {
     }
     // MARK: - Actions
     @IBAction private func didTapCellButton(_ sender: Any) {
-        pushVCDelegate?.performSegueFrom(cell: self)
+        delegate?.performSegueFrom(cell: self)
     }
     
     func selectedTab(slectedIcon: SelectedIconDB) {
