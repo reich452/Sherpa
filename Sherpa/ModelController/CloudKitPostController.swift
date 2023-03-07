@@ -14,7 +14,7 @@ protocol CommentUpdatedToDelegate: AnyObject {
     func commentsWereAddedTo()
 }
 
-class CloudKitPostController {
+final class CloudKitPostController {
     
     static let shared = CloudKitPostController()
     private init() {}

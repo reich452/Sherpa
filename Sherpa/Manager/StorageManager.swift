@@ -8,10 +8,16 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 
-final class StorageManager {
+protocol StorageProviding: AnyObject {
+    func uploadData(_ data: Data, named filename: String, file node: String, contentType: StorageManager.ContentType, completion: @escaping (URL?, Error?) -> Void)
+    func uploadURL(_ url: URL, named filename: String, file node: String, completion: @escaping (URL?, Error?) -> Void)
+}
+
+final class StorageManager: StorageProviding {
     
-    var storageRef: StorageReference
+    let storageRef: StorageReference
     
     init(storageRef: StorageReference) {
         self.storageRef = storageRef
@@ -23,7 +29,7 @@ final class StorageManager {
         case pdf = "pdf"
     }
     
-    func uploadData(_ data: Data, named filename: String, file node: String, contentType: ContentType, completion: @escaping (URL?, Error?) -> Void) {
+    func uploadData(_ data: Data, named filename: String, file node: String, contentType: StorageManager.ContentType, completion: @escaping (URL?, Error?) -> Void) {
         let ref = self.storageRef.child(filename).child(node)
         let metatdata = StorageMetadata()
         metatdata.contentType = contentType.rawValue

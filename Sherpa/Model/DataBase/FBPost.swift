@@ -6,7 +6,7 @@
 //  Copyright © 2018 Nick Reichard. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Firebase
 
 class FBPost: Post {
