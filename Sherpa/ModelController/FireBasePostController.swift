@@ -10,11 +10,21 @@ import Firebase
 import FirebaseStorage
 import UIKit
 
-class FireBasePostController {
+// TODO: - Move to protocol oriented to make DI easier for UnitTests
+protocol FireBasePostProviding: AnyObject {
+    func createPost(with title: String, image: UIImage, completion: @escaping FireBasePostController.FBCompletion)
+    func fetchPosts(completion: @escaping FireBasePostController.FBCompletion)
+    func fetchImage(post: Post, completion: @escaping (UIImage?) -> Void)
+}
+
+final class FireBasePostController: FireBasePostProviding {
   
     // MARK: - Properties
     typealias FBCompletion = (Bool, NetworkError?) -> Void
     
+    // Wow. This is no good. Haven't looked at this code in 4 or 5 years.
+    // Wild to look back.
+    // These properties should be taken out of this class.
     weak var timerDelegate: FetchAndUploadCounter?
     var fbPosts = [FBPost]()
     var myTimer = MyTimer()
@@ -22,11 +32,12 @@ class FireBasePostController {
     var rTimer = RepeatingTimer(timeInterval: 0.1)
     
     private let databaseReference: DatabaseReference
-    private let storageManager: StorageManager
+    private let storageProviding: StorageProviding
     
-    init(databaseReference: DatabaseReference = Database.database().reference(), storageManager: StorageManager = StorageManager(storageRef: Storage.storage().reference())) {
+    init(databaseReference: DatabaseReference = Database.database().reference(),
+         storageProviding: StorageManager = StorageManager(storageRef: Storage.storage().reference())) {
         self.databaseReference = databaseReference
-        self.storageManager = storageManager
+        self.storageProviding = storageProviding
     }
     
     // MARK: - CRUD
@@ -42,7 +53,7 @@ class FireBasePostController {
             self.timerDelegate?.increaseFbUploadTimer(time: self.timeElapsed)
             debugPrint(" ⏲ Timer:  \(self.timeElapsed ??? "can't count")")
         }
-        storageManager.uploadData(imageData, named: "images/shera.jpg", file: filename, contentType: .imageJpeg) { [weak self] (url, error) in
+        storageProviding.uploadData(imageData, named: "images/shera.jpg", file: filename, contentType: .imageJpeg) { [weak self] (url, error) in
             guard let self = self else { return }
             if let error = error {
                 debugPrint("Error saving image to firebase storage \(error) \(error.localizedDescription)")
