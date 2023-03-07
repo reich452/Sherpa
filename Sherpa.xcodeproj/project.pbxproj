@@ -110,7 +110,7 @@
 		018E18E122BDE34700955731 /* LatestNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E18E022BDE34700955731 /* LatestNewsTableViewCell.swift */; };
 		01904BCA22B3063600EBBB89 /* ReportAbuse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01904BC922B3063600EBBB89 /* ReportAbuse.storyboard */; };
 		01904BCC22B3089500EBBB89 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01904BCB22B3089500EBBB89 /* Report.swift */; };
-		01904BCF22B3FD9300EBBB89 /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01904BCE22B3FD9300EBBB89 /* ReportTableViewController.swift */; };
+		01904BCF22B3FD9300EBBB89 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01904BCE22B3FD9300EBBB89 /* ReportViewController.swift */; };
 		01904BD122B4146400EBBB89 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01904BD022B4146400EBBB89 /* ReportDetailViewController.swift */; };
 		01904BD522B46ECF00EBBB89 /* SubmitReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01904BD422B46ECF00EBBB89 /* SubmitReportVC.swift */; };
 		01904BD822B47A0000EBBB89 /* CKReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01904BD722B47A0000EBBB89 /* CKReport.swift */; };
@@ -149,6 +149,7 @@
 		01F7B26321979E8C00902239 /* CommentListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B26221979E8C00902239 /* CommentListTableViewController.swift */; };
 		5B90F0C671DD15AA9799056A /* Pods_Cloud_vs_Fire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1174C077DEC22C07E945035A /* Pods_Cloud_vs_Fire.framework */; };
 		C8AB94A529AE69C400979615 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = C8AB94A429AE69C400979615 /* Charts */; };
+		C8AB94A729AFAC6100979615 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AB94A629AFAC6100979615 /* ReportViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,7 +271,7 @@
 		018E18E022BDE34700955731 /* LatestNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestNewsTableViewCell.swift; sourceTree = "<group>"; };
 		01904BC922B3063600EBBB89 /* ReportAbuse.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReportAbuse.storyboard; sourceTree = "<group>"; };
 		01904BCB22B3089500EBBB89 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
-		01904BCE22B3FD9300EBBB89 /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
+		01904BCE22B3FD9300EBBB89 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		01904BD022B4146400EBBB89 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
 		01904BD422B46ECF00EBBB89 /* SubmitReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitReportVC.swift; sourceTree = "<group>"; };
 		01904BD722B47A0000EBBB89 /* CKReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKReport.swift; sourceTree = "<group>"; };
@@ -310,6 +311,7 @@
 		1174C077DEC22C07E945035A /* Pods_Cloud_vs_Fire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloud_vs_Fire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2D3B4AB575A5F54911B30E /* Pods-Cloud.vs.Fire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud.vs.Fire.release.xcconfig"; path = "Target Support Files/Pods-Cloud.vs.Fire/Pods-Cloud.vs.Fire.release.xcconfig"; sourceTree = "<group>"; };
 		A7048EC2C6A81FEAA94F0553 /* Pods-Cloud.vs.Fire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud.vs.Fire.debug.xcconfig"; path = "Target Support Files/Pods-Cloud.vs.Fire/Pods-Cloud.vs.Fire.debug.xcconfig"; sourceTree = "<group>"; };
+		C8AB94A629AFAC6100979615 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -701,7 +703,8 @@
 		01904BCD22B3FD7200EBBB89 /* Report */ = {
 			isa = PBXGroup;
 			children = (
-				01904BCE22B3FD9300EBBB89 /* ReportTableViewController.swift */,
+				01904BCE22B3FD9300EBBB89 /* ReportViewController.swift */,
+				C8AB94A629AFAC6100979615 /* ReportViewModel.swift */,
 				01904BD022B4146400EBBB89 /* ReportDetailViewController.swift */,
 				01904BD422B46ECF00EBBB89 /* SubmitReportVC.swift */,
 			);
@@ -998,9 +1001,10 @@
 				01B1F74C22F0C00700A128BA /* FBDiscussionController.swift in Sources */,
 				014C8D422203F96C00B4A1E6 /* RepeatingTimer.swift in Sources */,
 				01B1F74A22F0B84100A128BA /* FBThought.swift in Sources */,
+				C8AB94A729AFAC6100979615 /* ReportViewModel.swift in Sources */,
 				0179790721877E6F004BA6C7 /* PublicAccess.swift in Sources */,
 				019EB3E321A135D800BD9FC2 /* CardView.swift in Sources */,
-				01904BCF22B3FD9300EBBB89 /* ReportTableViewController.swift in Sources */,
+				01904BCF22B3FD9300EBBB89 /* ReportViewController.swift in Sources */,
 				01C85E90225BD72E007D1237 /* BenchTimer.swift in Sources */,
 				01035FF621C6C4580023BD60 /* Author.swift in Sources */,
 				012087882184F59B007B7C43 /* ColorTheme.swift in Sources */,
@@ -1170,7 +1174,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1226,7 +1230,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

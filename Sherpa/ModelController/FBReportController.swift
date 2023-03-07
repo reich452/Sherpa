@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class FBReportController {
+final class FBReportController {
     
     private let databaseReference = Database.database().reference()
     
@@ -19,7 +19,10 @@ class FBReportController {
         }
         let report = FbReport(title: title, subTitle: subTitle, reason: reason, postID: fbPost.uuid)
     
-        guard let key = databaseReference.child("report").childByAutoId().key else { completion(.incorrectParameters); return }
+        guard let key = databaseReference.child("report").childByAutoId().key else {
+            completion(.incorrectParameters)
+            return
+        }
         
         let values = ["/reports/\(key)": report.dictionaryRep, "/post-reports/\(fbPost.uuid)/\(key)/": report.dictionaryRep]
         
@@ -27,6 +30,7 @@ class FBReportController {
             if let error = error {
                 debugPrint("Error Creating Report \(error) \(error.localizedDescription)")
                 completion(.forwarded(error))
+                return
             }
             completion(nil)
         }
