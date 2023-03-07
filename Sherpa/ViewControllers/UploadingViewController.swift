@@ -27,9 +27,7 @@ class UploadingViewController: ShiftableViewController, ActivityIndicatorPresent
     private let blurEffect = UIBlurEffect(style: .light)
     private var visualEffectView: UIVisualEffectView?
     private lazy var fbPostController: FireBasePostController = {
-        let storageRef = StorageReference()
-        let storageManager = StorageManager(storageRef: storageRef)
-        return FireBasePostController(storageManager: storageManager)
+        return FireBasePostController()
     }()
     
     override func viewDidLoad() {

@@ -8,9 +8,6 @@ target 'Cloud.vs.Fire' do
 
   # Pods for Cloud.vs.Fire
 
-  pod 'Firebase/Database'
-  pod 'Firebase/Storage'
-  pod 'Firebase/Core'
   pod 'Koloda'
   pod 'pop'
 

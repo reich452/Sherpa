@@ -8,14 +8,13 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class FeedTableViewController: UITableViewController, FeedTableViewCellDelegate, DidPassUpdatedComments, FetchAndUploadCounter  {
     
     var selectedDB: SelectedIconDB = .cloudKit
     private lazy var fbPostController: FireBasePostController = {
-        let storageRef = StorageReference()
-        let storageManager = StorageManager(storageRef: storageRef)
-        return FireBasePostController(storageManager: storageManager)
+        return FireBasePostController()
     }()
     
     override func viewDidLoad() {

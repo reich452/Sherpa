@@ -6,30 +6,32 @@
 //  Copyright © 2018 Nick Reichard. All rights reserved.
 //
 
-import Foundation
 import Firebase
+import FirebaseStorage
+import UIKit
 
 class FireBasePostController {
   
     // MARK: - Properties
-    typealias fbCompletion = (Bool, NetworkError?) -> Void
-    private let databaseReference = Database.database().reference()
-    private let storageReference = Storage.storage().reference()
-    private let storageManager: StorageManager
-    private var imageCache = NSCache<NSURL, AnyObject>()
+    typealias FBCompletion = (Bool, NetworkError?) -> Void
     
     weak var timerDelegate: FetchAndUploadCounter?
     var fbPosts = [FBPost]()
     var myTimer = MyTimer()
     var timeElapsed = 0.0
     var rTimer = RepeatingTimer(timeInterval: 0.1)
-    init(storageManager: StorageManager) {
+    
+    private let databaseReference: DatabaseReference
+    private let storageManager: StorageManager
+    
+    init(databaseReference: DatabaseReference = Database.database().reference(), storageManager: StorageManager = StorageManager(storageRef: Storage.storage().reference())) {
+        self.databaseReference = databaseReference
         self.storageManager = storageManager
     }
     
     // MARK: - CRUD
     
-    func createPost(with title: String, image: UIImage, completion: @escaping fbCompletion) {
+    func createPost(with title: String, image: UIImage, completion: @escaping FBCompletion) {
          guard let imageData = image.jpegData(compressionQuality: 0.2) else { completion(false, NetworkError.noDataReturned) ; return }
         let filename = UUID().uuidString
         
@@ -69,7 +71,7 @@ class FireBasePostController {
     
     // MARK: - Fetch
     
-    func fetchPosts(completion: @escaping fbCompletion) {
+    func fetchPosts(completion: @escaping FBCompletion) {
         let query = databaseReference.child("posts").queryOrdered(byChild: "timestamp")
         myTimer.startTimer()
         timerDelegate?.increaseFetchTimer()
