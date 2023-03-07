@@ -185,20 +185,26 @@ extension FeedTableViewController {
     }
     
     func didTapReportButton(_ cell: FeedTableViewCell) {
-        
-        let reportVC = ReportTableViewController.instantiate(fromAppStoryboard: .ReportAbuse)
-        
         guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
         switch selectedDB {
         case .cloudKit:
             let ckPost = CloudKitPostController.shared.ckPosts[indexPath.row]
-            reportVC.post = ckPost
+            let reportVC = showReport(with: ckPost)
             navigationController?.pushViewController(reportVC, animated: true)
         case .firebase:
             let fbPost = fbPostController.fbPosts[indexPath.row]
-            reportVC.post = fbPost
+            let reportVC = showReport(with: fbPost)
             navigationController?.pushViewController(reportVC, animated: true)
         }
+    }
+    
+    private func showReport(with post: Post) -> ReportViewController {
+        let storyboard = AppStoryboard.ReportAbuse.instance
+        let reportVC = storyboard.instantiateViewController(identifier: Constants.Storyboard.reportTVC, creator: { coder in
+            return ReportViewController(coder: coder, post: post)
+        })
+        return reportVC
     }
     
     func didTapCommentButton(_ cell: FeedTableViewCell) {

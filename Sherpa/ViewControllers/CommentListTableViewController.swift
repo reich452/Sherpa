@@ -173,10 +173,14 @@ class CommentListTableViewController: UITableViewController, CommentUpdatedToDel
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sb = UIStoryboard(name: Constants.reportAbuse, bundle: nil)
-        guard let reportTVC = sb.instantiateViewController(withIdentifier: Constants.reportTVC) as? ReportTableViewController else { return }
-        reportTVC.post = self.post
-        navigationController?.pushViewController(reportTVC, animated: true)
+        guard let post = post else { return }
+        
+        let reportStoryboard = AppStoryboard.ReportAbuse.instance
+    
+        let reportVC = reportStoryboard.instantiateViewController(identifier: Constants.Storyboard.reportTVC, creator: { coder in
+             return ReportViewController(coder: coder, post: post)
+         })
+        navigationController?.pushViewController(reportVC, animated: true)
     }
 }
 

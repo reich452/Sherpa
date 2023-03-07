@@ -30,6 +30,10 @@ enum Constants {
     static let reportAbuse = "ReportAbuse"
     
     // MARK: - Storyboard ID's
+    // TODO: - Add Seperate Enums
+    enum Storyboard {
+        static let reportTVC = "ReportViewController"
+    }
     static let homeVC = "HomeViewController"
     static let dataBaseActionTVC = "DataBaseActionTVC"
     static let firebaseTVC = "FirebaseTableViewController"
@@ -39,7 +43,6 @@ enum Constants {
     static let discussionTVC = "DiscussionTableViewController"
     static let authorTVC = "AuthorTableViewController"
     static let movieVC = "MovieDBViewController"
-    static let reportTVC = "ReportTableViewController"
     
     // MARK: - Segue
     static let toUpLoadingVC = "toUpLoadingVC"

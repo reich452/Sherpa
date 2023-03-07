@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct MovieController {
+final class MovieController {
     
     static let environment : NetworkEnvironment = .production
     let router = Router<MovieApi>()

@@ -146,7 +146,6 @@ extension UITextView {
             cancelButton.setTitleColor(#colorLiteral(red: 0.1607843137, green: 0.368627451, blue: 0.5803921569, alpha: 1), for: .normal)
             cancelButton.addTarget(self, action:
                 #selector(doneClicked), for: .touchUpInside)
-            cancelButton.showsTouchWhenHighlighted = true
             return cancelButton
         }()
         let charactersLeftLabel: UILabel = {

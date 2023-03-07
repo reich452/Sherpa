@@ -11,6 +11,15 @@ import UIKit
 enum SelectedIconDB {
     case cloudKit
     case firebase
+    
+    var title: String {
+        switch self {
+        case .cloudKit:
+            return NSLocalizedString("CloudKit", comment: "cloudkit")
+        case .firebase:
+            return NSLocalizedString("Firebase", comment: "firebase")
+        }
+    }
 }
 
 class DataBaseActionTVC: UITableViewController{
@@ -38,12 +47,11 @@ class DataBaseActionTVC: UITableViewController{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cloudKitCell, for: indexPath) as? ActionTableViewCell else { return UITableViewCell() }
         
         cell.delegate = self
-        cell.pushVCDelegate = self 
         cell.backgroundColor = .primaryColor
         
         switch tabBarController?.selectedIndex{
         case 0:
-            fallthrough
+            break
         case 1:
             cell.selectedDB = .cloudKit
             checkCaseOne(indexPath: indexPath, cell: cell)
@@ -98,12 +106,7 @@ extension DataBaseActionTVC: ActionTableViewCellDelegate {
     
     // MARK: - UI
     func setUpTitle(tab: SelectedIconDB) {
-        switch tab {
-        case .cloudKit:
-            self.title = "CloudKit"
-        case .firebase:
-            self.title = "Firebase"
-        }
+        title = tab.title
     }
     
     func hideSelectedObjects(sender: ActionTableViewCell) {

@@ -23,11 +23,14 @@ class CloudKitPostController {
         rTimer.suspend()
     }
     
+    // Wow, I've learned a lot in 5 years. 
     private let rTimer = RepeatingTimer(timeInterval: 0.1)
     private var imageCache = NSCache<CKRecord.ID, NSURL>()
+    private let publicDB = CKContainer.default().publicCloudDatabase
+    
     weak var delegate: CommentUpdatedToDelegate?
     weak var timerDelegate: FetchAndUploadCounter?
-    let publicDB = CKContainer.default().publicCloudDatabase
+    
     let myTimer = MyTimer()
     var fetchCounter = 0.0
     var uploadCounter = 0.0

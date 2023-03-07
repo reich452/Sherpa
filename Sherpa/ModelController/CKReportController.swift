@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-class CKReportController {
+final class CKReportController {
     
     // MARK: - Create Report
     private let publicDB = CKContainer.default().publicCloudDatabase

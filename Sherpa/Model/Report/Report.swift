@@ -16,10 +16,3 @@ protocol Report {
     var postID: String { get set }
     var post: Post? { get set }
 }
-
-struct ReportViewModel {
-    var title: String
-    var subTitle: String
-    var post: Post?
-}
-
